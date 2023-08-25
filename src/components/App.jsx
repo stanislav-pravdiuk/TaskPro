@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import HomePage from "screens/homePage/HomePage";
 import WelcomePage from "screens/welcomePage/WelcomePage";
 import LoginForm from "./loginForm/LoginForm";
-import RegisterForm from "./registeForm/RegisterForm";
+import RegisterForm from "./registerForm/RegisterForm";
 
 export const App = () => {
   return (
