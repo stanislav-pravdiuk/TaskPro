@@ -1,13 +1,13 @@
-import { useDispatch } from "react-redux";
+// import { useDispatch } from "react-redux";
 import React from 'react';
 import { useFormik } from 'formik';
 import RegisterSchema from "./RegisterSchema";
-import {  Link } from "react-router-dom";
+// import {  Link } from "react-router-dom";
 import { Container, FormContainer, InputField, LinkMenu, LoginLink, RegisterBtn, RegisterLink } from "./RegisterForm.styled";
 
 
 const RegisterForm = () => {
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
 
     const formik = useFormik({
       initialValues: {
@@ -17,7 +17,7 @@ const RegisterForm = () => {
       },
       validationSchema: RegisterSchema, 
       onSubmit: values => {
-        dispatch(register({ name: values.name, email: values.email, password: values.password }));
+        // dispatch(register({ name: values.name, email: values.email, password: values.password }));
         formik.resetForm(); } 
       },);
     return (   <Container> 
