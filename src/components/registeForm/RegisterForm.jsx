@@ -1,6 +1,7 @@
 const RegisterForm = () => {
     return (
         <>
+            register
         </>
     );
 };
