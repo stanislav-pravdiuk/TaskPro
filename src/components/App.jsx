@@ -8,6 +8,7 @@ import RegisterForm from "./registeForm/RegisterForm";
 export const App = () => {
   return (
     <Routes>
+      <Route index element={<WelcomePage />} />
       <Route path="/welcome" element={<WelcomePage />} />
       {/* <Route path="/auth/:id" element={<AuthPage />} /> */}
       <Route path="/auth/login" element={<LoginForm />} />
