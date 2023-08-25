@@ -29,7 +29,7 @@ font-weight: 400;
 line-height: 18px; /* 128.571% */
 letter-spacing: -0.28px;`
 
-export const RegistrationNav = styled.div `
+const RegistrationNav = styled.div `
     align-items: center;
     display: flex;
     flex-direction: column;
