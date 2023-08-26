@@ -1,8 +1,9 @@
 import React from 'react';
-import { Container, LoginButton, RegistrationButton, RegistrationNav, Title, WelcomeText } from './WelcomePage.styled';
+import { Container, ContentContainer, LoginButton, RegistrationButton, RegistrationNav, Title, WelcomeText } from './WelcomePage.styled';
 const WelcomePage = () => {
     return (
         <Container>
+            <ContentContainer>
             {/* <img /> */}
             <div>
                 <svg></svg>
@@ -11,9 +12,10 @@ const WelcomePage = () => {
             <WelcomeText> Supercharge your productivity and take control of your tasks with Task
                 Pro - Don't wait, start achieving your goals now! </WelcomeText>
             <RegistrationNav>
-                <RegistrationButton to="/auth/login">Log In</RegistrationButton>
-                <LoginButton to="/auth/register">Registration</LoginButton>
+                <RegistrationButton to="/auth/register">Registration </RegistrationButton>
+                <LoginButton to="/auth/login">Log In</LoginButton>
             </RegistrationNav>
+            </ContentContainer>
         </Container>
     );
 };
