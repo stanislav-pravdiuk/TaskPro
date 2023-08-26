@@ -59,7 +59,7 @@ const RegisterForm = () => {
             value={formik.values.password}
             placeholder="Create a password"
           />
-          <svg> </svg>
+          {/* <svg> </svg> */}
           {formik.touched.password && formik.errors.password ? (
             <div>{formik.errors.password}</div>
           ) : null}
