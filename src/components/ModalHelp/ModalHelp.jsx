@@ -1,78 +1,76 @@
-import React, { useState } from 'react';
-import { Button, Modal, TextField } from '@mui/material';
+import React from 'react';
+import {
+    FormWrapper,
+    Section,
+    AuthFormSubmitButton,
+    TitleInput,
+    SectionTitle,
+    Textarea,
+    ModalForm,
+    ErrorSection,
+} from './NeedHelpModal.styled';
+import { Formik } from 'formik';
+import * as Yup from 'yup';
+import { useDispatch } from 'react-redux';
+import { needHelp } from 'redux/auth/authOperations';
 
-const ModalHelp = () => {
-    const [open, setOpen] = useState(false);
-    const [email, setEmail] = useState('');
-    const [comment, setComment] = useState('');
+const validationSchema = Yup.object().shape({
+    email: Yup.string().email('Invalid email').required('Email is required'),
+    comment: Yup.string().min(7).max(230).required('Comment is required'),
+});
+const initialValues = {
+    email: '',
+    comment: '',
+};
 
-    const handleOpen = () => {
-    setOpen(true);
-    };
+const NeedHelpModal = ({ closeModal }) => {
+    const dispatch = useDispatch();
 
-    const handleClose = () => {
-    setOpen(false);
-    };
-
-    const handleEmailChange = (event) => {
-    setEmail(event.target.value);
-    };
-
-    const handleCommentChange = (event) => {
-    setComment(event.target.value);
-    };
-
-    const handleSubmit = () => {
-    console.log('Email:', email);
-    console.log('Comment:', comment);
-
-    handleClose();
+    const handleSubmit = (values, { resetForm }) => {
+        const { email, comment } = values;
+        const updateDate = { email, comment };
+        dispatch(needHelp(updateDate));
+        resetForm();
+        closeModal();
     };
 
     return (
-    <div>
-        <Button onClick={handleOpen}></Button>
-            <Modal open={open} onClose={handleClose}
-                fullWidth={true}
-            sx={{
-                maxWidth: "400px",
-                backgroundColor: "#151515",
-                borderRadius: "9px",
-            }}
+        <Section>
+            <SectionTitle>Need help</SectionTitle>
+
+            <Formik
+                initialValues={initialValues}
+                validationSchema={validationSchema}
+                onSubmit={handleSubmit}
             >
-        <div className="modal__help">
-            <TextField
-            label="Email address"
-            variant="outlined"
-            placeholder='Email address'
-            value={email}
-            onChange={handleEmailChange}
-            fullWidth
-            margin="normal"
-            />
-            <TextField
-            label="Comment"
-            variant="outlined"
-            value={comment}
-            onChange={handleCommentChange}
-            placeholder='Comment'
-            fullWidth
-            margin="normal"
-            multiline
-            rows={4}
-            />
-            <Button onClick={handleSubmit}
-            variant="contained"
-            color="success"
-            sx={{ backgroundColor: "#BEDBB0" }}>
-            Send
-            </Button>
-        </div>
-        </Modal>
-    </div>
+                <ModalForm>
+                    <FormWrapper>
+                        <ErrorSection name="email" component="div" />
+                        <TitleInput
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="Email address "
+                        />
+
+                        <ErrorSection name="comment" component="div" />
+
+                        <Textarea
+                            component="textarea"
+                            type="text"
+                            id="comment"
+                            name="comment"
+                            placeholder="Comment"
+                        />
+                    </FormWrapper>
+
+                    <AuthFormSubmitButton type="submit">Send</AuthFormSubmitButton>
+                </ModalForm>
+            </Formik>
+        </Section>
     );
 };
 
-export default ModalHelp;
+export default NeedHelpModal;
 
 
