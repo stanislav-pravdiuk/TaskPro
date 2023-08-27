@@ -5,6 +5,7 @@ import LoginSchema from "./LoginSchema";
 import { Container, FormContainer, InputField, LinkMenu, LoginLink, RegisterBtn, RegisterLink } from "../loginForm/LoginForm.styled";
 import { logIn } from "redux/auth/authOperations";
 
+
 const LoginForm = () => {
     const dispatch = useDispatch();
 
@@ -46,7 +47,6 @@ const LoginForm = () => {
             value={formik.values.password}
             placeholder="Confirm a password"
           />
-          {/* <svg> </svg> */}
           {formik.touched.password && formik.errors.password ? (
             <div>{formik.errors.password}</div>
           ) : null}
