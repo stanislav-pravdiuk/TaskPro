@@ -3,10 +3,23 @@ import { Routes, Route } from "react-router-dom";
 import HomePage from "screens/homePage/HomePage";
 import WelcomePage from "screens/welcomePage/WelcomePage";
 import LoginForm from "./loginForm/LoginForm";
-import RegisterForm from "./registeForm/RegisterForm";
+import RegisterForm from "./registerForm/RegisterForm";
+import { useDispatch } from "react-redux";
+import { useAuth } from "hooks/useAuth";
+import { useEffect } from "react";
+import { refreshUser } from "redux/auth/authOperations";
 
 export const App = () => {
-  return (
+  const dispatch = useDispatch();
+  const { isRefreshing } = useAuth();
+
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
+
+  return isRefreshing ? (
+  <b>Refreshing user...</b>
+  ):(
     <Routes>
       <Route index element={<WelcomePage />} />
       <Route path="/welcome" element={<WelcomePage />} />
