@@ -2,8 +2,7 @@ import { useDispatch } from "react-redux";
 import React from 'react';
 import { useFormik } from 'formik';
 import LoginSchema from "./LoginSchema";
-// import {  Link } from "react-router-dom";
-import { Container, FormContainer, InputField, LinkMenu, LoginLink, RegisterBtn, RegisterLink } from "../registerForm/RegisterForm.styled";
+import { Container, FormContainer, InputField, LinkMenu, LoginLink, RegisterBtn, RegisterLink } from "../loginForm/LoginForm.styled";
 import { logIn } from "redux/auth/authOperations";
 
 
@@ -48,8 +47,6 @@ const LoginForm = () => {
             value={formik.values.password}
             placeholder="Confirm a password"
           />
-
-          <svg> </svg>
           {formik.touched.password && formik.errors.password ? (
             <div>{formik.errors.password}</div>
           ) : null}

@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
+
 const Container = styled.div `
     display: flex;
     align-items: center;
@@ -21,7 +22,6 @@ const LinkMenu = styled.div`
   display: flex;
 `;
 
-
 const LoginLink = styled(Link)`
   left: 160px;
   top: 40px;
@@ -30,7 +30,7 @@ const LoginLink = styled(Link)`
   font-size: 18px;
   line-height: 27px;
   letter-spacing: -0.02em;
-  color: rgba(255, 255, 255, 0.30);
+  color: #FFF;
   text-decoration: none;
 `;
 
@@ -42,7 +42,7 @@ const RegisterLink = styled(Link)`
   font-size: 18px;
   line-height: 27px;
   letter-spacing: -0.02em;
-  color: #FFF;
+  color: rgba(255, 255, 255, 0.30);
   text-decoration: none;
 `;
 
