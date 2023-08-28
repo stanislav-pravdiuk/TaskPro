@@ -5,6 +5,7 @@ import RegisterSchema from "./RegisterSchema";
 // import {  Link } from "react-router-dom";
 import { Container, FormContainer, InputField, LinkMenu, LoginLink, RegisterBtn, RegisterLink } from "./RegisterForm.styled";
 import { register } from "redux/auth/authOperations";
+import { toast } from "react-hot-toast";
 
 
 
@@ -18,9 +19,15 @@ const RegisterForm = () => {
         password: '',
       },
       validationSchema: RegisterSchema, 
-      onSubmit: values => {
-        dispatch(register({ name: values.name, email: values.email, password: values.password }));
-        formik.resetForm(); } 
+     nSubmit: async values => {
+        try {
+          await dispatch(register({ name: values.name, email: values.email, password: values.password })).unwrap();
+        toast.success('You have registered successfully!!!')
+        formik.resetForm();
+        } catch (error) {
+          toast.error("Oops, it's looks like something went wrong... Please, try again!")
+        }
+       } 
       },);
     return (   <Container> 
       <FormContainer> 

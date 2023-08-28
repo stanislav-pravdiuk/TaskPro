@@ -4,6 +4,7 @@ import { useFormik } from 'formik';
 import LoginSchema from "./LoginSchema";
 import { Container, FormContainer, InputField, LinkMenu, LoginLink, RegisterBtn, RegisterLink } from "../loginForm/LoginForm.styled";
 import { logIn } from "redux/auth/authOperations";
+import { toast } from "react-hot-toast";
 
 
 const LoginForm = () => {
@@ -15,9 +16,16 @@ const LoginForm = () => {
         password: '',
       },
       validationSchema: LoginSchema, 
-      onSubmit: values => {
-        dispatch(logIn({ email: values.email, password: values.password }));
-        formik.resetForm(); } 
+      onSubmit: async values => {
+        try {
+          await dispatch(logIn({ email: values.email, password: values.password })).unwrap();
+        toast.success('You have logged in successfully!!!')
+        formik.resetForm();
+        } catch (error) {
+          toast.error("Sorry, you entered invalid email or password")
+        }
+      } 
+
       },);
     return (   <Container> 
       <FormContainer> 
