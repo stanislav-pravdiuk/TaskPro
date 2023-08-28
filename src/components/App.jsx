@@ -6,11 +6,11 @@ import { refreshUser } from "redux/auth/authOperations";
 import { PrivateRoute } from "../privateRoute/PrivateRoute";
 import { RestrictedRoute } from "restrictedRoute/RestrictedRoute";
 
-
 const HomePage = lazy(() => import("screens/homePage/HomePage"));
 const WelcomePage = lazy(() => import("../screens/welcomePage/WelcomePage"));
 const LoginForm = lazy(() => import("./loginForm/LoginForm"));
 const RegisterForm = lazy(() => import("./registerForm/RegisterForm"));
+const ScrensPage = lazy(() => import('../components/ScreensPage/ScreensPage'));
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -35,6 +35,9 @@ export const App = () => {
             />
             <Route path="/home"
               element={<PrivateRoute component={<HomePage />} redirectTo="/auth/login" />}
+            />
+            <Route path="/home/:boardName"
+              element={<PrivateRoute component={<ScrensPage />} redirectTo="/auth/login" />}
             />
         </Routes>
       )}
