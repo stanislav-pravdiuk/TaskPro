@@ -3,6 +3,7 @@ import { Container, ContentContainer, LoginButton, RegistrationButton, Registrat
 import WelcomeImage from '../../images/welcome-desktop.png';
 import sprite from '../../components/iconSvg/icon.svg';
 
+
 const WelcomePage = () => {
     return (
         <Container>

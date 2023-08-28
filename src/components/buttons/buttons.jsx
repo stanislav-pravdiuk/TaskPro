@@ -32,6 +32,19 @@ import {
   ButtonPlusSvgViolet,
   ButtonLogOutSvgViolet,
   ButtonLogOutIconViolet,
+  ButtonDelete,
+  ButtonDeleteIcon,
+  ButtonDeleteSvg,
+  ButtonUpDate,
+  ButtonUpDateIcon,
+  ButtonUpDateSvg,
+  ButtonClose,
+  ButtonCloseIcon,
+  ButtonFilter,
+  ButtonFilterIcon,
+  ButtonFilterSvg,
+  ButtonFilterText,
+  ButtonFilterThumb,
 
 
 } from './buttons.styled';
@@ -149,5 +162,75 @@ export const BtnLogOutViolet = () => {
       </ButtonLogOutThumb>
       <ButtonLogOutText>Log out </ButtonLogOutText>
     </ButtonLogOut>
+  );
+};
+
+
+
+export const BtnDelete = () => {
+  return (
+    <ButtonDelete>
+      <ButtonDeleteIcon>
+        <ButtonDeleteSvg href={icon + '#icon-trash-04'}></ButtonDeleteSvg>
+      </ButtonDeleteIcon>
+    </ButtonDelete>
+  );
+};
+
+
+export const BtnUpDate = () => {
+  return (
+    <ButtonUpDate>
+      < ButtonUpDateIcon>
+        <ButtonUpDateSvg href={icon + '#icon-pencil-01'}></ButtonUpDateSvg>
+      </ ButtonUpDateIcon>
+    </ButtonUpDate>
+  );
+};
+
+export const BtnRight = () => {
+  return (
+    <ButtonUpDate>
+      < ButtonUpDateIcon>
+        <ButtonUpDateSvg href={icon + '#icon-arrow-circle-broken-right'}></ButtonUpDateSvg>
+      </ ButtonUpDateIcon>
+    </ButtonUpDate>
+  );
+};
+
+
+export const BtnClose = () => {
+  return (
+    <ButtonClose>
+      < ButtonCloseIcon>
+        <ButtonUpDateSvg href={icon + '#icon-x-close'}></ButtonUpDateSvg>
+      </ ButtonCloseIcon>
+    </ButtonClose>
+  );
+};
+
+export const BtnCloseBlack = () => {
+  return (
+    <ButtonClose>
+      < ButtonCloseIcon>
+        <ButtonUpDateSvg href={icon + '#icon-x-close-2'}></ButtonUpDateSvg>
+      </ ButtonCloseIcon>
+    </ButtonClose>
+  );
+};
+
+
+export const BtnFilter= () => {
+  return (
+    <ButtonFilter>
+      <ButtonFilterThumb>
+        <ButtonFilterIcon>
+          <ButtonFilterSvg
+            href={icon + '#icon-filter'}
+          ></ButtonFilterSvg>
+        </ButtonFilterIcon>
+      </ButtonFilterThumb>
+      <ButtonFilterText>Filters</ButtonFilterText>
+    </ButtonFilter>
   );
 };
