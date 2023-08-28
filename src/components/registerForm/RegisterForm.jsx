@@ -1,15 +1,16 @@
 import { useDispatch } from "react-redux";
-import React from 'react';
+import React, { useState } from 'react';
 import { useFormik } from 'formik';
 import RegisterSchema from "./RegisterSchema";
 // import {  Link } from "react-router-dom";
-import { Container, FormContainer, InputField, LinkMenu, LoginLink, RegisterBtn, RegisterLink } from "./RegisterForm.styled";
+import { Container, ErrorText, FormContainer, InputField, LinkMenu, LoginLink, PasswordInput, Passwordsvg, RegisterBtn, RegisterLink } from "./RegisterForm.styled";
 import { register } from "redux/auth/authOperations";
-
+import sprite from '../../components/iconSvg/icon.svg';
 
 
 const RegisterForm = () => {
     const dispatch = useDispatch();
+    const [showPassword, setShowPassword] = useState(false);
 
     const formik = useFormik({
       initialValues: {
@@ -22,6 +23,10 @@ const RegisterForm = () => {
         dispatch(register({ name: values.name, email: values.email, password: values.password }));
         formik.resetForm(); } 
       },);
+
+      const togglePasswordVisibility = () => {
+        setShowPassword((prevShowPassword) => !prevShowPassword);
+      };
     return (   <Container> 
       <FormContainer> 
         <form onSubmit={formik.handleSubmit}>
@@ -39,6 +44,8 @@ const RegisterForm = () => {
             value={formik.values.name}
             placeholder="Enter your name"
           />
+          {formik.touched.name && formik.errors.name ? (
+      <ErrorText>{formik.errors.name}</ErrorText>) : null}
         <input
           type="email"
           id="email"
@@ -49,9 +56,9 @@ const RegisterForm = () => {
           placeholder="Enter your email"
 />
       {formik.touched.email && formik.errors.email ? (
-      <div>{formik.errors.email}</div>) : null}
-          <input
-            type="password"
+      <ErrorText>{formik.errors.email}</ErrorText>) : null}
+          <PasswordInput><input
+           type={showPassword ? 'text' : 'password'}
             id="password"
             name="password"
             onChange={formik.handleChange}
@@ -59,9 +66,9 @@ const RegisterForm = () => {
             value={formik.values.password}
             placeholder="Create a password"
           />
-          {/* <svg> </svg> */}
+          <Passwordsvg  width="18px" onClick={togglePasswordVisibility}> < use href={`${sprite}#icon-eye`}></use> </Passwordsvg > </PasswordInput>
           {formik.touched.password && formik.errors.password ? (
-            <div>{formik.errors.password}</div>
+            <ErrorText>{formik.errors.password}</ErrorText>
           ) : null}
         </InputField>
         <RegisterBtn type="submit">Register Now</RegisterBtn>
