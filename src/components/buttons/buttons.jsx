@@ -47,7 +47,7 @@ import {
   ButtonFilterThumb,
 
 
-} from './button.styled';
+} from './buttons.styled';
 
 
 export const BtnLogOut = () => {

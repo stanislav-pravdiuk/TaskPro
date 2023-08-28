@@ -82,6 +82,36 @@ const RegisterBtn = styled.button`
     border-radius: 8px;
     color: #161616;
     cursor: pointer;
+    &:hover {
+      opacity: 0.8;
+    }
+
+    @media screen and (max-width: 768px) {
+      width: 287px;
+  }
+`;
+const PasswordInput = styled.div `
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 14px;
+`
+const  Passwordsvg = styled.svg`
+  position: absolute;
+  right: 18px;
+  top: 19px;
+  cursor: pointer;
+  color: #fff;
+  width: 16.5px;
+  height: 16px;
+  right: 15px;
+  opacity: 0.4;
 `;
 
-export  {Container, FormContainer, LinkMenu, RegisterLink, LoginLink, InputField , RegisterBtn  }
+const ErrorText = styled.div`
+  font-size: 15px;
+  color: white;
+`;
+
+export  {Container, FormContainer, LinkMenu, RegisterLink, LoginLink, InputField , RegisterBtn, ErrorText, PasswordInput, Passwordsvg  }

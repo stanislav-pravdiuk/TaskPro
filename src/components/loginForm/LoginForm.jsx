@@ -1,13 +1,15 @@
 import { useDispatch } from "react-redux";
-import React from 'react';
+import React, { useState } from 'react';
 import { useFormik } from 'formik';
 import LoginSchema from "./LoginSchema";
-import { Container, FormContainer, InputField, LinkMenu, LoginLink, RegisterBtn, RegisterLink } from "../loginForm/LoginForm.styled";
+import { Container, FormContainer, InputField, LinkMenu, LoginLink, RegisterBtn, RegisterLink, ErrorText, PasswordInput, Passwordsvg } from "../loginForm/LoginForm.styled";
 import { logIn } from "redux/auth/authOperations";
-
+import { toast } from "react-hot-toast";
+import sprite from '../../components/iconSvg/icon.svg';
 
 const LoginForm = () => {
     const dispatch = useDispatch();
+    const [showPassword, setShowPassword] = useState(false);
 
     const formik = useFormik({
       initialValues: {
@@ -15,10 +17,21 @@ const LoginForm = () => {
         password: '',
       },
       validationSchema: LoginSchema, 
-      onSubmit: values => {
-        dispatch(logIn({ email: values.email, password: values.password }));
-        formik.resetForm(); } 
+      onSubmit: async values => {
+        try {
+          await dispatch(logIn({ email: values.email, password: values.password })).unwrap();
+        toast.success('You have logged in successfully!!!')
+        formik.resetForm();
+        } catch (error) {
+          toast.error("Sorry, you entered invalid email or password")
+        }
+      } 
+
       },);
+      const togglePasswordVisibility = () => {
+        setShowPassword((prevShowPassword) => !prevShowPassword);
+      };
+
     return (   <Container> 
       <FormContainer> 
         <form onSubmit={formik.handleSubmit}>
@@ -37,18 +50,19 @@ const LoginForm = () => {
           placeholder="Enter your email"
 />
       {formik.touched.email && formik.errors.email ? (
-      <div>{formik.errors.email}</div>) : null}
-          <input
-            type="password"
+      <ErrorText>{formik.errors.email}</ErrorText>) : null}
+          <PasswordInput><input
+           type={showPassword ? 'text' : 'password'}
             id="password"
             name="password"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.password}
-            placeholder="Confirm a password"
+            placeholder="Create a password"
           />
+          <Passwordsvg  width="18px" onClick={togglePasswordVisibility}> < use href={`${sprite}#icon-eye`}></use> </Passwordsvg > </PasswordInput>
           {formik.touched.password && formik.errors.password ? (
-            <div>{formik.errors.password}</div>
+            <ErrorText>{formik.errors.password}</ErrorText>
           ) : null}
         </InputField>
         <RegisterBtn type="submit">Log In Now</RegisterBtn>
