@@ -1,5 +1,5 @@
 import Header from '../../components/Header/Header';
-import Sidebar from '../../components/Sidebar/Sidebar';
+import Sidebar from '../../components/SideBar/SideBar';
 import { useEffect, useState } from 'react';
 
 const HomePage = () => {
