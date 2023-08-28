@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunktask_pro=self.webpackChunktask_pro||[]).push([[780],{5780:function(s,c,f){f(2791);c.Z=f.p+"static/media/icon.78075f185fc0b99223bb286cfbf84687.svg"}}]);
+//# sourceMappingURL=780.5486d709.chunk.js.map
