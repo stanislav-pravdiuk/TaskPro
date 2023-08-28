@@ -1,18 +1,15 @@
 import { useParams } from "react-router-dom";
-import icon from '../../components/iconSvg/icon.svg';
-import { BtnCreate, BtnLogOut } from "components/buttons/buttons";
+import HeaderDashboard from "./HeaderDashboard/HeaderDashboard";
+import MainDashboard from "./MainDashboard/MainDashboard";
 
 const ScreensPage = () => {
     const { boardName } = useParams();
+
     return (
-        <div>
-            <svg height={18} width={18}>
-                <use href={icon + '#icon-icon-1'}></use>
-            </svg>
-            <h2>название {boardName}</h2>
-            <BtnCreate />
-            <BtnLogOut />
-        </div>
+        <>
+            <HeaderDashboard boardName={boardName} />
+            <MainDashboard />
+        </>
     );
 };
 
