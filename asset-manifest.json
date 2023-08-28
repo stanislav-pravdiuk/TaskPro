@@ -1,11 +1,11 @@
 {
   "files": {
     "main.css": "/TaskPro/static/css/main.962cddd4.css",
-    "main.js": "/TaskPro/static/js/main.794392b2.js",
+    "main.js": "/TaskPro/static/js/main.5b16fc9d.js",
     "static/js/986.3ce5e082.chunk.js": "/TaskPro/static/js/986.3ce5e082.chunk.js",
     "static/js/617.1e2f277a.chunk.js": "/TaskPro/static/js/617.1e2f277a.chunk.js",
-    "static/js/308.835c69a0.chunk.js": "/TaskPro/static/js/308.835c69a0.chunk.js",
-    "static/js/554.a8531e6b.chunk.js": "/TaskPro/static/js/554.a8531e6b.chunk.js",
+    "static/js/308.aa035455.chunk.js": "/TaskPro/static/js/308.aa035455.chunk.js",
+    "static/js/554.bda04a60.chunk.js": "/TaskPro/static/js/554.bda04a60.chunk.js",
     "static/js/117.47e4aee1.chunk.js": "/TaskPro/static/js/117.47e4aee1.chunk.js",
     "static/js/256.99621822.chunk.js": "/TaskPro/static/js/256.99621822.chunk.js",
     "static/js/568.ef9b30ea.chunk.js": "/TaskPro/static/js/568.ef9b30ea.chunk.js",
@@ -18,11 +18,11 @@
     "static/media/welcome-mobile.png": "/TaskPro/static/media/welcome-mobile.18cd06cd3e6a06f73b1f.png",
     "index.html": "/TaskPro/index.html",
     "main.962cddd4.css.map": "/TaskPro/static/css/main.962cddd4.css.map",
-    "main.794392b2.js.map": "/TaskPro/static/js/main.794392b2.js.map",
+    "main.5b16fc9d.js.map": "/TaskPro/static/js/main.5b16fc9d.js.map",
     "986.3ce5e082.chunk.js.map": "/TaskPro/static/js/986.3ce5e082.chunk.js.map",
     "617.1e2f277a.chunk.js.map": "/TaskPro/static/js/617.1e2f277a.chunk.js.map",
-    "308.835c69a0.chunk.js.map": "/TaskPro/static/js/308.835c69a0.chunk.js.map",
-    "554.a8531e6b.chunk.js.map": "/TaskPro/static/js/554.a8531e6b.chunk.js.map",
+    "308.aa035455.chunk.js.map": "/TaskPro/static/js/308.aa035455.chunk.js.map",
+    "554.bda04a60.chunk.js.map": "/TaskPro/static/js/554.bda04a60.chunk.js.map",
     "117.47e4aee1.chunk.js.map": "/TaskPro/static/js/117.47e4aee1.chunk.js.map",
     "256.99621822.chunk.js.map": "/TaskPro/static/js/256.99621822.chunk.js.map",
     "568.ef9b30ea.chunk.js.map": "/TaskPro/static/js/568.ef9b30ea.chunk.js.map",
@@ -31,6 +31,6 @@
   },
   "entrypoints": [
     "static/css/main.962cddd4.css",
-    "static/js/main.794392b2.js"
+    "static/js/main.5b16fc9d.js"
   ]
 }
