@@ -4,9 +4,8 @@ import { useFormik } from 'formik';
 import LoginSchema from "./LoginSchema";
 import { Container, FormContainer, InputField, LinkMenu, LoginLink, RegisterBtn, RegisterLink, ErrorText, PasswordInput, Passwordsvg } from "../loginForm/LoginForm.styled";
 import { logIn } from "redux/auth/authOperations";
+import { toast } from "react-hot-toast";
 import sprite from '../../components/iconSvg/icon.svg';
-
-
 
 const LoginForm = () => {
     const dispatch = useDispatch();
@@ -18,9 +17,16 @@ const LoginForm = () => {
         password: '',
       },
       validationSchema: LoginSchema, 
-      onSubmit: values => {
-        dispatch(logIn({ email: values.email, password: values.password }));
-        formik.resetForm(); } 
+      onSubmit: async values => {
+        try {
+          await dispatch(logIn({ email: values.email, password: values.password })).unwrap();
+        toast.success('You have logged in successfully!!!')
+        formik.resetForm();
+        } catch (error) {
+          toast.error("Sorry, you entered invalid email or password")
+        }
+      } 
+
       },);
       const togglePasswordVisibility = () => {
         setShowPassword((prevShowPassword) => !prevShowPassword);

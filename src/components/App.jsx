@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import { lazy, Suspense, useEffect } from "react";
 import { useDispatch } from "react-redux";
+import { Toaster } from 'react-hot-toast';
 import { useAuth } from "hooks/useAuth";
 import { refreshUser } from "redux/auth/authOperations";
 import { PrivateRoute } from "../privateRoute/PrivateRoute";
@@ -25,6 +26,8 @@ export const App = () => {
       {isRefreshing ? (
         <b>Refreshing user...</b>
       ) : (
+          <>
+            <Toaster />
         <Routes>
           <Route index element={<RestrictedRoute component={<WelcomePage />} redirectTo="/home" />} />
             <Route path="/auth/login"
@@ -40,6 +43,7 @@ export const App = () => {
               element={<PrivateRoute component={<ScrensPage />} redirectTo="/auth/login" />}
             />
         </Routes>
+          </>
       )}
     </Suspense>
   );

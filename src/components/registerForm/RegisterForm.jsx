@@ -5,8 +5,8 @@ import RegisterSchema from "./RegisterSchema";
 // import {  Link } from "react-router-dom";
 import { Container, ErrorText, FormContainer, InputField, LinkMenu, LoginLink, PasswordInput, Passwordsvg, RegisterBtn, RegisterLink } from "./RegisterForm.styled";
 import { register } from "redux/auth/authOperations";
+import { toast } from "react-hot-toast";
 import sprite from '../../components/iconSvg/icon.svg';
-
 
 const RegisterForm = () => {
     const dispatch = useDispatch();
@@ -19,9 +19,15 @@ const RegisterForm = () => {
         password: '',
       },
       validationSchema: RegisterSchema, 
-      onSubmit: values => {
-        dispatch(register({ name: values.name, email: values.email, password: values.password }));
-        formik.resetForm(); } 
+     nSubmit: async values => {
+        try {
+          await dispatch(register({ name: values.name, email: values.email, password: values.password })).unwrap();
+        toast.success('You have registered successfully!!!')
+        formik.resetForm();
+        } catch (error) {
+          toast.error("Oops, it's looks like something went wrong... Please, try again!")
+        }
+       } 
       },);
 
       const togglePasswordVisibility = () => {
