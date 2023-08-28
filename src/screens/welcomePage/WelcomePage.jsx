@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container, ContentContainer, LoginButton, RegistrationButton, RegistrationNav, Title, WelcomeText } from './WelcomePage.styled';
 
+
 const WelcomePage = () => {
     return (
         <Container>
