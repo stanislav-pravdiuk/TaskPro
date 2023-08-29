@@ -17,6 +17,10 @@ const FormContainer = styled.div `
   background: #151515;
   border-radius: 8px;
   padding: 40px;
+  
+  @media screen and (max-width: 767px) {
+    padding: 24px;
+  }
 `
 const LinkMenu = styled.div`
   display: flex;
@@ -54,7 +58,7 @@ const InputField = styled.div`
   gap: 14px;
 
   input {
-    width: 326px;
+    width: 344px;
     height: 49px;
     left: 40px;
     top: 107px;
@@ -65,6 +69,8 @@ const InputField = styled.div`
     padding-left: 18px;
     box-shadow: 0px 4px 16px rgba(22, 22, 22, 0.08);
     border-radius: 8px;
+    @media screen and (max-width: 767px) {
+      width: 287px; }
   }
 `;
 
@@ -85,9 +91,11 @@ const RegisterBtn = styled.button`
     &:hover {
       opacity: 0.8;
     }
-
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 767px) {
       width: 287px;
+  }
+    @media screen and (max-width: 375px) {
+    width: 100%; 
   }
 `;
 const PasswordInput = styled.div `
