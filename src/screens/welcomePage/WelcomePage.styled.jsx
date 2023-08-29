@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import WelcomeImage from '../../images/welcome-mobile.png';
+
 
 const Container = styled.div`
 background: linear-gradient( 180deg, #ffffff 0%,  #ffffff 25%, #bedbb0 92.19%);
@@ -13,6 +15,52 @@ align-items: center;
 justify-content: center;
 `
 
+const ContentContainer = styled.div`
+text-align: center;
+justify-content: center;
+flex-direction: column;
+  @media screen and (min-width: 375px) {
+  width: 335px;
+}
+  @media screen and (min-width: 768px) {
+  width: 473px;
+}`
+
+const WelcomeImg = styled.img`
+  width: 162px;
+  height: 162px;
+  margin-bottom: 24px;
+
+  @media screen and (max-width: 768px) {
+    width: 124px;
+    height: 124px;
+    margin-bottom: 14px;
+    content: url(${WelcomeImage});
+  }
+`;
+
+const WelcomeLogoContainer = styled.div`
+  display: flex;
+  gap: 14px;
+  height: 42px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 24px;
+
+  @media  screen and (min-width: 768px) {
+    height: 60px;
+  }
+`;
+const WelcomeLogoSvg = styled.svg`
+width: 40px;
+height: 40px;
+
+@media  screen and (min-width: 768px) {
+  width: 48px;
+  height: 48px;
+}
+`;
+
 const Title = styled.p`
 color: #161616;
 font-family: Poppins;
@@ -22,13 +70,12 @@ font-weight: 600;
 line-height: normal;
 letter-spacing: -1.6px;
 margin-bottom: 24px;
+    @media screen and (max-width: 768px) {
+  font-size: 28px;
+  line-height: 42px;
+
 `
 
-const ContentContainer = styled.div`
-text-align: center;
-display: flex;
-justify-content: center;
-flex-direction: column;`
 
 const WelcomeText = styled.p`
 color: #161616;
@@ -42,7 +89,13 @@ letter-spacing: -0.02em;
 width: 473px;
 height: 36px;
 margin-bottom: 48px;
-margin-block-start: 0;`
+margin-block-start: 0;
+
+@media screen and (max-width: 768px) {
+  width: 335px;
+  height: 54px;
+  left: calc(50% - 335px/2);
+}`
 
 
 const RegistrationNav = styled.div `
@@ -67,6 +120,9 @@ const RegistrationButton = styled(Link)`
   cursor: pointer;
   text-transform: none;
   text-decoration: none;
+  @media screen and (min-width: 768px) {
+    width: 344px;
+  }
 `
 
 const LoginButton = styled(Link)`
@@ -79,4 +135,4 @@ const LoginButton = styled(Link)`
     cursor: pointer; 
     text-decoration: none;`
 
-export {Container, WelcomeText, Title, RegistrationButton, LoginButton, RegistrationNav, ContentContainer}
+export {Container, WelcomeText, Title, RegistrationButton, LoginButton, RegistrationNav, ContentContainer, WelcomeImg, WelcomeLogoSvg, WelcomeLogoContainer}

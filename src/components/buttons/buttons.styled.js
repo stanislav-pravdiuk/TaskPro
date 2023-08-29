@@ -326,10 +326,158 @@ const  ButtonLogOutSvgViolet = styled.use`
 
 // _________________
 
+const ButtonDelete = styled.button`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 17px;
+  height: 17px;
+  padding: 0;
+  background-color: transparent;
+ border: none;
+ &:hover .svg.use {
+  fill: white;
+  }
+`;
+
+const  ButtonDeleteIcon = styled.svg`
+  width:16px;
+  height: 16px;
+  fill: #D9D9D9;
+  
+
+`;
+
+const ButtonDeleteSvg = styled.use`
+  width: 16px;
+  height: 16px;
+  fill: #D9D9D9;
+`;
+
+
+/* ____________________ */
+
+
+const ButtonUpDate = styled.button`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 17px;
+  height: 17px;
+  padding: 0;
+  background-color: transparent;
+ border: none;
+`;
+
+const  ButtonUpDateIcon = styled.svg`
+  width:16px;
+  height: 16px;
+  fill: #D9D9D9;
+  
+
+`;
+
+const ButtonUpDateSvg = styled.use`
+  width: 16px;
+  height: 16px;
+  fill: #D9D9D9;
+`;
+
+const ButtonClose = styled.button`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 18px;
+  height: 18px;
+  padding: 0;
+  background-color: transparent;
+ border: none;
+`;
+
+const  ButtonCloseIcon = styled.svg`
+  width:18px;
+  height: 18px;
+  fill: white;
+  
+
+`;
+
+const ButtonCloseSvg = styled.use`
+  width: 18px;
+  height: 18px;
+  fill: black;
+`;
+
+
+// _____________________
+
+const ButtonFilter = styled.button`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 64px;
+  height:20px;
+  background-color: transparent;
+  border: none;
+  opacity: 80%;
+`;
+const ButtonFilterThumb = styled.div`
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 20px;
+
+  background-color: transparent;
+`;
+
+const ButtonFilterText = styled.p`
+  font-style: normal;
+  font-family: Poppins;
+  font-weight:400;
+  font-size: 14px;
+  line-height: 21px;
+  text-align: center;
+  letter-spacing: -0.02em;
+  color: white;
+ 
+`;
+
+const ButtonFilterIcon = styled.svg`
+  width: 16px;
+  height: 16px;
+  &:hover {
+    fill: #9dc888;
+  }
+`;
+
+const ButtonFilterSvg = styled.use`
+  width: 16px;
+  height: 16px;
+
+`;
+
+// _________________
+
 
 
 
 export {
+  ButtonFilterThumb,
+  ButtonFilterSvg,
+  ButtonFilterIcon,
+  ButtonFilterText,
+ 
+  ButtonFilter,
+  ButtonCloseSvg,
+  ButtonCloseIcon,
+  ButtonClose,
+  ButtonUpDateSvg,
+  ButtonUpDateIcon,
+  ButtonUpDate,
+  ButtonDelete,
+  ButtonDeleteSvg,
+  ButtonDeleteIcon,
   ButtonLogOutSvgViolet,
   ButtonLogOutIconViolet,
   ButtonLogOutTextViolet,
