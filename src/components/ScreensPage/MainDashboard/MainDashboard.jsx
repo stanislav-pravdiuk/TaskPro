@@ -1,18 +1,20 @@
-import AddColumn from "../titleColumn/TitleColumn";
+import TitleColumn from "../titleColumn/TitleColumn";
 import Card from "../card/Card";
-import { Container, Column, GalleryCards } from "./MainDashboard.styled";
+import { Container, Column, GalleryCards} from "./MainDashboard.styled";
+import BtnAdd from "../btnAdd/BtnAdd";
 
 const MainDashboard = () => {
     return (
         <Container>
             <Column>
-                <AddColumn />
+                <TitleColumn />
                 <GalleryCards>
                     <Card />
                     <Card />
                     <Card />
                     <Card />
                 </GalleryCards>
+                <BtnAdd />
             </Column>
             <Card />
         </Container>
