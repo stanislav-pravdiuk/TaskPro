@@ -1,8 +1,16 @@
 @import-normalize; /* bring in normalize.css styles */
+@font-face {
+  font-family: 'Poppins';
+  src: local('Poppins-Regular'), local('Poppins-Medium'),
+    local('Poppins-SemiBold'),
+    url('./components/fonts/Poppins-Regular.ttf') format('truetype'),
+    url('./components/fonts/Poppins-Medium.ttf') format('truetype'),
+    url('./components/fonts/Poppins-SemiBold.ttf') format('truetype');
+}
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: -apple-system, BlinkMacSystemFont, 'Poppins', 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -15,7 +23,12 @@ code {
 }
 
 button {
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
   cursor: pointer;
+  padding: 0;
 }
 p{
   margin: 0;

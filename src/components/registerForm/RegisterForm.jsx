@@ -19,7 +19,7 @@ const RegisterForm = () => {
         password: '',
       },
       validationSchema: RegisterSchema, 
-     nSubmit: async values => {
+     onSubmit: async values => {
         try {
           await dispatch(register({ name: values.name, email: values.email, password: values.password })).unwrap();
         toast.success('You have registered successfully!!!')
