@@ -6,9 +6,30 @@ import cactus2x from '../../images/cactus@2x.png';
 import cactus3x from '../../images/cactus@3x.png';
 import icon from '../../components/iconSvg/icon.svg';
 import { LogoIcon, PlusIcon, HelpIcon, LogoutIcon } from './Sidebar.styled';
+import { useGetBoardsQuery, useAddBoardMutation } from 'redux/boards/boardsApi';
+import { NavLink, useLocation } from 'react-router-dom';
 
 const SideBar = ({ active, onClick }) => {
   const drawerWidth = 260;
+
+  const { data = [], refetch } = useGetBoardsQuery();
+
+  const location = useLocation();
+  const routeName = location.pathname.includes('/:boardName')
+    ? ''
+    : ':boardName/';
+
+  const [addBoard] = useAddBoardMutation();
+
+  console.log(data);
+
+  const addNewBoard = () => {
+    const data = {
+      title: 'New Board3',
+    };
+
+    addBoard(data);
+  };
 
   const drawerContent = (
     <Box sx={{ padding: '24px', overflow: 'hidden' }}>
@@ -69,6 +90,7 @@ const SideBar = ({ active, onClick }) => {
           Create a new board
         </Typography>
         <Button
+          onClick={addNewBoard}
           sx={{
             backgroundColor: '#BEDBB0',
             padding: '8px 10px',
@@ -84,7 +106,18 @@ const SideBar = ({ active, onClick }) => {
           </PlusIcon>
         </Button>
       </Box>
-
+      {data &&
+        data.map(board => {
+          return (
+            <NavLink
+              to={`/home/${board._id}`}
+              state={{ from: location }}
+              key={board._id}
+            >
+              {board.title}
+            </NavLink>
+          );
+        })}
       <Box
         sx={{
           backgroundColor: 'rgba(246, 246, 247, 1)',
