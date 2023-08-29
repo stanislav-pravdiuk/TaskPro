@@ -6,3 +6,8 @@ padding: 0 24px;
 height: 100%;
 width: 100%;
 `
+export const Column = styled.div`
+width: 334px;
+`
+export const GalleryCards = styled.div`
+`

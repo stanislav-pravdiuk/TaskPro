@@ -6,6 +6,7 @@ height: auto;
 border-radius: 8px;
 background: #FFF;
 padding: 14px 24px;
+margin-bottom: 8px;
 `
 export const Title = styled.h4`
 color: #161616;
