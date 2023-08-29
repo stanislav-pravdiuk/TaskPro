@@ -85,3 +85,48 @@ export const refreshUser = createAsyncThunk(
     }
   }
 );
+
+/*
+ * PATCH @ /user/
+ * headers: Authorization: Bearer token
+ */
+
+export const updateUserProfile = createAsyncThunk(
+  '/user', async (credentials, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const persistedToken = state.auth.token;
+
+     if (persistedToken === null) {
+      return thunkAPI.rejectWithValue('Unable to fetch user');
+     }
+    try {
+      setAuthHeader(persistedToken);
+      const res = await axios.patch('/user', credentials);
+      console.log('res', res)
+      console.log('res.data', res.data)
+      return res.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+)
+
+export const updateUserTheme = createAsyncThunk(
+  "/user/theme", async (credentials, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const persistedToken = state.auth.token;
+
+     if (persistedToken === null) {
+      return thunkAPI.rejectWithValue('Unable to fetch user');
+     }
+    try {
+      setAuthHeader(persistedToken);
+      const res = await axios.patch('/user/theme', credentials);
+      console.log('res', res)
+      console.log('res.data', res.data)
+      return res.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+)
