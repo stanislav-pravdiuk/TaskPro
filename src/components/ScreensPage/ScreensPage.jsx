@@ -1,15 +1,17 @@
-import { useParams } from "react-router-dom";
+
 import HeaderDashboard from "./HeaderDashboard/HeaderDashboard";
 import MainDashboard from "./MainDashboard/MainDashboard";
+import { Container } from "./ScreensPage.styled";
 
 const ScreensPage = () => {
-    const { boardName } = useParams();
+    
+    const boardName='Название дашборда'
 
     return (
-        <>
+        <Container>
             <HeaderDashboard boardName={boardName} />
             <MainDashboard />
-        </>
+        </Container>
     );
 };
 

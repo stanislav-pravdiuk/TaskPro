@@ -1,10 +1,11 @@
-import { BtnPlus } from "components/buttons/buttons";
+import Card from "../card/Card";
+import { Container } from "./MainDashboard.styled";
 
 const MainDashboard = () => {
     return (
-        <>
-            <BtnPlus />
-        </>
+        <Container>
+            <Card />
+        </Container>
     );
 };
 
