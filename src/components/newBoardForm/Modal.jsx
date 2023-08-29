@@ -24,6 +24,7 @@ const ModalComponent = () => {
             borderRadius: 'md',
             p: 3,
             boxShadow: 'lg',
+            padding: 0,
           }}
         >
           <ModalClose

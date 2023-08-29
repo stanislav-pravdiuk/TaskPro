@@ -1,9 +1,13 @@
 import styled from 'styled-components';
 
-const FormContainer = styled.div`
-  /* padding: 24px; */
+const FormContainer = styled.form`
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 24px;
   background: #fcfcfc;
   border-radius: 8px;
+  max-width: 350px;
 `;
 
 const Title = styled.h2`
@@ -12,42 +16,54 @@ const Title = styled.h2`
   font-size: 18px;
   line-height: 27px;
   letter-spacing: -0.02em;
+  margin: 0;
 `;
 
 const Input = styled.input`
-  width: 284px;
-  height: 49px;
-  left: 24px;
-  top: 24px;
-  padding: 0px;
-  padding-left: 18px;
+  display: inline-block;
+  width: 100%;
+  padding: 18px 14px;
 
   color: #161616;
   background: #fcfcfc;
-  /* opacity: 0.4; */
   border: 1px solid #bedbb0;
-  /* padding-left: 18px; */
   border-radius: 8px;
+  &:placeholder-shown {
+    color: #161616;
+    font-size: 14px;
+  }
 `;
 
 const Text = styled.p`
-  margin-top: 24px;
-  margin-bottom: 14px;
-
   font-style: medium;
   font-weight: 500;
   font-size: 14px;
   letter-spacing: -0.02em;
 `;
 
+const IconList = styled.ul`
+  list-style: none;
+  display: flex;
+  padding: 0;
+  margin: 0;
+  align-items: center;
+  gap: 8px;
+`;
+
 const Icon = styled.svg`
   height: 18px;
   width: 18px;
   stroke: #161616;
-  margin-right: 8px;
 `;
 
-const BgColor = styled.button`
+const BgList = styled.ul`
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 16px;
+`;
+
+const BgColor = styled.li`
   display: inline-block;
   padding: 0px;
   height: 28px;
@@ -58,14 +74,14 @@ const BgColor = styled.button`
   cursor: pointer;
 `;
 
-const ActiveOption = styled.button`
-  transform: scale(1.2);
+const RadioButton = styled.input`
+  appearance: none;
+  position: absolute;
 `;
 
 const Button = styled.button`
-  width: 302px;
+  width: 100%;
   height: 49px;
-  margin-top: 40px;
   padding: 0px;
 
   font-style: medium;
@@ -87,5 +103,7 @@ export {
   Button,
   Icon,
   BgColor,
-  ActiveOption,
+  IconList,
+  BgList,
+  RadioButton,
 };
