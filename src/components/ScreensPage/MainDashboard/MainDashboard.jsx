@@ -4,6 +4,7 @@ import { Container, Column, GalleryCards} from "./MainDashboard.styled";
 import BtnAdd from "../btnAdd/BtnAdd";
 
 const MainDashboard = () => {
+
     return (
         <Container>
             <Column>
@@ -16,7 +17,10 @@ const MainDashboard = () => {
                 </GalleryCards>
                 <BtnAdd />
             </Column>
-            <Card />
+            <Column>
+                <BtnAdd />
+            </Column>
+            
         </Container>
     );
 };

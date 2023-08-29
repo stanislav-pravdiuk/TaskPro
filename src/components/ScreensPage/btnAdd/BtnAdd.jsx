@@ -4,7 +4,7 @@ import icon from '../../iconSvg/icon.svg'
 
 const BtnAdd = () => {
     return (
-        <Container>
+        <Container >
             <ButtonPlus style={{ backgroundColor: '#161616' }}>
                 <PlusIcon>
                     <use href={icon + '#icon-plus-1'}></use>
