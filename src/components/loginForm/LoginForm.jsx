@@ -19,7 +19,9 @@ const LoginForm = () => {
       validationSchema: LoginSchema, 
       onSubmit: async values => {
         try {
-          await dispatch(logIn({ email: values.email, password: values.password })).unwrap();
+          await dispatch(logIn(
+            { email: values.email, password: values.password }
+          )).unwrap();
         toast.success('You have logged in successfully!!!')
         formik.resetForm();
         } catch (error) {
