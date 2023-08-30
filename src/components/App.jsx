@@ -6,6 +6,7 @@ import { useAuth } from 'hooks/useAuth';
 import { refreshUser } from 'redux/auth/authOperations';
 import { PrivateRoute } from '../privateRoute/PrivateRoute';
 import { RestrictedRoute } from 'restrictedRoute/RestrictedRoute';
+import Layout from './layout/Layout';
 
 const HomePage = lazy(() => import('screens/homePage/HomePage'));
 const WelcomePage = lazy(() => import('../screens/welcomePage/WelcomePage'));
@@ -64,11 +65,12 @@ export const App = () => {
             />
             <Route
               path="/home/:boardName"
-              element={
+              element={<Layout>
                 <PrivateRoute
                   component={<ScrensPage />}
                   redirectTo="/auth/login"
                 />
+              </Layout>
               }
             />
           </Routes>
