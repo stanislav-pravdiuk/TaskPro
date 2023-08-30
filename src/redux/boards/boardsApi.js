@@ -26,7 +26,7 @@ export const boardsApi = createApi({
       providesTags: ['Board'],
     }),
     addBoard: builder.mutation({
-      query: data => ({
+      query: ({ data }) => ({
         url: `board`,
         method: 'POST',
         body: data,
