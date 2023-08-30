@@ -21,11 +21,8 @@ const BtnAdd = ({ data }) => {
   };
 
   return (
-    <Container>
-      <ButtonPlus
-        style={{ backgroundColor: '#161616' }}
-        onClick={addCardInColumn}
-      >
+    <Container onClick={addCardInColumn}>
+      <ButtonPlus style={{ backgroundColor: '#161616' }}>
         <PlusIcon>
           <use href={icon + '#icon-plus-1'}></use>
         </PlusIcon>
