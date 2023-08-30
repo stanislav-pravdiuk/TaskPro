@@ -10,7 +10,6 @@ import {
   Text,
   Icon,
   BgColor,
-  Button,
   IconList,
   BgList,
   RadioButton,
@@ -40,9 +39,7 @@ const NewBoardForm = ({ closeModal, formTitle, btnText, children }) => {
   const handleSubmit = e => {
     e.preventDefault();
 
-    const data = { title, background: { ...bgImage } };
-
-    console.log(data);
+    const data = { title, icon, background: { ...bgImage } };
 
     addBoard({ data });
     closeModal();
