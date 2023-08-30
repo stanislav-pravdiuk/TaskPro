@@ -108,7 +108,19 @@ const SideBar = ({ active, onClick }) => {
           </PlusIcon>
         </Button>
       </Box>
-      {/* <BtnBoardActive /> */}
+
+              {data &&
+        data.map(board => {
+          return (
+            <BtnBoardActive
+              // to={`/home/${board._id}`}
+              // state={{ from: location }}
+              key={board._id}
+              title={board.title}
+            />
+          );
+        })}
+
       {data &&
         data.map(board => {
           return (
@@ -121,17 +133,8 @@ const SideBar = ({ active, onClick }) => {
             </NavLink>
           );
         })}
-        {data &&
-        data.map(board => {
-          return (
-            <BtnBoardActive
-              // to={`/home/${board._id}`}
-              // state={{ from: location }}
-              key={board._id}
-              title={board.title}
-            />
-          );
-        })}
+
+
       <Box
         sx={{
           backgroundColor: 'rgba(246, 246, 247, 1)',
