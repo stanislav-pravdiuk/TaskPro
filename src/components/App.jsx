@@ -57,20 +57,23 @@ export const App = () => {
             <Route
               path="/home"
               element={
-                <PrivateRoute
-                  component={<HomePage />}
-                  redirectTo="/auth/login"
-                />
+                <Layout>
+                  <PrivateRoute
+                    component={<HomePage />}
+                    redirectTo="/auth/login"
+                  />
+                </Layout>
               }
             />
             <Route
               path="/home/:boardName"
-              element={<Layout>
-                <PrivateRoute
-                  component={<ScrensPage />}
-                  redirectTo="/auth/login"
-                />
-              </Layout>
+              element={
+                <Layout>
+                  <PrivateRoute
+                    component={<ScrensPage />}
+                    redirectTo="/auth/login"
+                  />
+                </Layout>
               }
             />
           </Routes>

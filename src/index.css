@@ -1,4 +1,5 @@
 @import-normalize; /* bring in normalize.css styles */
+
 @font-face {
   font-family: 'Poppins';
   src: local('Poppins-Regular'), local('Poppins-Medium'),
@@ -10,16 +11,32 @@
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Poppins', 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Poppins', 'Segoe UI',
+    'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+    'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  ::-webkit-scrollbar {
+    background-color: rgba(255, 255, 255, 0.1);
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #121212;
+    border-radius: 12px;
+  }
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 button {
@@ -30,7 +47,7 @@ button {
   cursor: pointer;
   padding: 0;
 }
-p{
+p {
   margin: 0;
   padding: 0;
 }

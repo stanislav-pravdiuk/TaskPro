@@ -121,7 +121,7 @@ const SideBar = ({ active, onClick }) => {
       <Box
         sx={{
           backgroundColor: 'rgba(246, 246, 247, 1)',
-          marginTop: 'calc(100vh - 575px)',
+          marginTop: 'calc(100vh - 625px)',
           borderRadius: '8px',
           padding: '20px',
         }}
