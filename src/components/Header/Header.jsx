@@ -4,6 +4,8 @@ import Toolbar from '@mui/material/Toolbar';
 import icon from '../../components/iconSvg/icon.svg';
 import { Button } from '@mui/material';
 import { BurgerIcon } from './Header.styled';
+import { ThemeSelector } from 'components/Theme/ThemeSelector';
+import { Box } from '@mui/system';
 
 const Header = ({ click }) => {
   return (
@@ -11,7 +13,14 @@ const Header = ({ click }) => {
       position="fixed"
       sx={{ width: '100%', backgroundColor: '#FCFCFC', boxShadow: 'none' }}
     >
-      <Toolbar sx={{ paddingRight: '32px', paddingLeft: '32px' }}>
+      <Toolbar
+        sx={{
+          paddingRight: '32px',
+          paddingLeft: '32px',
+          display: 'flex',
+          justifyContent: 'space-between',
+        }}
+      >
         <Button
           aria-label="open drawer"
           edge="start"
@@ -29,6 +38,16 @@ const Header = ({ click }) => {
             <use href={icon + '#icon-menu_40px-1'}></use>
           </BurgerIcon>
         </Button>
+        <Box sx={{
+          display: 'flex',
+          alignItems: 'center',
+          marginLeft: 'auto',    
+          width: 300,          
+          justifyContent: 'space-between'
+        }}>
+          <ThemeSelector />
+          {/* <UserProfile /> */}
+        </Box>
       </Toolbar>
     </AppBar>
   );

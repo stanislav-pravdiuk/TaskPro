@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 
-export const ThemeSelectWrapper = styled.div`
-    flex: 1;
-    margin-left: auto;
+export const ThemeSelectWrapper = styled.div`  
+  width: 68px;
 `;
