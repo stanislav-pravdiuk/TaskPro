@@ -1,15 +1,20 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-padding: 0 24px;
-// background: tomato;
-height: 100%;
-width: 100%;
-display: flex;
-`
-export const Column = styled.div`
-width: 334px;
-margin-right: 34px;
-`
-export const GalleryCards = styled.div`
-`
+  width: 100%;
+  display: flex;
+  gap: 24px;
+  padding: 0 24px;
+
+  overflow-x: auto;
+`;
+export const Column = styled.div``;
+
+export const GalleryCards = styled.ul`
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  min-height: 70vh;
+  max-height: 70vh;
+  overflow-y: auto;
+`;

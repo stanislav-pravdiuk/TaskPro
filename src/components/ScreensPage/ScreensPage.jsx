@@ -1,16 +1,16 @@
-import {
-  useGetBoardByIdQuery,
-} from 'redux/boards/boardsApi';
+import { useGetBoardByIdQuery } from 'redux/boards/boardsApi';
 import HeaderDashboard from './HeaderDashboard/HeaderDashboard';
 import MainDashboard from './MainDashboard/MainDashboard';
 import { Container } from './ScreensPage.styled';
 import { useParams } from 'react-router-dom';
-import BtnAdd from './btnAdd/BtnAdd';
+// import BtnAdd from './btnAdd/BtnAdd';
 
 const ScreensPage = () => {
   const { boardName } = useParams();
-  const { data = {}, refetch } = useGetBoardByIdQuery(boardName);
-  
+  const { data = {} } = useGetBoardByIdQuery(boardName);
+
+  console.log(data);
+
   return (
     <Container>
       <HeaderDashboard boardName={data.title} />
