@@ -17,4 +17,5 @@ export const GalleryCards = styled.ul`
   min-height: 70vh;
   max-height: 70vh;
   overflow-y: auto;
+  overflow-x: hidden;
 `;

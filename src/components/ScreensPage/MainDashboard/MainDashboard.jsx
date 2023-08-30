@@ -44,7 +44,11 @@ const MainDashboard = ({ columns }) => {
         columns.map(column => {
           return (
             <Column key={column._id}>
-              <TitleColumn title={column.title} />
+              <TitleColumn
+                title={column.title}
+                owner={column.owner}
+                columnId={column._id}
+              />
               <GalleryCards>
                 {column.cards.map(card => {
                   return (
@@ -54,6 +58,9 @@ const MainDashboard = ({ columns }) => {
                       text={card.text}
                       priority={card.priority}
                       deadline={card.deadline}
+                      owner={card.ovner}
+                      boardId={column.owner}
+                      card={card}
                     />
                   );
                 })}

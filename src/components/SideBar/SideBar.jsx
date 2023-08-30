@@ -5,25 +5,37 @@ import cactus from '../../images/cactus.png';
 import cactus2x from '../../images/cactus@2x.png';
 import cactus3x from '../../images/cactus@3x.png';
 import icon from '../../components/iconSvg/icon.svg';
-import { LogoIcon, PlusIcon, HelpIcon, LogoutIcon } from './Sidebar.styled';
+import {
+  LogoIcon,
+  PlusIcon,
+  HelpIcon,
+  LogoutIcon,
+  BoardsContainer,
+  BoardsList,
+  BoardItem,
+  BoardLink,
+  IconTitle,
+  IconsBox,
+  Delete,
+  Edit,
+  TitleBox,
+} from './Sidebar.styled';
 import { useGetBoardsQuery, useAddBoardMutation } from 'redux/boards/boardsApi';
-import { NavLink, useLocation } from 'react-router-dom';
-import BtnBoardActive from './btnBoardActive/BtnBoardActive';
-import BtnBoard from './btnBoard/BtnBoard';
+import { useLocation } from 'react-router-dom';
+
+
 
 const SideBar = ({ active, onClick }) => {
   const drawerWidth = 260;
 
-  const { data = []} = useGetBoardsQuery();
+  const { data = [] } = useGetBoardsQuery();
 
   const location = useLocation();
-  // const routeName = location.pathname.includes('/:boardName')
-  //   ? ''
-  //   : ':boardName/';
 
   const [addBoard] = useAddBoardMutation();
 
   console.log(data);
+  
 
   const addNewBoard = () => {
     const data = {
@@ -78,6 +90,7 @@ const SideBar = ({ active, onClick }) => {
           borderTop: '1px solid rgba(22, 22, 22, 0.1)',
           padding: '14px 0',
           marginTop: '8px',
+          marginBottom: '40px',
         }}
       >
         <Typography
@@ -108,37 +121,49 @@ const SideBar = ({ active, onClick }) => {
           </PlusIcon>
         </Button>
       </Box>
+      <BoardsContainer>
+        <BoardsList>
+          {data &&
+            data.map(board => {
+              const isSelected = `/home/${board._id}` === location.pathname;
 
-              {data &&
-        data.map(board => {
-          return (
-            <BtnBoardActive
-              // to={`/home/${board._id}`}
-              // state={{ from: location }}
-              key={board._id}
-              title={board.title}
-            />
-          );
-        })}
-
-      {data &&
-        data.map(board => {
-          return (
-            <NavLink
-              to={`/home/${board._id}`}
-              state={{ from: location }}
-              key={board._id}
-            >
-              <BtnBoard title={board.title}/>
-            </NavLink>
-          );
-        })}
-
-
+              return (
+                <BoardItem key={board._id}>
+                  <BoardLink
+                    to={`/home/${board._id}`}
+                    state={{ from: location }}
+                  >
+                    <TitleBox>
+                    <IconTitle style={{ fill: 'red' }} >
+                      <use href={icon + '#icon-project'}></use>
+                    </IconTitle>
+                      {board.title}
+                    </TitleBox>
+                    {isSelected && (
+                      <IconsBox>
+                      <button type="button">
+                        <Edit>
+                          <use href={icon + '#icon-pencil-01'}></use>
+                        </Edit>
+                      </button>
+                      <button type="button">
+                        <Delete>
+                          <use href={icon + '#icon-trash-04'}></use>
+                        </Delete>
+                      </button>
+                    </IconsBox>
+                    ) }
+                    
+                  </BoardLink>
+                </BoardItem>
+              );
+            })}
+        </BoardsList>
+      </BoardsContainer>
       <Box
         sx={{
           backgroundColor: 'rgba(246, 246, 247, 1)',
-          marginTop: 'calc(100vh - 625px)',
+          marginTop: 'calc(100vh - 575px)',
           borderRadius: '8px',
           padding: '20px',
         }}
