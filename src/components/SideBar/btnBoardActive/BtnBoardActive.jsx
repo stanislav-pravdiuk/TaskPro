@@ -1,8 +1,7 @@
 import { Container, Delete, Edit, IconTitle, IconsBox, Indicator, Title, TitleBox } from "./BtnBoardActive.styled";
 import icon from '../../iconSvg/icon.svg'
 
-const BtnBoardActive = () => {
-
+const BtnBoardActive = ({title}) => {
     return (
         <div style={{display: "flex"}}>
         <Container>
@@ -10,7 +9,7 @@ const BtnBoardActive = () => {
                 <IconTitle>
                     <use href={icon + '#icon-Project'}></use>
                 </IconTitle>
-                <Title>Name Board</Title>
+                <Title>{title}</Title>
             </TitleBox>
 
             <IconsBox>
