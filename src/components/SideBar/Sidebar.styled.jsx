@@ -60,6 +60,9 @@ export const BoardLink = styled(NavLink)`
 
   text-decoration: none;
 
+  display: flex;
+  justify-content: space-between;
+
   &:hover,
   &:focus {
     background-color: #f6f6f7;
@@ -80,3 +83,32 @@ export const BoardLink = styled(NavLink)`
     background: #bedbb0;
   }
 `;
+
+export const IconTitle = styled.svg`
+width: 18px;
+height: 18px;
+color: #121212;
+margin-right: 8px;
+
+`;
+
+export const IconsBox = styled.div`
+display: flex;
+// background:tomato;
+// margin-left: 215px;
+justify-content: flex-end;
+`
+export const Edit = styled.svg`
+width: 16px;
+height: 16px;
+color: #161616;
+margin-right: 8px;
+`
+export const Delete = styled.svg`
+width: 16px;
+height: 16px;
+color: #161616;
+`
+export const TitleBox = styled.div`
+display:flex;
+`

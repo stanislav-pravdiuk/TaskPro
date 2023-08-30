@@ -14,9 +14,16 @@ import {
   BoardsList,
   BoardItem,
   BoardLink,
+  IconTitle,
+  IconsBox,
+  Delete,
+  Edit,
+  TitleBox,
 } from './Sidebar.styled';
 import { useGetBoardsQuery, useAddBoardMutation } from 'redux/boards/boardsApi';
 import { useLocation } from 'react-router-dom';
+
+
 
 const SideBar = ({ active, onClick }) => {
   const drawerWidth = 260;
@@ -28,6 +35,7 @@ const SideBar = ({ active, onClick }) => {
   const [addBoard] = useAddBoardMutation();
 
   console.log(data);
+  
 
   const addNewBoard = () => {
     const data = {
@@ -117,13 +125,35 @@ const SideBar = ({ active, onClick }) => {
         <BoardsList>
           {data &&
             data.map(board => {
+              const isSelected = `/home/${board._id}` === location.pathname;
+
               return (
                 <BoardItem key={board._id}>
                   <BoardLink
                     to={`/home/${board._id}`}
                     state={{ from: location }}
                   >
-                    {board.title}
+                    <TitleBox>
+                    <IconTitle style={{ fill: 'red' }} >
+                      <use href={icon + '#icon-project'}></use>
+                    </IconTitle>
+                      {board.title}
+                    </TitleBox>
+                    {isSelected && (
+                      <IconsBox>
+                      <button type="button">
+                        <Edit>
+                          <use href={icon + '#icon-pencil-01'}></use>
+                        </Edit>
+                      </button>
+                      <button type="button">
+                        <Delete>
+                          <use href={icon + '#icon-trash-04'}></use>
+                        </Delete>
+                      </button>
+                    </IconsBox>
+                    ) }
+                    
                   </BoardLink>
                 </BoardItem>
               );
