@@ -6,7 +6,7 @@ import {
   useDeleteColumnMutation,
 } from 'redux/boards/boardsApi';
 
-const TitleColumn = ({ title }) => {
+const TitleColumn = ({ title, owner, columnId }) => {
   const [updateColumn] = useUpdateColumnMutation();
   const [deleteColumn] = useDeleteColumnMutation();
 
@@ -20,10 +20,10 @@ const TitleColumn = ({ title }) => {
     updateColumn({ data });
   };
 
-  const deleteColumnHandler = () => {
+  const deleteColumnHandler = (owner, columnId) => {
     const data = {
-      _id: '64ee346e4037699a79667c06',
-      owner: '64ee053b879ad176a9c27e83',
+      _id: columnId,
+      owner,
     };
 
     deleteColumn({ data });
@@ -39,7 +39,10 @@ const TitleColumn = ({ title }) => {
             <use href={icon + '#icon-pencil-01'}></use>
           </Edit>
         </button>
-        <button type="button" onClick={deleteColumnHandler}>
+        <button
+          type="button"
+          onClick={() => deleteColumnHandler(owner, columnId)}
+        >
           <Delete>
             <use href={icon + '#icon-trash-04'}></use>
           </Delete>

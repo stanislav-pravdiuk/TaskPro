@@ -22,7 +22,7 @@ import {
   useDeleteCardMutation,
 } from 'redux/boards/boardsApi';
 
-const Card = ({ title, text, priority, deadline }) => {
+const Card = ({ title, text, priority, deadline, card, boardId }) => {
   const colorPriority = '#8FA1D0';
 
   const [replaceCard] = useReplaceCardMutation();
@@ -53,14 +53,11 @@ const Card = ({ title, text, priority, deadline }) => {
     updateCard({ boardId, data });
   };
 
-  const deleteCardHandler = () => {
+  const deleteCardHandler = (boardId, card) => {
     const data = {
-      owner: '64ee0546879ad176a9c27e8f',
-      _id: '64eece1c43dec532f6e1fb9e',
-      title: 'NewCardName',
+      owner: card.owner,
+      _id: card._id,
     };
-
-    const boardId = '64ee053b879ad176a9c27e83';
 
     deleteCard({ boardId, data });
   };
@@ -94,7 +91,10 @@ const Card = ({ title, text, priority, deadline }) => {
               <use href={icon + '#icon-pencil-01'}></use>
             </Edit>
           </button>
-          <button type="button" onClick={deleteCardHandler}>
+          <button
+            type="button"
+            onClick={() => deleteCardHandler(boardId, card)}
+          >
             <Delete>
               <use href={icon + '#icon-trash-04'}></use>
             </Delete>
