@@ -7,12 +7,16 @@ const TitleColumn = ({ title }) => {
       <Title>{title}</Title>
 
       <IconsBox>
-        <Edit>
-          <use href={icon + '#icon-pencil-01'}></use>
-        </Edit>
-        <Delete>
-          <use href={icon + '#icon-trash-04'}></use>
-        </Delete>
+        <button type='button'>
+          <Edit>
+            <use href={icon + '#icon-pencil-01'}></use>
+          </Edit>
+        </button>
+        <button type='button'>
+          <Delete>
+            <use href={icon + '#icon-trash-04'}></use>
+          </Delete>
+        </button>
       </IconsBox>
     </Container>
   );

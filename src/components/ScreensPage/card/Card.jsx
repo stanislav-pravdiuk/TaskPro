@@ -12,6 +12,7 @@ import {
   TransferRight,
   Edit,
   Delete,
+  OptionsBox,
 } from './Card.styled';
 import icon from '../../iconSvg/icon.svg';
 
@@ -23,33 +24,35 @@ const Card = ({ title, text, priority, deadline }) => {
       <Title>{title}</Title>
       <Description>{text}</Description>
       <BottomBar>
-        <Options>
-          <TextOptions>Priority</TextOptions>
-          <PriorityBox>
-            <Elipce style={{ backgroundColor: colorPriority }}></Elipce>
-            <Text>{priority}</Text>
-          </PriorityBox>
-        </Options>
-        <Options>
-          <TextOptions>Deadline</TextOptions>
-          <Text>{deadline}</Text>
-        </Options>
+        <OptionsBox>
+          <Options>
+            <TextOptions>Priority</TextOptions>
+            <PriorityBox>
+              <Elipce style={{ backgroundColor: colorPriority }}></Elipce>
+              <Text>{priority}</Text>
+            </PriorityBox>
+          </Options>
+          <Options>
+            <TextOptions>Deadline</TextOptions>
+            <Text>{deadline}</Text>
+          </Options>
+        </OptionsBox>
         <IconsBox>
-          <TransferRight>
-            <button type="button">
+          <button type="button">
+            <TransferRight>
               <use href={icon + '#icon-arrow-circle-broken-right'}></use>
-            </button>
-          </TransferRight>
-          <Edit>
-            <button type="button">
+            </TransferRight>
+          </button>
+          <button type="button">
+            <Edit>
               <use href={icon + '#icon-pencil-01'}></use>
-            </button>
-          </Edit>
-          <Delete>
-            <button type="button">
+            </Edit>
+          </button>
+          <button type="button">
+            <Delete>
               <use href={icon + '#icon-trash-04'}></use>
-            </button>
-          </Delete>
+            </Delete>
+          </button>
         </IconsBox>
       </BottomBar>
     </Container>

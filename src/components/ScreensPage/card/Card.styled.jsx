@@ -5,7 +5,7 @@ width: 334px;
 height: auto;
 border-radius: 8px;
 background: #FFF;
-padding: 14px 24px;
+padding: 14px 20px;
 margin-bottom: 8px;
 `
 export const Title = styled.h4`
@@ -32,6 +32,10 @@ border-top: 1px solid rgba(22, 22, 22, 0.10);
 padding-top: 14px;
 display: flex;
 align-items: flex-end;
+justify-content: space-between;
+`
+export const OptionsBox = styled.div`
+display:flex;
 `
 
 export const Options = styled.div`
@@ -68,7 +72,7 @@ margin-right: 4px;
 export const IconsBox = styled.div`
 display: flex;
 // background:tomato;
-margin-left: 112px;
+// margin-left: 112px;
 `
 export const TransferRight = styled.svg`
 width: 16px;

@@ -5,10 +5,12 @@ width: 334px;
 height: 56px;
 border-radius: 8px;
 background: #FFF;
-padding: 20px 18px;
+padding-left: 20px;
+padding-right: 20px;
 margin-bottom: 8px;
 display: flex;
 align-items: center;
+justify-content: space-between;
 `
 export const Title = styled.h3`
 color: #161616;
@@ -22,7 +24,7 @@ margin: 0;
 export const IconsBox = styled.div`
 display: flex;
 // background:tomato;
-margin-left: 215px;
+// margin-left: 215px;
 justify-content: flex-end;
 `
 export const Edit = styled.svg`
