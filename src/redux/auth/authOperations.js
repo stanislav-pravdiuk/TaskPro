@@ -92,7 +92,7 @@ export const refreshUser = createAsyncThunk(
  */
 
 export const updateUserProfile = createAsyncThunk(
-  '/user', async (credentials, thunkAPI) => {
+  'auth/profile', async (credentials, thunkAPI) => {
     const state = thunkAPI.getState();
     const persistedToken = state.auth.token;
 
@@ -101,6 +101,7 @@ export const updateUserProfile = createAsyncThunk(
      }
     try {
       setAuthHeader(persistedToken);
+      console.log('credentials', credentials)
       const res = await axios.patch('/user', credentials);
       console.log('res', res)
       console.log('res.data', res.data)
@@ -112,7 +113,7 @@ export const updateUserProfile = createAsyncThunk(
 )
 
 export const updateUserTheme = createAsyncThunk(
-  "/user/theme", async (credentials, thunkAPI) => {
+  "auth/theme", async (credentials, thunkAPI) => {
     const state = thunkAPI.getState();
     const persistedToken = state.auth.token;
 
@@ -124,6 +125,24 @@ export const updateUserTheme = createAsyncThunk(
       const res = await axios.patch('/user/theme', credentials);
       console.log('res', res)
       console.log('res.data', res.data)
+      return res.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+)
+
+export const needHelp = createAsyncThunk(
+  "auth/feedback",async (credentials, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const persistedToken = state.auth.token;
+
+     if (persistedToken === null) {
+      return thunkAPI.rejectWithValue('Unable to fetch user');
+     }
+    try {
+      setAuthHeader(persistedToken);
+      const res = await axios.post('/feedback/sendFeedback', credentials);
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
