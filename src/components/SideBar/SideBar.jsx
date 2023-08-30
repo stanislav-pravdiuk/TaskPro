@@ -8,6 +8,7 @@ import icon from '../../components/iconSvg/icon.svg';
 import { LogoIcon, PlusIcon, HelpIcon, LogoutIcon } from './Sidebar.styled';
 import { useGetBoardsQuery, useAddBoardMutation } from 'redux/boards/boardsApi';
 import { NavLink, useLocation } from 'react-router-dom';
+import BtnBoardActive from './btnBoard/BtnBoardActive';
 
 const SideBar = ({ active, onClick }) => {
   const drawerWidth = 260;
@@ -106,6 +107,7 @@ const SideBar = ({ active, onClick }) => {
           </PlusIcon>
         </Button>
       </Box>
+      <BtnBoardActive/>
       {data &&
         data.map(board => {
           return (
