@@ -16,20 +16,20 @@ import { needHelp } from 'redux/auth/authOperations';
 
 const validationSchema = Yup.object().shape({
     email: Yup.string().email('Invalid email').required('Email is required'),
-    comment: Yup.string().min(7).max(230).required('Comment is required'),
+    message: Yup.string().min(7).max(230).required('Comment is required'),
 });
 const initialValues = {
     email: '',
-    comment: '',
+    message: '',
 };
 
 const NeedHelpModal = ({ closeModal }) => {
     const dispatch = useDispatch();
 
     const handleSubmit = (values, { resetForm }) => {
-        const { email, comment } = values;
-        const updateDate = { email, comment };
-        dispatch(needHelp(updateDate));
+        const { email, message } = values;
+        const credentials = { email, message };
+        dispatch(needHelp(credentials));
         resetForm();
         closeModal();
     };
@@ -53,13 +53,13 @@ const NeedHelpModal = ({ closeModal }) => {
                             placeholder="Email address "
                         />
 
-                        <ErrorSection name="comment" component="div" />
+                        <ErrorSection name="message" component="div" />
 
                         <Textarea
                             component="textarea"
                             type="text"
-                            id="comment"
-                            name="comment"
+                            id="message"
+                            name="message"
                             placeholder="Comment"
                         />
                     </FormWrapper>

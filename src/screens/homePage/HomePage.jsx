@@ -3,6 +3,7 @@ import Sidebar from '../../components/SideBar/SideBar';
 import { useEffect, useState } from 'react';
 import ScreensPage from 'components/ScreensPage/ScreensPage';
 
+
 const HomePage = () => {
   const [menuActive, setMenuActive] = useState(false);
 
