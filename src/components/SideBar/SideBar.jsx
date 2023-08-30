@@ -12,12 +12,12 @@ import { NavLink, useLocation } from 'react-router-dom';
 const SideBar = ({ active, onClick }) => {
   const drawerWidth = 260;
 
-  const { data = [], refetch } = useGetBoardsQuery();
+  const { data = []} = useGetBoardsQuery();
 
   const location = useLocation();
-  const routeName = location.pathname.includes('/:boardName')
-    ? ''
-    : ':boardName/';
+  // const routeName = location.pathname.includes('/:boardName')
+  //   ? ''
+  //   : ':boardName/';
 
   const [addBoard] = useAddBoardMutation();
 

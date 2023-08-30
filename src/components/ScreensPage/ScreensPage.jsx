@@ -3,7 +3,6 @@ import HeaderDashboard from './HeaderDashboard/HeaderDashboard';
 import MainDashboard from './MainDashboard/MainDashboard';
 import { Container } from './ScreensPage.styled';
 import { useParams } from 'react-router-dom';
-// import BtnAdd from './btnAdd/BtnAdd';
 
 const ScreensPage = () => {
   const { boardName } = useParams();

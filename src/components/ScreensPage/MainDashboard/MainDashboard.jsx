@@ -14,7 +14,7 @@ const MainDashboard = ({ columns }) => {
   const btnColor2 = '#FFFFFF';
 
   const [addCard] = useAddCardMutation();
-  const [addColumn, result] = useAddColumnMutation();
+  const [addColumn] = useAddColumnMutation();
 
   const addNewColumn = () => {
     const data = { title: 'NewColumn1' };
