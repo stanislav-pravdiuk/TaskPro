@@ -18,12 +18,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
 
   ::-webkit-scrollbar {
-    background-color: rgba(255, 255, 255, 0.1);
-    width: 8px;
+    background-color: #ffffff;
+    height: 12px;
   }
 
   ::-webkit-scrollbar-thumb {
-    background-color: #E8E8E8;
+    background-color: #e8e8e8;
     border-radius: 12px;
   }
 }
@@ -39,13 +39,14 @@ code {
   margin: 0;
 }
 
-button {
+button, a {
   border: none;
   font: inherit;
   color: inherit;
   background-color: transparent;
   cursor: pointer;
   padding: 0;
+  text-decoration: none;
 }
 p {
   margin: 0;

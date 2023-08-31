@@ -220,17 +220,20 @@ export const BtnCloseBlack = () => {
 };
 
 
-export const BtnFilter= () => {
+export const BtnFilter = ({ color }) => {
   return (
     <ButtonFilter>
       <ButtonFilterThumb>
-        <ButtonFilterIcon>
+        <ButtonFilterIcon
+          style={{ stroke: `${color}` }}>
           <ButtonFilterSvg
-            href={icon + '#icon-filter'}
-          ></ButtonFilterSvg>
+            href={icon + '#icon-filter'}>
+          </ButtonFilterSvg>
         </ButtonFilterIcon>
       </ButtonFilterThumb>
-      <ButtonFilterText>Filters</ButtonFilterText>
+      <ButtonFilterText style={{ color: color }}>
+        Filters
+      </ButtonFilterText>
     </ButtonFilter>
   );
 };

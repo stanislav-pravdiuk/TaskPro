@@ -23,18 +23,16 @@ margin: 0;
 `
 export const IconsBox = styled.div`
 display: flex;
-// background:tomato;
-// margin-left: 215px;
 justify-content: flex-end;
 `
 export const Edit = styled.svg`
 width: 16px;
 height: 16px;
-color:#16161680;
+stroke:#16161680;
 margin-right: 8px;
 `
 export const Delete = styled.svg`
 width: 16px;
 height: 16px;
-color:#16161680;
+stroke:#16161680;
 `
