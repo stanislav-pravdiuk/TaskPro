@@ -15,14 +15,11 @@ import {
   RadioButton,
 } from './NewBoardForm.styled';
 import BtnAdd from 'components/ScreensPage/btnAdd/BtnAdd.jsx';
-import { useAddBoardMutation } from 'redux/boards/boardsApi';
 
-const NewBoardForm = ({ closeModal, formTitle, btnText, children }) => {
+const NewBoardForm = ({ formTitle, btnText, handleSubmit, children }) => {
   const [title, setTitle] = useState();
   const [icon, setIcon] = useState();
-  const [bgImage, setBgImage] = useState(null);
-
-  const [addBoard] = useAddBoardMutation();
+  const [background, setbackground] = useState();
 
   const inputTitleHandler = e => {
     setTitle(e.target.value);
@@ -33,20 +30,19 @@ const NewBoardForm = ({ closeModal, formTitle, btnText, children }) => {
   };
 
   const BgImageChangeHandler = data => {
-    setBgImage(data);
+    setbackground(data);
   };
 
-  const handleSubmit = e => {
+  const formSubmit = e => {
     e.preventDefault();
 
-    const data = { title, icon, background: { ...bgImage } };
+    const data = { title, icon, background };
 
-    addBoard({ data });
-    closeModal();
+    handleSubmit(data, formTitle);
   };
 
   return (
-    <FormContainer onSubmit={handleSubmit}>
+    <FormContainer onSubmit={formSubmit}>
       <Title>{formTitle}</Title>
       <Input
         type="text"
