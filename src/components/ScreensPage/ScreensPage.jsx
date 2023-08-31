@@ -8,6 +8,8 @@ const ScreensPage = () => {
   const { boardName } = useParams();
   const { data = {} } = useGetBoardByIdQuery(boardName);
 
+  console.log(data);
+
   return (
     <Container>
       <HeaderDashboard boardName={data.title} />
