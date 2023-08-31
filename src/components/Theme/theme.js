@@ -10,19 +10,69 @@ const dark = createTheme({
       main: '#757575',
     },
   },
-});
-
-const light = createTheme({
-  palette: {
-    type: 'light',
-    primary: {
-      main: '#1976d2',
+  typography: {
+    fontFamily: 'Arial, sans-serif',
+    h1: {
+      fontSize: '2.5rem',
+      fontWeight: 600,
+      marginBottom: '1rem',
     },
-    secondary: {
-      main: '#f50057',
+    h2: {
+      fontSize: '2rem',
+      fontWeight: 500,
+      marginBottom: '0.8rem',
+    },
+    body1: {
+      fontSize: '1rem',
+      lineHeight: 1.5,
+    },
+  },
+  overrides: {
+    MuiButton: {
+      root: {
+        borderRadius: 8,
+        textTransform: 'none',
+      },
     },
   },
 });
+
+const light = createTheme({
+    palette: {
+      type: 'light',
+      primary: {
+        main: '#000000',
+      },
+      secondary: {
+        main: '#757575',
+      },
+    },
+    typography: {
+      fontFamily: 'Poppins, Arial, sans-serif',
+      h1: {
+        fontSize: '2.5rem',
+        fontWeight: 600,
+        marginBottom: '1rem',
+      },
+      h2: {
+        fontSize: '2rem',
+        fontWeight: 500,
+        marginBottom: '0.8rem',
+      },
+      body1: {
+        fontSize: '1rem',
+        lineHeight: 1.5,
+      },
+    },
+    overrides: {
+      MuiButton: {
+        root: {
+          borderRadius: 8,
+          textTransform: 'none',
+        },
+      },
+    },
+  });
 
 export const violet = createTheme({
   palette: {
@@ -36,9 +86,8 @@ export const violet = createTheme({
   },
 });
 
-
 export const theme = {
-    light,
-    dark,
-    violet
-}
+  light,
+  dark,
+  violet,
+};
