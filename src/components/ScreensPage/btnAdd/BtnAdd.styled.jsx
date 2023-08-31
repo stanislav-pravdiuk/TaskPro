@@ -15,6 +15,7 @@ export const Container = styled.button`
 export const PlusIcon = styled.svg`
   width: 14px;
   height: 14px;
+  stroke:#FFFFFF;
 `;
 
 export const TitleButton = styled.p`

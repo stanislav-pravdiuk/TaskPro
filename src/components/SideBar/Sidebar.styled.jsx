@@ -28,6 +28,8 @@ export const LogoutIcon = styled.svg`
 
 export const BoardsContainer = styled.div`
   position: relative;
+
+  
 `;
 
 export const BoardsList = styled.ul`
@@ -40,6 +42,12 @@ export const BoardsList = styled.ul`
   list-style: none;
   margin: 0;
   padding: 0;
+
+  // background-color: tomato;
+
+  min-height: 126px;
+  max-height: 226px;
+  overflow-y: auto;
 `;
 
 export const BoardItem = styled.li`
