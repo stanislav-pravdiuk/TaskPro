@@ -10,16 +10,16 @@ import {
   Text,
   Icon,
   BgColor,
-  Button,
   IconList,
   BgList,
   RadioButton,
 } from './NewBoardForm.styled';
+import BtnAdd from 'components/ScreensPage/btnAdd/BtnAdd.jsx';
 
-const NewBoardForm = () => {
+const NewBoardForm = ({ formTitle, btnText, handleSubmit, children }) => {
   const [title, setTitle] = useState();
   const [icon, setIcon] = useState();
-  const [bgImage, setBgImage] = useState();
+  const [background, setbackground] = useState();
 
   const inputTitleHandler = e => {
     setTitle(e.target.value);
@@ -29,19 +29,21 @@ const NewBoardForm = () => {
     setIcon(e.target.value);
   };
 
-  const BgImageChangeHandler = e => {
-    setBgImage(e.target.value);
+  const BgImageChangeHandler = data => {
+    setbackground(data);
   };
 
-  const handleSubmit = e => {
+  const formSubmit = e => {
     e.preventDefault();
-    const data = { title, icon, bgImage };
-    console.log(data);
+
+    const data = { title, icon, background };
+
+    handleSubmit(data, formTitle);
   };
 
   return (
-    <FormContainer onSubmit={handleSubmit}>
-      <Title>New board</Title>
+    <FormContainer onSubmit={formSubmit}>
+      <Title>{formTitle}</Title>
       <Input
         type="text"
         placeholder="Title"
@@ -159,22 +161,31 @@ const NewBoardForm = () => {
 
       <Text>Background</Text>
       <BgList>
+        <BgColor>
+          <label>
+            <RadioButton
+              type="radio"
+              name="bgImage"
+              onChange={() => BgImageChangeHandler(null)}
+            />
+            <img src={images[0].min} alt="bgImage" />
+          </label>
+        </BgColor>
         {images.map(image => (
-          <BgColor>
+          <BgColor key={image.min}>
             <label>
               <RadioButton
                 type="radio"
                 name="bgImage"
-                value={image.min}
-                onChange={e => BgImageChangeHandler(e)}
+                onChange={() => BgImageChangeHandler(image)}
               />
               <img src={image.min} alt="bgImage" />
             </label>
           </BgColor>
         ))}
       </BgList>
-
-      <Button type="submit">Create</Button>
+      {children}
+      <BtnAdd btnTitle={btnText} btnColor={'#BEDBB0'} />
     </FormContainer>
   );
 };

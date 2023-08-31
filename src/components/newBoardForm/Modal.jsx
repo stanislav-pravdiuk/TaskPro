@@ -3,7 +3,7 @@ import { Button, Modal, ModalClose, Sheet, Typography } from '@mui/joy';
 import NewBoardForm from './NewBoardForm';
 
 const ModalComponent = () => {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
 
   return (
     <>

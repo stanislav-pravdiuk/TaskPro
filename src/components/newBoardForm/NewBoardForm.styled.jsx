@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 const FormContainer = styled.form`
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -77,9 +78,14 @@ const BgColor = styled.li`
 const RadioButton = styled.input`
   appearance: none;
   position: absolute;
+
+  &:checked + ${BgColor} {
+    transform: scale(3);
+  }
 `;
 
 const Button = styled.button`
+  position: relative;
   width: 100%;
   height: 49px;
   padding: 0px;
@@ -93,6 +99,7 @@ const Button = styled.button`
   border-radius: 8px;
   border: 1px solid #bedbb0;
   cursor: pointer;
+
 `;
 
 export {

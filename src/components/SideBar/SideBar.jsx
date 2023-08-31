@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState } from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
 import { Box, Button, Typography, Drawer, Link } from '@mui/material';
 import cactus from '../../images/cactus.png';
@@ -19,30 +19,62 @@ import {
   Delete,
   Edit,
   TitleBox,
+  Title,
+  IconButton,
 } from './Sidebar.styled';
-import { useGetBoardsQuery, useAddBoardMutation } from 'redux/boards/boardsApi';
-import { useLocation } from 'react-router-dom';
+import { useGetBoardsQuery } from 'redux/boards/boardsApi';
+import { useLocation, useParams } from 'react-router-dom';
 
+import NewBoardForm from 'components/newBoardForm/NewBoardForm';
+import Modal from '@mui/joy/Modal';
+import ModalClose from '@mui/joy/ModalClose';
 
+import {
+  useAddBoardMutation,
+  useUpdateBoardMutation,
+  useDeleteBoardMutation,
+} from 'redux/boards/boardsApi';
 
 const SideBar = ({ active, onClick }) => {
+  const [openAddModal, setOpenAddModal] = useState(false);
+  const [openEditModal, setOpenEditModal] = useState(false);
   const drawerWidth = 260;
 
   const { data = [] } = useGetBoardsQuery();
 
   const location = useLocation();
+  const { boardName } = useParams();
 
   const [addBoard] = useAddBoardMutation();
+  const [updateBoard] = useUpdateBoardMutation();
+  const [deleteBoard] = useDeleteBoardMutation();
 
-  console.log(data);
-  
+  const closeAddModal = () => {
+    setOpenAddModal(false);
+  };
 
-  const addNewBoard = () => {
-    const data = {
-      title: 'New Board3',
-    };
+  const closeEditModal = () => {
+    setOpenEditModal(false);
+  };
 
-    addBoard(data);
+  const handleSubmit = (data, formTitle) => {
+    const boardId = boardName;
+
+    if (formTitle === 'New board') {
+      addBoard({ data });
+      closeAddModal();
+      return;
+    }
+
+    if (formTitle === 'Edit board') {
+      updateBoard({ boardId, data });
+      closeEditModal();
+      return;
+    }
+  };
+
+  const deleteBoardHanlder = boardId => {
+    deleteBoard({ boardId });
   };
 
   const drawerContent = (
@@ -105,7 +137,7 @@ const SideBar = ({ active, onClick }) => {
           Create a new board
         </Typography>
         <Button
-          onClick={addNewBoard}
+          onClick={() => setOpenAddModal(true)}
           sx={{
             backgroundColor: '#BEDBB0',
             padding: '8px 10px',
@@ -134,26 +166,31 @@ const SideBar = ({ active, onClick }) => {
                     state={{ from: location }}
                   >
                     <TitleBox>
-                    <IconTitle style={{ fill: 'red' }} >
-                      <use href={icon + '#icon-project'}></use>
-                    </IconTitle>
-                      {board.title}
+                      <IconTitle>
+                        <use href={icon + '#icon-Project'}></use>
+                      </IconTitle>
+                      <Title>{board.title}</Title>
                     </TitleBox>
                     {isSelected && (
                       <IconsBox>
-                      <button type="button">
-                        <Edit>
-                          <use href={icon + '#icon-pencil-01'}></use>
-                        </Edit>
-                      </button>
-                      <button type="button">
-                        <Delete>
-                          <use href={icon + '#icon-trash-04'}></use>
-                        </Delete>
-                      </button>
-                    </IconsBox>
-                    ) }
-                    
+                        <IconButton
+                          type="button"
+                          onClick={() => setOpenEditModal(true)}
+                        >
+                          <Edit>
+                            <use href={icon + '#icon-pencil-01'}></use>
+                          </Edit>
+                        </IconButton>
+                        <IconButton
+                          type="button"
+                          onClick={() => deleteBoardHanlder(board._id)}
+                        >
+                          <Delete>
+                            <use href={icon + '#icon-trash-04'}></use>
+                          </Delete>
+                        </IconButton>
+                      </IconsBox>
+                    )}
                   </BoardLink>
                 </BoardItem>
               );
@@ -327,6 +364,52 @@ const SideBar = ({ active, onClick }) => {
       >
         {drawerContent}
       </Drawer>
+      <Modal
+        sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+        open={openAddModal}
+        onClose={() => setOpenAddModal(false)}
+      >
+        <div>
+          <NewBoardForm
+            closeModal={closeAddModal}
+            formTitle={'New board'}
+            btnText={'Create'}
+            handleSubmit={handleSubmit}
+          >
+            <ModalClose
+              sx={{
+                position: 'absolute',
+                top: '14px',
+                right: '14px',
+                zIndex: 1,
+              }}
+            />
+          </NewBoardForm>
+        </div>
+      </Modal>
+      <Modal
+        sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+        open={openEditModal}
+        onClose={() => setOpenEditModal(false)}
+      >
+        <div>
+          <NewBoardForm
+            closeModal={closeEditModal}
+            formTitle={'Edit board'}
+            btnText={'Edit'}
+            handleSubmit={handleSubmit}
+          >
+            <ModalClose
+              sx={{
+                position: 'absolute',
+                top: '14px',
+                right: '14px',
+                zIndex: 1,
+              }}
+            />
+          </NewBoardForm>
+        </div>
+      </Modal>
     </Box>
   );
 };
