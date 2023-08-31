@@ -52,3 +52,13 @@ export const ButtonWrapper = styled.div`
  align-items: center;
  cursor: pointer; 
 `;
+
+export const ChevronIcon = styled.svg`
+  width: 16px;
+  height: 16px;
+  background-color: transparent;
+  color: inherit;
+  &:hover {
+    fill: #BEDBB0;
+  }
+`;

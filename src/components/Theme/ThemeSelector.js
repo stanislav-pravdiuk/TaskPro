@@ -6,9 +6,9 @@ import {
   DropdownList,
   DropdownItem,
   ButtonWrapper,
+  ChevronIcon,
 } from './ThemeSelector.styled';
-import { ReactComponent as ChevronSVG } from './icon_LightVioletChevronDown.svg';
-import { Button } from '@mui/material';
+import icon from '../iconSvg/icon.svg';
 
 export const ThemeSelector = ({ currentTheme, handleThemeChange }) => {
   const themeOptions = ['Light', 'Dark', 'Violet'];
@@ -29,11 +29,10 @@ export const ThemeSelector = ({ currentTheme, handleThemeChange }) => {
     <ThemeSelectWrapper>
       <DropdownContainer>
         <ButtonWrapper onClick={toggleDropdown}>
-          <Button
-            color='primary'
-          >Test</Button>
           <DropdownButton>Theme</DropdownButton>
-          <ChevronSVG />
+          <ChevronIcon>
+            <use href={icon + '#chevron-down'}></use>
+          </ChevronIcon>
         </ButtonWrapper>
         {isOpen && (
           <DropdownList>

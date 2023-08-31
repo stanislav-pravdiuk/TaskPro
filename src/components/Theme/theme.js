@@ -2,13 +2,18 @@ const { createTheme } = require('@mui/material');
 
 const dark = createTheme({
   palette: {
-    type: 'dark',
+    mode: 'dark',
     primary: {
       main: '#000000',
     },
     secondary: {
       main: '#757575',
     },
+    text: {
+        primary: '#ffffff',
+        secondary: 'rgba(22,22,22,0.8)',
+        disabled: 'rgba(22,22,22,0.5)',
+    }
   },
   typography: {
     fontFamily: 'Arial, sans-serif',
@@ -39,9 +44,9 @@ const dark = createTheme({
 
 const light = createTheme({
     palette: {
-      type: 'light',
+      mode: 'light',
       primary: {
-        main: 'green',
+        main: '#2c2c2c',
       },
       secondary: {
         main: '#757575',
@@ -76,7 +81,7 @@ const light = createTheme({
 
 export const violet = createTheme({
   palette: {
-    type: 'dark',
+    mode: 'dark',
     primary: {
       main: '#6200ea',
     },
