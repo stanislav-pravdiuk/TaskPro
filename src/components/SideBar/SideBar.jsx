@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState } from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
 import { Box, Button, Typography, Drawer, Link } from '@mui/material';
 import cactus from '../../images/cactus.png';
@@ -21,29 +21,23 @@ import {
   TitleBox,
   Title,
 } from './Sidebar.styled';
-import { useGetBoardsQuery, useAddBoardMutation } from 'redux/boards/boardsApi';
+import { useGetBoardsQuery } from 'redux/boards/boardsApi';
 import { useLocation } from 'react-router-dom';
 
-
+import NewBoardForm from 'components/newBoardForm/NewBoardForm';
+import Modal from '@mui/joy/Modal';
+import ModalClose from '@mui/joy/ModalClose';
 
 const SideBar = ({ active, onClick }) => {
+  const [open, setOpen] = useState(false);
   const drawerWidth = 260;
 
   const { data = [] } = useGetBoardsQuery();
 
   const location = useLocation();
 
-  const [addBoard] = useAddBoardMutation();
-
-  console.log(data);
-  
-
-  const addNewBoard = () => {
-    const data = {
-      title: 'New Board3',
-    };
-
-    addBoard(data);
+  const closeModal = () => {
+    setOpen(false);
   };
 
   const drawerContent = (
@@ -106,7 +100,7 @@ const SideBar = ({ active, onClick }) => {
           Create a new board
         </Typography>
         <Button
-          onClick={addNewBoard}
+          onClick={() => setOpen(true)}
           sx={{
             backgroundColor: '#BEDBB0',
             padding: '8px 10px',
@@ -142,19 +136,18 @@ const SideBar = ({ active, onClick }) => {
                     </TitleBox>
                     {isSelected && (
                       <IconsBox>
-                      <button type="button">
-                        <Edit>
-                          <use href={icon + '#icon-pencil-01'}></use>
-                        </Edit>
-                      </button>
-                      <button type="button">
-                        <Delete>
-                          <use href={icon + '#icon-trash-04'}></use>
-                        </Delete>
-                      </button>
-                    </IconsBox>
-                    ) }
-                    
+                        <button type="button">
+                          <Edit>
+                            <use href={icon + '#icon-pencil-01'}></use>
+                          </Edit>
+                        </button>
+                        <button type="button">
+                          <Delete>
+                            <use href={icon + '#icon-trash-04'}></use>
+                          </Delete>
+                        </button>
+                      </IconsBox>
+                    )}
                   </BoardLink>
                 </BoardItem>
               );
@@ -328,6 +321,29 @@ const SideBar = ({ active, onClick }) => {
       >
         {drawerContent}
       </Drawer>
+      <Modal
+        sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+        open={open}
+        onClose={() => setOpen(false)}
+      >
+        <div>
+          <NewBoardForm
+            closeModal={closeModal}
+            formTitle={'New board'}
+            btnText={'Create'}
+            clo
+          >
+            <ModalClose
+              sx={{
+                position: 'absolute',
+                top: '14px',
+                right: '14px',
+                zIndex: 1,
+              }}
+            />
+          </NewBoardForm>
+        </div>
+      </Modal>
     </Box>
   );
 };
