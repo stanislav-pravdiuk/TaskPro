@@ -1,11 +1,13 @@
+import { useState } from 'react';
 import TitleColumn from '../titleColumn/TitleColumn';
 import Card from '../card/Card';
 import { Container, Column, GalleryCards } from './MainDashboard.styled';
 import BtnAdd from '../btnAdd/BtnAdd';
 import {
   useAddCardMutation,
-  useAddColumnMutation,
+  // useAddColumnMutation,
 } from 'redux/boards/boardsApi';
+import MainModal from 'components/MainModal/MainModal';
 
 const MainDashboard = ({ columns }) => {
   const btnTitle = 'Add another card';
@@ -14,15 +16,17 @@ const MainDashboard = ({ columns }) => {
   const btnColor2 = '#FFFFFF';
 
   const [addCard] = useAddCardMutation();
-  const [addColumn] = useAddColumnMutation();
+  // const [addColumn] = useAddColumnMutation();
 
-  const addNewColumn = () => {
-    const data = { title: 'NewColumn1' };
+  const [open, setOpen] = useState(false);
 
-    const boardId = '64ee053b879ad176a9c27e83';
+  // const addNewColumn = () => {
+  //   const data = { title: 'NewColumn1' };
 
-    addColumn({ boardId, data });
-  };
+  //   const boardId = '64ee053b879ad176a9c27e83';
+
+  //   addColumn({ boardId, data });
+  // };
 
   const addCardInColumn = card => {
     const data = {
@@ -36,6 +40,10 @@ const MainDashboard = ({ columns }) => {
     const boardId = '64ee053b879ad176a9c27e83';
 
     addCard({ boardId, data });
+  };
+
+  const closeModal = () => {
+    return setOpen(false);
   };
 
   return (
@@ -74,10 +82,13 @@ const MainDashboard = ({ columns }) => {
           );
         })}
       <BtnAdd
-        onClick={addNewColumn}
+        onClick={() => setOpen(true)}
         btnTitle={btnTitle2}
         btnColor={btnColor2}
       />
+      <MainModal modalIsOpen={open} closeModal={closeModal}>
+        <p>Hello</p>
+      </MainModal>
     </Container>
   );
 };
