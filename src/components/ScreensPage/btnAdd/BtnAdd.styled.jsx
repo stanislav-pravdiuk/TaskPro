@@ -5,9 +5,9 @@ export const Container = styled.button`
   max-width: 334px;
   height: 56px;
   border-radius: 8px;
-  // background: #BEDBB0;
+
   padding: 20px 18px;
-  margin-bottom: 8px;
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -15,7 +15,7 @@ export const Container = styled.button`
 export const PlusIcon = styled.svg`
   width: 14px;
   height: 14px;
-  stroke:#FFFFFF;
+  stroke: #ffffff;
 `;
 
 export const TitleButton = styled.p`

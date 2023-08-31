@@ -1,4 +1,4 @@
-import { Container, Title, IconsBox, Edit, Delete } from './TitleColumn.styled';
+import { Container, Title, IconsBox, Icon } from './TitleColumn.styled';
 import icon from '../../iconSvg/icon.svg';
 
 import {
@@ -35,17 +35,17 @@ const TitleColumn = ({ title, owner, columnId }) => {
 
       <IconsBox>
         <button type="button" onClick={updateColumnHandler}>
-          <Edit>
+          <Icon>
             <use href={icon + '#icon-pencil-01'}></use>
-          </Edit>
+          </Icon>
         </button>
         <button
           type="button"
           onClick={() => deleteColumnHandler(owner, columnId)}
         >
-          <Delete>
+          <Icon>
             <use href={icon + '#icon-trash-04'}></use>
-          </Delete>
+          </Icon>
         </button>
       </IconsBox>
     </Container>
