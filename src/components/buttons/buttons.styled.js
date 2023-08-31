@@ -417,9 +417,9 @@ const ButtonFilter = styled.button`
   align-items: center;
   width: 64px;
   height:20px;
-  background-color: transparent;
-  border: none;
-  opacity: 80%;
+  // background-color: transparent;
+  // border: none;
+  // opacity: 80%;
 `;
 const ButtonFilterThumb = styled.div`
   width: 40px;
@@ -432,15 +432,11 @@ const ButtonFilterThumb = styled.div`
 `;
 
 const ButtonFilterText = styled.p`
-  font-style: normal;
-  font-family: Poppins;
-  font-weight:400;
-  font-size: 14px;
-  line-height: 21px;
-  text-align: center;
-  letter-spacing: -0.02em;
-  color: white;
- 
+font-family: Poppins;
+font-size: 14px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
 `;
 
 const ButtonFilterIcon = styled.svg`
@@ -454,7 +450,6 @@ const ButtonFilterIcon = styled.svg`
 const ButtonFilterSvg = styled.use`
   width: 16px;
   height: 16px;
-
 `;
 
 // _________________
