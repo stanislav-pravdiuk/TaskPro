@@ -16,9 +16,14 @@ const MainModal = ({ modalIsOpen, closeModal, children }) => {
     <Modal
       open={open}
       onClose={closeModal}
-      sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+      sx={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        boxShadow: '0 1px 3px 0 rgba(0, 0, 0, 0.1)',
+      }}
     >
-      <div>{children}</div>
+      {children}
     </Modal>
   );
 };

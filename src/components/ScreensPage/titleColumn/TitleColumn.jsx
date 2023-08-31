@@ -1,23 +1,34 @@
 import { Container, Title, IconsBox, Icon } from './TitleColumn.styled';
 import icon from '../../iconSvg/icon.svg';
-
+import { useState } from 'react';
 import {
   useUpdateColumnMutation,
   useDeleteColumnMutation,
 } from 'redux/boards/boardsApi';
 
+import MainModal from 'components/MainModal/MainModal';
+import ColumnForm from 'components/columnCard/ColumnCard';
+import { useParams } from 'react-router-dom';
+
 const TitleColumn = ({ title, owner, columnId }) => {
+  const [open, setOpen] = useState(false);
+
   const [updateColumn] = useUpdateColumnMutation();
   const [deleteColumn] = useDeleteColumnMutation();
 
-  const updateColumnHandler = () => {
+  const closeModal = () => {
+    setOpen(false);
+  };
+
+  const updateColumnHandler = value => {
     const data = {
-      _id: '64ee346e4037699a79667c06',
-      owner: '64ee053b879ad176a9c27e83',
-      title: 'NewColumnName2',
+      _id: columnId,
+      owner,
+      title: value.title,
     };
 
     updateColumn({ data });
+    closeModal();
   };
 
   const deleteColumnHandler = (owner, columnId) => {
@@ -34,7 +45,7 @@ const TitleColumn = ({ title, owner, columnId }) => {
       <Title>{title}</Title>
 
       <IconsBox>
-        <button type="button" onClick={updateColumnHandler}>
+        <button type="button" onClick={() => setOpen(true)}>
           <Icon>
             <use href={icon + '#icon-pencil-01'}></use>
           </Icon>
@@ -47,6 +58,13 @@ const TitleColumn = ({ title, owner, columnId }) => {
             <use href={icon + '#icon-trash-04'}></use>
           </Icon>
         </button>
+        <MainModal modalIsOpen={open} closeModal={closeModal}>
+          <ColumnForm
+            formTitle={'Edit column'}
+            btnText={'Edit'}
+            onSubmit={updateColumnHandler}
+          />
+        </MainModal>
       </IconsBox>
     </Container>
   );
