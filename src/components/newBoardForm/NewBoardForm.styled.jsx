@@ -54,7 +54,7 @@ const IconList = styled.ul`
 const Icon = styled.svg`
   height: 18px;
   width: 18px;
-  stroke: #161616;
+  stroke: #16161680;
 `;
 
 const BgList = styled.ul`
