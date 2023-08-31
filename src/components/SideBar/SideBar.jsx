@@ -26,8 +26,7 @@ import { useGetBoardsQuery } from 'redux/boards/boardsApi';
 import { useLocation, useParams } from 'react-router-dom';
 
 import NewBoardForm from 'components/newBoardForm/NewBoardForm';
-import Modal from '@mui/joy/Modal';
-import ModalClose from '@mui/joy/ModalClose';
+import MainModal from 'components/MainModal/MainModal';
 
 import {
   useAddBoardMutation,
@@ -364,52 +363,22 @@ const SideBar = ({ active, onClick }) => {
       >
         {drawerContent}
       </Drawer>
-      <Modal
-        sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
-        open={openAddModal}
-        onClose={() => setOpenAddModal(false)}
-      >
+      <MainModal modalIsOpen={openAddModal} closeModal={closeAddModal}>
+        <NewBoardForm
+          formTitle={'New board'}
+          btnText={'Create'}
+          handleSubmit={handleSubmit}
+        ></NewBoardForm>
+      </MainModal>
+      <MainModal modalIsOpen={openEditModal} closeModal={closeEditModal}>
         <div>
           <NewBoardForm
-            closeModal={closeAddModal}
-            formTitle={'New board'}
-            btnText={'Create'}
-            handleSubmit={handleSubmit}
-          >
-            <ModalClose
-              sx={{
-                position: 'absolute',
-                top: '14px',
-                right: '14px',
-                zIndex: 1,
-              }}
-            />
-          </NewBoardForm>
-        </div>
-      </Modal>
-      <Modal
-        sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
-        open={openEditModal}
-        onClose={() => setOpenEditModal(false)}
-      >
-        <div>
-          <NewBoardForm
-            closeModal={closeEditModal}
             formTitle={'Edit board'}
             btnText={'Edit'}
             handleSubmit={handleSubmit}
-          >
-            <ModalClose
-              sx={{
-                position: 'absolute',
-                top: '14px',
-                right: '14px',
-                zIndex: 1,
-              }}
-            />
-          </NewBoardForm>
+          ></NewBoardForm>
         </div>
-      </Modal>
+      </MainModal>
     </Box>
   );
 };

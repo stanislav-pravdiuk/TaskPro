@@ -14,6 +14,7 @@ import {
   BgList,
   RadioButton,
 } from './NewBoardForm.styled';
+import ModalClose from '@mui/joy/ModalClose';
 import BtnAdd from 'components/ScreensPage/btnAdd/BtnAdd.jsx';
 
 const NewBoardForm = ({ formTitle, btnText, handleSubmit, children }) => {
@@ -43,6 +44,14 @@ const NewBoardForm = ({ formTitle, btnText, handleSubmit, children }) => {
 
   return (
     <FormContainer onSubmit={formSubmit}>
+      <ModalClose
+        sx={{
+          position: 'absolute',
+          top: '14px',
+          right: '14px',
+          zIndex: 1,
+        }}
+      />
       <Title>{formTitle}</Title>
       <Input
         type="text"
