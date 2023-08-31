@@ -27,11 +27,13 @@ import { useLocation } from 'react-router-dom';
 import NewBoardForm from 'components/newBoardForm/NewBoardForm';
 import Modal from '@mui/joy/Modal';
 import ModalClose from '@mui/joy/ModalClose';
+import { useDispatch } from 'react-redux';
+import { logOut } from 'redux/auth/authOperations';
 
 const SideBar = ({ active, onClick }) => {
   const [open, setOpen] = useState(false);
   const drawerWidth = 260;
-
+  const dispatch = useDispatch();
   const { data = [] } = useGetBoardsQuery();
 
   const location = useLocation();
@@ -246,6 +248,7 @@ const SideBar = ({ active, onClick }) => {
         }}
       >
         <Button
+          onClick={() => dispatch(logOut())}
           sx={{
             display: 'flex',
             alignItems: 'center',
