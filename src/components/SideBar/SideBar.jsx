@@ -375,13 +375,11 @@ const SideBar = ({ active, onClick }) => {
         ></NewBoardForm>
       </MainModal>
       <MainModal modalIsOpen={openEditModal} closeModal={closeEditModal}>
-        <div>
-          <NewBoardForm
-            formTitle={'Edit board'}
-            btnText={'Edit'}
-            handleSubmit={handleSubmit}
-          ></NewBoardForm>
-        </div>
+        <NewBoardForm
+          formTitle={'Edit board'}
+          btnText={'Edit'}
+          handleSubmit={handleSubmit}
+        ></NewBoardForm>
       </MainModal>
     </Box>
   );

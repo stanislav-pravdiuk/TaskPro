@@ -17,7 +17,7 @@ import {
 import ModalClose from '@mui/joy/ModalClose';
 import BtnAdd from 'components/ScreensPage/btnAdd/BtnAdd.jsx';
 
-const NewBoardForm = ({ formTitle, btnText, handleSubmit, children }) => {
+const NewBoardForm = ({ formTitle, btnText, handleSubmit }) => {
   const [title, setTitle] = useState();
   const [icon, setIcon] = useState();
   const [background, setbackground] = useState();
@@ -193,7 +193,6 @@ const NewBoardForm = ({ formTitle, btnText, handleSubmit, children }) => {
           </BgColor>
         ))}
       </BgList>
-      {children}
       <BtnAdd btnTitle={btnText} btnColor={'#BEDBB0'} />
     </FormContainer>
   );

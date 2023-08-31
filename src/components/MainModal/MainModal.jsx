@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react';
 import Modal from '@mui/joy/Modal';
-import { fabClasses } from '@mui/material';
 
 const MainModal = ({ modalIsOpen, closeModal, children }) => {
-  const [open, setOpen] = useState(fabClasses);
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     if (modalIsOpen) {
@@ -19,7 +18,7 @@ const MainModal = ({ modalIsOpen, closeModal, children }) => {
       onClose={closeModal}
       sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
     >
-      {children}
+      <div>{children}</div>
     </Modal>
   );
 };
