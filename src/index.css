@@ -39,13 +39,14 @@ code {
   margin: 0;
 }
 
-button {
+button, a {
   border: none;
   font: inherit;
   color: inherit;
   background-color: transparent;
   cursor: pointer;
   padding: 0;
+  text-decoration: none;
 }
 p {
   margin: 0;
