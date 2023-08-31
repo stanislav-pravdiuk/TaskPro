@@ -33,11 +33,18 @@ export const boardsApi = createApi({
       }),
       invalidatesTags: ['Board'],
     }),
+    updateBoard: builder.mutation({
+      query: ({ boardId, data }) => ({
+        url: `board/${boardId}`,
+        method: 'PUT',
+        body: data,
+      }),
+      invalidatesTags: ['Board'],
+    }),
     deleteBoard: builder.mutation({
-      query: boardId => ({
+      query: ({ boardId }) => ({
         url: `board/${boardId}`,
         method: 'DELETE',
-        body: boardId,
       }),
       invalidatesTags: ['Board'],
     }),
@@ -111,6 +118,7 @@ export const {
   useGetBoardsQuery,
   useGetBoardByIdQuery,
   useAddBoardMutation,
+  useUpdateBoardMutation,
   useDeleteBoardMutation,
   useBoardFilterMutation,
   useAddColumnMutation,

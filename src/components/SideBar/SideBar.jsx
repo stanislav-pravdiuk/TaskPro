@@ -22,24 +22,58 @@ import {
   Title,
 } from './Sidebar.styled';
 import { useGetBoardsQuery } from 'redux/boards/boardsApi';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 
 import NewBoardForm from 'components/newBoardForm/NewBoardForm';
 import Modal from '@mui/joy/Modal';
 import ModalClose from '@mui/joy/ModalClose';
-import { useDispatch } from 'react-redux';
-import { logOut } from 'redux/auth/authOperations';
+
+import {
+  useAddBoardMutation,
+  useUpdateBoardMutation,
+  useDeleteBoardMutation,
+} from 'redux/boards/boardsApi';
 
 const SideBar = ({ active, onClick }) => {
-  const [open, setOpen] = useState(false);
+  const [openAddModal, setOpenAddModal] = useState(false);
+  const [openEditModal, setOpenEditModal] = useState(false);
   const drawerWidth = 260;
-  const dispatch = useDispatch();
+
   const { data = [] } = useGetBoardsQuery();
 
   const location = useLocation();
+  const { boardName } = useParams();
 
-  const closeModal = () => {
-    setOpen(false);
+  const [addBoard] = useAddBoardMutation();
+  const [updateBoard] = useUpdateBoardMutation();
+  const [deleteBoard] = useDeleteBoardMutation();
+
+  const closeAddModal = () => {
+    setOpenAddModal(false);
+  };
+
+  const closeEditModal = () => {
+    setOpenEditModal(false);
+  };
+
+  const handleSubmit = (data, formTitle) => {
+    const boardId = boardName;
+
+    if (formTitle === 'New board') {
+      addBoard({ data });
+      closeAddModal();
+      return;
+    }
+
+    if (formTitle === 'Edit board') {
+      updateBoard({ boardId, data });
+      closeEditModal();
+      return;
+    }
+  };
+
+  const deleteBoardHanlder = boardId => {
+    deleteBoard({ boardId });
   };
 
   const drawerContent = (
@@ -102,7 +136,7 @@ const SideBar = ({ active, onClick }) => {
           Create a new board
         </Typography>
         <Button
-          onClick={() => setOpen(true)}
+          onClick={() => setOpenAddModal(true)}
           sx={{
             backgroundColor: '#BEDBB0',
             padding: '8px 10px',
@@ -131,19 +165,25 @@ const SideBar = ({ active, onClick }) => {
                     state={{ from: location }}
                   >
                     <TitleBox>
-                    <IconTitle >
-                      <use href={icon + '#icon-Project'}></use>
+                      <IconTitle>
+                        <use href={icon + '#icon-Project'}></use>
                       </IconTitle>
                       <Title>{board.title}</Title>
                     </TitleBox>
                     {isSelected && (
                       <IconsBox>
-                        <button type="button">
+                        <button
+                          type="button"
+                          onClick={() => setOpenEditModal(true)}
+                        >
                           <Edit>
                             <use href={icon + '#icon-pencil-01'}></use>
                           </Edit>
                         </button>
-                        <button type="button">
+                        <button
+                          type="button"
+                          onClick={() => deleteBoardHanlder(board._id)}
+                        >
                           <Delete>
                             <use href={icon + '#icon-trash-04'}></use>
                           </Delete>
@@ -248,7 +288,6 @@ const SideBar = ({ active, onClick }) => {
         }}
       >
         <Button
-          onClick={() => dispatch(logOut())}
           sx={{
             display: 'flex',
             alignItems: 'center',
@@ -326,15 +365,38 @@ const SideBar = ({ active, onClick }) => {
       </Drawer>
       <Modal
         sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
-        open={open}
-        onClose={() => setOpen(false)}
+        open={openAddModal}
+        onClose={() => setOpenAddModal(false)}
       >
         <div>
           <NewBoardForm
-            closeModal={closeModal}
+            closeModal={closeAddModal}
             formTitle={'New board'}
             btnText={'Create'}
-            clo
+            handleSubmit={handleSubmit}
+          >
+            <ModalClose
+              sx={{
+                position: 'absolute',
+                top: '14px',
+                right: '14px',
+                zIndex: 1,
+              }}
+            />
+          </NewBoardForm>
+        </div>
+      </Modal>
+      <Modal
+        sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+        open={openEditModal}
+        onClose={() => setOpenEditModal(false)}
+      >
+        <div>
+          <NewBoardForm
+            closeModal={closeEditModal}
+            formTitle={'Edit board'}
+            btnText={'Edit'}
+            handleSubmit={handleSubmit}
           >
             <ModalClose
               sx={{
