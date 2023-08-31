@@ -1,68 +1,47 @@
 import styled from 'styled-components';
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
 
-export const ModalOverlay = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-`;
-
-export const ModalContent = styled.div`
+export const FormContainer = styled.div`
   position: relative;
-  background-color: #151515;
-  width: 355px;
-  height: 522px;
+  background-color: #fcfcfc;
+  max-width: 350px;
   padding: 24px;
   border-radius: 8px;
-  border: 1px solid #bedbb080;
 `;
 
 export const ModalTitle = styled.h2`
   margin: 0;
   font-family: Poppins;
   font-size: 18px;
-  color: #ffffff;
+  color: #161616;
 `;
 
 export const Input = styled.input`
   padding: 14px 18px;
-  width: 302px;
+  width: 100%;
   height: 49px;
   margin-top: 24px;
+  margin-bottom: 24px;
   border-radius: 8px;
-  border: 1px solid #bedbb080;
-  background-color: #1f1f1f;
-  color: #ffffff;
+  border: 1px solid #bedbb0;
+  background-color: #fcfcfc;
+  color: #161616;
   font-family: Poppins;
   font-size: 14px;
   font-weight: 400;
   outline: none;
   box-shadow: none;
-
-  &:first-of-type {
-    margin-top: 24px;
-    height: 49px;
-  }
 `;
 
 export const Textarea = styled.textarea`
   resize: none;
   padding: 14px 18px;
-  width: 302px;
+  width: 100%;
   height: 154px;
   margin-top: 14px;
   border-radius: 8px;
-  border: 1px solid #bedbb080;
-  background-color: #1f1f1f;
-  color: #ffffff;
+  border: 1px solid #bedbb0;
+  background-color: #fcfcfc;
+  color: #161616;
   font-family: Poppins;
   font-size: 14px;
   font-weight: 400;
@@ -76,7 +55,7 @@ export const Subtitle = styled.h3`
   font-family: Poppins;
   font-size: 12px;
   font-weight: 400;
-  color: #ffffff;
+  color: #16161680;
 `;
 
 export const Text = styled.p`
@@ -132,25 +111,10 @@ export const ColorOptionLabel = styled.label`
   }
 
   &.gray::before {
-    background-color: #ffffff4d;
+    background-color: #1616164d;
   }
 
   &:active::before {
     border-color: #ffffff;
   }
-`;
-
-export const StyledDatePicker = styled(DatePicker)`
-  //   width: 233px;
-  //   height: 254px;
-  //   padding: 12px;
-  //   font-family: Poppins;
-  //   font-size: 16px;
-  //   border: 1px solid #bedbb0;
-  //   border-radius: 8px;
-  //   background-color: #1f1f1f;
-  width: 20px;
-  height: 20px;
-  border-radius: 10px;
-  cursor: pointer;
 `;
