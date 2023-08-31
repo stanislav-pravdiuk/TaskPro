@@ -77,16 +77,17 @@ export const IconsBox = styled.div`
 export const TransferRight = styled.svg`
   width: 16px;
   height: 16px;
+  stroke: #16161680;
   margin-right: 8px;
 `;
 export const Edit = styled.svg`
   width: 16px;
   height: 16px;
-  color: #16161680;
+  stroke: #16161680;
   margin-right: 8px;
 `;
 export const Delete = styled.svg`
   width: 16px;
   height: 16px;
-  color: #16161680;
+  stroke: #16161680;
 `;
