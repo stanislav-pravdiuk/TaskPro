@@ -33,6 +33,8 @@ import {
   useUpdateBoardMutation,
   useDeleteBoardMutation,
 } from 'redux/boards/boardsApi';
+import { useDispatch } from 'react-redux';
+import { logOut } from 'redux/auth/authOperations';
 
 const SideBar = ({ active, onClick }) => {
   const [openAddModal, setOpenAddModal] = useState(false);
@@ -47,6 +49,7 @@ const SideBar = ({ active, onClick }) => {
   const [addBoard] = useAddBoardMutation();
   const [updateBoard] = useUpdateBoardMutation();
   const [deleteBoard] = useDeleteBoardMutation();
+  const dispatch = useDispatch();
 
   const closeAddModal = () => {
     setOpenAddModal(false);
@@ -288,6 +291,7 @@ const SideBar = ({ active, onClick }) => {
         }}
       >
         <Button
+          onClick={() => dispatch(logOut())}
           sx={{
             display: 'flex',
             alignItems: 'center',
