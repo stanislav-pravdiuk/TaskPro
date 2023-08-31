@@ -19,6 +19,7 @@ import {
   Delete,
   Edit,
   TitleBox,
+  Title,
 } from './Sidebar.styled';
 import { useGetBoardsQuery, useAddBoardMutation } from 'redux/boards/boardsApi';
 import { useLocation } from 'react-router-dom';
@@ -134,10 +135,10 @@ const SideBar = ({ active, onClick }) => {
                     state={{ from: location }}
                   >
                     <TitleBox>
-                    <IconTitle style={{ fill: 'red' }} >
-                      <use href={icon + '#icon-project'}></use>
-                    </IconTitle>
-                      {board.title}
+                    <IconTitle >
+                      <use href={icon + '#icon-Project'}></use>
+                      </IconTitle>
+                      <Title>{board.title}</Title>
                     </TitleBox>
                     {isSelected && (
                       <IconsBox>
