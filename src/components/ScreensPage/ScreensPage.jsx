@@ -16,6 +16,7 @@ const ScreensPage = () => {
       {boardName ? (
         <>
           <HeaderDashboard boardName={data.title} />
+
           <MainDashboard columns={data.columns} />
         </>
       ) : (
