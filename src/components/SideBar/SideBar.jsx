@@ -20,6 +20,7 @@ import {
   Edit,
   TitleBox,
   Title,
+  IconButton,
 } from './Sidebar.styled';
 import { useGetBoardsQuery } from 'redux/boards/boardsApi';
 import { useLocation, useParams } from 'react-router-dom';
@@ -172,22 +173,22 @@ const SideBar = ({ active, onClick }) => {
                     </TitleBox>
                     {isSelected && (
                       <IconsBox>
-                        <button
+                        <IconButton
                           type="button"
                           onClick={() => setOpenEditModal(true)}
                         >
                           <Edit>
                             <use href={icon + '#icon-pencil-01'}></use>
                           </Edit>
-                        </button>
-                        <button
+                        </IconButton>
+                        <IconButton
                           type="button"
                           onClick={() => deleteBoardHanlder(board._id)}
                         >
                           <Delete>
                             <use href={icon + '#icon-trash-04'}></use>
                           </Delete>
-                        </button>
+                        </IconButton>
                       </IconsBox>
                     )}
                   </BoardLink>
