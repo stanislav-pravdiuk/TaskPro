@@ -15,7 +15,7 @@ export const DropdownContainer = styled.div`
     font-size: 14px;
     font-weight: 500;
     line-height: 21px;
-    padding: 10px 20px;
+    padding: 10px 4px 10px 15px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -43,6 +43,12 @@ export const DropdownContainer = styled.div`
     padding: 4px 0 4px 18px;
     cursor: pointer;
     &:hover {
-    background-color: #f2f2f2;
-  }
+    background-color: #f2f2f2;}
+  
   `;
+
+export const ButtonWrapper = styled.div`
+ display: flex;
+ align-items: center;
+ cursor: pointer; 
+`;

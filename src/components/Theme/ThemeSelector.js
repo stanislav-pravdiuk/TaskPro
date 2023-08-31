@@ -5,21 +5,22 @@ import {
   DropdownButton,
   DropdownList,
   DropdownItem,
+  ButtonWrapper,
 } from './ThemeSelector.styled';
+import { ReactComponent as ChevronSVG } from './icon_LightVioletChevronDown.svg';
+import { Button } from '@mui/material';
 
 export const ThemeSelector = ({ currentTheme, handleThemeChange }) => {
-  
-  
   const themeOptions = ['Light', 'Dark', 'Violet'];
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState(themeOptions[0]);
-console.log(selectedOption);
+  // const [selectedOption, setSelectedOption] = useState(themeOptions[0]);
+
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
 
   const handleOptionSelect = option => {
-    setSelectedOption(option);
+    // setSelectedOption(option);
     setIsOpen(false);
     // handleThemeChange(option);
   };
@@ -27,7 +28,13 @@ console.log(selectedOption);
   return (
     <ThemeSelectWrapper>
       <DropdownContainer>
-        <DropdownButton onClick={toggleDropdown}>Theme</DropdownButton>
+        <ButtonWrapper onClick={toggleDropdown}>
+          <Button
+            color='primary'
+          >Test</Button>
+          <DropdownButton>Theme</DropdownButton>
+          <ChevronSVG />
+        </ButtonWrapper>
         {isOpen && (
           <DropdownList>
             {themeOptions.map((option, index) => (
