@@ -4,7 +4,7 @@ export const Container = styled.div`
   background: #f6f6f7;
   min-height: 100vh;
   max-height: 100vh;
-  padding-top: 68px;
-  padding-left: 24px;
+  padding: 68px 24px 0 24px;
+
   margin-left: 260px;
 `;
