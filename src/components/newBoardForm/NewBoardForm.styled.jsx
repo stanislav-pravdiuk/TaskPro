@@ -8,6 +8,7 @@ const FormContainer = styled.form`
   padding: 24px;
   background: #fcfcfc;
   border-radius: 8px;
+  width: 100vw;
   max-width: 350px;
 `;
 
@@ -99,7 +100,6 @@ const Button = styled.button`
   border-radius: 8px;
   border: 1px solid #bedbb0;
   cursor: pointer;
-
 `;
 
 export {
