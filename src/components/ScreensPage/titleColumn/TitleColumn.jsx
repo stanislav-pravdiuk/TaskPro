@@ -8,7 +8,6 @@ import {
 
 import MainModal from 'components/MainModal/MainModal';
 import ColumnForm from 'components/columnCard/ColumnCard';
-import { useParams } from 'react-router-dom';
 
 const TitleColumn = ({ title, owner, columnId }) => {
   const [open, setOpen] = useState(false);
