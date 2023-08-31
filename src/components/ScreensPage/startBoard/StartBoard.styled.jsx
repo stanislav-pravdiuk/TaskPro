@@ -1,11 +1,10 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-background: #e5e5e5;
+background: #f6f6f7;
 min-height: 100vh;
 max-height: 100vh;
-padding-top: 68px;
-margin-left: 260px;
+
 display: flex;
 align-items: center;
 justify-content: center;
