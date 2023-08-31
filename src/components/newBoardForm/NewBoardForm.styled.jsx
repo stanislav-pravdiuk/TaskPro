@@ -63,6 +63,11 @@ const BgList = styled.ul`
   padding: 0;
   margin: 0;
   margin-bottom: 16px;
+  max-width: 256px;
+`;
+
+const Img = styled.img`
+  border-radius: 6px;
 `;
 
 const BgColor = styled.li`
@@ -80,8 +85,14 @@ const RadioButton = styled.input`
   appearance: none;
   position: absolute;
 
-  &:checked + ${BgColor} {
-    transform: scale(3);
+  &:checked + ${Icon} {
+    stroke: #161616;
+  }
+
+  &:checked + ${Img} {
+    transform: scale(1.1);
+    transform: scale(0.95);
+    outline: 1px solid #bedbb0;
   }
 `;
 
@@ -109,6 +120,7 @@ export {
   Text,
   Button,
   Icon,
+  Img,
   BgColor,
   IconList,
   BgList,

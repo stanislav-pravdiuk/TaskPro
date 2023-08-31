@@ -11,6 +11,7 @@ import {
   Input,
   Text,
   Icon,
+  Img,
   BgColor,
   IconList,
   BgList,
@@ -193,7 +194,7 @@ const NewBoardForm = ({ formTitle, btnText, handleSubmit }) => {
                 name="bgImage"
                 onChange={() => BgImageChangeHandler(image)}
               />
-              <img src={image.min} alt="bgImage" />
+              <Img src={image.min} alt="bgImage" />
             </label>
           </BgColor>
         ))}
