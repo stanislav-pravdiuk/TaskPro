@@ -23,7 +23,7 @@ export const Input = styled.input`
   margin-top: 24px;
   margin-bottom: 24px;
   border-radius: 8px;
-  border: 1px solid #bedbb0;
+  border: 1px solid rgba(190, 219, 176, 0.4);
   background-color: #fcfcfc;
   color: #161616;
   font-family: Poppins;
@@ -31,6 +31,10 @@ export const Input = styled.input`
   font-weight: 400;
   outline: none;
   box-shadow: none;
+
+  &:focus {
+    border: 1px solid #bedbb0;
+  }
 `;
 
 export const Textarea = styled.textarea`
@@ -40,7 +44,7 @@ export const Textarea = styled.textarea`
   height: 154px;
   margin-top: 14px;
   border-radius: 8px;
-  border: 1px solid #bedbb0;
+  border: 1px solid rgba(190, 219, 176, 0.4);
   background-color: #fcfcfc;
   color: #161616;
   font-family: Poppins;
@@ -48,6 +52,10 @@ export const Textarea = styled.textarea`
   font-weight: 400;
   outline: none;
   box-shadow: none;
+
+  &:focus {
+    border: 1px solid #bedbb0;
+  }
 `;
 
 export const Subtitle = styled.h3`
