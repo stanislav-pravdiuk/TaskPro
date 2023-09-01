@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import {
   Container,
   Description,
@@ -22,12 +23,42 @@ import {
   useDeleteCardMutation,
 } from 'redux/boards/boardsApi';
 
+import MainModal from 'components/MainModal/MainModal';
+import CardForm from 'components/cardForm/CardForm';
+import { useParams } from 'react-router-dom';
+import DropDownMoveRight from 'components/dropDownMoveRight/DropDownMoveRight';
+
 const Card = ({ title, text, priority, deadline, card, boardId }) => {
   const colorPriority = '#8FA1D0';
+  const [openCardModal, setOpenCardModal] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const [replaceCard] = useReplaceCardMutation();
   const [updateCard] = useUpdateCardMutation();
   const [deleteCard] = useDeleteCardMutation();
+
+  const { boardName } = useParams();
+
+  useEffect(() => {
+    const handleEscape = (event) => {
+      if (event.key === 'Escape') {
+        setIsMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('keydown', handleEscape);
+    return () => {
+      document.removeEventListener('keydown', handleEscape);
+    };
+  }, []);
+
+  const closeCardModal = () => {
+    setOpenCardModal(false);
+  };
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
 
   const replaceCardHandler = () => {
     const data = {
@@ -41,16 +72,17 @@ const Card = ({ title, text, priority, deadline, card, boardId }) => {
     replaceCard({ boardId, data });
   };
 
-  const updateCardHandler = () => {
+  const updateCardHandler = value => {
     const data = {
-      owner: '64ee0546879ad176a9c27e8f',
-      _id: '64eece1c43dec532f6e1fb9e',
-      title: 'NewCardName2',
+      ...value,
+      owner: card.owner,
+      _id: card._id,
     };
 
-    const boardId = '64ee053b879ad176a9c27e83';
+    const boardId = boardName;
 
     updateCard({ boardId, data });
+    closeCardModal();
   };
 
   const deleteCardHandler = (boardId, card) => {
@@ -81,12 +113,16 @@ const Card = ({ title, text, priority, deadline, card, boardId }) => {
           </Options>
         </OptionsBox>
         <IconsBox>
-          <button type="button" onClick={replaceCardHandler}>
+          <button
+            type="button"
+            // onClick={replaceCardHandler}
+            onClick={toggleMenu}
+          >
             <TransferRight>
               <use href={icon + '#icon-arrow-circle-broken-right'}></use>
             </TransferRight>
           </button>
-          <button type="button" onClick={updateCardHandler}>
+          <button type="button" onClick={() => setOpenCardModal(true)}>
             <Edit>
               <use href={icon + '#icon-pencil-01'}></use>
             </Edit>
@@ -101,6 +137,24 @@ const Card = ({ title, text, priority, deadline, card, boardId }) => {
           </button>
         </IconsBox>
       </BottomBar>
+
+      {isMenuOpen && (
+        <DropDownMoveRight
+          className="menu"
+        />
+      )}
+      
+      <MainModal modalIsOpen={openCardModal} closeModal={closeCardModal}>
+        <CardForm
+          formTitle={'Edit card'}
+          btnText={'Edit'}
+          title={card.title}
+          text={card.text}
+          priority={card.priority}
+          deadline={card.deadline}
+          onSubmit={updateCardHandler}
+        />
+      </MainModal>
     </Container>
   );
 };

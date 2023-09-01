@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 export const LogoIcon = styled.svg`
   width: 32px;
@@ -28,8 +28,6 @@ export const LogoutIcon = styled.svg`
 
 export const BoardsContainer = styled.div`
   position: relative;
-
-  
 `;
 
 export const BoardsList = styled.ul`
@@ -43,14 +41,26 @@ export const BoardsList = styled.ul`
   margin: 0;
   padding: 0;
 
-  // background-color: tomato;
-
-  min-height: 126px;
-  max-height: 226px;
+  max-height: 183px;
   overflow-y: auto;
+
+  direction: rtl;
+
+  &::-webkit-scrollbar {
+    background-color: #e8e8e8;
+    width: 8px;
+    border-radius: 12px;
+    left: 0;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(22, 22, 22, 0.1);
+    border-radius: 12px;
+  }
 `;
 
 export const BoardItem = styled.li`
+  direction: ltr;
   height: 61px;
   display: flex;
   align-items: center;
@@ -59,6 +69,7 @@ export const BoardItem = styled.li`
 export const IconTitle = styled.svg`
   width: 18px;
   height: 18px;
+  fill: black;
   stroke: #16161680;
   margin-right: 8px;
 `;
@@ -144,6 +155,12 @@ export const TitleBox = styled.div`
 `;
 
 export const IconButton = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const IconLink = styled(NavLink)`
   display: flex;
   align-items: center;
   justify-content: center;

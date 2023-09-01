@@ -5,45 +5,54 @@ import { Container, Column, GalleryCards } from './MainDashboard.styled';
 import BtnAdd from '../btnAdd/BtnAdd';
 import {
   useAddCardMutation,
-  // useAddColumnMutation,
+  useAddColumnMutation,
 } from 'redux/boards/boardsApi';
 import MainModal from 'components/MainModal/MainModal';
+import ColumnForm from 'components/columnCard/ColumnCard';
+import CardForm from 'components/cardForm/CardForm';
+import { useParams } from 'react-router-dom';
 
-const MainDashboard = ({ columns }) => {
+const MainDashboard = ({ board, columns }) => {
   const btnTitle = 'Add another card';
   const btnColor = '#BEDBB0';
   const btnTitle2 = 'Add another column';
   const btnColor2 = '#FFFFFF';
 
   const [addCard] = useAddCardMutation();
-  // const [addColumn] = useAddColumnMutation();
+  const [addColumn] = useAddColumnMutation();
 
-  const [open, setOpen] = useState(false);
+  const [openCardModal, setOpenCardModal] = useState(false);
+  const [openColumnModal, setOpenColumnModal] = useState(false);
+  const [columnId, setColumnId] = useState('');
 
-  // const addNewColumn = () => {
-  //   const data = { title: 'NewColumn1' };
+  const { boardName } = useParams();
 
-  //   const boardId = '64ee053b879ad176a9c27e83';
+  const addCardInColumn = value => {
+    const boardId = boardName;
 
-  //   addColumn({ boardId, data });
-  // };
-
-  const addCardInColumn = card => {
-    const data = {
-      title: 'test2',
-      text: 'Text',
-      deadline: '08/29/2023',
-      owner: '64ee0546879ad176a9c27e8f',
-      priority: 'medium',
-    };
-
-    const boardId = '64ee053b879ad176a9c27e83';
-
-    addCard({ boardId, data });
+    addCard({ boardId, data: value });
+    closeCardModal();
   };
 
-  const closeModal = () => {
-    return setOpen(false);
+  const closeColumnModal = () => {
+    setOpenColumnModal(false);
+  };
+
+  const openModalCard = columnId => {
+    setColumnId(columnId);
+
+    setOpenCardModal(true);
+  };
+
+  const closeCardModal = () => {
+    setOpenCardModal(false);
+  };
+
+  const addNewColumn = value => {
+    const boardId = boardName;
+
+    addColumn({ boardId, data: value });
+    closeColumnModal();
   };
 
   return (
@@ -74,7 +83,7 @@ const MainDashboard = ({ columns }) => {
                 })}
               </GalleryCards>
               <BtnAdd
-                onClick={addCardInColumn}
+                onClick={() => openModalCard(column._id)}
                 btnTitle={btnTitle}
                 btnColor={btnColor}
               />
@@ -82,12 +91,25 @@ const MainDashboard = ({ columns }) => {
           );
         })}
       <BtnAdd
-        onClick={() => setOpen(true)}
+        onClick={() => setOpenColumnModal(true)}
         btnTitle={btnTitle2}
         btnColor={btnColor2}
       />
-      <MainModal modalIsOpen={open} closeModal={closeModal}>
-        <p>Hello</p>
+
+      <MainModal modalIsOpen={openColumnModal} closeModal={closeColumnModal}>
+        <ColumnForm
+          formTitle={'Add column'}
+          btnText={'Add'}
+          onSubmit={addNewColumn}
+        />
+      </MainModal>
+      <MainModal modalIsOpen={openCardModal} closeModal={closeCardModal}>
+        <CardForm
+          formTitle={'Add card'}
+          btnText={'Add'}
+          owner={columnId}
+          onSubmit={addCardInColumn}
+        />
       </MainModal>
     </Container>
   );

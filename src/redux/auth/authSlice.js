@@ -19,12 +19,15 @@ const authSlice = createSlice({
       state.isRefreshing = false;
     },
     [logIn.fulfilled](state, action) {
-      console.log('action.payload.user', action.payload.user)
-      state.user = action.payload.user;
+      // console.log('action.payload', action.payload)
+      state.user.name = action.payload.name;
+      state.user.email = action.payload.email;
+      state.user.avatar = action.payload.avatar;
+      state.user.theme = action.payload.theme;
       state.token = action.payload.token;
       state.isLoggedIn = true;
       state.isRefreshing = false;
-      console.log('state.user', state.user)
+      // console.log('state.user', state.user)
     },
     [logOut.fulfilled](state) {
       state.user = { name: null, email: null };
@@ -43,19 +46,18 @@ const authSlice = createSlice({
     [updateUserProfile.fulfilled](state, action) {
       console.log('action.payload', action.payload)
       state.user = action.payload;
-      state.token = action.payload.token;
+      // state.token = action.payload.token;
       state.isLoggedIn = true;
       state.isRefreshing = false;
       console.log('state', state)
     },
     [updateUserTheme.fulfilled](state, action) {
-      console.log('state', state)
-      console.log('action.payload', action.payload)
       state.user.theme = action.payload.theme;
       // state.token = action.payload.token;
       state.isLoggedIn = true;
       state.isRefreshing = false;
-    },[needHelp.fulfilled](state, action) {
+    },
+    [needHelp.fulfilled](state, action) {
       state.isLoggedIn = true;
       state.isRefreshing = false;
     },

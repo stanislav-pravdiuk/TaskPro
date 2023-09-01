@@ -1,23 +1,33 @@
-import { Container, Title, IconsBox, Edit, Delete } from './TitleColumn.styled';
+import { Container, Title, IconsBox, Icon } from './TitleColumn.styled';
 import icon from '../../iconSvg/icon.svg';
-
+import { useState } from 'react';
 import {
   useUpdateColumnMutation,
   useDeleteColumnMutation,
 } from 'redux/boards/boardsApi';
 
+import MainModal from 'components/MainModal/MainModal';
+import ColumnForm from 'components/columnCard/ColumnCard';
+
 const TitleColumn = ({ title, owner, columnId }) => {
+  const [open, setOpen] = useState(false);
+
   const [updateColumn] = useUpdateColumnMutation();
   const [deleteColumn] = useDeleteColumnMutation();
 
-  const updateColumnHandler = () => {
+  const closeModal = () => {
+    setOpen(false);
+  };
+
+  const updateColumnHandler = value => {
     const data = {
-      _id: '64ee346e4037699a79667c06',
-      owner: '64ee053b879ad176a9c27e83',
-      title: 'NewColumnName2',
+      _id: columnId,
+      owner,
+      title: value.title,
     };
 
     updateColumn({ data });
+    closeModal();
   };
 
   const deleteColumnHandler = (owner, columnId) => {
@@ -34,19 +44,26 @@ const TitleColumn = ({ title, owner, columnId }) => {
       <Title>{title}</Title>
 
       <IconsBox>
-        <button type="button" onClick={updateColumnHandler}>
-          <Edit>
+        <button type="button" onClick={() => setOpen(true)}>
+          <Icon>
             <use href={icon + '#icon-pencil-01'}></use>
-          </Edit>
+          </Icon>
         </button>
         <button
           type="button"
           onClick={() => deleteColumnHandler(owner, columnId)}
         >
-          <Delete>
+          <Icon>
             <use href={icon + '#icon-trash-04'}></use>
-          </Delete>
+          </Icon>
         </button>
+        <MainModal modalIsOpen={open} closeModal={closeModal}>
+          <ColumnForm
+            formTitle={'Edit column'}
+            btnText={'Edit'}
+            onSubmit={updateColumnHandler}
+          />
+        </MainModal>
       </IconsBox>
     </Container>
   );

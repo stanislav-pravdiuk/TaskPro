@@ -21,12 +21,15 @@ import {
   TitleBox,
   Title,
   IconButton,
+  IconLink,
 } from './Sidebar.styled';
 import { useGetBoardsQuery } from 'redux/boards/boardsApi';
 import { useLocation, useParams } from 'react-router-dom';
 
 import NewBoardForm from 'components/newBoardForm/NewBoardForm';
 import MainModal from 'components/MainModal/MainModal';
+
+import sprite from '../iconSvg/icon.svg';
 
 import {
   useAddBoardMutation,
@@ -39,6 +42,7 @@ import { logOut } from 'redux/auth/authOperations';
 const SideBar = ({ active, onClick }) => {
   const [openAddModal, setOpenAddModal] = useState(false);
   const [openEditModal, setOpenEditModal] = useState(false);
+  const [activeBoardTitle, setActiveBoardTitle] = useState('');
   const drawerWidth = 260;
 
   const { data = [] } = useGetBoardsQuery();
@@ -50,6 +54,11 @@ const SideBar = ({ active, onClick }) => {
   const [updateBoard] = useUpdateBoardMutation();
   const [deleteBoard] = useDeleteBoardMutation();
   const dispatch = useDispatch();
+
+  const openEditModalHandler = boardName => {
+    setActiveBoardTitle(boardName);
+    setOpenEditModal(true);
+  };
 
   const closeAddModal = () => {
     setOpenAddModal(false);
@@ -169,7 +178,7 @@ const SideBar = ({ active, onClick }) => {
                   >
                     <TitleBox>
                       <IconTitle>
-                        <use href={icon + '#icon-Project'}></use>
+                        <use href={sprite + board.icon}></use>
                       </IconTitle>
                       <Title>{board.title}</Title>
                     </TitleBox>
@@ -177,20 +186,21 @@ const SideBar = ({ active, onClick }) => {
                       <IconsBox>
                         <IconButton
                           type="button"
-                          onClick={() => setOpenEditModal(true)}
+                          onClick={() => openEditModalHandler(board.title)}
                         >
                           <Edit>
                             <use href={icon + '#icon-pencil-01'}></use>
                           </Edit>
                         </IconButton>
-                        <IconButton
-                          type="button"
+                        <IconLink
+                          to={`/home`}
                           onClick={() => deleteBoardHanlder(board._id)}
+                          replace
                         >
                           <Delete>
                             <use href={icon + '#icon-trash-04'}></use>
                           </Delete>
-                        </IconButton>
+                        </IconLink>
                       </IconsBox>
                     )}
                   </BoardLink>
@@ -379,6 +389,7 @@ const SideBar = ({ active, onClick }) => {
           formTitle={'Edit board'}
           btnText={'Edit'}
           handleSubmit={handleSubmit}
+          boardTitle={activeBoardTitle}
         ></NewBoardForm>
       </MainModal>
     </Box>

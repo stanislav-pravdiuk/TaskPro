@@ -3,8 +3,8 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import dayjs from 'dayjs';
 import { useState, useEffect } from 'react';
-import sprite from '';
-import { IconDown } from './datePicker.styled';
+import sprite from '../iconSvg/icon.svg';
+import { IconDown } from './Calendar.styled';
 
 export const Calendar = ({ parentState, initial }) => {
     dayjs().format();
@@ -28,7 +28,7 @@ export const Calendar = ({ parentState, initial }) => {
                     slots={{
                         openPickerIcon: () => (
                             <IconDown aria-label="chevron-down">
-                                <use href={sprite + ''}></use>
+                                <use href={sprite + '#icon-chevron-down'}></use>
                             </IconDown>
                         ),
                     }}
@@ -38,17 +38,19 @@ export const Calendar = ({ parentState, initial }) => {
                             sx: {
                                 borderRadius: '8px',
                                 color: '',
-                                backgroundColor: '#1F1F1F',
+                                backgroundColor: '#FFFFFF',
                                 '& .MuiPickersCalendarHeader-labelContainer': {
                                     position: 'absolute',
                                     left: '50%',
                                     transform: 'translateX(-50%)',
                                 },
                                 '& .MuiPickersCalendarHeader-label': {
-                                    fontSize: '16px',
-
-                                    fontWeight: '500',
-                                    letterSpacing: '0.32px',
+                                    color: '#161616',
+                                    fontFamily: 'Poppins',
+                                    fontSize: '12px',
+                                    fontStyle: 'normal',
+                                    fontWeight: 500,
+                                    lineHeight: 'normal',
                                 },
                                 '& .MuiSvgIcon-root': {
                                     fill: '',
@@ -117,8 +119,8 @@ export const Calendar = ({ parentState, initial }) => {
                                 fontSize: '14px',
 
                                 '&.MuiPickersDay-root.Mui-selected': {
-                                    backgroundColor: '',
-                                    color: '',
+                                    backgroundColor: '#BEDBB0',
+                                    color: '#161616',
                                 },
 
                                 '&.Mui-selected:hover': {
@@ -134,6 +136,7 @@ export const Calendar = ({ parentState, initial }) => {
                         textField: {
                             variant: 'outlined',
                             sx: {
+
                                 '& input': { display: 'none' },
                                 '& fieldset': { border: 'none' },
                             },

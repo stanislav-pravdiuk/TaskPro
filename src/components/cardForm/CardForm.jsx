@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Formik, Form, Field } from 'formik';
 import {
   FormContainer,
@@ -8,53 +8,90 @@ import {
   Subtitle,
   Text,
   ColorOptionLabel,
+  DeadlineBox,
 } from './CardForm.styled';
 import BtnAdd from 'components/ScreensPage/btnAdd/BtnAdd';
+import ModalClose from '@mui/joy/ModalClose';
+import { Calendar } from 'components/calendar/Calendar';
+import dayjs from 'dayjs';
 
-const CardForm = ({ formTitle, btnText, onSubmit }) => {
+const CardForm = ({
+  title,
+  text,
+  priority,
+  deadline,
+  formTitle,
+  btnText,
+  onSubmit,
+}) => {
+  const [selectedDate, setSelectedDate] = useState();
+  const formattedDate = dayjs(selectedDate).format('DD/MM/YYYY');
+
   const initialValues = {
-    title: '',
-    description: '',
-    labelColor: '',
-    deadline: '',
+    title: title || '',
+    text: text || '',
+    priority: priority || '',
+    deadline: deadline || '',
   };
 
   const handleSubmit = values => {
-    onSubmit(values);
+    const data = {
+      ...values,
+    };
+
+    onSubmit(data);
   };
 
   return (
     <FormContainer>
+      <ModalClose
+        sx={{
+          position: 'absolute',
+          top: '8px',
+          right: '8px',
+          zIndex: 1,
+        }}
+      />
       <ModalTitle>{formTitle}</ModalTitle>
       <Formik initialValues={initialValues} onSubmit={handleSubmit}>
         <Form>
           <Field type="text" name="title" as={Input} placeholder="Title" />
           <Field
-            component={Textarea}
-            as="textarea"
+            type="text"
             name="description"
+            as={Textarea}
             placeholder="Description"
           />
           <div>
             <Subtitle>Label color</Subtitle>
             <div>
               <ColorOptionLabel className="blue">
-                <Field type="radio" name="labelColor" value="blue" />
+                <Field type="radio" name="priority" value="low" />
               </ColorOptionLabel>
               <ColorOptionLabel className="red">
-                <Field type="radio" name="labelColor" value="red" />
+                <Field type="radio" name="priority" value="medium" />
               </ColorOptionLabel>
               <ColorOptionLabel className="green">
-                <Field type="radio" name="labelColor" value="green" />
+                <Field type="radio" name="priority" value="high" />
               </ColorOptionLabel>
               <ColorOptionLabel className="gray">
-                <Field type="radio" name="labelColor" value="gray" />
+                <Field type="radio" name="priority" value="without" />
               </ColorOptionLabel>
             </div>
           </div>
           <div>
             <Subtitle>Deadline</Subtitle>
-            <Text>Today, March 8</Text>
+            <DeadlineBox>
+              <Text>
+                {selectedDate
+                  ? formattedDate
+                  : `Today, ${dayjs().format('MMMM D')}`}
+              </Text>
+              <Calendar
+                parentState={setSelectedDate}
+                initial={initialValues.deadline}
+              />
+            </DeadlineBox>
           </div>
           <BtnAdd btnTitle={btnText} btnColor={'#BEDBB0'} />
         </Form>

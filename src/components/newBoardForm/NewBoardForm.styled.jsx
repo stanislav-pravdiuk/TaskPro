@@ -8,6 +8,7 @@ const FormContainer = styled.form`
   padding: 24px;
   background: #fcfcfc;
   border-radius: 8px;
+  width: 100vw;
   max-width: 350px;
 `;
 
@@ -54,7 +55,7 @@ const IconList = styled.ul`
 const Icon = styled.svg`
   height: 18px;
   width: 18px;
-  stroke: #161616;
+  stroke: #16161680;
 `;
 
 const BgList = styled.ul`
@@ -62,6 +63,11 @@ const BgList = styled.ul`
   padding: 0;
   margin: 0;
   margin-bottom: 16px;
+  max-width: 256px;
+`;
+
+const Img = styled.img`
+  border-radius: 6px;
 `;
 
 const BgColor = styled.li`
@@ -79,8 +85,14 @@ const RadioButton = styled.input`
   appearance: none;
   position: absolute;
 
-  &:checked + ${BgColor} {
-    transform: scale(3);
+  &:checked + ${Icon} {
+    stroke: #161616;
+  }
+
+  &:checked + ${Img} {
+    transform: scale(1.1);
+    transform: scale(0.95);
+    outline: 1px solid #bedbb0;
   }
 `;
 
@@ -99,7 +111,6 @@ const Button = styled.button`
   border-radius: 8px;
   border: 1px solid #bedbb0;
   cursor: pointer;
-
 `;
 
 export {
@@ -109,6 +120,7 @@ export {
   Text,
   Button,
   Icon,
+  Img,
   BgColor,
   IconList,
   BgList,

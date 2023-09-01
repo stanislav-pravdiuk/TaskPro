@@ -1,6 +1,8 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import images from '../iconSvg/images.js';
+// import bgImage from '../../images/block.png';
+import bgImage from '../iconSvg/bgImage.svg';
 
 import sprite from '../iconSvg/icon.svg';
 import {
@@ -9,6 +11,7 @@ import {
   Input,
   Text,
   Icon,
+  Img,
   BgColor,
   IconList,
   BgList,
@@ -17,7 +20,7 @@ import {
 import ModalClose from '@mui/joy/ModalClose';
 import BtnAdd from 'components/ScreensPage/btnAdd/BtnAdd.jsx';
 
-const NewBoardForm = ({ formTitle, btnText, handleSubmit }) => {
+const NewBoardForm = ({ formTitle, boardTitle, btnText, handleSubmit }) => {
   const [title, setTitle] = useState();
   const [icon, setIcon] = useState();
   const [background, setbackground] = useState();
@@ -27,7 +30,7 @@ const NewBoardForm = ({ formTitle, btnText, handleSubmit }) => {
   };
 
   const IconChangeHandler = e => {
-    setIcon(e.target.value);
+    setIcon(`#${e.target.value}`);
   };
 
   const BgImageChangeHandler = data => {
@@ -41,6 +44,10 @@ const NewBoardForm = ({ formTitle, btnText, handleSubmit }) => {
 
     handleSubmit(data, formTitle);
   };
+
+  useEffect(() => {
+    setTitle(boardTitle || '');
+  }, [boardTitle]);
 
   return (
     <FormContainer onSubmit={formSubmit}>
@@ -57,6 +64,7 @@ const NewBoardForm = ({ formTitle, btnText, handleSubmit }) => {
         type="text"
         placeholder="Title"
         name="title"
+        value={title}
         onChange={e => inputTitleHandler(e)}
       />
 
@@ -177,7 +185,10 @@ const NewBoardForm = ({ formTitle, btnText, handleSubmit }) => {
               name="bgImage"
               onChange={() => BgImageChangeHandler(null)}
             />
-            <img src={images[0].min} alt="bgImage" />
+            <Icon>
+              <use href={bgImage + 'icon-block'}></use>
+            </Icon>
+            {/* <img src={bgImage} alt="bgImage" /> */}
           </label>
         </BgColor>
         {images.map(image => (
@@ -188,7 +199,7 @@ const NewBoardForm = ({ formTitle, btnText, handleSubmit }) => {
                 name="bgImage"
                 onChange={() => BgImageChangeHandler(image)}
               />
-              <img src={image.min} alt="bgImage" />
+              <Img src={image.min} alt="bgImage" />
             </label>
           </BgColor>
         ))}

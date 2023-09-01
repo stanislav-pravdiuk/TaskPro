@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const FormContainer = styled.div`
   position: relative;
   background-color: #fcfcfc;
+  width: 100vw;
   max-width: 350px;
   padding: 24px;
   border-radius: 8px;
@@ -22,7 +23,7 @@ export const Input = styled.input`
   margin-top: 24px;
   margin-bottom: 24px;
   border-radius: 8px;
-  border: 1px solid #bedbb0;
+  border: 1px solid rgba(190, 219, 176, 0.4);
   background-color: #fcfcfc;
   color: #161616;
   font-family: Poppins;
@@ -30,6 +31,10 @@ export const Input = styled.input`
   font-weight: 400;
   outline: none;
   box-shadow: none;
+
+  &:focus {
+    border: 1px solid #bedbb0;
+  }
 `;
 
 export const Textarea = styled.textarea`
@@ -39,7 +44,7 @@ export const Textarea = styled.textarea`
   height: 154px;
   margin-top: 14px;
   border-radius: 8px;
-  border: 1px solid #bedbb0;
+  border: 1px solid rgba(190, 219, 176, 0.4);
   background-color: #fcfcfc;
   color: #161616;
   font-family: Poppins;
@@ -47,6 +52,10 @@ export const Textarea = styled.textarea`
   font-weight: 400;
   outline: none;
   box-shadow: none;
+
+  &:focus {
+    border: 1px solid #bedbb0;
+  }
 `;
 
 export const Subtitle = styled.h3`
@@ -59,8 +68,8 @@ export const Subtitle = styled.h3`
 `;
 
 export const Text = styled.p`
-  margin-top: 4px;
-  margin-bottom: 40px;
+  // margin-top: 4px;
+  // margin-bottom: 40px;
   font-family: Poppins;
   font-size: 14px;
   color: #bedbb0;
@@ -118,3 +127,8 @@ export const ColorOptionLabel = styled.label`
     border-color: #ffffff;
   }
 `;
+export const DeadlineBox = styled.div`
+display:flex;
+align-items:center;
+margin-bottom: 40px;
+`
