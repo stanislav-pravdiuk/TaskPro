@@ -46,7 +46,7 @@ const NewBoardForm = ({ formTitle, boardTitle, btnText, handleSubmit }) => {
   };
 
   useEffect(() => {
-    setTitle(boardTitle);
+    setTitle(boardTitle || '');
   }, [boardTitle]);
 
   return (
