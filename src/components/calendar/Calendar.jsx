@@ -3,8 +3,8 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import dayjs from 'dayjs';
 import { useState, useEffect } from 'react';
-import sprite from '';
-import { IconDown } from './datePicker.styled';
+import sprite from '../iconSvg/icon.svg';
+import { IconDown } from './Calendar.styled';
 
 export const Calendar = ({ parentState, initial }) => {
     dayjs().format();
@@ -28,7 +28,7 @@ export const Calendar = ({ parentState, initial }) => {
                     slots={{
                         openPickerIcon: () => (
                             <IconDown aria-label="chevron-down">
-                                <use href={sprite + ''}></use>
+                                <use href={sprite + '#icon-chevron-down'}></use>
                             </IconDown>
                         ),
                     }}

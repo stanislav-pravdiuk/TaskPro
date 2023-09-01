@@ -60,8 +60,8 @@ export const Subtitle = styled.h3`
 `;
 
 export const Text = styled.p`
-  margin-top: 4px;
-  margin-bottom: 40px;
+  // margin-top: 4px;
+  // margin-bottom: 40px;
   font-family: Poppins;
   font-size: 14px;
   color: #bedbb0;
@@ -119,3 +119,8 @@ export const ColorOptionLabel = styled.label`
     border-color: #ffffff;
   }
 `;
+export const DeadlineBox = styled.div`
+display:flex;
+align-items:center;
+margin-bottom: 40px;
+`

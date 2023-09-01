@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Formik, Form, Field } from 'formik';
 import {
   FormContainer,
@@ -8,17 +8,26 @@ import {
   Subtitle,
   Text,
   ColorOptionLabel,
+  DeadlineBox,
 } from './CardForm.styled';
 import BtnAdd from 'components/ScreensPage/btnAdd/BtnAdd';
 import ModalClose from '@mui/joy/ModalClose';
+import { Calendar } from 'components/calendar/Calendar';
+import dayjs from 'dayjs';
+
 
 const CardForm = ({ formTitle, btnText, owner, onSubmit }) => {
+
   const initialValues = {
     title: '',
     text: '',
     priority: '',
     deadline: '31/08/2023',
   };
+
+  const [selectedDate, setSelectedDate] = useState()
+  const formattedDate = dayjs(selectedDate).format('DD/MM/YYYY');
+
 
   const handleSubmit = values => {
     const data = {
@@ -68,7 +77,10 @@ const CardForm = ({ formTitle, btnText, owner, onSubmit }) => {
           </div>
           <div>
             <Subtitle>Deadline</Subtitle>
-            <Text>Today, March 8</Text>
+            <DeadlineBox>
+              <Text>{selectedDate ? formattedDate : `Today, ${dayjs().format('MMMM D')}`}</Text>
+              <Calendar parentState={setSelectedDate} initial={initialValues.deadline} />
+            </DeadlineBox>
           </div>
           <BtnAdd btnTitle={btnText} btnColor={'#BEDBB0'} />
         </Form>
