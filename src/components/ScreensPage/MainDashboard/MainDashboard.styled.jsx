@@ -24,10 +24,11 @@ export const Column = styled.div``;
 export const GalleryCards = styled.ul`
   list-style: none;
   padding: 0;
+  border-radius: 8px;
   padding-right: 8px;
   margin: 0;
-  min-height: 70vh;
-  max-height: 70vh;
+  margin-bottom: 14px;
+  max-height: 69vh;
   overflow-y: auto;
   overflow-x: hidden;
 `;
