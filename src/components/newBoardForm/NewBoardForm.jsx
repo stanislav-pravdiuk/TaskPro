@@ -1,6 +1,8 @@
 import React from 'react';
 import { useState } from 'react';
 import images from '../iconSvg/images.js';
+// import bgImage from '../../images/block.png';
+import bgImage from '../iconSvg/bgImage.svg';
 
 import sprite from '../iconSvg/icon.svg';
 import {
@@ -9,6 +11,7 @@ import {
   Input,
   Text,
   Icon,
+  Img,
   BgColor,
   IconList,
   BgList,
@@ -177,7 +180,10 @@ const NewBoardForm = ({ formTitle, btnText, handleSubmit }) => {
               name="bgImage"
               onChange={() => BgImageChangeHandler(null)}
             />
-            <img src={images[0].min} alt="bgImage" />
+            <Icon>
+              <use href={bgImage + 'icon-block'}></use>
+            </Icon>
+            {/* <img src={bgImage} alt="bgImage" /> */}
           </label>
         </BgColor>
         {images.map(image => (
@@ -188,7 +194,7 @@ const NewBoardForm = ({ formTitle, btnText, handleSubmit }) => {
                 name="bgImage"
                 onChange={() => BgImageChangeHandler(image)}
               />
-              <img src={image.min} alt="bgImage" />
+              <Img src={image.min} alt="bgImage" />
             </label>
           </BgColor>
         ))}
