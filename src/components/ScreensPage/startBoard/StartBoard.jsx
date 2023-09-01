@@ -1,4 +1,3 @@
-import DropDownMoveRight from "components/dropDownMoveRight/DropDownMoveRight";
 import { Container, Link, TextBox } from "./StartBoard.styled";
 
 
@@ -12,7 +11,7 @@ const StartBoard = () => {
                 to visualize and track all the necessary tasks and milestones.
                 This board serves as a powerful tool to organize the workflow
                 and ensure effective collaboration among team members.
-            </TextBox><DropDownMoveRight/>
+            </TextBox>
         </Container>
     );
 };
