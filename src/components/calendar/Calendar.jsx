@@ -38,17 +38,19 @@ export const Calendar = ({ parentState, initial }) => {
                             sx: {
                                 borderRadius: '8px',
                                 color: '',
-                                backgroundColor: '#1F1F1F',
+                                backgroundColor: '#FFFFFF',
                                 '& .MuiPickersCalendarHeader-labelContainer': {
                                     position: 'absolute',
                                     left: '50%',
                                     transform: 'translateX(-50%)',
                                 },
                                 '& .MuiPickersCalendarHeader-label': {
-                                    fontSize: '16px',
-
-                                    fontWeight: '500',
-                                    letterSpacing: '0.32px',
+                                    color: '#161616',
+                                    fontFamily: 'Poppins',
+                                    fontSize: '12px',
+                                    fontStyle: 'normal',
+                                    fontWeight: 500,
+                                    lineHeight: 'normal',
                                 },
                                 '& .MuiSvgIcon-root': {
                                     fill: '',
@@ -117,8 +119,8 @@ export const Calendar = ({ parentState, initial }) => {
                                 fontSize: '14px',
 
                                 '&.MuiPickersDay-root.Mui-selected': {
-                                    backgroundColor: '',
-                                    color: '',
+                                    backgroundColor: '#BEDBB0',
+                                    color: '#161616',
                                 },
 
                                 '&.Mui-selected:hover': {
@@ -134,6 +136,7 @@ export const Calendar = ({ parentState, initial }) => {
                         textField: {
                             variant: 'outlined',
                             sx: {
+
                                 '& input': { display: 'none' },
                                 '& fieldset': { border: 'none' },
                             },
