@@ -57,9 +57,9 @@ const CardForm = ({
         <Form>
           <Field type="text" name="title" as={Input} placeholder="Title" />
           <Field
-            component={Textarea}
-            as={Input}
-            name="text"
+            type="text"
+            name="description"
+            as={Textarea}
             placeholder="Description"
           />
           <div>
