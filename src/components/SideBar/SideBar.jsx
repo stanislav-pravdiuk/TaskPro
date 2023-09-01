@@ -21,6 +21,7 @@ import {
   TitleBox,
   Title,
   IconButton,
+  IconLink,
 } from './Sidebar.styled';
 import { useGetBoardsQuery } from 'redux/boards/boardsApi';
 import { useLocation, useParams } from 'react-router-dom';
@@ -191,14 +192,15 @@ const SideBar = ({ active, onClick }) => {
                             <use href={icon + '#icon-pencil-01'}></use>
                           </Edit>
                         </IconButton>
-                        <IconButton
-                          type="button"
+                        <IconLink
+                          to={`/home`}
                           onClick={() => deleteBoardHanlder(board._id)}
+                          replace
                         >
                           <Delete>
                             <use href={icon + '#icon-trash-04'}></use>
                           </Delete>
-                        </IconButton>
+                        </IconLink>
                       </IconsBox>
                     )}
                   </BoardLink>
