@@ -127,8 +127,7 @@ export const MenuItemMUI = styled(MenuItem)`
 
   direction: ltr;
 
-  &:hover,
-  &:focus {
+  &:hover {
     color: #bedbb0;
     stroke: #bedbb0;
   }

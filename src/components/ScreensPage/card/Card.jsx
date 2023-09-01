@@ -19,7 +19,6 @@ import {
   MenuItemMUI,
 } from './Card.styled';
 import icon from '../../iconSvg/icon.svg';
-
 import {
   useReplaceCardMutation,
   useUpdateCardMutation,
@@ -116,19 +115,28 @@ const Card = ({ title, text, priority, deadline, card, boardId, columns }) => {
                 <use href={icon + '#icon-arrow-circle-broken-right'}></use>
               </TransferRight>
               <MenuMUI>
-                {columns.map(columm => (
-                  <MenuItemMUI
-                    key={columm._id + '1'}
-                    onClick={() => replaceCardHandler(columm._id)}
-                  >
-                    {columm.title}
-                    <TransferRight>
-                      <use
-                        href={icon + '#icon-arrow-circle-broken-right'}
-                      ></use>
-                    </TransferRight>
-                  </MenuItemMUI>
-                ))}
+                {columns.map(columm => {
+                  const currentColumn = columm._id === card.owner;
+
+                  return (
+                    <MenuItemMUI
+                      key={columm._id + '1'}
+                      onClick={() => replaceCardHandler(columm._id)}
+                      disabled={currentColumn}
+                      sx={{
+                        color: currentColumn ? '#bedbb0' : '#16161680',
+                        stroke: currentColumn ? '#bedbb0' : '#16161680',
+                      }}
+                    >
+                      {columm.title}
+                      <TransferRight>
+                        <use
+                          href={icon + '#icon-arrow-circle-broken-right'}
+                        ></use>
+                      </TransferRight>
+                    </MenuItemMUI>
+                  );
+                })}
               </MenuMUI>
             </MenuButton>
           </Dropdown>
