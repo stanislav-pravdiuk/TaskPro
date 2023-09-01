@@ -6,9 +6,6 @@ export const FormContainer = styled.div`
   max-width: 335px;
   padding: 24px;
   border-radius: 8px;
-
-  top: 150px;
-  left: 150px;
 `;
 
 export const ModalTitle = styled.h6`
