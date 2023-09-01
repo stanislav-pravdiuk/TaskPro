@@ -8,7 +8,6 @@ import { selectUser } from 'redux/auth/authSelectors';
 import { useSelector } from 'react-redux';
 import ProfileEditModal from 'components/profileEditModal/ProfileEditModal';
 import MainModal from 'components/MainModal/MainModal';
-import { ModalClose } from '@mui/joy';
 
 const Header = ({ click }) => {
   const user = useSelector(selectUser);
