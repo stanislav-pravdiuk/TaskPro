@@ -23,6 +23,7 @@ const CardForm = ({
   formTitle,
   btnText,
   onSubmit,
+  owner,
 }) => {
   const [selectedDate, setSelectedDate] = useState();
   const formattedDate = dayjs(selectedDate).format('DD/MM/YYYY');
@@ -37,6 +38,7 @@ const CardForm = ({
   const handleSubmit = values => {
     const data = {
       ...values,
+      owner,
     };
 
     onSubmit(data);

@@ -182,28 +182,28 @@ const SideBar = ({ active, onClick }) => {
                       </IconTitle>
                       <Title>{board.title}</Title>
                     </TitleBox>
-                    {isSelected && (
-                      <IconsBox>
-                        <IconButton
-                          type="button"
-                          onClick={() => openEditModalHandler(board.title)}
-                        >
-                          <Edit>
-                            <use href={icon + '#icon-pencil-01'}></use>
-                          </Edit>
-                        </IconButton>
-                        <IconLink
-                          to={`/home`}
-                          onClick={() => deleteBoardHanlder(board._id)}
-                          replace
-                        >
-                          <Delete>
-                            <use href={icon + '#icon-trash-04'}></use>
-                          </Delete>
-                        </IconLink>
-                      </IconsBox>
-                    )}
                   </BoardLink>
+                  {isSelected && (
+                    <IconsBox>
+                      <IconButton
+                        type="button"
+                        onClick={() => openEditModalHandler(board.title)}
+                      >
+                        <Edit>
+                          <use href={icon + '#icon-pencil-01'}></use>
+                        </Edit>
+                      </IconButton>
+                      <IconLink
+                        to={`/home`}
+                        onClick={() => deleteBoardHanlder(board._id)}
+                        replace
+                      >
+                        <Delete>
+                          <use href={icon + '#icon-trash-04'}></use>
+                        </Delete>
+                      </IconLink>
+                    </IconsBox>
+                  )}
                 </BoardItem>
               );
             })}

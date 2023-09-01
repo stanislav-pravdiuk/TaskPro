@@ -12,7 +12,7 @@ import ColumnForm from 'components/columnCard/ColumnCard';
 import CardForm from 'components/cardForm/CardForm';
 import { useParams } from 'react-router-dom';
 
-const MainDashboard = ({ board, columns }) => {
+const MainDashboard = ({ columns }) => {
   const btnTitle = 'Add another card';
   const btnColor = '#BEDBB0';
   const btnTitle2 = 'Add another column';
@@ -78,6 +78,7 @@ const MainDashboard = ({ board, columns }) => {
                       owner={card.ovner}
                       boardId={column.owner}
                       card={card}
+                      columns={columns}
                     />
                   );
                 })}

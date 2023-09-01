@@ -60,6 +60,7 @@ export const BoardsList = styled.ul`
 `;
 
 export const BoardItem = styled.li`
+  position: relative;
   direction: ltr;
   height: 61px;
   display: flex;
@@ -144,6 +145,10 @@ export const BoardLink = styled(NavLink)`
 `;
 
 export const IconsBox = styled.div`
+  position: absolute;
+  top: 50%;
+  right: 24px;
+  transform: translateY(-50%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -160,7 +165,7 @@ export const IconButton = styled.button`
   justify-content: center;
 `;
 
-export const IconLink = styled(NavLink)`
+export const IconLink = styled(Link)`
   display: flex;
   align-items: center;
   justify-content: center;
