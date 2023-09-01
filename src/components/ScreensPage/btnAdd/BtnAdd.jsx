@@ -3,6 +3,7 @@ import { ButtonPlus } from 'components/buttons/buttons.styled';
 import icon from '../../iconSvg/icon.svg';
 
 const BtnAdd = ({ data, btnTitle, btnColor, onClick }) => {
+
   return (
     <Container style={{ background: `${btnColor}` }} onClick={onClick}>
       <ButtonPlus style={{ backgroundColor: '#161616' }}>

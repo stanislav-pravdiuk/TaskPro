@@ -42,7 +42,7 @@ const ButtonTaskProIconSvg = styled.use`
 `;
 
 // _________________
-const ButtonPlus = styled.button`
+const ButtonPlus = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
