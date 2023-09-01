@@ -94,6 +94,7 @@ const Header = ({ click }) => {
             <UserIcon>
               <use href={icon + '#icon-user-1'}></use>
             </UserIcon>
+            
             <ProfileEditModal
               isOpen={isModalOpen}
               onClose={closeModal}
