@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   Container,
   Description,
@@ -26,10 +26,12 @@ import {
 import MainModal from 'components/MainModal/MainModal';
 import CardForm from 'components/cardForm/CardForm';
 import { useParams } from 'react-router-dom';
+import DropDownMoveRight from 'components/dropDownMoveRight/DropDownMoveRight';
 
 const Card = ({ title, text, priority, deadline, card, boardId }) => {
   const colorPriority = '#8FA1D0';
   const [openCardModal, setOpenCardModal] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const [replaceCard] = useReplaceCardMutation();
   const [updateCard] = useUpdateCardMutation();
@@ -37,8 +39,25 @@ const Card = ({ title, text, priority, deadline, card, boardId }) => {
 
   const { boardName } = useParams();
 
+  useEffect(() => {
+    const handleEscape = (event) => {
+      if (event.key === 'Escape') {
+        setIsMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('keydown', handleEscape);
+    return () => {
+      document.removeEventListener('keydown', handleEscape);
+    };
+  }, []);
+
   const closeCardModal = () => {
     setOpenCardModal(false);
+  };
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
   };
 
   const replaceCardHandler = () => {
@@ -94,7 +113,11 @@ const Card = ({ title, text, priority, deadline, card, boardId }) => {
           </Options>
         </OptionsBox>
         <IconsBox>
-          <button type="button" onClick={replaceCardHandler}>
+          <button
+            type="button"
+            // onClick={replaceCardHandler}
+            onClick={toggleMenu}
+          >
             <TransferRight>
               <use href={icon + '#icon-arrow-circle-broken-right'}></use>
             </TransferRight>
@@ -114,6 +137,13 @@ const Card = ({ title, text, priority, deadline, card, boardId }) => {
           </button>
         </IconsBox>
       </BottomBar>
+
+      {isMenuOpen && (
+        <DropDownMoveRight
+          className="menu"
+        />
+      )}
+      
       <MainModal modalIsOpen={openCardModal} closeModal={closeCardModal}>
         <CardForm
           formTitle={'Edit card'}

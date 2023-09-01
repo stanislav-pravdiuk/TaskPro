@@ -7,7 +7,10 @@
     padding: 18px;
     list-style-type: none;
     min-width: 99px;
-    height: 100%;
+    height: auto;
+
+    position: absolute;
+    left: 30%;
     `;
 
         export const BtnTitle = styled.p`
