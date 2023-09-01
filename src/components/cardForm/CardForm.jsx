@@ -29,10 +29,10 @@ const CardForm = ({
   const formattedDate = dayjs(selectedDate).format('DD/MM/YYYY');
 
   const initialValues = {
-    title: title || '',
-    text: text || '',
-    priority: priority || '',
-    deadline: deadline || '',
+    title: '',
+    text: '',
+    priority: '',
+    deadline: '',
   };
 
   const handleSubmit = values => {
