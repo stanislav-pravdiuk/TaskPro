@@ -20,6 +20,7 @@ import { updateUserProfile } from '../../redux/auth/authOperations';
 
 import icon from '../iconSvg/icon.svg';
 import avatar from '../../images/userAvatar.jpg';
+import { ModalClose } from '@mui/joy';
 
 const validationSchema = Yup.object().shape({
   login: Yup.string().required('Login is required'),
@@ -68,6 +69,14 @@ const ProfileEditModal = ({ user }) => {
 
   return (
     <FormContainer>
+      <ModalClose
+        sx={{
+          position: 'absolute',
+          top: '14px',
+          right: '14px',
+          zIndex: 1,
+        }}
+      />
       <ModalTitle>Edit Profile</ModalTitle>
       <Formik
         initialValues={initialValues}
