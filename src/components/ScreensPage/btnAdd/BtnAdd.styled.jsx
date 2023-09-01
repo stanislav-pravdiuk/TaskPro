@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.button`
+export const Container = styled.div`
   width: 100%;
   max-width: 334px;
   height: 56px;
