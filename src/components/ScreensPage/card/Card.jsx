@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import {
   Container,
   Description,
@@ -22,12 +23,23 @@ import {
   useDeleteCardMutation,
 } from 'redux/boards/boardsApi';
 
+import MainModal from 'components/MainModal/MainModal';
+import CardForm from 'components/cardForm/CardForm';
+import { useParams } from 'react-router-dom';
+
 const Card = ({ title, text, priority, deadline, card, boardId }) => {
   const colorPriority = '#8FA1D0';
+  const [openCardModal, setOpenCardModal] = useState(false);
 
   const [replaceCard] = useReplaceCardMutation();
   const [updateCard] = useUpdateCardMutation();
   const [deleteCard] = useDeleteCardMutation();
+
+  const { boardName } = useParams();
+
+  const closeCardModal = () => {
+    setOpenCardModal(false);
+  };
 
   const replaceCardHandler = () => {
     const data = {
@@ -41,16 +53,18 @@ const Card = ({ title, text, priority, deadline, card, boardId }) => {
     replaceCard({ boardId, data });
   };
 
-  const updateCardHandler = () => {
+  const updateCardHandler = value => {
+    console.log(value.deadline);
     const data = {
-      owner: '64ee0546879ad176a9c27e8f',
-      _id: '64eece1c43dec532f6e1fb9e',
-      title: 'NewCardName2',
+      ...value,
+      owner: card.owner,
+      _id: card._id,
     };
 
-    const boardId = '64ee053b879ad176a9c27e83';
+    const boardId = boardName;
 
     updateCard({ boardId, data });
+    closeCardModal();
   };
 
   const deleteCardHandler = (boardId, card) => {
@@ -86,7 +100,7 @@ const Card = ({ title, text, priority, deadline, card, boardId }) => {
               <use href={icon + '#icon-arrow-circle-broken-right'}></use>
             </TransferRight>
           </button>
-          <button type="button" onClick={updateCardHandler}>
+          <button type="button" onClick={() => setOpenCardModal(true)}>
             <Edit>
               <use href={icon + '#icon-pencil-01'}></use>
             </Edit>
@@ -101,6 +115,13 @@ const Card = ({ title, text, priority, deadline, card, boardId }) => {
           </button>
         </IconsBox>
       </BottomBar>
+      <MainModal modalIsOpen={openCardModal} closeModal={closeCardModal}>
+        <CardForm
+          formTitle={'Add card'}
+          btnText={'Add'}
+          onSubmit={updateCardHandler}
+        />
+      </MainModal>
     </Container>
   );
 };
