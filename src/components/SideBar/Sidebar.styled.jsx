@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 export const LogoIcon = styled.svg`
   width: 32px;
@@ -155,6 +155,12 @@ export const TitleBox = styled.div`
 `;
 
 export const IconButton = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const IconLink = styled(NavLink)`
   display: flex;
   align-items: center;
   justify-content: center;
