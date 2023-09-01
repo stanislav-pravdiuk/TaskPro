@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import images from '../iconSvg/images.js';
 // import bgImage from '../../images/block.png';
 import bgImage from '../iconSvg/bgImage.svg';
@@ -20,7 +20,7 @@ import {
 import ModalClose from '@mui/joy/ModalClose';
 import BtnAdd from 'components/ScreensPage/btnAdd/BtnAdd.jsx';
 
-const NewBoardForm = ({ formTitle, btnText, handleSubmit }) => {
+const NewBoardForm = ({ formTitle, boardTitle, btnText, handleSubmit }) => {
   const [title, setTitle] = useState();
   const [icon, setIcon] = useState();
   const [background, setbackground] = useState();
@@ -30,7 +30,7 @@ const NewBoardForm = ({ formTitle, btnText, handleSubmit }) => {
   };
 
   const IconChangeHandler = e => {
-    setIcon(e.target.value);
+    setIcon(`#${e.target.value}`);
   };
 
   const BgImageChangeHandler = data => {
@@ -44,6 +44,10 @@ const NewBoardForm = ({ formTitle, btnText, handleSubmit }) => {
 
     handleSubmit(data, formTitle);
   };
+
+  useEffect(() => {
+    setTitle(boardTitle);
+  }, [boardTitle]);
 
   return (
     <FormContainer onSubmit={formSubmit}>
@@ -60,6 +64,7 @@ const NewBoardForm = ({ formTitle, btnText, handleSubmit }) => {
         type="text"
         placeholder="Title"
         name="title"
+        value={title}
         onChange={e => inputTitleHandler(e)}
       />
 

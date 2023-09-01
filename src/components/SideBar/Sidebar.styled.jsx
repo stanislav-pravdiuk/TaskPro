@@ -69,6 +69,7 @@ export const BoardItem = styled.li`
 export const IconTitle = styled.svg`
   width: 18px;
   height: 18px;
+  fill: black;
   stroke: #16161680;
   margin-right: 8px;
 `;
