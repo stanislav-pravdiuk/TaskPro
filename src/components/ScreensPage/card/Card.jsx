@@ -54,7 +54,6 @@ const Card = ({ title, text, priority, deadline, card, boardId }) => {
   };
 
   const updateCardHandler = value => {
-    console.log(value.deadline);
     const data = {
       ...value,
       owner: card.owner,
@@ -117,8 +116,12 @@ const Card = ({ title, text, priority, deadline, card, boardId }) => {
       </BottomBar>
       <MainModal modalIsOpen={openCardModal} closeModal={closeCardModal}>
         <CardForm
-          formTitle={'Add card'}
-          btnText={'Add'}
+          formTitle={'Edit card'}
+          btnText={'Edit'}
+          title={card.title}
+          text={card.text}
+          priority={card.priority}
+          deadline={card.deadline}
           onSubmit={updateCardHandler}
         />
       </MainModal>

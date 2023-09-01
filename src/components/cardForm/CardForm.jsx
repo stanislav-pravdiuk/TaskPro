@@ -15,15 +15,23 @@ import ModalClose from '@mui/joy/ModalClose';
 import { Calendar } from 'components/calendar/Calendar';
 import dayjs from 'dayjs';
 
-const CardForm = ({ formTitle, btnText, onSubmit }) => {
+const CardForm = ({
+  title,
+  text,
+  priority,
+  deadline,
+  formTitle,
+  btnText,
+  onSubmit,
+}) => {
   const [selectedDate, setSelectedDate] = useState();
   const formattedDate = dayjs(selectedDate).format('DD/MM/YYYY');
 
   const initialValues = {
-    title: '',
-    text: 'Default Text',
-    priority: '',
-    deadline: '',
+    title: title || '',
+    text: text || '',
+    priority: priority || '',
+    deadline: deadline || '',
   };
 
   const handleSubmit = values => {
