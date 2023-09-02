@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import Menu from '@mui/joy/Menu';
+import MenuItem from '@mui/joy/MenuItem';
 
 export const Container = styled.div`
   width: 334px;
@@ -71,23 +73,62 @@ export const Elipce = styled.div`
 `;
 export const IconsBox = styled.div`
   display: flex;
-  // background:tomato;
-  // margin-left: 112px;
+  align-items: center;
+  gap: 8px;
+  stroke: #16161680;
 `;
+
+export const IconButton = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
 export const TransferRight = styled.svg`
   width: 16px;
   height: 16px;
-  stroke: #16161680;
-  margin-right: 8px;
+  stroke: inherit;
 `;
 export const Edit = styled.svg`
   width: 16px;
   height: 16px;
-  stroke: #16161680;
-  margin-right: 8px;
+  stroke: inherit;
 `;
 export const Delete = styled.svg`
   width: 16px;
   height: 16px;
+  stroke: inherit;
+`;
+
+export const MenuMUI = styled(Menu)`
+  max-height: 180px;
+  overflow: auto;
+
+  direction: rtl;
+
+  ::-webkit-scrollbar {
+    background-color: #e8e8e8;
+    width: 4px;
+    border-radius: 12px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: rgba(22, 22, 22, 0.1);
+    border-radius: 12px;
+    width: 4px;
+  }
+`;
+
+export const MenuItemMUI = styled(MenuItem)`
+  display: flex;
+  gap: 8px;
+  justify-content: space-between;
   stroke: #16161680;
+
+  direction: ltr;
+
+  &:hover {
+    color: #bedbb0;
+    stroke: #bedbb0;
+  }
 `;

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import {
   Container,
   Description,
@@ -14,9 +14,11 @@ import {
   Edit,
   Delete,
   OptionsBox,
+  IconButton,
+  MenuMUI,
+  MenuItemMUI,
 } from './Card.styled';
 import icon from '../../iconSvg/icon.svg';
-
 import {
   useReplaceCardMutation,
   useUpdateCardMutation,
@@ -26,12 +28,11 @@ import {
 import MainModal from 'components/MainModal/MainModal';
 import CardForm from 'components/cardForm/CardForm';
 import { useParams } from 'react-router-dom';
-import DropDownMoveRight from 'components/dropDownMoveRight/DropDownMoveRight';
+import MenuButton from '@mui/joy/MenuButton';
+import Dropdown from '@mui/joy/Dropdown';
 
-const Card = ({ title, text, priority, deadline, card, boardId }) => {
-  const colorPriority = '#8FA1D0';
+const Card = ({ title, text, priority, deadline, card, boardId, columns }) => {
   const [openCardModal, setOpenCardModal] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const [replaceCard] = useReplaceCardMutation();
   const [updateCard] = useUpdateCardMutation();
@@ -39,35 +40,18 @@ const Card = ({ title, text, priority, deadline, card, boardId }) => {
 
   const { boardName } = useParams();
 
-  useEffect(() => {
-    const handleEscape = (event) => {
-      if (event.key === 'Escape') {
-        setIsMenuOpen(false);
-      }
-    };
-
-    document.addEventListener('keydown', handleEscape);
-    return () => {
-      document.removeEventListener('keydown', handleEscape);
-    };
-  }, []);
-
   const closeCardModal = () => {
     setOpenCardModal(false);
   };
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
-  const replaceCardHandler = () => {
+  const replaceCardHandler = newOwner => {
     const data = {
-      owner: '64ee0546879ad176a9c27e8f',
-      _id: '64ee056a879ad176a9c27ea4',
-      newOwner: '64eece1643dec532f6e1fb63',
+      owner: card.owner,
+      _id: card._id,
+      newOwner,
     };
 
-    const boardId = '64ee053b879ad176a9c27e83';
+    const boardId = boardName;
 
     replaceCard({ boardId, data });
   };
@@ -94,8 +78,31 @@ const Card = ({ title, text, priority, deadline, card, boardId }) => {
     deleteCard({ boardId, data });
   };
 
+  const cardPriorityChecker = priority => {
+    let cardBordredColor = null;
+
+    switch (priority) {
+      case 'low':
+        cardBordredColor = '#8FA1D0';
+        break;
+      case 'medium':
+        cardBordredColor = '#E09CB5';
+        break;
+      case 'high':
+        cardBordredColor = '#BEDBB0';
+        break;
+
+      default:
+        cardBordredColor = 'rgba(22, 22, 22, 0.30)';
+    }
+
+    return cardBordredColor;
+  };
+
   return (
-    <Container style={{ borderLeft: `4px solid ${colorPriority}` }}>
+    <Container
+      style={{ borderLeft: `4px solid ${cardPriorityChecker(priority)}` }}
+    >
       <Title>{title}</Title>
       <Description>{text}</Description>
       <BottomBar>
@@ -103,7 +110,9 @@ const Card = ({ title, text, priority, deadline, card, boardId }) => {
           <Options>
             <TextOptions>Priority</TextOptions>
             <PriorityBox>
-              <Elipce style={{ backgroundColor: colorPriority }}></Elipce>
+              <Elipce
+                style={{ backgroundColor: `${cardPriorityChecker(priority)}` }}
+              ></Elipce>
               <Text>{priority}</Text>
             </PriorityBox>
           </Options>
@@ -113,37 +122,64 @@ const Card = ({ title, text, priority, deadline, card, boardId }) => {
           </Options>
         </OptionsBox>
         <IconsBox>
-          <button
-            type="button"
-            // onClick={replaceCardHandler}
-            onClick={toggleMenu}
-          >
-            <TransferRight>
-              <use href={icon + '#icon-arrow-circle-broken-right'}></use>
-            </TransferRight>
-          </button>
-          <button type="button" onClick={() => setOpenCardModal(true)}>
+          <Dropdown>
+            <MenuButton
+              size="sx"
+              sx={{
+                border: 'none',
+                '&:hover': {
+                  backgroundColor: 'transparent',
+                },
+                '&:focus': {
+                  outline: '2px solid #000000',
+                },
+              }}
+            >
+              <TransferRight>
+                <use href={icon + '#icon-arrow-circle-broken-right'}></use>
+              </TransferRight>
+              <MenuMUI>
+                {columns.map(columm => {
+                  const currentColumn = columm._id === card.owner;
+
+                  return (
+                    <MenuItemMUI
+                      key={columm._id + '1'}
+                      onClick={() => replaceCardHandler(columm._id)}
+                      disabled={currentColumn}
+                      sx={{
+                        color: currentColumn ? '#bedbb0' : '#16161680',
+                        stroke: currentColumn ? '#bedbb0' : '#16161680',
+                      }}
+                    >
+                      {columm.title}
+                      <TransferRight>
+                        <use
+                          href={icon + '#icon-arrow-circle-broken-right'}
+                        ></use>
+                      </TransferRight>
+                    </MenuItemMUI>
+                  );
+                })}
+              </MenuMUI>
+            </MenuButton>
+          </Dropdown>
+          <IconButton type="button" onClick={() => setOpenCardModal(true)}>
             <Edit>
               <use href={icon + '#icon-pencil-01'}></use>
             </Edit>
-          </button>
-          <button
+          </IconButton>
+          <IconButton
             type="button"
             onClick={() => deleteCardHandler(boardId, card)}
           >
             <Delete>
               <use href={icon + '#icon-trash-04'}></use>
             </Delete>
-          </button>
+          </IconButton>
         </IconsBox>
       </BottomBar>
 
-      {isMenuOpen && (
-        <DropDownMoveRight
-          className="menu"
-        />
-      )}
-      
       <MainModal modalIsOpen={openCardModal} closeModal={closeCardModal}>
         <CardForm
           formTitle={'Edit card'}

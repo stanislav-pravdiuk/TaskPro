@@ -18,7 +18,7 @@ import {
   RadioButton,
 } from './NewBoardForm.styled';
 import ModalClose from '@mui/joy/ModalClose';
-import BtnAdd from 'components/ScreensPage/btnAdd/BtnAdd.jsx';
+import BtnAdd from 'components/ScreensPage/btnAdd/BtnAdd';
 
 const NewBoardForm = ({ formTitle, boardTitle, btnText, handleSubmit }) => {
   const [title, setTitle] = useState();

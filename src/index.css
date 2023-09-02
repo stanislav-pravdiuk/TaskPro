@@ -19,6 +19,7 @@ body {
 
   ::-webkit-scrollbar {
     background-color: #ffffff;
+    width: 4px;
     height: 12px;
     border-radius: 12px;
   }
@@ -40,8 +41,7 @@ code {
   margin: 0;
 }
 
-button,
-a {
+button, a {
   border: none;
   font: inherit;
   color: inherit;

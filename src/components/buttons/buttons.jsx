@@ -45,28 +45,20 @@ import {
   ButtonFilterSvg,
   ButtonFilterText,
   ButtonFilterThumb,
-
-
 } from './buttons.styled';
-
 
 export const BtnLogOut = () => {
   return (
     <ButtonLogOut>
       <ButtonLogOutThumb>
         <ButtonLogOutIcon>
-          <ButtonLogOutSvg
-            href={icon + '#icon-login'}
-          ></ButtonLogOutSvg>
+          <ButtonLogOutSvg href={icon + '#icon-login'}></ButtonLogOutSvg>
         </ButtonLogOutIcon>
       </ButtonLogOutThumb>
       <ButtonLogOutText>Log out </ButtonLogOutText>
     </ButtonLogOut>
   );
 };
-
-
-
 
 export const BtnTaskPro = () => {
   return (
@@ -83,7 +75,7 @@ export const BtnTaskPro = () => {
   );
 };
 
-export const BtnCreate = ({children}) => {
+export const BtnCreate = ({ children }) => {
   return (
     <ButtonCreate>
       <ButtonCreateThumb>
@@ -107,8 +99,6 @@ export const BtnPlus = () => {
   );
 };
 
-
-
 export const BtnTaskProViolet = () => {
   return (
     <ButtonTaskPro>
@@ -124,13 +114,14 @@ export const BtnTaskProViolet = () => {
   );
 };
 
-
-export const BtnCreateViolet = ({children}) => {
+export const BtnCreateViolet = ({ children }) => {
   return (
     <ButtonCreateViolet>
       <ButtonCreateThumbViolet>
         <ButtonCreateIconViolet>
-          <ButtonCreateSvgViolet href={icon + '#icon-plus-2'}></ButtonCreateSvgViolet>
+          <ButtonCreateSvgViolet
+            href={icon + '#icon-plus-2'}
+          ></ButtonCreateSvgViolet>
         </ButtonCreateIconViolet>
       </ButtonCreateThumbViolet>
 
@@ -149,7 +140,6 @@ export const BtnPlusViolet = () => {
   );
 };
 
-
 export const BtnLogOutViolet = () => {
   return (
     <ButtonLogOut>
@@ -165,8 +155,6 @@ export const BtnLogOutViolet = () => {
   );
 };
 
-
-
 export const BtnDelete = () => {
   return (
     <ButtonDelete>
@@ -177,13 +165,12 @@ export const BtnDelete = () => {
   );
 };
 
-
 export const BtnUpDate = () => {
   return (
     <ButtonUpDate>
-      < ButtonUpDateIcon>
+      <ButtonUpDateIcon>
         <ButtonUpDateSvg href={icon + '#icon-pencil-01'}></ButtonUpDateSvg>
-      </ ButtonUpDateIcon>
+      </ButtonUpDateIcon>
     </ButtonUpDate>
   );
 };
@@ -191,20 +178,21 @@ export const BtnUpDate = () => {
 export const BtnRight = () => {
   return (
     <ButtonUpDate>
-      < ButtonUpDateIcon>
-        <ButtonUpDateSvg href={icon + '#icon-arrow-circle-broken-right'}></ButtonUpDateSvg>
-      </ ButtonUpDateIcon>
+      <ButtonUpDateIcon>
+        <ButtonUpDateSvg
+          href={icon + '#icon-arrow-circle-broken-right'}
+        ></ButtonUpDateSvg>
+      </ButtonUpDateIcon>
     </ButtonUpDate>
   );
 };
 
-
 export const BtnClose = () => {
   return (
     <ButtonClose>
-      < ButtonCloseIcon>
+      <ButtonCloseIcon>
         <ButtonUpDateSvg href={icon + '#icon-x-close'}></ButtonUpDateSvg>
-      </ ButtonCloseIcon>
+      </ButtonCloseIcon>
     </ButtonClose>
   );
 };
@@ -212,28 +200,22 @@ export const BtnClose = () => {
 export const BtnCloseBlack = () => {
   return (
     <ButtonClose>
-      < ButtonCloseIcon>
+      <ButtonCloseIcon>
         <ButtonUpDateSvg href={icon + '#icon-x-close-2'}></ButtonUpDateSvg>
-      </ ButtonCloseIcon>
+      </ButtonCloseIcon>
     </ButtonClose>
   );
 };
 
-
-export const BtnFilter = ({ color }) => {
+export const BtnFilter = ({ color, onClick }) => {
   return (
-    <ButtonFilter>
+    <ButtonFilter onClick={onClick}>
       <ButtonFilterThumb>
-        <ButtonFilterIcon
-          style={{ stroke: `${color}` }}>
-          <ButtonFilterSvg
-            href={icon + '#icon-filter'}>
-          </ButtonFilterSvg>
+        <ButtonFilterIcon style={{ stroke: `${color}` }}>
+          <ButtonFilterSvg href={icon + '#icon-filter'}></ButtonFilterSvg>
         </ButtonFilterIcon>
       </ButtonFilterThumb>
-      <ButtonFilterText style={{ color: color }}>
-        Filters
-      </ButtonFilterText>
+      <ButtonFilterText style={{ color: color }}>Filters</ButtonFilterText>
     </ButtonFilter>
   );
 };

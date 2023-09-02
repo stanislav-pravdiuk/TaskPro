@@ -25,3 +25,7 @@ export const BoardName = styled.h2`
 
   background-color: #f6f6f7;
 `;
+
+export const Thumb = styled.div`
+  position: relative;
+`;

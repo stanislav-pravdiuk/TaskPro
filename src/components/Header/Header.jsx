@@ -7,6 +7,7 @@ import { BurgerIcon, UserIcon } from './Header.styled';
 import { selectUser } from 'redux/auth/authSelectors';
 import { useSelector } from 'react-redux';
 import ProfileEditModal from 'components/profileEditModal/ProfileEditModal';
+import MainModal from 'components/MainModal/MainModal';
 import { ThemeSelector } from 'components/Theme/ThemeSelector';
 
 const Header = ({ click }) => {
@@ -97,13 +98,13 @@ const Header = ({ click }) => {
             <UserIcon>
               <use href={icon + '#icon-user-1'}></use>
             </UserIcon>
-            
-            <ProfileEditModal
-              isOpen={isModalOpen}
-              onClose={closeModal}
-              user={currentUserData}
-            />
           </Button>
+          <MainModal
+            modalIsOpen={isModalOpen}
+            closeModal={closeModal}
+          >
+            <ProfileEditModal user={currentUserData} />
+          </MainModal>
           <ThemeSelector />
         </Box>
         <ThemeSelector />

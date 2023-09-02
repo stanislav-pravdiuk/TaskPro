@@ -19,24 +19,25 @@ const CardForm = ({
   title,
   text,
   priority,
-  deadline,
   formTitle,
   btnText,
   onSubmit,
+  owner,
 }) => {
   const [selectedDate, setSelectedDate] = useState();
-  const formattedDate = dayjs(selectedDate).format('DD/MM/YYYY');
+  const formattedDate = dayjs(selectedDate).format('dddd, MMMM DD');
 
   const initialValues = {
     title: title || '',
     text: text || '',
-    priority: priority || '',
-    deadline: deadline || '',
+    priority: priority || 'without',
   };
 
   const handleSubmit = values => {
     const data = {
       ...values,
+      deadline: formattedDate,
+      owner,
     };
 
     onSubmit(data);
@@ -57,9 +58,9 @@ const CardForm = ({
         <Form>
           <Field type="text" name="title" as={Input} placeholder="Title" />
           <Field
-            type="text"
-            name="description"
             as={Textarea}
+            type="text"
+            name="text"
             placeholder="Description"
           />
           <div>
