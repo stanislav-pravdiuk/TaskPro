@@ -13,8 +13,6 @@ const HeaderDashboard = ({ boardName }) => {
 
   const { boardName: boardId } = useParams();
 
-  console.log(boardId);
-
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
