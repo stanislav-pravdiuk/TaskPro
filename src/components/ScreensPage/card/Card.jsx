@@ -24,6 +24,7 @@ import {
   useUpdateCardMutation,
   useDeleteCardMutation,
 } from 'redux/boards/boardsApi';
+import EllipsisText from 'react-ellipsis-text';
 
 import MainModal from 'components/MainModal/MainModal';
 import CardForm from 'components/cardForm/CardForm';
@@ -104,7 +105,9 @@ const Card = ({ title, text, priority, deadline, card, boardId, columns }) => {
       style={{ borderLeft: `4px solid ${cardPriorityChecker(priority)}` }}
     >
       <Title>{title}</Title>
-      <Description>{text}</Description>
+      <Description>
+        <EllipsisText text={text} length={'80'} />
+      </Description>
       <BottomBar>
         <OptionsBox>
           <Options>
