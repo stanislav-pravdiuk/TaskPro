@@ -2,13 +2,25 @@ import Filters from 'components/filters/Filters';
 import { BoardName, Container, Thumb } from './HeaderDashboard.styled';
 import { BtnFilter } from 'components/buttons/buttons';
 import { useState } from 'react';
+import { useBoardFilterMutation } from 'redux/boards/boardsApi';
+import { useParams } from 'react-router-dom';
 
 const HeaderDashboard = ({ boardName }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const stroke = '#161616';
 
+  const [boardFilter] = useBoardFilterMutation();
+
+  const { boardName: boardId } = useParams();
+
+  console.log(boardId);
+
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  const boardFilterHandler = priotity => {
+    boardFilter({ boardId, priotity });
   };
 
   return (
@@ -16,7 +28,9 @@ const HeaderDashboard = ({ boardName }) => {
       <BoardName>{boardName}</BoardName>
       <Thumb>
         <BtnFilter color={stroke} onClick={toggleMenu}></BtnFilter>
-        {isMenuOpen && <Filters onClick={toggleMenu} />}
+        {isMenuOpen && (
+          <Filters onClick={toggleMenu} onChange={boardFilterHandler} />
+        )}
       </Thumb>
     </Container>
   );

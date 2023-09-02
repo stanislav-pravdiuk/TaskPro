@@ -11,7 +11,7 @@ import {
   CloseButton,
 } from './Filters.styled';
 
-function Filters({ onClick }) {
+function Filters({ onClick, onChange }) {
   return (
     <Container>
       <TitleBox>
@@ -22,27 +22,49 @@ function Filters({ onClick }) {
       </TitleBox>
       <ResetBox>
         <ResetTitle>Lable color</ResetTitle>
-        <BtnReset>Show all</BtnReset>
+        <BtnReset type="button" onClick={() => onChange('default')}>
+          Show all
+        </BtnReset>
       </ResetBox>
       <BtnBox>
+        <ColorOptionLabel className="gray">
+          <button
+            type="radio"
+            name="priority"
+            value="without"
+            onClick={() => onChange('without')}
+          >
+            Without priority
+          </button>
+        </ColorOptionLabel>
         <ColorOptionLabel className="blue">
-          <button type="radio" name="priority" value="low">
-            High
+          <button
+            type="radio"
+            name="priority"
+            value="low"
+            onClick={() => onChange('low')}
+          >
+            Low
           </button>
         </ColorOptionLabel>
         <ColorOptionLabel className="red">
-          <button type="radio" name="priority" value="medium">
+          <button
+            type="radio"
+            name="priority"
+            value="medium"
+            onClick={() => onChange('medium')}
+          >
             Medium
           </button>
         </ColorOptionLabel>
         <ColorOptionLabel className="green">
-          <button type="radio" name="priority" value="high">
-            Low
-          </button>
-        </ColorOptionLabel>
-        <ColorOptionLabel className="gray">
-          <button type="radio" name="priority" value="without">
-            Without
+          <button
+            type="radio"
+            name="priority"
+            value="high"
+            onClick={() => onChange('high')}
+          >
+            High
           </button>
         </ColorOptionLabel>
       </BtnBox>
