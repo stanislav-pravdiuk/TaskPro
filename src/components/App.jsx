@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
-import { lazy, Suspense, useEffect, useState } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Toaster } from 'react-hot-toast';
 import { useAuth } from 'hooks/useAuth';
@@ -30,12 +30,12 @@ export const App = () => {
   //   light: theme.light,
   //   dark: theme.dark,
   //   violet: theme.violet
-  // };  
+  // };
 
   return (
     // <ThemeProvider theme={themeMap[currentTheme]}>
     //   <CssBaseline />
-      <Suspense fallback={<b>Загрузка...</b>}>
+    <Suspense fallback={<b>Загрузка...</b>}>
       {isRefreshing ? (
         <b>Refreshing user...</b>
       ) : (
