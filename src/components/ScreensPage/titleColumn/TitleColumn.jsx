@@ -1,4 +1,10 @@
-import { Container, Title, IconsBox, Icon } from './TitleColumn.styled';
+import {
+  Container,
+  Title,
+  IconsBox,
+  IconsButton,
+  Icon,
+} from './TitleColumn.styled';
 import icon from '../../iconSvg/icon.svg';
 import { useState } from 'react';
 import {
@@ -44,19 +50,19 @@ const TitleColumn = ({ title, owner, columnId }) => {
       <Title>{title}</Title>
 
       <IconsBox>
-        <button type="button" onClick={() => setOpen(true)}>
+        <IconsButton type="button" onClick={() => setOpen(true)}>
           <Icon>
             <use href={icon + '#icon-pencil-01'}></use>
           </Icon>
-        </button>
-        <button
+        </IconsButton>
+        <IconsButton
           type="button"
           onClick={() => deleteColumnHandler(owner, columnId)}
         >
           <Icon>
             <use href={icon + '#icon-trash-04'}></use>
           </Icon>
-        </button>
+        </IconsButton>
         <MainModal modalIsOpen={open} closeModal={closeModal}>
           <ColumnForm
             formTitle={'Edit column'}

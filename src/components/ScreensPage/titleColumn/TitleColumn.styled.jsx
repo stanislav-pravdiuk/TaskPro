@@ -26,6 +26,13 @@ export const IconsBox = styled.div`
   justify-content: flex-end;
   gap: 8px;
 `;
+
+export const IconsButton = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
 export const Icon = styled.svg`
   width: 16px;
   height: 16px;
