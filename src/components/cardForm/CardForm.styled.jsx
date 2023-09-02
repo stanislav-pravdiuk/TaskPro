@@ -42,7 +42,6 @@ export const Textarea = styled.textarea`
   padding: 14px 18px;
   width: 100%;
   height: 154px;
-  margin-top: 14px;
   border-radius: 8px;
   border: 1px solid rgba(190, 219, 176, 0.4);
   background-color: #fcfcfc;
@@ -128,7 +127,7 @@ export const ColorOptionLabel = styled.label`
   }
 `;
 export const DeadlineBox = styled.div`
-display:flex;
-align-items:center;
-margin-bottom: 40px;
-`
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+`;
