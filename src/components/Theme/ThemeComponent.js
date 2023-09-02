@@ -51,11 +51,9 @@ export const ThemeComponent = () => {
           border: '1px solid rgba(190, 219, 176, 1)',          
           fontFamily: 'Poppins',
           fontSize: '14px',
-          width: '100px',
-          borderRadius: '5px',
-          paddingTop: '5px',
-          zIndex: 9999,
-          boxShadow: '0px 2px 4px rgba(17, 17, 17, 0.1)',          
+          width: '100px',          
+          boxShadow: '0px 2px 4px rgba(17, 17, 17, 0.1)',
+          zIndex: '3000',
           "&& .Mui-selected": {
             backgroundColor: "transparent"
           },          
@@ -97,5 +95,3 @@ export const ThemeComponent = () => {
         </MenuItem>
       </Menu>
     </Dropdown>
-  );
-};
