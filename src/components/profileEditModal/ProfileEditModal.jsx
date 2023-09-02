@@ -119,13 +119,26 @@ const ProfileEditModal = ({ user, modalClose }) => {
             </label>
           </AvatarContainer>
           <InputContainer>
-            <Field type="text" id="login" name="login" as={Input} />
-            <Field type="email" id="email" name="email" as={Input} />
+            <Field
+              type="text"
+              id="login"
+              name="login"
+              placeholder="Name"
+              as={Input}
+            />
+            <Field
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Email"
+              as={Input}
+            />
             <PasswordContainer>
               <Field
                 type={showPassword ? 'text' : 'password'}
                 id="password"
                 name="password"
+                placeholder="Password"
                 as={Input}
               />
               <ShowPasswordBtn
