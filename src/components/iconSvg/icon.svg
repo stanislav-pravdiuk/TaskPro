@@ -126,5 +126,8 @@
 <symbol id="icon-chevron-down" viewBox="0 0 30 32">
 <path fill="none" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="3.3684" d="M7.579 12.211l7.579 7.579 7.579-7.579"></path>
 </symbol>
+<symbol id="icon-theme" viewBox="0 0 30 32">
+<path fill="none" stroke="#161616" style="stroke: var(--color1, #161616)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.8235" d="M7.529 12.235l7.529 7.529 7.529-7.529"></path>
+</symbol>
 </defs>
 </svg>

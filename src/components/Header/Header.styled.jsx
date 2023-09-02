@@ -31,3 +31,8 @@ export const UserIcon = styled.svg`
     fill: #bedbb0;
   }
 `;
+
+export const ChevronIcon = styled.svg`
+  width: 16px;
+  height: 16px;
+`;
