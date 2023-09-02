@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Formik } from 'formik';
 
 import images from '../iconSvg/images.js';
-import bgImage from '../iconSvg/bgImage.svg';
+import bgImage from '../../images/bgImage-light.jpg';
 
 import sprite from '../iconSvg/icon.svg';
 import {
@@ -22,21 +22,25 @@ import {
 import ModalClose from '@mui/joy/ModalClose';
 import BtnAdd from 'components/ScreensPage/btnAdd/BtnAdd';
 
-const NewBoardForm = ({ formTitle, boardTitle, btnText, handleSubmit }) => {
+const NewBoardForm = ({
+  formTitle,
+  boardTitle,
+  boardIcon = '#icon-Project',
+  btnText,
+  handleSubmit,
+}) => {
   const [background, setbackground] = useState();
-  console.log(background);
 
   const formSubmit = values => {
     const data = { ...values, background };
-    console.log(data);
 
     handleSubmit(data, formTitle);
   };
 
   const initialValues = {
-    title: 'gvgrfg',
-    icon: '#icon-Project',
-    background: '',
+    title: boardTitle || '',
+    icon: boardIcon,
+    background: 'none',
   };
 
   const BgImageChangeHandler = data => {
@@ -62,7 +66,7 @@ const NewBoardForm = ({ formTitle, boardTitle, btnText, handleSubmit }) => {
           <IconList>
             <li>
               <label>
-                <RadioField type="radio" name="icon" value="icon-Project" />
+                <RadioField type="radio" name="icon" value="#icon-Project" />
                 <Icon>
                   <use href={sprite + '#icon-Project'}></use>
                 </Icon>
@@ -70,7 +74,7 @@ const NewBoardForm = ({ formTitle, boardTitle, btnText, handleSubmit }) => {
             </li>
             <li>
               <label>
-                <RadioField type="radio" name="icon" value="icon-star-04" />
+                <RadioField type="radio" name="icon" value="#icon-star-04" />
                 <Icon>
                   <use href={sprite + '#icon-star-04'}></use>
                 </Icon>
@@ -78,7 +82,7 @@ const NewBoardForm = ({ formTitle, boardTitle, btnText, handleSubmit }) => {
             </li>
             <li>
               <label>
-                <RadioField type="radio" name="icon" value="icon-loading-03" />
+                <RadioField type="radio" name="icon" value="#icon-loading-03" />
                 <Icon>
                   <use href={sprite + '#icon-loading-03'}></use>
                 </Icon>
@@ -89,7 +93,7 @@ const NewBoardForm = ({ formTitle, boardTitle, btnText, handleSubmit }) => {
                 <RadioField
                   type="radio"
                   name="icon"
-                  value="icon-puzzle-piece-02"
+                  value="#icon-puzzle-piece-02"
                 />
                 <Icon>
                   <use href={sprite + '#icon-puzzle-piece-02'}></use>
@@ -98,7 +102,7 @@ const NewBoardForm = ({ formTitle, boardTitle, btnText, handleSubmit }) => {
             </li>
             <li>
               <label>
-                <RadioField type="radio" name="icon" value="icon-container" />
+                <RadioField type="radio" name="icon" value="#icon-container" />
                 <Icon>
                   <use href={sprite + '#icon-container'}></use>
                 </Icon>
@@ -109,7 +113,7 @@ const NewBoardForm = ({ formTitle, boardTitle, btnText, handleSubmit }) => {
                 <RadioField
                   type="radio"
                   name="icon"
-                  value="icon-lightning-02"
+                  value="#icon-lightning-02"
                 />
                 <Icon>
                   <use href={sprite + '#icon-lightning-02'}></use>
@@ -118,7 +122,7 @@ const NewBoardForm = ({ formTitle, boardTitle, btnText, handleSubmit }) => {
             </li>
             <li>
               <label>
-                <RadioField type="radio" name="icon" value="icon-colors" />
+                <RadioField type="radio" name="icon" value="#icon-colors" />
                 <Icon>
                   <use href={sprite + '#icon-colors'}></use>
                 </Icon>
@@ -126,7 +130,7 @@ const NewBoardForm = ({ formTitle, boardTitle, btnText, handleSubmit }) => {
             </li>
             <li>
               <label>
-                <RadioField type="radio" name="icon" value="icon-hexagon-01" />
+                <RadioField type="radio" name="icon" value="#icon-hexagon-01" />
                 <Icon>
                   <use href={sprite + '#icon-hexagon-01'}></use>
                 </Icon>
@@ -138,11 +142,8 @@ const NewBoardForm = ({ formTitle, boardTitle, btnText, handleSubmit }) => {
           <BgList>
             <BgColor>
               <label>
-                <RadioFieldBg type="radio" name="background" value="" />
-                <Icon>
-                  <use href={bgImage + '#icon-block'}></use>
-                </Icon>
-                {/* <img src={bgImage} alt="bgImage" /> */}
+                <RadioFieldBg type="radio" name="background" value="none" />
+                <Img src={bgImage} alt="bgImage" />
               </label>
             </BgColor>
             {images.map(image => (
@@ -166,7 +167,3 @@ const NewBoardForm = ({ formTitle, boardTitle, btnText, handleSubmit }) => {
 };
 
 export default NewBoardForm;
-
-//  useEffect(() => {
-//    setTitle(boardTitle || '');
-//  }, [boardTitle]);

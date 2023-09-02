@@ -96,14 +96,9 @@ const RadioField = styled(Field)`
   &:checked + ${Icon} {
     stroke: #161616;
   }
-
-  &:checked + ${Img} {
-    transform: scale(0.95);
-    outline: 1px solid #bedbb0;
-  }
 `;
 
-const RadioFieldBg = styled(Field)`
+const RadioFieldBg = styled.input`
   appearance: none;
   position: absolute;
 
