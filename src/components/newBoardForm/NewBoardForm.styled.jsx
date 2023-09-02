@@ -1,6 +1,7 @@
 import styled from 'styled-components';
+import { Form, Field } from 'formik';
 
-const FormContainer = styled.form`
+const FormContainer = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -21,7 +22,14 @@ const Title = styled.h2`
   margin: 0;
 `;
 
-const Input = styled.input`
+const FormikContainer = styled(Form)`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+`;
+
+const Input = styled(Field)`
   display: inline-block;
   width: 100%;
   padding: 18px 14px;
@@ -81,7 +89,7 @@ const BgColor = styled.li`
   cursor: pointer;
 `;
 
-const RadioButton = styled.input`
+const RadioField = styled(Field)`
   appearance: none;
   position: absolute;
 
@@ -90,7 +98,16 @@ const RadioButton = styled.input`
   }
 
   &:checked + ${Img} {
-    transform: scale(1.1);
+    transform: scale(0.95);
+    outline: 1px solid #bedbb0;
+  }
+`;
+
+const RadioFieldBg = styled(Field)`
+  appearance: none;
+  position: absolute;
+
+  &:checked + ${Img} {
     transform: scale(0.95);
     outline: 1px solid #bedbb0;
   }
@@ -124,5 +141,7 @@ export {
   BgColor,
   IconList,
   BgList,
-  RadioButton,
+  RadioField,
+  FormikContainer,
+  RadioFieldBg,
 };
