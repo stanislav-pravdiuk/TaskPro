@@ -7,7 +7,7 @@ export const Container = styled.div`
   height: auto;
   border-radius: 8px;
   background: #fff;
-  padding: 14px 20px;
+  padding: 14px 24px;
   margin-bottom: 8px;
 `;
 export const Title = styled.h4`
@@ -20,6 +20,7 @@ export const Title = styled.h4`
   margin: 0;
 `;
 export const Description = styled.div`
+  width: 100%;
   color: rgba(22, 22, 22, 0.7);
   font-family: Poppins;
   font-size: 12px;

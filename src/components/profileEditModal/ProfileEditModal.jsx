@@ -21,6 +21,7 @@ import { updateUserProfile } from '../../redux/auth/authOperations';
 import icon from '../iconSvg/icon.svg';
 import avatar from '../../images/userAvatar.jpg';
 import { ModalClose } from '@mui/joy';
+import { toast } from 'react-hot-toast';
 
 const validationSchema = Yup.object().shape({
   login: Yup.string().required('Login is required'),
@@ -30,7 +31,7 @@ const validationSchema = Yup.object().shape({
     .required('Password is required'),
 });
 
-const ProfileEditModal = ({ user }) => {
+const ProfileEditModal = ({ user, modalClose }) => {
   const dispatch = useDispatch();
   const fileInputRef = useRef(null);
 
@@ -61,9 +62,21 @@ const ProfileEditModal = ({ user }) => {
 
   const handleSubmit = async values => {
     try {
-      await dispatch(updateUserProfile(values));
+      await dispatch(
+        updateUserProfile({
+          name: values.login,
+          email: values.email,
+          password: values.password,
+          avatar: selectedAvatar,
+        })
+      ).unwrap();
+      toast.success('Saved successfully!!!');
+      modalClose();
     } catch (error) {
       console.error('Error:', error.message);
+      toast.error(
+        "Oops, it's looks like something went wrong... Please, try again!"
+      );
     }
   };
 
@@ -106,13 +119,26 @@ const ProfileEditModal = ({ user }) => {
             </label>
           </AvatarContainer>
           <InputContainer>
-            <Field type="text" id="login" name="login" as={Input} />
-            <Field type="email" id="email" name="email" as={Input} />
+            <Field
+              type="text"
+              id="login"
+              name="login"
+              placeholder="Name"
+              as={Input}
+            />
+            <Field
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Email"
+              as={Input}
+            />
             <PasswordContainer>
               <Field
                 type={showPassword ? 'text' : 'password'}
                 id="password"
                 name="password"
+                placeholder="Password"
                 as={Input}
               />
               <ShowPasswordBtn

@@ -4,9 +4,9 @@ import { ModalTitle, Input, FormContainer } from '../cardForm/CardForm.styled';
 import BtnAdd from 'components/ScreensPage/btnAdd/BtnAdd';
 import ModalClose from '@mui/joy/ModalClose';
 
-const ColumnForm = ({ formTitle, btnText, onSubmit }) => {
+const ColumnForm = ({ formTitle, columnTitle, btnText, onSubmit }) => {
   const initialValues = {
-    title: '',
+    title: columnTitle || '',
   };
 
   const handleSubmit = values => {

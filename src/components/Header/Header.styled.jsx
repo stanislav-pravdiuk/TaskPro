@@ -6,13 +6,25 @@ export const BurgerIcon = styled.svg`
   background-color: transparent;
   color: inherit;
   &:hover {
-    fill: #BEDBB0;
+    fill: #bedbb0;
+  }
+`;
+
+export const UserImage = styled.img`
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background-color: transparent;
+  color: inherit;
+  &:hover {
+    fill: #bedbb0;
   }
 `;
 
 export const UserIcon = styled.svg`
   width: 32px;
   height: 32px;
+  border-radius: 8px;
   background-color: transparent;
   color: inherit;
   &:hover {
