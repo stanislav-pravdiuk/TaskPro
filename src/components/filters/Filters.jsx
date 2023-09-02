@@ -26,16 +26,24 @@ function Filters({ onClick }) {
       </ResetBox>
       <BtnBox>
         <ColorOptionLabel className="blue">
-          <button type="radio" name="priority" value="low" />
+          <button type="radio" name="priority" value="low">
+            High
+          </button>
         </ColorOptionLabel>
         <ColorOptionLabel className="red">
-          <button type="radio" name="priority" value="medium" />
+          <button type="radio" name="priority" value="medium">
+            Medium
+          </button>
         </ColorOptionLabel>
         <ColorOptionLabel className="green">
-          <button type="radio" name="priority" value="high" />
+          <button type="radio" name="priority" value="high">
+            Low
+          </button>
         </ColorOptionLabel>
         <ColorOptionLabel className="gray">
-          <button type="radio" name="priority" value="without" />
+          <button type="radio" name="priority" value="without">
+            Without
+          </button>
         </ColorOptionLabel>
       </BtnBox>
     </Container>

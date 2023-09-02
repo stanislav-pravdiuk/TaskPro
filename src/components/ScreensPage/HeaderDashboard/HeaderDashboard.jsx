@@ -6,7 +6,7 @@ import { useState } from 'react';
 const HeaderDashboard = ({ boardName }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const stroke = '#161616';
-  console.log(isMenuOpen);
+
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
