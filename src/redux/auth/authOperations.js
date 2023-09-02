@@ -121,8 +121,11 @@ export const updateUserTheme = createAsyncThunk(
       return thunkAPI.rejectWithValue('Unable to fetch user');
      }
     try {
-      setAuthHeader(persistedToken);
-      const res = await axios.patch('/user/theme', credentials);
+      setAuthHeader(persistedToken);      
+      const payload = {
+        "theme": credentials
+      }
+      const res = await axios.patch('/user/theme', payload);
       console.log('res', res)
       console.log('res.data', res.data)
       return res.data;
