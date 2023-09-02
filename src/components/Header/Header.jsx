@@ -8,11 +8,13 @@ import { selectUser } from 'redux/auth/authSelectors';
 import { useSelector } from 'react-redux';
 import ProfileEditModal from 'components/profileEditModal/ProfileEditModal';
 import MainModal from 'components/MainModal/MainModal';
-import { ThemeSelector } from 'components/Theme/ThemeSelector';
+import { ThemeComponent } from 'components/Theme/ThemeComponent';
 
 const Header = ({ click }) => {
   const user = useSelector(selectUser);
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  console.log(user.theme);
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -67,6 +69,12 @@ const Header = ({ click }) => {
             alignItems: 'center',
           }}
         >
+          <Box sx={{
+            marginRight: '30px'            
+          }}>
+            {/* <ThemeSelector /> */}
+            <ThemeComponent />
+          </Box>
           <Typography
             variant="body2"
             sx={{
@@ -104,10 +112,8 @@ const Header = ({ click }) => {
             closeModal={closeModal}
           >
             <ProfileEditModal user={currentUserData} />
-          </MainModal>
-          <ThemeSelector />
-        </Box>
-        <ThemeSelector />
+          </MainModal>          
+        </Box>        
       </Toolbar>
     </AppBar>
   );
