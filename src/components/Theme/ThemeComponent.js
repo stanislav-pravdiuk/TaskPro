@@ -54,6 +54,7 @@ export const ThemeComponent = () => {
           width: '100px',
           borderRadius: '5px',
           paddingTop: '5px',
+          zIndex: 9999,
           boxShadow: '0px 2px 4px rgba(17, 17, 17, 0.1)',
         }}
       >
