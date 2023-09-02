@@ -255,11 +255,11 @@ const ButtonPlusViolet = styled.button`
   justify-content: center;
   width: 40px;
   height: 36px;
-  background-color:#B8BCFD;
+  background-color: #b8bcfd;
   border-radius: 6px;
   border: none;
   &:hover {
-    background-color: #979CEA;
+    background-color: #979cea;
   }
 `;
 
@@ -270,7 +270,6 @@ const ButtonPlusIconViolet = styled.svg`
   width: 20px;
   height: 20px;
   fill: black;
-
 `;
 
 const ButtonPlusSvgViolet = styled.use`
@@ -279,11 +278,7 @@ const ButtonPlusSvgViolet = styled.use`
   fill: black;
 `;
 
-
-
-
 // _____________________
-
 
 // const ButtonLogOutThumb = styled.div`
 //   width: 32px;
@@ -311,16 +306,16 @@ const ButtonLogOutIconViolet = styled.svg`
   fill: black;
   background-color: transparent;
   &:hover {
-    fill: #B8BCFD;
+    fill: #b8bcfd;
   }
 `;
 
-const  ButtonLogOutSvgViolet = styled.use`
+const ButtonLogOutSvgViolet = styled.use`
   width: 32px;
   height: 16px;
   fill: black;
   &:hover {
-    fill: #B8BCFD;
+    fill: #b8bcfd;
   }
 `;
 
@@ -334,29 +329,25 @@ const ButtonDelete = styled.button`
   height: 17px;
   padding: 0;
   background-color: transparent;
- border: none;
- &:hover .svg.use {
-  fill: white;
+  border: none;
+  &:hover .svg.use {
+    fill: white;
   }
 `;
 
-const  ButtonDeleteIcon = styled.svg`
-  width:16px;
+const ButtonDeleteIcon = styled.svg`
+  width: 16px;
   height: 16px;
-  fill: #D9D9D9;
-  
-
+  fill: #d9d9d9;
 `;
 
 const ButtonDeleteSvg = styled.use`
   width: 16px;
   height: 16px;
-  fill: #D9D9D9;
+  fill: #d9d9d9;
 `;
 
-
 /* ____________________ */
-
 
 const ButtonUpDate = styled.button`
   display: flex;
@@ -366,21 +357,19 @@ const ButtonUpDate = styled.button`
   height: 17px;
   padding: 0;
   background-color: transparent;
- border: none;
+  border: none;
 `;
 
-const  ButtonUpDateIcon = styled.svg`
-  width:16px;
+const ButtonUpDateIcon = styled.svg`
+  width: 16px;
   height: 16px;
-  fill: #D9D9D9;
-  
-
+  fill: #d9d9d9;
 `;
 
 const ButtonUpDateSvg = styled.use`
   width: 16px;
   height: 16px;
-  fill: #D9D9D9;
+  fill: #d9d9d9;
 `;
 
 const ButtonClose = styled.button`
@@ -391,15 +380,13 @@ const ButtonClose = styled.button`
   height: 18px;
   padding: 0;
   background-color: transparent;
- border: none;
+  border: none;
 `;
 
-const  ButtonCloseIcon = styled.svg`
-  width:18px;
+const ButtonCloseIcon = styled.svg`
+  width: 18px;
   height: 18px;
   fill: white;
-  
-
 `;
 
 const ButtonCloseSvg = styled.use`
@@ -408,7 +395,6 @@ const ButtonCloseSvg = styled.use`
   fill: black;
 `;
 
-
 // _____________________
 
 const ButtonFilter = styled.button`
@@ -416,7 +402,7 @@ const ButtonFilter = styled.button`
   justify-content: space-between;
   align-items: center;
   width: 64px;
-  height:20px;
+  height: 20px;
   // background-color: transparent;
   // border: none;
   // opacity: 80%;
@@ -432,11 +418,11 @@ const ButtonFilterThumb = styled.div`
 `;
 
 const ButtonFilterText = styled.p`
-font-family: Poppins;
-font-size: 14px;
-font-style: normal;
-font-weight: 500;
-line-height: normal;
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
 `;
 
 const ButtonFilterIcon = styled.svg`
@@ -454,15 +440,11 @@ const ButtonFilterSvg = styled.use`
 
 // _________________
 
-
-
-
 export {
   ButtonFilterThumb,
   ButtonFilterSvg,
   ButtonFilterIcon,
   ButtonFilterText,
- 
   ButtonFilter,
   ButtonCloseSvg,
   ButtonCloseIcon,
@@ -476,7 +458,6 @@ export {
   ButtonLogOutSvgViolet,
   ButtonLogOutIconViolet,
   ButtonLogOutTextViolet,
-
   ButtonPlusSvgViolet,
   ButtonPlusIconViolet,
   ButtonPlusViolet,
