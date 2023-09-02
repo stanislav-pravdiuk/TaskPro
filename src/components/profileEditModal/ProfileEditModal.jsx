@@ -31,7 +31,7 @@ const validationSchema = Yup.object().shape({
     .required('Password is required'),
 });
 
-const ProfileEditModal = ({ user }) => {
+const ProfileEditModal = ({ user, modalClose }) => {
   const dispatch = useDispatch();
   const fileInputRef = useRef(null);
 
@@ -62,12 +62,21 @@ const ProfileEditModal = ({ user }) => {
 
   const handleSubmit = async values => {
     try {
-      await dispatch(updateUserProfile({ name: values.login, email: values.email, password: values.password, avatar: values.avatar })).unwrap();
-      toast.success('Saved successfully!!!')
-
+      await dispatch(
+        updateUserProfile({
+          name: values.login,
+          email: values.email,
+          password: values.password,
+          avatar: selectedAvatar,
+        })
+      ).unwrap();
+      toast.success('Saved successfully!!!');
+      modalClose();
     } catch (error) {
       console.error('Error:', error.message);
-       toast.error("Oops, it's looks like something went wrong... Please, try again!")
+      toast.error(
+        "Oops, it's looks like something went wrong... Please, try again!"
+      );
     }
   };
 

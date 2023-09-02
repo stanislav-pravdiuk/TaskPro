@@ -21,10 +21,12 @@ export const AvatarContainer = styled.div`
   flex-direction: column;
   align-items: center;
   text-align: center;
+  border-radius: 8px;
   margin-top: 24px;
 `;
 
 export const AvatarImg = styled.img`
+  border-radius: 8px;
   width: 68px;
   height: 68px;
 `;

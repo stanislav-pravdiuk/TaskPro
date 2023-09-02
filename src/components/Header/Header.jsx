@@ -3,7 +3,7 @@ import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import icon from '../../components/iconSvg/icon.svg';
 import { Box, Button, Typography } from '@mui/material';
-import { BurgerIcon, UserIcon } from './Header.styled';
+import { BurgerIcon,UserImage, UserIcon } from './Header.styled';
 import { selectUser } from 'redux/auth/authSelectors';
 import { useSelector } from 'react-redux';
 import ProfileEditModal from 'components/profileEditModal/ProfileEditModal';
@@ -15,7 +15,6 @@ const Header = ({ click }) => {
 
   const openModal = () => {
     setIsModalOpen(true);
-
   };
 
   const closeModal = () => {
@@ -27,7 +26,7 @@ const Header = ({ click }) => {
     login: user.name,
     email: user.email,
   };
-  
+
   return (
     <AppBar
       position="fixed"
@@ -92,15 +91,16 @@ const Header = ({ click }) => {
             onClick={openModal}
             aria-label="open drawer"
           >
-            <UserIcon>
-              <use href={icon + '#icon-user-1'}></use>
-            </UserIcon>
+            {currentUserData ? (
+              <UserImage src={currentUserData.avatar} alt="User avatar" />
+            ) : (
+              <UserIcon>
+                <use href={icon + '#icon-user-1'}></use>
+              </UserIcon>
+            )}
           </Button>
-          <MainModal
-            modalIsOpen={isModalOpen}
-            closeModal={closeModal}
-          >
-            <ProfileEditModal user={currentUserData} />
+          <MainModal modalIsOpen={isModalOpen} closeModal={closeModal}>
+            <ProfileEditModal user={currentUserData} modalClose={closeModal} />
           </MainModal>
         </Box>
       </Toolbar>
