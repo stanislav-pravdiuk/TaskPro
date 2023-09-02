@@ -13,13 +13,13 @@ const authSlice = createSlice({
   initialState,
   extraReducers: {
     [register.fulfilled](state, action) {
-      state.user = action.payload.user;
+      state.user.name = action.payload.name;
+      state.user.email = action.payload.email;
       state.token = action.payload.token;
       state.isLoggedIn = true;
       state.isRefreshing = false;
     },
     [logIn.fulfilled](state, action) {
-      // console.log('action.payload', action.payload)
       state.user.name = action.payload.name;
       state.user.email = action.payload.email;
       state.user.avatar = action.payload.avatar;
@@ -27,7 +27,6 @@ const authSlice = createSlice({
       state.token = action.payload.token;
       state.isLoggedIn = true;
       state.isRefreshing = false;
-      // console.log('state.user', state.user)
     },
     [logOut.fulfilled](state) {
       state.user = { name: null, email: null };
@@ -45,15 +44,15 @@ const authSlice = createSlice({
     },
     [updateUserProfile.fulfilled](state, action) {
       console.log('action.payload', action.payload)
-      state.user = action.payload;
-      // state.token = action.payload.token;
+       state.user.name = action.payload.name;
+      state.user.email = action.payload.email;
+      state.user.avatar = action.payload.avatar;
+      state.user.theme = action.payload.theme;
       state.isLoggedIn = true;
       state.isRefreshing = false;
-      console.log('state', state)
     },
     [updateUserTheme.fulfilled](state, action) {
       state.user.theme = action.payload.theme;
-      // state.token = action.payload.token;
       state.isLoggedIn = true;
       state.isRefreshing = false;
     },

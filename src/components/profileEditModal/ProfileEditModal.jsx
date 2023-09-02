@@ -21,6 +21,7 @@ import { updateUserProfile } from '../../redux/auth/authOperations';
 import icon from '../iconSvg/icon.svg';
 import avatar from '../../images/userAvatar.jpg';
 import { ModalClose } from '@mui/joy';
+import { toast } from 'react-hot-toast';
 
 const validationSchema = Yup.object().shape({
   login: Yup.string().required('Login is required'),
@@ -61,9 +62,12 @@ const ProfileEditModal = ({ user }) => {
 
   const handleSubmit = async values => {
     try {
-      await dispatch(updateUserProfile(values));
+      await dispatch(updateUserProfile({ name: values.login, email: values.email, password: values.password, avatar: values.avatar })).unwrap();
+      toast.success('Saved successfully!!!')
+
     } catch (error) {
       console.error('Error:', error.message);
+       toast.error("Oops, it's looks like something went wrong... Please, try again!")
     }
   };
 
