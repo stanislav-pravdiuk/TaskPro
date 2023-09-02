@@ -22,6 +22,7 @@ const CardForm = ({
   formTitle,
   btnText,
   onSubmit,
+  deadline,
   owner,
 }) => {
   const [selectedDate, setSelectedDate] = useState();
@@ -31,6 +32,7 @@ const CardForm = ({
     title: title || '',
     text: text || '',
     priority: priority || 'without',
+    deadline,
   };
 
   const handleSubmit = values => {
@@ -86,12 +88,9 @@ const CardForm = ({
               <Text>
                 {selectedDate
                   ? formattedDate
-                  : `Today, ${dayjs().format('MMMM D')}`}
+                  : deadline || `Today, ${dayjs().format('MMMM D')}`}
               </Text>
-              <Calendar
-                parentState={setSelectedDate}
-                initial={initialValues.deadline}
-              />
+              <Calendar parentState={setSelectedDate} />
             </DeadlineBox>
           </div>
           <BtnAdd btnTitle={btnText} btnColor={'#BEDBB0'} />

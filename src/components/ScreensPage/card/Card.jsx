@@ -106,7 +106,7 @@ const Card = ({ title, text, priority, deadline, card, boardId, columns }) => {
     >
       <Title>{title}</Title>
       <Description>
-        <EllipsisText text={text} length={'80'} />
+        <EllipsisText text={text} length={80} />
       </Description>
       <BottomBar>
         <OptionsBox>

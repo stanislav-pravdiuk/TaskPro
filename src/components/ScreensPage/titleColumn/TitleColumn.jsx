@@ -62,6 +62,7 @@ const TitleColumn = ({ title, owner, columnId }) => {
             formTitle={'Edit column'}
             btnText={'Edit'}
             onSubmit={updateColumnHandler}
+            columnTitle={title}
           />
         </MainModal>
       </IconsBox>
