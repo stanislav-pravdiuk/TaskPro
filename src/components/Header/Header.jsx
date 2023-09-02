@@ -70,8 +70,7 @@ const Header = ({ click }) => {
         >
           <Box sx={{
             marginRight: '30px'            
-          }}>
-            {/* <ThemeSelector /> */}
+          }}>            
             <ThemeComponent />
           </Box>
           <Typography
