@@ -32,7 +32,6 @@ import MenuButton from '@mui/joy/MenuButton';
 import Dropdown from '@mui/joy/Dropdown';
 
 const Card = ({ title, text, priority, deadline, card, boardId, columns }) => {
-  const colorPriority = '#8FA1D0';
   const [openCardModal, setOpenCardModal] = useState(false);
 
   const [replaceCard] = useReplaceCardMutation();
@@ -79,8 +78,31 @@ const Card = ({ title, text, priority, deadline, card, boardId, columns }) => {
     deleteCard({ boardId, data });
   };
 
+  const cardPriorityChecker = priority => {
+    let cardBordredColor = null;
+
+    switch (priority) {
+      case 'low':
+        cardBordredColor = '#8FA1D0';
+        break;
+      case 'medium':
+        cardBordredColor = '#E09CB5';
+        break;
+      case 'high':
+        cardBordredColor = '#BEDBB0';
+        break;
+
+      default:
+        cardBordredColor = 'rgba(22, 22, 22, 0.30)';
+    }
+
+    return cardBordredColor;
+  };
+
   return (
-    <Container style={{ borderLeft: `4px solid ${colorPriority}` }}>
+    <Container
+      style={{ borderLeft: `4px solid ${cardPriorityChecker(priority)}` }}
+    >
       <Title>{title}</Title>
       <Description>{text}</Description>
       <BottomBar>
@@ -88,7 +110,9 @@ const Card = ({ title, text, priority, deadline, card, boardId, columns }) => {
           <Options>
             <TextOptions>Priority</TextOptions>
             <PriorityBox>
-              <Elipce style={{ backgroundColor: colorPriority }}></Elipce>
+              <Elipce
+                style={{ backgroundColor: `${cardPriorityChecker(priority)}` }}
+              ></Elipce>
               <Text>{priority}</Text>
             </PriorityBox>
           </Options>
