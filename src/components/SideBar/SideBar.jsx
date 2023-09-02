@@ -43,6 +43,7 @@ const SideBar = ({ active, onClick }) => {
   const [openAddModal, setOpenAddModal] = useState(false);
   const [openEditModal, setOpenEditModal] = useState(false);
   const [activeBoardTitle, setActiveBoardTitle] = useState('');
+  const [activeBoardIcon, setActiveBoardIcon] = useState('');
   const drawerWidth = 260;
 
   const { data = [] } = useGetBoardsQuery();
@@ -55,8 +56,9 @@ const SideBar = ({ active, onClick }) => {
   const [deleteBoard] = useDeleteBoardMutation();
   const dispatch = useDispatch();
 
-  const openEditModalHandler = boardName => {
+  const openEditModalHandler = (boardName, boardIcon) => {
     setActiveBoardTitle(boardName);
+    setActiveBoardIcon(boardIcon);
     setOpenEditModal(true);
   };
 
@@ -187,7 +189,9 @@ const SideBar = ({ active, onClick }) => {
                     <IconsBox>
                       <IconButton
                         type="button"
-                        onClick={() => openEditModalHandler(board.title)}
+                        onClick={() =>
+                          openEditModalHandler(board.title, board.icon)
+                        }
                       >
                         <Edit>
                           <use href={icon + '#icon-pencil-01'}></use>
@@ -390,6 +394,7 @@ const SideBar = ({ active, onClick }) => {
           btnText={'Edit'}
           handleSubmit={handleSubmit}
           boardTitle={activeBoardTitle}
+          boardIcon={activeBoardIcon}
         ></NewBoardForm>
       </MainModal>
     </Box>
