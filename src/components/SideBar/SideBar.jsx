@@ -45,7 +45,6 @@ const SideBar = ({ active, onClick }) => {
   const [openEditModal, setOpenEditModal] = useState(false);
   const [activeBoardTitle, setActiveBoardTitle] = useState('');
   const [activeBoardIcon, setActiveBoardIcon] = useState('');
-  const drawerWidth = 260;
 
   const { data = [] } = useGetBoardsQuery();
 

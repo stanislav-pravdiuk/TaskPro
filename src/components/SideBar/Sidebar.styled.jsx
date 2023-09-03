@@ -44,7 +44,7 @@ export const BoardsContainer = styled.div`
 
 export const BoardsList = styled.ul`
   position: absolute;
-  width: 123%;
+  width: 120%;
   top: 0;
   left: -24px;
   gap: 4px;
@@ -68,6 +68,10 @@ export const BoardsList = styled.ul`
   &::-webkit-scrollbar-thumb {
     background-color: rgba(22, 22, 22, 0.1);
     border-radius: 12px;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 123%;
   }
 `;
 
