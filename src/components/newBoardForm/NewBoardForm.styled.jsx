@@ -19,6 +19,7 @@ const Title = styled.h2`
   font-size: 18px;
   line-height: 27px;
   letter-spacing: -0.02em;
+  font-family: 'Poppins';
   margin: 0;
 `;
 
@@ -45,6 +46,7 @@ const Input = styled(Field)`
 `;
 
 const Text = styled.p`
+  font-family: 'Poppins';
   font-style: medium;
   font-weight: 500;
   font-size: 14px;
@@ -114,6 +116,7 @@ const Button = styled.button`
   height: 49px;
   padding: 0px;
 
+  font-family: 'Poppins';
   font-style: medium;
   font-size: 14px;
   text-align: center;

@@ -407,7 +407,7 @@ const SideBar = ({ active, onClick }) => {
         ></NewBoardForm>
       </MainModal>
       <MainModal modalIsOpen={openHelpModal} closeModal={closeHelpModal}>
-        <ModalHelp formTitle={'Help'} />
+        <ModalHelp />
       </MainModal>
     </Box>
   );
