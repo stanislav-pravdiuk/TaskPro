@@ -1,19 +1,21 @@
 import React from 'react';
-import {
-  FormWrapper,
-  Section,
-  AuthFormSubmitButton,
-  TitleInput,
-  SectionTitle,
-  Textarea,
-  ModalForm,
-  ErrorSection,
-} from './NeedHelpModal.styled';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
 import { needHelp } from 'redux/auth/authOperations';
 import ModalClose from '@mui/joy/ModalClose';
+
+import {
+  Section,
+  SectionTitle,
+  ModalForm,
+  FormWrapper,
+  Container,
+  TitleInput,
+  Textarea,
+  ErrorSection,
+  AuthFormSubmitButton,
+} from './NeedHelpModal.styled';
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().email('Invalid email').required('Email is required'),
@@ -53,23 +55,25 @@ const NeedHelpModal = ({ closeModal }) => {
       >
         <ModalForm>
           <FormWrapper>
-            <ErrorSection name="email" component="div" />
-            <TitleInput
-              type="email"
-              id="email"
-              name="email"
-              placeholder="Email address "
-            />
-
-            <ErrorSection name="message" component="div" />
-
-            <Textarea
-              component="textarea"
-              type="text"
-              id="message"
-              name="message"
-              placeholder="Comment"
-            />
+            <Container>
+              <TitleInput
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Email address "
+              />
+              <ErrorSection name="email" component="div" />
+            </Container>
+            <Container>
+              <Textarea
+                component="textarea"
+                type="text"
+                id="message"
+                name="message"
+                placeholder="Comment"
+              />
+              <ErrorSection name="message" component="div" />
+            </Container>
           </FormWrapper>
 
           <AuthFormSubmitButton type="submit">Send</AuthFormSubmitButton>
