@@ -3,7 +3,7 @@ import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import icon from '../../components/iconSvg/icon.svg';
 import { Box, Button, Typography } from '@mui/material';
-import { BurgerIcon,UserImage, UserIcon } from './Header.styled';
+import { BurgerIcon, UserImage, UserIcon } from './Header.styled';
 import { selectUser } from 'redux/auth/authSelectors';
 import { useSelector } from 'react-redux';
 import ProfileEditModal from 'components/profileEditModal/ProfileEditModal';
@@ -32,7 +32,7 @@ const Header = ({ click }) => {
 
   return (
     <AppBar
-      position="fixed"
+      position="relative"
       sx={{ width: '100%', backgroundColor: '#FCFCFC', boxShadow: 'none' }}
     >
       <Toolbar
@@ -68,11 +68,12 @@ const Header = ({ click }) => {
             alignItems: 'center',
           }}
         >
-          <Box sx={{
-            marginRight: '30px'            
-          }}>            
-            <ThemeComponent />
-          </Box>
+          <Box
+            sx={{
+              marginRight: '30px',
+            }}
+          ></Box>
+          <ThemeComponent />
           <Typography
             variant="body2"
             sx={{

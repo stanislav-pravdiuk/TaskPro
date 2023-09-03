@@ -3,7 +3,8 @@ import styled from 'styled-components';
 export const FormContainer = styled.div`
   position: relative;
   background-color: #fcfcfc;
-  min-width: 335px;
+  width: 100vw;
+  max-width: 400px;
   padding: 24px;
   border-radius: 8px;
 `;

@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
 export const Container = styled.button`
+  display: flex;
+  flex-shrink: 0;
   width: 100%;
   max-width: 334px;
   height: 56px;

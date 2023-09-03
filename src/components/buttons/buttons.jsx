@@ -42,8 +42,6 @@ import {
   ButtonCloseIcon,
   ButtonFilter,
   ButtonFilterIcon,
-  ButtonFilterSvg,
-  ButtonFilterText,
   ButtonFilterThumb,
 } from './buttons.styled';
 
@@ -212,10 +210,10 @@ export const BtnFilter = ({ color, onClick }) => {
     <ButtonFilter onClick={onClick}>
       <ButtonFilterThumb>
         <ButtonFilterIcon style={{ stroke: `${color}` }}>
-          <ButtonFilterSvg href={icon + '#icon-filter'}></ButtonFilterSvg>
+          <use href={icon + '#icon-filter'}></use>
         </ButtonFilterIcon>
       </ButtonFilterThumb>
-      <ButtonFilterText style={{ color: color }}>Filters</ButtonFilterText>
+      Filters
     </ButtonFilter>
   );
 };

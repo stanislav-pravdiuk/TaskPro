@@ -3,12 +3,11 @@ import styled from 'styled-components';
 export const Container = styled.div`
   width: 100%;
   height: 100%;
-  max-height: 87vh;
+  max-height: 82vh;
   display: flex;
-  gap: 24px;
-  padding: 0 24px 16px 0;
-
+  padding: 0 20px 0 20px;
   overflow-x: auto;
+  overflow-y: hidden;
 
   ::-webkit-scrollbar {
     background-color: #e8e8e8;
@@ -20,8 +19,41 @@ export const Container = styled.div`
     background-color: rgba(22, 22, 22, 0.1);
     border-radius: 12px;
   }
+
+  @media screen and (min-width: 768px) {
+    padding: 0 32px 0 32px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    padding: 0 24px 0 24px;
+    max-height: 87vh;
+  }
 `;
-export const Column = styled.div``;
+
+export const ColumnsList = styled.ul`
+  max-height: 100%;
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  margin: 0;
+  margin-right: 30px;
+
+  @media screen and (min-width: 768px) {
+    gap: 24px;
+    margin-right: 34px;
+  }
+`;
+
+export const ColumnsListItem = styled.li`
+  height: 100%;
+`;
+
+export const Column = styled.div`
+  display: flex;
+  height: 100%;
+  gap: 14px;
+  flex-direction: column;
+`;
 
 export const GalleryCards = styled.ul`
   list-style: none;
@@ -29,8 +61,11 @@ export const GalleryCards = styled.ul`
   border-radius: 8px;
   padding-right: 8px;
   margin: 0;
-  margin-bottom: 14px;
-  max-height: 69vh;
+  max-height: 63vh;
   overflow-y: auto;
   overflow-x: hidden;
+
+  @media screen and (min-width: 1440px) {
+    max-height: 69vh;
+  }
 `;

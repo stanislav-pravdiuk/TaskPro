@@ -6,6 +6,7 @@ import cactus2x from '../../images/cactus@2x.png';
 import cactus3x from '../../images/cactus@3x.png';
 import icon from '../../components/iconSvg/icon.svg';
 import {
+  SideBarStyled,
   LogoIcon,
   PlusIcon,
   HelpIcon,
@@ -29,7 +30,7 @@ import { useLocation, useParams } from 'react-router-dom';
 import NewBoardForm from 'components/newBoardForm/NewBoardForm';
 import ModalHelp from 'components/ModalHelp/ModalHelp';
 import MainModal from 'components/MainModal/MainModal';
-
+import NeedHelpModal from 'components/ModalHelp/ModalHelp';
 import sprite from '../iconSvg/icon.svg';
 
 import {
@@ -46,8 +47,7 @@ const SideBar = ({ active, onClick }) => {
   const [openHelpModal, setOpenHelpModal] = useState(false);
   const [activeBoardTitle, setActiveBoardTitle] = useState('');
   const [activeBoardIcon, setActiveBoardIcon] = useState('');
-  const drawerWidth = 260;
-
+const [isModalOpen, setIsModalOpen] = useState(false);
   const { data = [] } = useGetBoardsQuery();
 
   const location = useLocation();
@@ -58,6 +58,14 @@ const SideBar = ({ active, onClick }) => {
   const [deleteBoard] = useDeleteBoardMutation();
   const dispatch = useDispatch();
 
+ const openModal = () => {
+   setIsModalOpen(true);
+ };
+
+ const closeModal = () => {
+   setIsModalOpen(false);
+  };
+  
   const openEditModalHandler = (boardName, boardIcon) => {
     setActiveBoardTitle(boardName);
     setActiveBoardIcon(boardIcon);
@@ -99,7 +107,7 @@ const SideBar = ({ active, onClick }) => {
   };
 
   const drawerContent = (
-    <Box sx={{ padding: '24px', overflow: 'hidden' }}>
+    <SideBarStyled>
       <Box
         sx={{
           display: 'flex',
@@ -262,7 +270,7 @@ const SideBar = ({ active, onClick }) => {
                 color: 'rgba(190, 219, 176, 1)',
                 textDecoration: 'none',
               }}
-              href="/#"
+              onClick={openModal}
             >
               {' '}
               TaskPro
@@ -286,6 +294,7 @@ const SideBar = ({ active, onClick }) => {
               transform: 'scale(1.1)',
             },
           }}
+          onClick={openModal}
         >
           <HelpIcon>
             <use href={icon + '#icon-help'}></use>
@@ -303,6 +312,9 @@ const SideBar = ({ active, onClick }) => {
             Need help?
           </Typography>
         </Button>
+        <MainModal modalIsOpen={isModalOpen} closeModal={closeModal}>
+          <NeedHelpModal closeModal={closeModal} />
+        </MainModal>
       </Box>
       <Box
         sx={{
@@ -346,7 +358,7 @@ const SideBar = ({ active, onClick }) => {
           </Typography>
         </Button>
       </Box>
-    </Box>
+    </SideBarStyled>
   );
 
   return (
@@ -367,7 +379,14 @@ const SideBar = ({ active, onClick }) => {
 
           '& .MuiDrawer-paper': {
             boxSizing: 'border-box',
-            width: drawerWidth,
+            width: 225,
+          },
+
+          '@media (min-width: 768px)': {
+            '& .MuiDrawer-paper': {
+              boxSizing: 'border-box',
+              width: 260,
+            },
           },
         }}
       >
@@ -383,7 +402,14 @@ const SideBar = ({ active, onClick }) => {
 
           '& .MuiDrawer-paper': {
             boxSizing: 'border-box',
-            width: drawerWidth,
+            width: 225,
+          },
+
+          '@media (min-width: 768px)': {
+            '& .MuiDrawer-paper': {
+              boxSizing: 'border-box',
+              width: 260,
+            },
           },
         }}
         open
