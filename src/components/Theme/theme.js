@@ -1,98 +1,75 @@
-const { createTheme } = require('@mui/material');
-
-const dark = createTheme({
+const lightTheme = {
   palette: {
-    mode: 'dark',
     primary: {
-      main: '#000000',
+      light: "#2ce643",
+      main: "#188526",
+      dark: "#0b5c15",
+      darker: "#08400f",
     },
     secondary: {
-      main: '#757575',
+      main: "#FF4081",
+    },
+    background: {
+      default: "#FFFFFF",
+      paper: "#F5F5F5",
     },
     text: {
-        primary: '#ffffff',
-        secondary: 'rgba(22,22,22,0.8)',
-        disabled: 'rgba(22,22,22,0.5)',
-    }
-  },
-  typography: {
-    fontFamily: 'Arial, sans-serif',
-    h1: {
-      fontSize: '2.5rem',
-      fontWeight: 600,
-      marginBottom: '1rem',
-    },
-    h2: {
-      fontSize: '2rem',
-      fontWeight: 500,
-      marginBottom: '0.8rem',
-    },
-    body1: {
-      fontSize: '1rem',
-      lineHeight: 1.5,
+      primary: "#333333",
+      secondary: "#757575",
     },
   },
-  overrides: {
-    MuiButton: {
-      root: {
-        borderRadius: 8,
-        textTransform: 'none',
-      },
-    },
-  },
-});
-
-// const light = createTheme({
-//     palette: {
-//       mode: 'light',
-//       primary: {
-//         main: '#2c2c2c',
-//       },
-//       secondary: {
-//         main: '#757575',
-//       },
-//     },
-//     typography: {
-//       fontFamily: 'Poppins, Arial, sans-serif',
-//       h1: {
-//         fontSize: '2.5rem',
-//         fontWeight: 600,
-//         marginBottom: '1rem',
-//       },
-//       h2: {
-//         fontSize: '2rem',
-//         fontWeight: 500,
-//         marginBottom: '0.8rem',
-//       },
-//       body1: {
-//         fontSize: '1rem',
-//         lineHeight: 1.5,
-//       },
-//     },
-//     overrides: {
-//       MuiButton: {
-//         root: {
-//           borderRadius: 8,
-//           textTransform: 'none',
-//         },
-//       },
-//     },
-//   });
-
-// export const violet = createTheme({
-//   palette: {
-//     mode: 'dark',
-//     primary: {
-//       main: '#6200ea',
-//     },
-//     secondary: {
-//       main: '#03a9f4',
-//     },
-//   },
-// });
-
-export const theme = {
-//   light,
-  dark,
-//   violet,
 };
+
+const darkTheme = {
+  palette: {
+    type: "dark",
+    primary: {
+      light: "#69718a",
+      main: "#2d313d",
+      dark: "#1b1c21",
+      darker: "#1c1c1f",
+    },
+    secondary: {
+      main: "#FF4081",
+    },
+    background: {
+      default: "#121212",
+      paper: "#1E1E1E",
+    },
+    text: {
+      primary: "#FFFFFF",
+      secondary: "#B0B0B0",
+    },
+  },
+};
+
+const violetTheme = {
+  palette: {
+    primary: {
+      light: "#c4c4f5",
+      main: "#9999f7",
+      dark: "#6f6ffc",
+      darker: "#5555e0",
+    },
+    secondary: {
+      main: "#FF4081",
+    },
+    background: {
+      default: "#F4E1F6",
+      paper: "#E1BEE7",
+    },
+    text: {
+      primary: "#333333",
+      secondary: "#757575",
+    },
+  },
+};
+
+
+const modes = {
+    lightTheme,
+    darkTheme,
+    violetTheme
+};
+
+export default modes;
