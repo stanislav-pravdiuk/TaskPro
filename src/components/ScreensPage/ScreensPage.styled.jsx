@@ -6,5 +6,5 @@ export const Container = styled.div`
   padding: 64px 24px 0 24px;
   margin-left: 260px;
 
-  background-color: #f6f6f7;
+  background-color: var(--bg-color-light);
 `;

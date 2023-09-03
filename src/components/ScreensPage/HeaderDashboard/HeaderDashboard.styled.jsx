@@ -21,7 +21,7 @@ export const Container = styled.div`
   }
 `;
 export const BoardName = styled.h2`
-  color: #161616;
+  color: var(--color-dark);
   font-family: Poppins;
   font-size: 18px;
   font-style: normal;
@@ -33,7 +33,7 @@ export const BoardName = styled.h2`
 
   border-radius: 8px;
 
-  background-color: #f6f6f7;
+  background-color: var(--bg-color-light);
 `;
 
 export const Thumb = styled.div`

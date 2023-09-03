@@ -7,7 +7,7 @@ const FormContainer = styled.div`
   flex-direction: column;
   gap: 24px;
   padding: 24px;
-  background: #fcfcfc;
+  background: var(--color-cream);
   border-radius: 8px;
   width: 100vw;
   max-width: 350px;
@@ -35,14 +35,14 @@ const Input = styled(Field)`
   width: 100%;
   padding: 18px 14px;
 
-  color: #161616;
-  background: #fcfcfc;
-  border: 1px solid #bedbb0;
+  color: var(--color-dark);
+  background: var(--color-cream);
+  border: 1px solid var(--color-green);
   border-radius: 8px;
   outline: none;
 
   &:placeholder-shown {
-    color: #161616;
+    color: var(--color-dark);
     font-size: 14px;
   }
 `;
@@ -67,7 +67,7 @@ const IconList = styled.ul`
 const Icon = styled.svg`
   height: 18px;
   width: 18px;
-  stroke: #16161680;
+  stroke: var(--color-dark);
 `;
 
 const BgList = styled.ul`
@@ -98,7 +98,7 @@ const RadioField = styled(Field)`
   position: absolute;
 
   &:checked + ${Icon} {
-    stroke: #161616;
+    stroke: var(--color-dark);
   }
 `;
 
@@ -108,7 +108,7 @@ const RadioFieldBg = styled.input`
 
   &:checked + ${Img} {
     transform: scale(0.95);
-    outline: 1px solid #bedbb0;
+    outline: 1px solid var(--color-green);
   }
 `;
 
@@ -124,9 +124,9 @@ const Button = styled.button`
   text-align: center;
   letter-spacing: -0.02em;
 
-  background: #bedbb0;
+  background: var(--color-green);
   border-radius: 8px;
-  border: 1px solid #bedbb0;
+  border: 1px solid var(--color-green);
   cursor: pointer;
 `;
 

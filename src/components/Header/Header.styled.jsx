@@ -9,7 +9,7 @@ export const BurgerIcon = styled.svg`
   background-color: transparent;
   color: inherit;
   &:hover {
-    fill: #bedbb0;
+    fill: var(--color-green);
   }
 `;
 
@@ -20,7 +20,7 @@ export const UserImage = styled.img`
   background-color: transparent;
   color: inherit;
   &:hover {
-    fill: #bedbb0;
+    fill: var(--color-green);
   }
 `;
 
@@ -31,13 +31,13 @@ export const UserIcon = styled.svg`
   background-color: transparent;
   color: inherit;
   &:hover {
-    fill: #bedbb0;
+    fill: var(--color-green);
   }
 `;
 
 export const Appbar = styled(AppBar)`
   width: 100%;
-  background-color: #fcfcfc;
+  background-color: var(--color-cream);
   box-shadow: none;
   position: relative;
 `;
@@ -70,12 +70,12 @@ export const HeaderWrap = styled(Box)`
 export const UserText = styled(Typography)`
   margin-right: 8px;
   width: auto;
-  color: rgba(22, 22, 22, 1);
+  color: var(--color-deep-black);
   font-family: Poppins;
   font-size: 14px;
   letter-spacing: 0.7;
   font-weight: 500;
-  color: rgba(22, 22, 22, 1);
+  color: var(--color-deep-black);
 `;
 
 export const UserButton = styled(Button)`

@@ -4,7 +4,7 @@ export const Container = styled.div`
   width: 334px;
   height: 56px;
   border-radius: 8px;
-  background: #fff;
+  background: var(--color-white);
   padding-left: 20px;
   padding-right: 20px;
   display: flex;
@@ -12,7 +12,7 @@ export const Container = styled.div`
   justify-content: space-between;
 `;
 export const Title = styled.h3`
-  color: #161616;
+  color: var(--color-dark);
   font-family: Poppins;
   font-size: 14px;
   font-style: normal;
@@ -35,5 +35,5 @@ export const IconsButton = styled.div`
 export const Icon = styled.svg`
   width: 16px;
   height: 16px;
-  stroke: #16161680;
+  stroke: var(--color-dark);
 `;

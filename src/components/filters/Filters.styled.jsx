@@ -6,8 +6,8 @@ export const Container = styled.div`
   transform: translateX(-70%);
   z-index: 5;
   border-radius: 8px;
-  background: #fcfcfc;
-  box-shadow: 0px 4px 16px 0px rgba(22, 22, 22, 0.05);
+  background: var(--color-cream);
+  box-shadow: 0px 4px 16px 0px var(--color-opacity-black);
   padding: 24px;
 `;
 
@@ -18,7 +18,7 @@ export const CloseButton = styled.button`
 `;
 
 export const Title = styled.p`
-  color: #161616;
+  color: var(--color-dark);
   font-family: Poppins;
   font-size: 18px;
   font-style: normal;
@@ -34,14 +34,14 @@ export const TitleBox = styled.div`
 
 export const ResetBox = styled.div`
   display: flex;
-  border-top: 1px solid #1616161a;
+  border-top: 1px solid var(--color-dark);
   margin-bottom: 14px;
   padding-top: 14px;
 `;
 
 export const ResetTitle = styled.p`
   margin-right: 130px;
-  color: #161616;
+  color: var(--color-dark);
   font-family: Poppins;
   font-size: 14px;
   font-style: normal;
@@ -50,7 +50,7 @@ export const ResetTitle = styled.p`
 `;
 
 export const BtnReset = styled.button`
-  color: rgba(22, 22, 22, 0.5);
+  color: var(--color-text-dark);
   font-family: Poppins;
   font-size: 12px;
   font-style: normal;
@@ -95,22 +95,22 @@ export const ColorOptionLabel = styled.label`
   }
 
   &.blue::before {
-    background-color: #8fa1d0;
+    background-color: var(--color-blue);
   }
 
   &.red::before {
-    background-color: #e09cb5;
+    background-color: var(--color-pink);
   }
 
   &.green::before {
-    background-color: #bedbb0;
+    background-color: var(--color-green);
   }
 
   &.gray::before {
-    background-color: #1616164d;
+    background-color: var(--color-dark);
   }
 
   &:active::before {
-    border-color: #ffffff;
+    border-color: var(--color-white);
   }
 `;

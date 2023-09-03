@@ -9,6 +9,42 @@
     url('./components/fonts/Poppins-SemiBold.ttf') format('truetype');
 }
 
+:root {
+  --color-black: #000000;
+  --color-dark: #161616;
+  --color-hover-green: #9dc888;
+  --color-white: #ffffff;
+  --color-pale-white: rgba(255, 255, 255, 0.3);
+  --color-light-gray: #d9d9d9;
+  --color-pale-gray: #e8e8e8;
+  --color-cream: #fcfcfc;
+  --bg-color-form: #151515;
+  --bg-color-form-input: #1f1f1f;
+  --color-icon-dark: #121212;
+  --border-color: rgba(190, 219, 176, 0.4);
+  --color-dark-gray: rgba(17, 17, 17, 0.1);
+  --color-transparent-black: rgba(22, 22, 22, 0.1);
+  --color-opacity-black: rgba(22, 22, 22, 0.05);
+  --color-deep-black: rgba(22, 22, 22, 1);
+  --color-blue: #8fa1d0;
+  --color-pink: #e09cb5;
+  --color-green: #bedbb0;
+  --color-light: rgba(22, 22, 22, 0.3);
+  --bg-color-light: #f6f6f7;
+  --color-text-dark: rgba(22, 22, 22, 0.5);
+  --color-text-grey: rgba(22, 22, 22, 0.8);
+  --color-text-card: rgba(22, 22, 22, 0.7);
+  --color-purple: #5255bc;
+  --color-light-purple: #7b7ede;
+  --color-pale-blue: #ecedfd;
+  --bg-color-pale-purple: rgba(236, 237, 253, 0.4);
+  --color-light-blue: #b8bcfd;
+  --color-purple-blue: #979cea;
+  --color-red: rgba(255, 0, 0, 0.664);
+  --color-shadow: rgba(22, 22, 22, 0.08);
+  --color-pastel: #c04d4d;
+}
+
 html {
   height: 100%;
   overflow-y: hidden;
@@ -24,14 +60,14 @@ body {
   -moz-osx-font-smoothing: grayscale;
 
   ::-webkit-scrollbar {
-    background-color: #ffffff;
+    background-color: var(--color-white);
     width: 4px;
     height: 12px;
     border-radius: 12px;
   }
 
   ::-webkit-scrollbar-thumb {
-    background-color: #e8e8e8;
+    background-color: var(--color-pale-gray);
     border-radius: 12px;
   }
 }
