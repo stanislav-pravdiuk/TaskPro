@@ -45,7 +45,7 @@ const SideBar = ({ active, onClick }) => {
   const [openEditModal, setOpenEditModal] = useState(false);
   const [activeBoardTitle, setActiveBoardTitle] = useState('');
   const [activeBoardIcon, setActiveBoardIcon] = useState('');
-const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const { data = [] } = useGetBoardsQuery();
 
   const location = useLocation();
@@ -56,14 +56,14 @@ const [isModalOpen, setIsModalOpen] = useState(false);
   const [deleteBoard] = useDeleteBoardMutation();
   const dispatch = useDispatch();
 
- const openModal = () => {
-   setIsModalOpen(true);
- };
-
- const closeModal = () => {
-   setIsModalOpen(false);
+  const openModal = () => {
+    setIsModalOpen(true);
   };
-  
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
   const openEditModalHandler = (boardName, boardIcon) => {
     setActiveBoardTitle(boardName);
     setActiveBoardIcon(boardIcon);
@@ -285,7 +285,6 @@ const [isModalOpen, setIsModalOpen] = useState(false);
               transform: 'scale(1.1)',
             },
           }}
-          onClick={openModal}
         >
           <HelpIcon>
             <use href={icon + '#icon-help'}></use>
@@ -303,9 +302,6 @@ const [isModalOpen, setIsModalOpen] = useState(false);
             Need help?
           </Typography>
         </Button>
-        <MainModal modalIsOpen={isModalOpen} closeModal={closeModal}>
-          <NeedHelpModal closeModal={closeModal} />
-        </MainModal>
       </Box>
       <Box
         sx={{
@@ -422,6 +418,12 @@ const [isModalOpen, setIsModalOpen] = useState(false);
           boardTitle={activeBoardTitle}
           boardIcon={activeBoardIcon}
         ></NewBoardForm>
+      </MainModal>
+      <MainModal modalIsOpen={openHelpModal} closeModal={closeHelpModal}>
+        <ModalHelp />
+      </MainModal>
+      <MainModal modalIsOpen={isModalOpen} closeModal={closeModal}>
+        <NeedHelpModal closeModal={closeModal} />
       </MainModal>
     </Box>
   );

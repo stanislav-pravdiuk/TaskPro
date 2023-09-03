@@ -2,12 +2,10 @@ import styled from 'styled-components';
 import { Form, Field, ErrorMessage } from 'formik';
 
 export const SectionTitle = styled.h2`
-    font-size: 18px;
-    font-family: 'Poppins';
-    font-weight: 500;
-    letter-spacing: -0.36px;
-    margin-bottom: 24px;
-    color: ;
+  font-size: 18px;
+  font-family: 'Poppins';
+  font-weight: 600;
+  letter-spacing: -0.36px;
 `;
 
 export const LabelInput = styled.label`
