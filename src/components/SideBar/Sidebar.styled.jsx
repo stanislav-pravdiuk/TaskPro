@@ -1,4 +1,4 @@
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 import { Link, NavLink } from 'react-router-dom';
 import { Box, Button, Typography } from '@mui/material';
 
@@ -82,7 +82,7 @@ export const HelpWrap = styled(Box)`
   background-color: rgba(246, 246, 247, 1);
   border-radius: 8px;
   padding: 20px;
-  margin-top: calc(100vh - 575px);
+  margin-top: calc(100vh - 585px);
 `;
 
 export const ImgWrap = styled(Box)`
@@ -123,7 +123,6 @@ export const HelpButton = styled(Button)`
   &:hover {
     background-color: inherit;
     border: 0;
-    transform: scale(1.1);
   }
 `;
 
@@ -147,10 +146,10 @@ export const LogoutButton = styled(Button)`
   padding: 0;
   min-width: 0;
   border: 0;
+
   &:hover {
-    background-color: inherit;
+    color: rgba(190, 219, 176, 1);
     border: 0;
-    transform: scale(1.1);
   }
 `;
 export const LogoutText = styled(Typography)`
@@ -180,7 +179,7 @@ export const BoardsList = styled.ul`
   margin: 0;
   padding: 0;
 
-  max-height: 183px;
+  max-height: 122px;
   overflow-y: auto;
 
   direction: rtl;

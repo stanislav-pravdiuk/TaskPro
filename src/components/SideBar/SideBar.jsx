@@ -120,7 +120,7 @@ const SideBar = ({ active, onClick }) => {
         <LogoIcon>
           <use href={icon + '#icon-icon-1'}></use>
         </LogoIcon>
-        <LogoText variant="h2">Task Pro</LogoText>
+        <LogoText component="h1">Task Pro</LogoText>
       </LogoWrap>
       <Subtitle variant="subtitle1">My boards</Subtitle>
       <Wrap>
@@ -198,9 +198,6 @@ const SideBar = ({ active, onClick }) => {
           </HelpIcon>
           <HelpTitle variant="body2">Need help?</HelpTitle>
         </HelpButton>
-        <MainModal modalIsOpen={isModalOpen} closeModal={closeModal}>
-          <NeedHelpModal closeModal={closeModal} />
-        </MainModal>
       </HelpWrap>
       <LogoutWrap>
         <LogoutButton onClick={() => dispatch(logOut())}>
@@ -283,6 +280,9 @@ const SideBar = ({ active, onClick }) => {
           boardTitle={activeBoardTitle}
           boardIcon={activeBoardIcon}
         ></NewBoardForm>
+      </MainModal>
+      <MainModal modalIsOpen={isModalOpen} closeModal={closeModal}>
+        <NeedHelpModal closeModal={closeModal} />
       </MainModal>
     </Box>
   );
