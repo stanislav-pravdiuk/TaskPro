@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
 export const BurgerIcon = styled.svg`
+  display: flex;
+  flex-shrink: 0;
   width: 32px;
   height: 32px;
   background-color: transparent;
