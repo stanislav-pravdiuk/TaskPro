@@ -6,6 +6,7 @@ import cactus2x from '../../images/cactus@2x.png';
 import cactus3x from '../../images/cactus@3x.png';
 import icon from '../../components/iconSvg/icon.svg';
 import {
+  SideBarStyled,
   LogoIcon,
   PlusIcon,
   HelpIcon,
@@ -91,7 +92,7 @@ const SideBar = ({ active, onClick }) => {
   };
 
   const drawerContent = (
-    <Box sx={{ padding: '24px', overflow: 'hidden' }}>
+    <SideBarStyled>
       <Box
         sx={{
           display: 'flex',
@@ -337,7 +338,7 @@ const SideBar = ({ active, onClick }) => {
           </Typography>
         </Button>
       </Box>
-    </Box>
+    </SideBarStyled>
   );
 
   return (
@@ -358,7 +359,14 @@ const SideBar = ({ active, onClick }) => {
 
           '& .MuiDrawer-paper': {
             boxSizing: 'border-box',
-            width: drawerWidth,
+            width: 225,
+          },
+
+          '@media (min-width: 768px)': {
+            '& .MuiDrawer-paper': {
+              boxSizing: 'border-box',
+              width: 260,
+            },
           },
         }}
       >
@@ -374,7 +382,14 @@ const SideBar = ({ active, onClick }) => {
 
           '& .MuiDrawer-paper': {
             boxSizing: 'border-box',
-            width: drawerWidth,
+            width: 225,
+          },
+
+          '@media (min-width: 768px)': {
+            '& .MuiDrawer-paper': {
+              boxSizing: 'border-box',
+              width: 260,
+            },
           },
         }}
         open

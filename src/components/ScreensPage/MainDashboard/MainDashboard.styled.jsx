@@ -5,8 +5,7 @@ export const Container = styled.div`
   height: 100%;
   max-height: 87vh;
   display: flex;
-  padding: 0 24px 0 0;
-  gap: 24px;
+  padding: 0 20px 0 20px;
   overflow-x: auto;
   overflow-y: hidden;
 
@@ -20,15 +19,24 @@ export const Container = styled.div`
     background-color: rgba(22, 22, 22, 0.1);
     border-radius: 12px;
   }
+
+  @media screen and (min-width: 768px) {
+    padding: 0 24px 0 24px;
+  }
 `;
 
 export const ColumnsList = styled.ul`
   max-height: 100%;
   display: flex;
-  gap: 24px;
+  gap: 20px;
   list-style: none;
   margin: 0;
-  padding: 0 0 0 24px;
+  margin-right: 30px;
+
+  @media screen and (min-width: 768px) {
+    gap: 24px;
+    margin-right: 34px;
+  }
 `;
 
 export const ColumnsListItem = styled.li`

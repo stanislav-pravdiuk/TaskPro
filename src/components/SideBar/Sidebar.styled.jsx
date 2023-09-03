@@ -1,5 +1,17 @@
 import styled from 'styled-components';
 import { Link, NavLink } from 'react-router-dom';
+import { Box } from '@mui/material';
+
+export const SideBarStyled = styled(Box)`
+  width: 225px;
+  padding: 14px;
+  overflow: hidden;
+
+  @media screen and (min-width: 768px) {
+    width: 260px;
+    padding: 24px;
+  }
+`;
 
 export const LogoIcon = styled.svg`
   width: 32px;

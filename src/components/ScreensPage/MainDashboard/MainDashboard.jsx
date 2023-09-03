@@ -63,9 +63,9 @@ const MainDashboard = ({ columns }) => {
 
   return (
     <Container>
-      <ColumnsList>
-        {columns &&
-          columns.map(column => {
+      {columns && columns.length > 0 && (
+        <ColumnsList>
+          {columns.map(column => {
             return (
               <ColumnsListItem key={column._id}>
                 <Column>
@@ -100,7 +100,8 @@ const MainDashboard = ({ columns }) => {
               </ColumnsListItem>
             );
           })}
-      </ColumnsList>
+        </ColumnsList>
+      )}
       <BtnAdd
         onClick={() => setOpenColumnModal(true)}
         btnTitle={btnTitle2}

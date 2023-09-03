@@ -51,9 +51,6 @@ const ButtonPlus = styled.div`
   background-color: #bedbb0;
   border-radius: 6px;
   border: none;
-  &:hover {
-    background-color: #9dc888;
-  }
 `;
 
 const ButtonPlusIcon = styled.svg`
