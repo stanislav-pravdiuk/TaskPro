@@ -5,10 +5,10 @@ export const Container = styled.div`
   height: 100%;
   max-height: 87vh;
   display: flex;
+  padding: 0 24px 0 0;
   gap: 24px;
-  padding: 0 24px 16px 0;
-
   overflow-x: auto;
+  overflow-y: hidden;
 
   ::-webkit-scrollbar {
     background-color: #e8e8e8;
@@ -21,7 +21,26 @@ export const Container = styled.div`
     border-radius: 12px;
   }
 `;
-export const Column = styled.div``;
+
+export const ColumnsList = styled.ul`
+  max-height: 100%;
+  display: flex;
+  gap: 24px;
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 24px;
+`;
+
+export const ColumnsListItem = styled.li`
+  height: 100%;
+`;
+
+export const Column = styled.div`
+  display: flex;
+  height: 100%;
+  gap: 14px;
+  flex-direction: column;
+`;
 
 export const GalleryCards = styled.ul`
   list-style: none;
@@ -29,7 +48,6 @@ export const GalleryCards = styled.ul`
   border-radius: 8px;
   padding-right: 8px;
   margin: 0;
-  margin-bottom: 14px;
   max-height: 69vh;
   overflow-y: auto;
   overflow-x: hidden;

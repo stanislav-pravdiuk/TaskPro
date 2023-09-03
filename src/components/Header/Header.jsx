@@ -32,7 +32,7 @@ const Header = ({ click }) => {
 
   return (
     <AppBar
-      position="fixed"
+      position="relative"
       sx={{ width: '100%', backgroundColor: '#FCFCFC', boxShadow: 'none' }}
     >
       <Toolbar

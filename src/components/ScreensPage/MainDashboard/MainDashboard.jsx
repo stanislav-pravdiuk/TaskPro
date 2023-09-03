@@ -1,7 +1,13 @@
 import { useState } from 'react';
 import TitleColumn from '../titleColumn/TitleColumn';
 import Card from '../card/Card';
-import { Container, Column, GalleryCards } from './MainDashboard.styled';
+import {
+  Container,
+  ColumnsList,
+  ColumnsListItem,
+  Column,
+  GalleryCards,
+} from './MainDashboard.styled';
 import BtnAdd from '../btnAdd/BtnAdd';
 import {
   useAddCardMutation,
@@ -57,40 +63,44 @@ const MainDashboard = ({ columns }) => {
 
   return (
     <Container>
-      {columns &&
-        columns.map(column => {
-          return (
-            <Column key={column._id}>
-              <TitleColumn
-                title={column.title}
-                owner={column.owner}
-                columnId={column._id}
-              />
-              <GalleryCards>
-                {column.cards.map(card => {
-                  return (
-                    <Card
-                      key={card._id}
-                      title={card.title}
-                      text={card.text}
-                      priority={card.priority}
-                      deadline={card.deadline}
-                      owner={card.ovner}
-                      boardId={column.owner}
-                      card={card}
-                      columns={columns}
-                    />
-                  );
-                })}
-              </GalleryCards>
-              <BtnAdd
-                onClick={() => openModalCard(column._id)}
-                btnTitle={btnTitle}
-                btnColor={btnColor}
-              />
-            </Column>
-          );
-        })}
+      <ColumnsList>
+        {columns &&
+          columns.map(column => {
+            return (
+              <ColumnsListItem key={column._id}>
+                <Column>
+                  <TitleColumn
+                    title={column.title}
+                    owner={column.owner}
+                    columnId={column._id}
+                  />
+                  <GalleryCards>
+                    {column.cards.map(card => {
+                      return (
+                        <Card
+                          key={card._id}
+                          title={card.title}
+                          text={card.text}
+                          priority={card.priority}
+                          deadline={card.deadline}
+                          owner={card.ovner}
+                          boardId={column.owner}
+                          card={card}
+                          columns={columns}
+                        />
+                      );
+                    })}
+                  </GalleryCards>
+                  <BtnAdd
+                    onClick={() => openModalCard(column._id)}
+                    btnTitle={btnTitle}
+                    btnColor={btnColor}
+                  />
+                </Column>
+              </ColumnsListItem>
+            );
+          })}
+      </ColumnsList>
       <BtnAdd
         onClick={() => setOpenColumnModal(true)}
         btnTitle={btnTitle2}

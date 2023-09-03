@@ -9,7 +9,13 @@
     url('./components/fonts/Poppins-SemiBold.ttf') format('truetype');
 }
 
+html {
+  height: 100%;
+  overflow-y: hidden;
+}
+
 body {
+  height: 100%;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Poppins', 'Segoe UI',
     'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
@@ -41,7 +47,8 @@ code {
   margin: 0;
 }
 
-button, a {
+button,
+a {
   border: none;
   font: inherit;
   color: inherit;

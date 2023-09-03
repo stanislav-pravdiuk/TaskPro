@@ -401,50 +401,40 @@ const ButtonFilter = styled.button`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 64px;
-  height: 20px;
-  // background-color: transparent;
-  // border: none;
-  // opacity: 80%;
-`;
-const ButtonFilterThumb = styled.div`
-  width: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 20px;
+  width: 74px;
+  height: 25px;
+  padding: 5px;
+  border-radius: 8px;
 
-  background-color: transparent;
-`;
+  background-color: #f6f6f7;
 
-const ButtonFilterText = styled.p`
   font-family: Poppins;
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
 `;
+const ButtonFilterThumb = styled.div`
+  height: 100%;
+  display: flex;
+  align-items: center;
 
-const ButtonFilterIcon = styled.svg`
-  width: 16px;
-  height: 16px;
-  &:hover {
-    fill: #9dc888;
-  }
+  gap: 8px;
 `;
 
-const ButtonFilterSvg = styled.use`
-  width: 16px;
-  height: 16px;
+const ButtonFilterIcon = styled.svg`
+  display: flex;
+  align-items: center;
+  padding-top: 4px;
+  width: 20px;
+  height: 20px;
 `;
 
 // _________________
 
 export {
   ButtonFilterThumb,
-  ButtonFilterSvg,
   ButtonFilterIcon,
-  ButtonFilterText,
   ButtonFilter,
   ButtonCloseSvg,
   ButtonCloseIcon,
