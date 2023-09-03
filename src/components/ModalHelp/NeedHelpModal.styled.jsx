@@ -36,6 +36,7 @@ export const FormWrapper = styled.div`
   justify-content: center;
   align-items: start;
   margin-bottom: 24px;
+
 `;
 
 export const ErrorSection = styled(ErrorMessage)`

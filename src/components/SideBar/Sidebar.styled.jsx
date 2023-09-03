@@ -1,5 +1,18 @@
 import styled from 'styled-components';
 import { Link, NavLink } from 'react-router-dom';
+import { Box } from '@mui/material';
+
+export const SideBarStyled = styled(Box)`
+  width: 225px;
+  padding: 14px;
+  overflow: hidden;
+
+  @media screen and (min-width: 768px) {
+    width: 259px;
+    max-width: 260px;
+    padding: 24px;
+  }
+`;
 
 export const LogoIcon = styled.svg`
   width: 32px;
@@ -32,7 +45,7 @@ export const BoardsContainer = styled.div`
 
 export const BoardsList = styled.ul`
   position: absolute;
-  width: 123%;
+  width: 120%;
   top: 0;
   left: -24px;
   gap: 4px;
@@ -56,6 +69,10 @@ export const BoardsList = styled.ul`
   &::-webkit-scrollbar-thumb {
     background-color: rgba(22, 22, 22, 0.1);
     border-radius: 12px;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 123%;
   }
 `;
 

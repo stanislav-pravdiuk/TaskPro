@@ -34,7 +34,6 @@ const NeedHelpModal = ({ closeModal }) => {
     resetForm();
     closeModal();
   };
-
   return (
     <Section>
       <ModalClose

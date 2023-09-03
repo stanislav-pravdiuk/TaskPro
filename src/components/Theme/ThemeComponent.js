@@ -32,6 +32,8 @@ export const ThemeComponent = () => {
           fontFamily: 'Poppins',
           fontWeight: '500',
           color: 'rgba(22, 22, 22, 0.8)',
+          padding: 0,
+          marginRight: '14px',
         }}
       >
         Theme
@@ -47,23 +49,23 @@ export const ThemeComponent = () => {
         </SvgIcon>
       </MenuButton>
       <Menu
-        sx={{          
-          border: '1px solid rgba(190, 219, 176, 1)',          
+        sx={{
+          border: '1px solid rgba(190, 219, 176, 1)',
           fontFamily: 'Poppins',
           fontSize: '14px',
-          width: '100px',          
+          width: '100px',
           boxShadow: '0px 2px 4px rgba(17, 17, 17, 0.1)',
           zIndex: '3000',
-          "&& .Mui-selected": {
-            backgroundColor: "transparent"
-          },          
-          fontWeight: '400'
+          '&& .Mui-selected': {
+            backgroundColor: 'transparent',
+          },
+          fontWeight: '400',
         }}
       >
         <MenuItem
           {...(currentTheme === 'light' && {
             selected: true,
-            sx: {                           
+            sx: {
               color: 'rgba(190, 219, 176, 1)',
             },
           })}
@@ -74,7 +76,7 @@ export const ThemeComponent = () => {
         <MenuItem
           {...(currentTheme === 'dark' && {
             selected: true,
-            sx: {              
+            sx: {
               color: 'rgba(190, 219, 176, 1)',
             },
           })}
@@ -85,7 +87,7 @@ export const ThemeComponent = () => {
         <MenuItem
           {...(currentTheme === 'violet' && {
             selected: true,
-            sx: {              
+            sx: {
               color: 'rgba(190, 219, 176, 1)',
             },
           })}
