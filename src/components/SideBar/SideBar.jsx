@@ -28,7 +28,7 @@ import { useLocation, useParams } from 'react-router-dom';
 
 import NewBoardForm from 'components/newBoardForm/NewBoardForm';
 import MainModal from 'components/MainModal/MainModal';
-
+import NeedHelpModal from 'components/ModalHelp/ModalHelp';
 import sprite from '../iconSvg/icon.svg';
 
 import {
@@ -44,6 +44,7 @@ const SideBar = ({ active, onClick }) => {
   const [openEditModal, setOpenEditModal] = useState(false);
   const [activeBoardTitle, setActiveBoardTitle] = useState('');
   const [activeBoardIcon, setActiveBoardIcon] = useState('');
+   const [isModalOpen, setIsModalOpen] = useState(false);
   const drawerWidth = 260;
 
   const { data = [] } = useGetBoardsQuery();
@@ -55,6 +56,14 @@ const SideBar = ({ active, onClick }) => {
   const [updateBoard] = useUpdateBoardMutation();
   const [deleteBoard] = useDeleteBoardMutation();
   const dispatch = useDispatch();
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
 
   const openEditModalHandler = (boardName, boardIcon) => {
     setActiveBoardTitle(boardName);
@@ -254,7 +263,7 @@ const SideBar = ({ active, onClick }) => {
                 color: 'rgba(190, 219, 176, 1)',
                 textDecoration: 'none',
               }}
-              href="/#"
+              onClick={openModal}
             >
               {' '}
               TaskPro
@@ -277,6 +286,7 @@ const SideBar = ({ active, onClick }) => {
               transform: 'scale(1.1)',
             },
           }}
+          onClick={openModal}
         >
           <HelpIcon>
             <use href={icon + '#icon-help'}></use>
@@ -294,6 +304,9 @@ const SideBar = ({ active, onClick }) => {
             Need help?
           </Typography>
         </Button>
+        <MainModal modalIsOpen={isModalOpen} closeModal={closeModal}>
+          <NeedHelpModal closeModal={closeModal} />
+        </MainModal>
       </Box>
       <Box
         sx={{
