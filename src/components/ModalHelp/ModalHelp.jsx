@@ -13,6 +13,7 @@ import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
 import { needHelp } from 'redux/auth/authOperations';
+import ModalClose from '@mui/joy/ModalClose';
 
 const validationSchema = Yup.object().shape({
     email: Yup.string().email('Invalid email').required('Email is required'),
@@ -35,39 +36,47 @@ const NeedHelpModal = ({ closeModal }) => {
     };
 
     return (
-        <Section>
-            <SectionTitle>Need help</SectionTitle>
+      <Section>
+        <ModalClose
+          sx={{
+            position: 'absolute',
+            top: '14px',
+            right: '14px',
+            zIndex: 1,
+          }}
+        />
+        <SectionTitle>Need help</SectionTitle>
 
-            <Formik
-                initialValues={initialValues}
-                validationSchema={validationSchema}
-                onSubmit={handleSubmit}
-            >
-                <ModalForm>
-                    <FormWrapper>
-                        <ErrorSection name="email" component="div" />
-                        <TitleInput
-                            type="email"
-                            id="email"
-                            name="email"
-                            placeholder="Email address "
-                        />
+        <Formik
+          initialValues={initialValues}
+          validationSchema={validationSchema}
+          onSubmit={handleSubmit}
+        >
+          <ModalForm>
+            <FormWrapper>
+              <ErrorSection name="email" component="div" />
+              <TitleInput
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Email address "
+              />
 
-                        <ErrorSection name="message" component="div" />
+              <ErrorSection name="message" component="div" />
 
-                        <Textarea
-                            component="textarea"
-                            type="text"
-                            id="message"
-                            name="message"
-                            placeholder="Comment"
-                        />
-                    </FormWrapper>
+              <Textarea
+                component="textarea"
+                type="text"
+                id="message"
+                name="message"
+                placeholder="Comment"
+              />
+            </FormWrapper>
 
-                    <AuthFormSubmitButton type="submit">Send</AuthFormSubmitButton>
-                </ModalForm>
-            </Formik>
-        </Section>
+            <AuthFormSubmitButton type="submit">Send</AuthFormSubmitButton>
+          </ModalForm>
+        </Formik>
+      </Section>
     );
 };
 
