@@ -24,10 +24,11 @@ export const FormWrapper = styled.div`
 `;
 
 export const Section = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: start;
+  position: relative;
+  background-color: #fcfcfc;
+  min-width: 335px;
+  padding: 24px;
+  border-radius: 8px;
 `;
 
 export const AuthFormSubmitButton = styled.button`
