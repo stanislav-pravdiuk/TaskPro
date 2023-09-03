@@ -28,6 +28,7 @@ import { useGetBoardsQuery } from 'redux/boards/boardsApi';
 import { useLocation, useParams } from 'react-router-dom';
 
 import NewBoardForm from 'components/newBoardForm/NewBoardForm';
+import ModalHelp from 'components/ModalHelp/ModalHelp';
 import MainModal from 'components/MainModal/MainModal';
 import NeedHelpModal from 'components/ModalHelp/ModalHelp';
 import sprite from '../iconSvg/icon.svg';
@@ -43,6 +44,7 @@ import { logOut } from 'redux/auth/authOperations';
 const SideBar = ({ active, onClick }) => {
   const [openAddModal, setOpenAddModal] = useState(false);
   const [openEditModal, setOpenEditModal] = useState(false);
+  const [openHelpModal, setOpenHelpModal] = useState(false);
   const [activeBoardTitle, setActiveBoardTitle] = useState('');
   const [activeBoardIcon, setActiveBoardIcon] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -76,6 +78,12 @@ const SideBar = ({ active, onClick }) => {
 
   const closeEditModal = () => {
     setOpenEditModal(false);
+  };
+
+  const closeHelpModal = () => {
+    console.log(openAddModal);
+    console.log(openHelpModal);
+    setOpenHelpModal(false);
   };
 
   const handleSubmit = (data, formTitle) => {
@@ -272,6 +280,7 @@ const SideBar = ({ active, onClick }) => {
           </Typography>
         </Box>
         <Button
+          onClick={() => setOpenHelpModal(true)}
           sx={{
             display: 'flex',
             alignItems: 'center',
