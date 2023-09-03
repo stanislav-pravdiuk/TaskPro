@@ -350,6 +350,7 @@ const SideBar = ({ active, onClick }) => {
           <Typography
             sx={{
               color: 'rgba(22, 22, 22, 1)',
+              fontFamily: 'Poppins',
               textTransform: 'none',
               fontWeight: 500,
               fontSize: '16px',
