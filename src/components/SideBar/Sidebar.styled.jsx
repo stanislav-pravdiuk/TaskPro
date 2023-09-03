@@ -8,7 +8,7 @@ export const SideBarStyled = styled(Box)`
   overflow: hidden;
 
   @media screen and (min-width: 768px) {
-    width: 100%;
+    width: 259px;
     max-width: 260px;
     padding: 24px;
   }
