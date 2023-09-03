@@ -122,6 +122,7 @@ const SideBar = ({ active, onClick }) => {
         <Typography
           variant="h2"
           sx={{
+            fontFamily: 'Poppins',
             fontSize: '16px',
             letterSpacing: 0.7,
             fontWeight: 600,
