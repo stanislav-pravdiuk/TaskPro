@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.div`
   width: 100%;
   height: 100%;
-  max-height: 87vh;
+  max-height: 82vh;
   display: flex;
   padding: 0 20px 0 20px;
   overflow-x: auto;
@@ -26,6 +26,7 @@ export const Container = styled.div`
 
   @media screen and (min-width: 1440px) {
     padding: 0 24px 0 24px;
+    max-height: 87vh;
   }
 `;
 
@@ -60,7 +61,11 @@ export const GalleryCards = styled.ul`
   border-radius: 8px;
   padding-right: 8px;
   margin: 0;
-  max-height: 69vh;
+  max-height: 63vh;
   overflow-y: auto;
   overflow-x: hidden;
+
+  @media screen and (min-width: 1440px) {
+    max-height: 69vh;
+  }
 `;
