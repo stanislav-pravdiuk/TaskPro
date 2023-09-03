@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const FormContainer = styled.div`
   position: relative;
-  background-color: #fcfcfc;
+  background-color: var(--color-cream);
   width: 100vw;
   max-width: 400px;
   padding: 24px;
@@ -13,7 +13,7 @@ export const ModalTitle = styled.h6`
   margin: 0;
   font-family: Poppins;
   font-size: 18px;
-  color: #161616;
+  color: var(--color-dark);
 `;
 
 export const AvatarContainer = styled.div`
@@ -43,7 +43,7 @@ export const BtnPlus = styled.button`
   width: 24px;
   height: 24px;
   border-radius: 8px;
-  background-color: #bedbb0;
+  background-color: var(--color-green);
 `;
 
 export const InputContainer = styled.div`
@@ -58,9 +58,9 @@ export const Input = styled.input`
   width: 100%;
   height: 49px;
   border-radius: 8px;
-  border: 1px solid rgba(190, 219, 176, 0.4);
-  background-color: #fcfcfc;
-  color: #161616;
+  border: 1px solid var(--border-color);
+  background-color: var(--color-cream);
+  color: var(--color-dark);
   font-family: Poppins;
   font-size: 14px;
   font-weight: 400;
@@ -68,7 +68,7 @@ export const Input = styled.input`
   box-shadow: none;
 
   &:focus {
-    border: 1px solid #bedbb0;
+    border: 1px solid var(--color-green);
   }
 `;
 
@@ -93,7 +93,7 @@ export const BtnForm = styled.button`
   width: 100%;
   height: 49px;
   margin-top: 24px;
-  background-color: #bedbb0;
+  background-color: var(--color-green);
   border-radius: 8px;
   font-family: Poppins;
   font-size: 14px;

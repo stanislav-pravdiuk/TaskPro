@@ -7,7 +7,7 @@ export const Section = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: start;
-  background: #fcfcfc;
+  background: var(--color-cream);
   width: 100vw;
   max-width: 400px;
   border-radius: 8px;
@@ -51,7 +51,7 @@ export const ErrorSection = styled(ErrorMessage)`
   bottom: -7px;
   padding-left: 14px;
   margin: 0;
-  color: #c04d4d;
+  color: var(--color-pastel);
   font-size: 12px;
   font-family: Poppins;
   font-weight: 500;
@@ -68,9 +68,9 @@ export const TitleInput = styled(Field)`
   font-family: 'Poppins';
   letter-spacing: -0.28px;
 
-  color: #161616;
-  background: #fcfcfc;
-  border: 1px solid #bedbb0;
+  color: var(--color-dark);
+  background: var(--color-cream);
+  border: 1px solid var(--color-green);
   border-radius: 8px;
 `;
 
@@ -88,14 +88,14 @@ export const Textarea = styled(Field)`
   line-height: normal;
   letter-spacing: -0.28px;
 
-  color: #161616;
-  background: #fcfcfc;
-  border: 1px solid #bedbb0;
+  color: var(--color-dark);
+  background: var(--color-cream);
+  border: 1px solid var(--color-green);
   outline: none;
   border-radius: 8px;
 
   &::placeholder {
-    color: #161616;
+    color: var(--color-dark);
     font-size: 14px;
   }
 `;
@@ -112,9 +112,9 @@ export const AuthFormSubmitButton = styled.button`
   font-size: 14px;
   letter-spacing: -0.28px;
 
-  background: #bedbb0;
+  background: var(--color-green);
   border-radius: 8px;
-  border: 1px solid #bedbb0;
+  border: 1px solid var(--color-green);
 
   transition: all 250ms linear;
   cursor: pointer;

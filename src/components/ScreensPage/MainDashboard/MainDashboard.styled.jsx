@@ -10,13 +10,13 @@ export const Container = styled.div`
   overflow-y: hidden;
 
   ::-webkit-scrollbar {
-    background-color: #e8e8e8;
+    background-color: var(--color-pale-gray);
     width: 8px;
     border-radius: 12px;
   }
 
   ::-webkit-scrollbar-thumb {
-    background-color: rgba(22, 22, 22, 0.1);
+    background-color: var(--color-transparent-black);
     border-radius: 12px;
   }
 
