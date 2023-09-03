@@ -15,7 +15,7 @@ const FormContainer = styled.div`
 
 const Title = styled.h2`
   font-style: medium;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 18px;
   line-height: 27px;
   letter-spacing: -0.02em;
@@ -39,6 +39,8 @@ const Input = styled(Field)`
   background: #fcfcfc;
   border: 1px solid #bedbb0;
   border-radius: 8px;
+  outline: none;
+
   &:placeholder-shown {
     color: #161616;
     font-size: 14px;
