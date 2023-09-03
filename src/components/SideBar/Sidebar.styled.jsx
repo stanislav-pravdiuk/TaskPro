@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import { Link, NavLink } from 'react-router-dom';
-import { Box } from '@mui/material';
+import { Box, Button, Typography } from '@mui/material';
 
 export const SideBarStyled = styled(Box)`
   width: 225px;
@@ -14,9 +14,41 @@ export const SideBarStyled = styled(Box)`
   }
 `;
 
+export const LogoText = styled(Typography)`
+  font-size: 16px;
+  letter-spacing: 0.7;
+  font-weight: 600;
+  color: #161616;
+`;
+
+export const LogoWrap = styled(Box)`
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 60px;
+`;
+
+export const Subtitle = styled(Typography)`
+  font-size: 12px;
+  letter-spacing: 0.7;
+  font-weight: 400;
+  color: rgba(22, 22, 22, 0.5);
+`;
+
 export const LogoIcon = styled.svg`
   width: 32px;
   height: 32px;
+`;
+
+export const Wrap = styled(Box)`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(22, 22, 22, 0.1);
+  border-top: 1px solid rgba(22, 22, 22, 0.1);
+  padding: 14px 0;
+  margin-top: 8px;
+  margin-bottom: 40px;
 `;
 
 export const PlusIcon = styled.svg`
@@ -29,11 +61,105 @@ export const PlusIcon = styled.svg`
   }
 `;
 
+export const Text = styled(Typography)`
+  font-size: 14px;
+  letter-spacing: 0.7;
+  font-weight: 500;
+  max-width: 76px;
+`;
+
+export const PlusButton = styled(Button)`
+  background-color: #bedbb0;
+  padding: 8px 10px;
+  min-width: 0;
+  &:hover {
+    background-color: #bedbb0;
+    transform: scale(1.1);
+  }
+`;
+
+export const HelpWrap = styled(Box)`
+  background-color: rgba(246, 246, 247, 1);
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: calc(100vh - 575px);
+`;
+
+export const ImgWrap = styled(Box)`
+  margin-bottom: 14px;
+`;
+
+export const TextWrap = styled(Box)`
+  margin-bottom: 18px;
+`;
+
 export const HelpIcon = styled.svg`
   width: 20px;
   height: 20px;
 `;
 
+export const HelpText = styled(Typography)`
+  font-size: 14px;
+  letter-spacing: 0.7;
+  font-weight: 400;
+  color: rgba(22, 22, 22, 1);
+`;
+
+export const HelpTitle = styled(Typography)`
+  text-transform: none;
+  font-size: 12px;
+  letter-spacing: 0.7;
+  font-weight: 500;
+  color: rgba(22, 22, 22, 1);
+`;
+
+export const HelpButton = styled(Button)`
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0;
+  min-width: 0;
+  border: 0;
+  &:hover {
+    background-color: inherit;
+    border: 0;
+    transform: scale(1.1);
+  }
+`;
+
+export const HelpTextLink = styled(Link)`
+  font-size: 14px;
+  letter-spacing: 0.7;
+  font-weight: 400;
+  color: rgba(190, 219, 176, 1);
+  text-decoration: none;
+`;
+
+export const LogoutWrap = styled(Box)`
+  margin-top: 24px;
+  text-transform: none;
+`;
+
+export const LogoutButton = styled(Button)`
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 0;
+  min-width: 0;
+  border: 0;
+  &:hover {
+    background-color: inherit;
+    border: 0;
+    transform: scale(1.1);
+  }
+`;
+export const LogoutText = styled(Typography)`
+  text-transform: none;
+  font-size: 16px;
+  letter-spacing: 0.7;
+  font-weight: 500;
+  color: rgba(22, 22, 22, 1);
+`;
 export const LogoutIcon = styled.svg`
   width: 32px;
   height: 32px;

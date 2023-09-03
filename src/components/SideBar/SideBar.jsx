@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
-import { Box, Button, Typography, Drawer, Link } from '@mui/material';
+import { Box, Drawer } from '@mui/material';
 import cactus from '../../images/cactus.png';
 import cactus2x from '../../images/cactus@2x.png';
 import cactus3x from '../../images/cactus@3x.png';
@@ -23,6 +23,22 @@ import {
   Title,
   IconButton,
   IconLink,
+  LogoText,
+  Subtitle,
+  Wrap,
+  LogoWrap,
+  Text,
+  PlusButton,
+  HelpWrap,
+  ImgWrap,
+  TextWrap,
+  HelpText,
+  HelpTextLink,
+  HelpButton,
+  HelpTitle,
+  LogoutWrap,
+  LogoutButton,
+  LogoutText,
 } from './Sidebar.styled';
 import { useGetBoardsQuery } from 'redux/boards/boardsApi';
 import { useLocation, useParams } from 'react-router-dom';
@@ -45,7 +61,7 @@ const SideBar = ({ active, onClick }) => {
   const [openEditModal, setOpenEditModal] = useState(false);
   const [activeBoardTitle, setActiveBoardTitle] = useState('');
   const [activeBoardIcon, setActiveBoardIcon] = useState('');
-const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const { data = [] } = useGetBoardsQuery();
 
   const location = useLocation();
@@ -56,14 +72,14 @@ const [isModalOpen, setIsModalOpen] = useState(false);
   const [deleteBoard] = useDeleteBoardMutation();
   const dispatch = useDispatch();
 
- const openModal = () => {
-   setIsModalOpen(true);
- };
-
- const closeModal = () => {
-   setIsModalOpen(false);
+  const openModal = () => {
+    setIsModalOpen(true);
   };
-  
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
   const openEditModalHandler = (boardName, boardIcon) => {
     setActiveBoardTitle(boardName);
     setActiveBoardIcon(boardIcon);
@@ -100,80 +116,21 @@ const [isModalOpen, setIsModalOpen] = useState(false);
 
   const drawerContent = (
     <SideBarStyled>
-      <Box
-        sx={{
-          display: 'flex',
-          gap: '8px',
-          alignItems: 'center',
-          marginBottom: '60px',
-        }}
-      >
+      <LogoWrap>
         <LogoIcon>
           <use href={icon + '#icon-icon-1'}></use>
         </LogoIcon>
-        <Typography
-          variant="h2"
-          sx={{
-            fontSize: '16px',
-            letterSpacing: 0.7,
-            fontWeight: 600,
-            color: '#161616',
-          }}
-        >
-          Task Pro
-        </Typography>
-      </Box>
-      <Typography
-        variant="subtitle1"
-        sx={{
-          fontSize: '12px',
-          letterSpacing: 0.7,
-          fontWeight: 400,
-          color: 'rgba(22, 22, 22, 0.5)',
-        }}
-      >
-        My boards
-      </Typography>
-      <Box
-        sx={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          borderBottom: '1px solid rgba(22, 22, 22, 0.1)',
-          borderTop: '1px solid rgba(22, 22, 22, 0.1)',
-          padding: '14px 0',
-          marginTop: '8px',
-          marginBottom: '40px',
-        }}
-      >
-        <Typography
-          variant="body2"
-          sx={{
-            maxWidth: '76px',
-            fontWeight: 500,
-            fontSize: '14px',
-            letterSpacing: 0.7,
-          }}
-        >
-          Create a new board
-        </Typography>
-        <Button
-          onClick={() => setOpenAddModal(true)}
-          sx={{
-            backgroundColor: '#BEDBB0',
-            padding: '8px 10px',
-            minWidth: 0,
-            '&:hover': {
-              backgroundColor: '#BEDBB0',
-              transform: 'scale(1.1)',
-            },
-          }}
-        >
+        <LogoText variant="h2">Task Pro</LogoText>
+      </LogoWrap>
+      <Subtitle variant="subtitle1">My boards</Subtitle>
+      <Wrap>
+        <Text variant="body2">Create a new board</Text>
+        <PlusButton onClick={() => setOpenAddModal(true)}>
           <PlusIcon>
             <use href={icon + '#icon-plus-2'}></use>
           </PlusIcon>
-        </Button>
-      </Box>
+        </PlusButton>
+      </Wrap>
       <BoardsContainer>
         <BoardsList>
           {data &&
@@ -221,134 +178,38 @@ const [isModalOpen, setIsModalOpen] = useState(false);
             })}
         </BoardsList>
       </BoardsContainer>
-      <Box
-        sx={{
-          backgroundColor: 'rgba(246, 246, 247, 1)',
-          marginTop: 'calc(100vh - 575px)',
-          borderRadius: '8px',
-          padding: '20px',
-        }}
-      >
-        <Box
-          sx={{
-            marginBottom: '14px',
-          }}
-        >
+      <HelpWrap>
+        <ImgWrap>
           <picture>
             <source srcSet={`${cactus} 1x, ${cactus2x} 2x, ${cactus3x} 3x`} />
             <img srcSet={`${cactus} 1x`} alt="cactus" />
           </picture>
-        </Box>
-        <Box
-          sx={{
-            marginBottom: '18px',
-          }}
-        >
-          <Typography
-            variant="body2"
-            sx={{
-              fontWeight: 400,
-              fontSize: '14px',
-              letterSpacing: 0.7,
-              color: 'rgba(22, 22, 22, 1)',
-            }}
-          >
+        </ImgWrap>
+        <TextWrap>
+          <HelpText variant="body2">
             If you need help with
-            <Link
-              sx={{
-                fontWeight: 400,
-                fontSize: '14px',
-                letterSpacing: 0.7,
-                color: 'rgba(190, 219, 176, 1)',
-                textDecoration: 'none',
-              }}
-              onClick={openModal}
-            >
-              {' '}
-              TaskPro
-            </Link>
-            , check out our support resources or reach out to our customer
-            support team.
-          </Typography>
-        </Box>
-        <Button
-          sx={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: '8px',
-            padding: 0,
-            minWidth: 0,
-            border: 0,
-            '&:hover': {
-              backgroundColor: 'inherit',
-              border: 0,
-              transform: 'scale(1.1)',
-            },
-          }}
-          onClick={openModal}
-        >
+            <HelpTextLink onClick={openModal}> TaskPro</HelpTextLink>, check out
+            our support resources or reach out to our customer support team.
+          </HelpText>
+        </TextWrap>
+        <HelpButton onClick={openModal}>
           <HelpIcon>
             <use href={icon + '#icon-help'}></use>
           </HelpIcon>
-          <Typography
-            sx={{
-              color: 'rgba(22, 22, 22, 1)',
-              textTransform: 'none',
-              fontWeight: 500,
-              fontSize: '12px',
-              letterSpacing: 0.7,
-            }}
-            variant="body2"
-          >
-            Need help?
-          </Typography>
-        </Button>
+          <HelpTitle variant="body2">Need help?</HelpTitle>
+        </HelpButton>
         <MainModal modalIsOpen={isModalOpen} closeModal={closeModal}>
           <NeedHelpModal closeModal={closeModal} />
         </MainModal>
-      </Box>
-      <Box
-        sx={{
-          marginTop: '24px',
-          textTransform: 'none',
-          fontWeight: 500,
-          fontSize: '12px',
-          letterSpacing: 0.7,
-        }}
-      >
-        <Button
-          onClick={() => dispatch(logOut())}
-          sx={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: '14px',
-            padding: 0,
-            minWidth: 0,
-            border: 0,
-            '&:hover': {
-              backgroundColor: 'inherit',
-              border: 0,
-              transform: 'scale(1.1)',
-            },
-          }}
-        >
+      </HelpWrap>
+      <LogoutWrap>
+        <LogoutButton onClick={() => dispatch(logOut())}>
           <LogoutIcon>
             <use href={icon + '#icon-login'}></use>
           </LogoutIcon>
-          <Typography
-            sx={{
-              color: 'rgba(22, 22, 22, 1)',
-              textTransform: 'none',
-              fontWeight: 500,
-              fontSize: '16px',
-              letterSpacing: 0.7,
-            }}
-            variant="body2"
-          >
-            Log out
-          </Typography>
-        </Button>
-      </Box>
+          <LogoutText variant="body2">Log out</LogoutText>
+        </LogoutButton>
+      </LogoutWrap>
     </SideBarStyled>
   );
 
