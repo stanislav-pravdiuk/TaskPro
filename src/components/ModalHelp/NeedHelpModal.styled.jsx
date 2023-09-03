@@ -1,6 +1,26 @@
 import styled from 'styled-components';
 import { Form, Field, ErrorMessage } from 'formik';
 
+export const SectionTitle = styled.h2`
+  font-size: 18px;
+  font-family: 'Poppins';
+  font-weight: 600;
+  letter-spacing: -0.36px;
+`;
+
+export const LabelInput = styled.label`
+  width: 100%;
+`;
+
+export const FormWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  margin-bottom: 24px;
+`;
+
 export const Section = styled.div`
   position: relative;
   display: flex;
@@ -15,28 +35,11 @@ export const Section = styled.div`
   padding: 24px;
 `;
 
-export const SectionTitle = styled.h2`
-  font-size: 18px;
-  font-family: 'Poppins';
-  font-weight: 600;
-  letter-spacing: -0.36px;
-`;
-
 export const ModalForm = styled(Form)`
   margin: 0;
   width: 100%;
   display: flex;
   flex-direction: column;
-`;
-
-export const FormWrapper = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: start;
-  margin-bottom: 24px;
-
 `;
 
 export const ErrorSection = styled(ErrorMessage)`
