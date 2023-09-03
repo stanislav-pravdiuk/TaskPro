@@ -15,10 +15,11 @@ const FormContainer = styled.div`
 
 const Title = styled.h2`
   font-style: medium;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 18px;
   line-height: 27px;
   letter-spacing: -0.02em;
+  font-family: 'Poppins';
   margin: 0;
 `;
 
@@ -38,6 +39,8 @@ const Input = styled(Field)`
   background: #fcfcfc;
   border: 1px solid #bedbb0;
   border-radius: 8px;
+  outline: none;
+
   &:placeholder-shown {
     color: #161616;
     font-size: 14px;
@@ -45,6 +48,7 @@ const Input = styled(Field)`
 `;
 
 const Text = styled.p`
+  font-family: 'Poppins';
   font-style: medium;
   font-weight: 500;
   font-size: 14px;
@@ -114,6 +118,7 @@ const Button = styled.button`
   height: 49px;
   padding: 0px;
 
+  font-family: 'Poppins';
   font-style: medium;
   font-size: 14px;
   text-align: center;
