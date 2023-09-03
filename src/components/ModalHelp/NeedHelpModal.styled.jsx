@@ -20,7 +20,6 @@ export const SectionTitle = styled.h2`
   font-family: 'Poppins';
   font-weight: 600;
   letter-spacing: -0.36px;
-  /* margin-bottom: 24px; */
 `;
 
 export const ModalForm = styled(Form)`
