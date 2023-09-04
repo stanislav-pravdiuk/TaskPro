@@ -47,7 +47,7 @@ const Header = ({ click }) => {
           <ThemeComponent />
           <UserText variant="body2">{user.name}</UserText>
           <UserButton onClick={openModal} aria-label="open drawer">
-            {currentUserData ? (
+            {currentUserData.avatar ? (
               <UserImage src={currentUserData.avatar} alt="User avatar" />
             ) : (
               <UserIcon>
