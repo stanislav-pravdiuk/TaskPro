@@ -130,8 +130,6 @@ const Card = ({ title, text, priority, deadline, card, boardId, columns }) => {
       today.getMonth() === deadlineDate.getMonth() &&
       today.getDate() === deadlineDate.getDate()
     );
-    // console.log('1',today.getFullYear())
-    // console.log(deadlineDate)
   };
 
   return (
