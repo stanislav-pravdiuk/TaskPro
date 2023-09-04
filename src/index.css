@@ -42,7 +42,23 @@
   --color-text-dark: #16161680;
   --color-text-grey: #161616cc;
   --color-transparent-black: #1616161a;
-  --color-white: #ffffff;  
+  --color-white: #ffffff;
+/*-----------------------------------*/
+  --color-text-dark-main: #161616;
+  --color-text-white-main: #FFFFFF;
+  --color-text-green-main: #BEDBB0;
+  --color-text-violet-main: #5255BC;
+  
+  --color-text-dark-07: #161616B2; /*card description*/
+  --color-text-dark-05: #16161680; /*priority deadline*/
+  --color-text-white-05: #FFFFFF80; /*card description*/
+  
+
+
+
+
+
+
 }
 
 html {

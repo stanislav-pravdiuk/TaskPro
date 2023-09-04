@@ -2,7 +2,7 @@ const lightTheme = {
   palette: {
     primary: {
       light: "rgba(246, 246, 247, 1)", //--bg-color-light
-      main: '#9dc888', //--color-hover-green
+      main: '#BEDBB0;', //--color-hover-green
       dark: "#0b5c15", //
       darker: "#08400f",
       contrastText: ''
@@ -17,10 +17,10 @@ const lightTheme = {
       paper: "#F5F5F5",
     },
     text: {
-      primary: "#9dc888", //--color-hover-green
-      secondary: "#757575",
-      disabled: '',
-      hint: ''
+      primary: "#161616", //--color-text-dark-main
+      secondary: "#161616B2", //--color-text-dark-07
+      disabled: '#16161680',  //--color-text-dark-05
+      hint: '#BEDBB0' //--color-text-green-main
     },
   },
 };
@@ -44,10 +44,10 @@ const darkTheme = {
       paper: "#1E1E1E",
     },
     text: {
-      primary: "#9dc888", //--color-hover-green
-      secondary: "rgba(255, 255, 255, 0.5)",
-      disabled: '',
-      hint: ''
+      primary: "#FFFFFF;", //--color-text-white-main
+      secondary: "#FFFFFF80", //--color-text-white-05
+      disabled: '#FFFFFF80', //--color-text-white-05
+      hint: '#BEDBB0' //--color-text-green-main
     },
   },
 };
@@ -70,10 +70,10 @@ const violetTheme = {
       paper: "#FFF", //--color-white
     },
     text: {
-      primary: "#5255BC", //--color-purple
-      secondary: "#161616", //--color-dark
-      disabled: '',
-      hint: ''
+      primary: '#161616', //--color-text-dark-main
+      secondary: '#161616B2',   //--color-text-dark-07   
+      disabled: '#FFFFFF80', // --color-text-white-05
+      hint: '#5255BC' //--color-text-violet-main
     },
   },
 };
