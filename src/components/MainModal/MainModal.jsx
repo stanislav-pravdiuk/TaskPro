@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import Modal from '@mui/joy/Modal';
+import Modal from '@mui/material/Modal';
 
 const MainModal = ({ modalIsOpen, closeModal, children }) => {
   const [open, setOpen] = useState(false);

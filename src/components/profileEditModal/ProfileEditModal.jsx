@@ -20,7 +20,7 @@ import { updateUserProfile } from '../../redux/auth/authOperations';
 
 import icon from '../iconSvg/icon.svg';
 import avatar from '../../images/userAvatar.jpg';
-import { ModalClose } from '@mui/joy';
+import Button from '@mui/material/Button';
 import { toast } from 'react-hot-toast';
 
 const validationSchema = Yup.object().shape({
@@ -82,7 +82,8 @@ const ProfileEditModal = ({ user, modalClose }) => {
 
   return (
     <FormContainer>
-      <ModalClose
+      <Button
+        onClick={modalClose}
         sx={{
           position: 'absolute',
           top: '14px',

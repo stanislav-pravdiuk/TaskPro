@@ -2,9 +2,15 @@ import React from 'react';
 import { Formik, Form, Field } from 'formik';
 import { ModalTitle, Input, FormContainer } from '../cardForm/CardForm.styled';
 import BtnAdd from 'components/ScreensPage/btnAdd/BtnAdd';
-import ModalClose from '@mui/joy/ModalClose';
+import Button from '@mui/material/Button';
 
-const ColumnForm = ({ formTitle, columnTitle, btnText, onSubmit }) => {
+const ColumnForm = ({
+  formTitle,
+  columnTitle,
+  btnText,
+  onSubmit,
+  closeModal,
+}) => {
   const initialValues = {
     title: columnTitle || '',
   };
@@ -15,7 +21,8 @@ const ColumnForm = ({ formTitle, columnTitle, btnText, onSubmit }) => {
 
   return (
     <FormContainer>
-      <ModalClose
+      <Button
+        onClick={closeModal}
         sx={{
           position: 'absolute',
           top: '8px',

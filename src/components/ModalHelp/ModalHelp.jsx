@@ -3,7 +3,7 @@ import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
 import { needHelp } from 'redux/auth/authOperations';
-import ModalClose from '@mui/joy/ModalClose';
+import Button from '@mui/material/Button';
 
 import {
   Section,
@@ -38,7 +38,8 @@ const NeedHelpModal = ({ closeModal }) => {
   };
   return (
     <Section>
-      <ModalClose
+      <Button
+        onClick={closeModal}
         sx={{
           position: 'absolute',
           top: '14px',

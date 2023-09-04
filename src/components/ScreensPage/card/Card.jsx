@@ -192,6 +192,7 @@ const Card = ({ title, text, priority, deadline, card, boardId, columns }) => {
           priority={card.priority}
           deadline={card.deadline}
           onSubmit={updateCardHandler}
+          closeModal={closeCardModal}
         />
       </MainModal>
     </Container>
