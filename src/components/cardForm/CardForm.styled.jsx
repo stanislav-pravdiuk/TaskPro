@@ -90,11 +90,7 @@ export const ColorOptionLabel = styled.label`
     display: none;
   }
 
-  &:hover {
-    opacity: 0.7;
-  }
-
-  &::before {
+  span {
     content: '';
     display: inline-block;
     width: 14px;
@@ -106,28 +102,30 @@ export const ColorOptionLabel = styled.label`
     border: 2px solid transparent;
   }
 
-  &.blue::before {
+  &.blue span {
     background-color: var(--color-blue);
   }
 
-  &.red::before {
+  &.red span {
     background-color: var(--color-pink);
   }
 
-  &.green::before {
+  &.green span {
     background-color: var(--color-green);
   }
 
-  &.gray::before {
-    background-color: var( --color-light);
+  &.gray span {
+    background-color: var(--color-light);
   }
 
-  &:active::before {
+  input[type='radio']:checked + span {
     border-color: var(--color-white);
   }
 `;
+
 export const DeadlineBox = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 40px;
 `;
+

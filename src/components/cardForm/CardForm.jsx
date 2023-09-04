@@ -74,15 +74,19 @@ const CardForm = ({
             <div>
               <ColorOptionLabel className="blue">
                 <Field type="radio" name="priority" value="low" />
+                <span></span>
               </ColorOptionLabel>
               <ColorOptionLabel className="red">
                 <Field type="radio" name="priority" value="medium" />
+                <span></span>
               </ColorOptionLabel>
               <ColorOptionLabel className="green">
                 <Field type="radio" name="priority" value="high" />
+                <span></span>
               </ColorOptionLabel>
               <ColorOptionLabel className="gray">
                 <Field type="radio" name="priority" value="without" />
+                <span></span>
               </ColorOptionLabel>
             </div>
           </div>
