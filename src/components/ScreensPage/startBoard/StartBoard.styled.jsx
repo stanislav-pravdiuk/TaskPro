@@ -11,7 +11,7 @@ export const Container = styled.div`
 export const TextBox = styled.div`
   width: 486px;
 
-  color: rgba(22, 22, 22, 0.7);
+  color: var(--color-text-card);
 
   text-align: center;
   font-family: Poppins;
@@ -23,7 +23,7 @@ export const TextBox = styled.div`
 `;
 
 export const Link = styled.a`
-  color: #bedbb0;
+  color: var(--color-green);
   font-family: Poppins;
   font-size: 14px;
   font-style: normal;

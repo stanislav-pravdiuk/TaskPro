@@ -6,12 +6,12 @@ export const Container = styled.div`
   width: 334px;
   height: auto;
   border-radius: 8px;
-  background: #fff;
+  background: var(--color-white);
   padding: 14px 24px;
   margin-bottom: 8px;
 `;
 export const Title = styled.h4`
-  color: #161616;
+  color: var(--color-dark);
   font-family: Poppins;
   font-size: 14px;
   font-style: normal;
@@ -21,7 +21,7 @@ export const Title = styled.h4`
 `;
 export const Description = styled.div`
   width: 100%;
-  color: rgba(22, 22, 22, 0.7);
+  color: var(--color-text-card);
   font-family: Poppins;
   font-size: 12px;
   font-style: normal;
@@ -31,7 +31,7 @@ export const Description = styled.div`
 `;
 export const BottomBar = styled.div`
   margin-top: 14px;
-  border-top: 1px solid rgba(22, 22, 22, 0.1);
+  border-top: 1px solid var(--color-transparent-black);
   padding-top: 14px;
   display: flex;
   align-items: flex-end;
@@ -50,7 +50,7 @@ export const PriorityBox = styled.div`
 `;
 
 export const TextOptions = styled.p`
-  color: rgba(22, 22, 22, 0.5);
+  color: var(--color-text-dark);
   font-family: Poppins;
   font-size: 8px;
   font-style: normal;
@@ -58,7 +58,7 @@ export const TextOptions = styled.p`
   line-height: normal;
 `;
 export const Text = styled.div`
-  color: #161616;
+  color: var(--color-dark);
   font-family: Poppins;
   font-size: 10px;
   font-style: normal;
@@ -76,7 +76,7 @@ export const IconsBox = styled.div`
   display: flex;
   align-items: center;
   gap: 8px;
-  stroke: #16161680;
+  stroke: var(--color-dark);
 `;
 
 export const IconButton = styled.button`
@@ -108,13 +108,13 @@ export const MenuMUI = styled(Menu)`
   direction: rtl;
 
   ::-webkit-scrollbar {
-    background-color: #e8e8e8;
+    background-color: var(--color-pale-gray);
     width: 4px;
     border-radius: 12px;
   }
 
   ::-webkit-scrollbar-thumb {
-    background-color: rgba(22, 22, 22, 0.1);
+    background-color: var(--color-transparent-black);
     border-radius: 12px;
     width: 4px;
   }
@@ -124,12 +124,12 @@ export const MenuItemMUI = styled(MenuItem)`
   display: flex;
   gap: 8px;
   justify-content: space-between;
-  stroke: #16161680;
+  stroke: var(--color-dark);
 
   direction: ltr;
 
   &:hover {
-    color: #bedbb0;
-    stroke: #bedbb0;
+    color: var(--color-green);
+    stroke: var(--color-green);
   }
 `;

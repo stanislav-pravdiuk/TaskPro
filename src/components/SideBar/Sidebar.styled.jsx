@@ -1,5 +1,18 @@
 import styled from 'styled-components';
 import { Link, NavLink } from 'react-router-dom';
+import { Box } from '@mui/material';
+
+export const SideBarStyled = styled(Box)`
+  width: 225px;
+  padding: 14px;
+  overflow: hidden;
+
+  @media screen and (min-width: 768px) {
+    width: 259px;
+    max-width: 260px;
+    padding: 24px;
+  }
+`;
 
 export const LogoIcon = styled.svg`
   width: 32px;
@@ -10,9 +23,9 @@ export const PlusIcon = styled.svg`
   width: 20px;
   height: 20px;
   background-color: transparent;
-  color: #121212;
+  color: var(--color-icon-dark);
   &:hover {
-    fill: #bedbb0;
+    fill: var(--color-green);
   }
 `;
 
@@ -32,7 +45,7 @@ export const BoardsContainer = styled.div`
 
 export const BoardsList = styled.ul`
   position: absolute;
-  width: 123%;
+  width: 120%;
   top: 0;
   left: -24px;
   gap: 4px;
@@ -47,15 +60,19 @@ export const BoardsList = styled.ul`
   direction: rtl;
 
   &::-webkit-scrollbar {
-    background-color: #e8e8e8;
+    background-color: var(--color-pale-gray);
     width: 8px;
     border-radius: 12px;
     left: 0;
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: rgba(22, 22, 22, 0.1);
+    background-color: var(--color-transparent-black);
     border-radius: 12px;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 123%;
   }
 `;
 
@@ -70,13 +87,13 @@ export const BoardItem = styled.li`
 export const IconTitle = styled.svg`
   width: 18px;
   height: 18px;
-  fill: black;
-  stroke: #16161680;
+  fill: var(--color-black);
+  stroke: var(--color-dark);
   margin-right: 8px;
 `;
 
 export const Title = styled.div`
-  color: #16161680;
+  color: var(--color-dark);
   font-family: Poppins;
   font-size: 14px;
   font-style: normal;
@@ -87,14 +104,14 @@ export const Title = styled.div`
 export const Edit = styled.svg`
   width: 16px;
   height: 16px;
-  stroke: #16161680;
+  stroke: var(--color-dark);
   margin-right: 8px;
 `;
 
 export const Delete = styled.svg`
   width: 16px;
   height: 16px;
-  stroke: #16161680;
+  stroke: var(--color-dark);
 `;
 
 export const BoardLink = styled(NavLink)`
@@ -104,7 +121,7 @@ export const BoardLink = styled(NavLink)`
   padding: 24px 20px;
 
   font-size: 14px;
-  color: #161616;
+  color: var(--color-dark);
   transition: color 200ms linear, background-color 200ms linear;
 
   text-decoration: none;
@@ -115,17 +132,17 @@ export const BoardLink = styled(NavLink)`
 
   &:hover,
   &:focus {
-    background-color: #f6f6f7;
+    background-color: var(--bg-color-light);
   }
 
   &.active {
     pointer-events: none;
-    background-color: #f6f6f7;
+    background-color: var(--bg-color-light);
     ${Title} {
-      color: #161616;
+      color: var(--color-dark);
     }
     ${IconTitle} {
-      stroke: #161616;
+      stroke: var(--color-dark);
     }
     ${Edit}, ${Delete} {
       pointer-events: auto;
@@ -140,7 +157,7 @@ export const BoardLink = styled(NavLink)`
     width: 4px;
     height: 100%;
     border-radius: 4px 0px 0px 4px;
-    background: #bedbb0;
+    background: var(--color-green);
   }
 `;
 

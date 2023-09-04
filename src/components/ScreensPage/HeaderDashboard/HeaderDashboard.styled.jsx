@@ -1,17 +1,27 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  height: 48px;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 24px;
+  padding: 14px 20px 0 20px;
   box-sizing: border-box;
   flex-direction: row;
+  margin-bottom: 39px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 26px;
+    padding: 26px 32px 0 32px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    margin-bottom: 10px;
+    padding: 10px 24px 0 24px;
+  }
 `;
 export const BoardName = styled.h2`
-  color: #161616;
+  color: var(--color-dark);
   font-family: Poppins;
   font-size: 18px;
   font-style: normal;
@@ -23,7 +33,7 @@ export const BoardName = styled.h2`
 
   border-radius: 8px;
 
-  background-color: #f6f6f7;
+  background-color: var(--bg-color-light);
 `;
 
 export const Thumb = styled.div`

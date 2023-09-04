@@ -22,11 +22,9 @@ const ScreensPage = () => {
   }, [data]);
 
   const Container = styled.div`
+    padding: 0;
     height: 100vh;
-    max-height: 100vh;
-    padding: 64px 24px 0 24px;
-    margin-left: 260px;
-
+    max-height: 100%;
     background-image: url(${bgImageMobile});
     background-size: cover;
     background-repeat: no-repeat;
@@ -40,6 +38,7 @@ const ScreensPage = () => {
 
     @media screen and (min-width: 1440px) {
       background-image: url(${bgImageDesktop});
+      padding: 0 0 0 260px;
     }
   `;
 

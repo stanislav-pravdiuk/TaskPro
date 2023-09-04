@@ -6,6 +6,7 @@ import cactus2x from '../../images/cactus@2x.png';
 import cactus3x from '../../images/cactus@3x.png';
 import icon from '../../components/iconSvg/icon.svg';
 import {
+  SideBarStyled,
   LogoIcon,
   PlusIcon,
   HelpIcon,
@@ -27,8 +28,9 @@ import { useGetBoardsQuery } from 'redux/boards/boardsApi';
 import { useLocation, useParams } from 'react-router-dom';
 
 import NewBoardForm from 'components/newBoardForm/NewBoardForm';
+import ModalHelp from 'components/ModalHelp/ModalHelp';
 import MainModal from 'components/MainModal/MainModal';
-
+import NeedHelpModal from 'components/ModalHelp/ModalHelp';
 import sprite from '../iconSvg/icon.svg';
 
 import {
@@ -42,9 +44,10 @@ import { logOut } from 'redux/auth/authOperations';
 const SideBar = ({ active, onClick }) => {
   const [openAddModal, setOpenAddModal] = useState(false);
   const [openEditModal, setOpenEditModal] = useState(false);
+  const [openHelpModal, setOpenHelpModal] = useState(false);
   const [activeBoardTitle, setActiveBoardTitle] = useState('');
-  const drawerWidth = 260;
-
+  const [activeBoardIcon, setActiveBoardIcon] = useState('');
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const { data = [] } = useGetBoardsQuery();
 
   const location = useLocation();
@@ -55,8 +58,17 @@ const SideBar = ({ active, onClick }) => {
   const [deleteBoard] = useDeleteBoardMutation();
   const dispatch = useDispatch();
 
-  const openEditModalHandler = boardName => {
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const openEditModalHandler = (boardName, boardIcon) => {
     setActiveBoardTitle(boardName);
+    setActiveBoardIcon(boardIcon);
     setOpenEditModal(true);
   };
 
@@ -66,6 +78,12 @@ const SideBar = ({ active, onClick }) => {
 
   const closeEditModal = () => {
     setOpenEditModal(false);
+  };
+
+  const closeHelpModal = () => {
+    console.log(openAddModal);
+    console.log(openHelpModal);
+    setOpenHelpModal(false);
   };
 
   const handleSubmit = (data, formTitle) => {
@@ -89,7 +107,7 @@ const SideBar = ({ active, onClick }) => {
   };
 
   const drawerContent = (
-    <Box sx={{ padding: '24px', overflow: 'hidden' }}>
+    <SideBarStyled>
       <Box
         sx={{
           display: 'flex',
@@ -104,6 +122,7 @@ const SideBar = ({ active, onClick }) => {
         <Typography
           variant="h2"
           sx={{
+            fontFamily: 'Poppins',
             fontSize: '16px',
             letterSpacing: 0.7,
             fontWeight: 600,
@@ -116,6 +135,7 @@ const SideBar = ({ active, onClick }) => {
       <Typography
         variant="subtitle1"
         sx={{
+          fontFamily: 'Poppins',
           fontSize: '12px',
           letterSpacing: 0.7,
           fontWeight: 400,
@@ -139,7 +159,8 @@ const SideBar = ({ active, onClick }) => {
         <Typography
           variant="body2"
           sx={{
-            maxWidth: '76px',
+            maxWidth: '92px',
+            fontFamily: 'Poppins',
             fontWeight: 500,
             fontSize: '14px',
             letterSpacing: 0.7,
@@ -187,7 +208,9 @@ const SideBar = ({ active, onClick }) => {
                     <IconsBox>
                       <IconButton
                         type="button"
-                        onClick={() => openEditModalHandler(board.title)}
+                        onClick={() =>
+                          openEditModalHandler(board.title, board.icon)
+                        }
                       >
                         <Edit>
                           <use href={icon + '#icon-pencil-01'}></use>
@@ -212,7 +235,7 @@ const SideBar = ({ active, onClick }) => {
       <Box
         sx={{
           backgroundColor: 'rgba(246, 246, 247, 1)',
-          marginTop: 'calc(100vh - 575px)',
+          marginTop: 'calc(100vh - 585px)',
           borderRadius: '8px',
           padding: '20px',
         }}
@@ -235,6 +258,7 @@ const SideBar = ({ active, onClick }) => {
           <Typography
             variant="body2"
             sx={{
+              fontFamily: 'Poppins',
               fontWeight: 400,
               fontSize: '14px',
               letterSpacing: 0.7,
@@ -244,13 +268,15 @@ const SideBar = ({ active, onClick }) => {
             If you need help with
             <Link
               sx={{
+                fontFamily: 'Poppins',
                 fontWeight: 400,
                 fontSize: '14px',
+                lineHeight: '1.33',
                 letterSpacing: 0.7,
                 color: 'rgba(190, 219, 176, 1)',
                 textDecoration: 'none',
               }}
-              href="/#"
+              onClick={openModal}
             >
               {' '}
               TaskPro
@@ -260,6 +286,7 @@ const SideBar = ({ active, onClick }) => {
           </Typography>
         </Box>
         <Button
+          onClick={() => setOpenHelpModal(true)}
           sx={{
             display: 'flex',
             alignItems: 'center',
@@ -270,7 +297,6 @@ const SideBar = ({ active, onClick }) => {
             '&:hover': {
               backgroundColor: 'inherit',
               border: 0,
-              transform: 'scale(1.1)',
             },
           }}
         >
@@ -280,6 +306,7 @@ const SideBar = ({ active, onClick }) => {
           <Typography
             sx={{
               color: 'rgba(22, 22, 22, 1)',
+              fontFamily: 'Poppins',
               textTransform: 'none',
               fontWeight: 500,
               fontSize: '12px',
@@ -290,6 +317,9 @@ const SideBar = ({ active, onClick }) => {
             Need help?
           </Typography>
         </Button>
+        <MainModal modalIsOpen={isModalOpen} closeModal={closeModal}>
+          <NeedHelpModal closeModal={closeModal} />
+        </MainModal>
       </Box>
       <Box
         sx={{
@@ -312,7 +342,6 @@ const SideBar = ({ active, onClick }) => {
             '&:hover': {
               backgroundColor: 'inherit',
               border: 0,
-              transform: 'scale(1.1)',
             },
           }}
         >
@@ -322,6 +351,7 @@ const SideBar = ({ active, onClick }) => {
           <Typography
             sx={{
               color: 'rgba(22, 22, 22, 1)',
+              fontFamily: 'Poppins',
               textTransform: 'none',
               fontWeight: 500,
               fontSize: '16px',
@@ -333,7 +363,7 @@ const SideBar = ({ active, onClick }) => {
           </Typography>
         </Button>
       </Box>
-    </Box>
+    </SideBarStyled>
   );
 
   return (
@@ -354,7 +384,14 @@ const SideBar = ({ active, onClick }) => {
 
           '& .MuiDrawer-paper': {
             boxSizing: 'border-box',
-            width: drawerWidth,
+            width: 225,
+          },
+
+          '@media (min-width: 768px)': {
+            '& .MuiDrawer-paper': {
+              boxSizing: 'border-box',
+              width: 260,
+            },
           },
         }}
       >
@@ -370,7 +407,14 @@ const SideBar = ({ active, onClick }) => {
 
           '& .MuiDrawer-paper': {
             boxSizing: 'border-box',
-            width: drawerWidth,
+            width: 225,
+          },
+
+          '@media (min-width: 768px)': {
+            '& .MuiDrawer-paper': {
+              boxSizing: 'border-box',
+              width: 260,
+            },
           },
         }}
         open
@@ -390,7 +434,11 @@ const SideBar = ({ active, onClick }) => {
           btnText={'Edit'}
           handleSubmit={handleSubmit}
           boardTitle={activeBoardTitle}
+          boardIcon={activeBoardIcon}
         ></NewBoardForm>
+      </MainModal>
+      <MainModal modalIsOpen={openHelpModal} closeModal={closeHelpModal}>
+        <ModalHelp />
       </MainModal>
     </Box>
   );

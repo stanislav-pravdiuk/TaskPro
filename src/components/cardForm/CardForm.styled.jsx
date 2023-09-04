@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const FormContainer = styled.div`
   position: relative;
-  background-color: #fcfcfc;
+  background-color: var(--color-cream);
   width: 100vw;
   max-width: 350px;
   padding: 24px;
@@ -13,7 +13,7 @@ export const ModalTitle = styled.h2`
   margin: 0;
   font-family: Poppins;
   font-size: 18px;
-  color: #161616;
+  color: var(--color-dark);
 `;
 
 export const Input = styled.input`
@@ -23,9 +23,9 @@ export const Input = styled.input`
   margin-top: 24px;
   margin-bottom: 24px;
   border-radius: 8px;
-  border: 1px solid rgba(190, 219, 176, 0.4);
-  background-color: #fcfcfc;
-  color: #161616;
+  border: 1px solid var(--border-color);
+  background-color: var(--color-cream);
+  color: var(--color-dark);
   font-family: Poppins;
   font-size: 14px;
   font-weight: 400;
@@ -33,7 +33,7 @@ export const Input = styled.input`
   box-shadow: none;
 
   &:focus {
-    border: 1px solid #bedbb0;
+    border: 1px solid var(--color-green);
   }
 `;
 
@@ -43,9 +43,9 @@ export const Textarea = styled.textarea`
   width: 100%;
   height: 154px;
   border-radius: 8px;
-  border: 1px solid rgba(190, 219, 176, 0.4);
-  background-color: #fcfcfc;
-  color: #161616;
+  border: 1px solid var(--border-color);
+  background-color: var(--color-cream);
+  color: var(--color-dark);
   font-family: Poppins;
   font-size: 14px;
   font-weight: 400;
@@ -53,7 +53,7 @@ export const Textarea = styled.textarea`
   box-shadow: none;
 
   &:focus {
-    border: 1px solid #bedbb0;
+    border: 1px solid var(--color-green);
   }
 `;
 
@@ -63,7 +63,7 @@ export const Subtitle = styled.h3`
   font-family: Poppins;
   font-size: 12px;
   font-weight: 400;
-  color: #16161680;
+  color: var(--color-dark);
 `;
 
 export const Text = styled.p`
@@ -71,7 +71,7 @@ export const Text = styled.p`
   // margin-bottom: 40px;
   font-family: Poppins;
   font-size: 14px;
-  color: #bedbb0;
+  color: var(--color-green);
 `;
 
 export const CloseButton = styled.button`
@@ -107,23 +107,23 @@ export const ColorOptionLabel = styled.label`
   }
 
   &.blue::before {
-    background-color: #8fa1d0;
+    background-color: var(--color-blue);
   }
 
   &.red::before {
-    background-color: #e09cb5;
+    background-color: var(--color-pink);
   }
 
   &.green::before {
-    background-color: #bedbb0;
+    background-color: var(--color-green);
   }
 
   &.gray::before {
-    background-color: #1616164d;
+    background-color: var(--color-dark);
   }
 
   &:active::before {
-    border-color: #ffffff;
+    border-color: var(--color-white);
   }
 `;
 export const DeadlineBox = styled.div`

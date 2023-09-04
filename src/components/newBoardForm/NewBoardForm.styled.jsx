@@ -1,12 +1,13 @@
 import styled from 'styled-components';
+import { Form, Field } from 'formik';
 
-const FormContainer = styled.form`
+const FormContainer = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
   gap: 24px;
   padding: 24px;
-  background: #fcfcfc;
+  background: var(--color-cream);
   border-radius: 8px;
   width: 100vw;
   max-width: 350px;
@@ -14,29 +15,40 @@ const FormContainer = styled.form`
 
 const Title = styled.h2`
   font-style: medium;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 18px;
   line-height: 27px;
   letter-spacing: -0.02em;
+  font-family: 'Poppins';
   margin: 0;
 `;
 
-const Input = styled.input`
+const FormikContainer = styled(Form)`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+`;
+
+const Input = styled(Field)`
   display: inline-block;
   width: 100%;
   padding: 18px 14px;
 
-  color: #161616;
-  background: #fcfcfc;
-  border: 1px solid #bedbb0;
+  color: var(--color-dark);
+  background: var(--color-cream);
+  border: 1px solid var(--color-green);
   border-radius: 8px;
+  outline: none;
+
   &:placeholder-shown {
-    color: #161616;
+    color: var(--color-dark);
     font-size: 14px;
   }
 `;
 
 const Text = styled.p`
+  font-family: 'Poppins';
   font-style: medium;
   font-weight: 500;
   font-size: 14px;
@@ -55,7 +67,7 @@ const IconList = styled.ul`
 const Icon = styled.svg`
   height: 18px;
   width: 18px;
-  stroke: #16161680;
+  stroke: var(--color-dark);
 `;
 
 const BgList = styled.ul`
@@ -81,18 +93,22 @@ const BgColor = styled.li`
   cursor: pointer;
 `;
 
-const RadioButton = styled.input`
+const RadioField = styled(Field)`
   appearance: none;
   position: absolute;
 
   &:checked + ${Icon} {
-    stroke: #161616;
+    stroke: var(--color-dark);
   }
+`;
+
+const RadioFieldBg = styled.input`
+  appearance: none;
+  position: absolute;
 
   &:checked + ${Img} {
-    transform: scale(1.1);
     transform: scale(0.95);
-    outline: 1px solid #bedbb0;
+    outline: 1px solid var(--color-green);
   }
 `;
 
@@ -102,14 +118,15 @@ const Button = styled.button`
   height: 49px;
   padding: 0px;
 
+  font-family: 'Poppins';
   font-style: medium;
   font-size: 14px;
   text-align: center;
   letter-spacing: -0.02em;
 
-  background: #bedbb0;
+  background: var(--color-green);
   border-radius: 8px;
-  border: 1px solid #bedbb0;
+  border: 1px solid var(--color-green);
   cursor: pointer;
 `;
 
@@ -124,5 +141,7 @@ export {
   BgColor,
   IconList,
   BgList,
-  RadioButton,
+  RadioField,
+  FormikContainer,
+  RadioFieldBg,
 };

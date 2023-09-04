@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
 export const Container = styled.button`
+  display: flex;
+  flex-shrink: 0;
   width: 100%;
   max-width: 334px;
   height: 56px;
@@ -15,11 +17,11 @@ export const Container = styled.button`
 export const PlusIcon = styled.svg`
   width: 14px;
   height: 14px;
-  stroke: #ffffff;
+  stroke: var(--color-white);
 `;
 
 export const TitleButton = styled.p`
-  color: #161616;
+  color: var(--color-dark);
   font-family: Poppins;
   font-size: 14px;
   font-style: normal;
