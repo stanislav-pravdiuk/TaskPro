@@ -107,7 +107,7 @@ export const ColorOptionLabel = styled.label`
   }
 
   &.gray::before {
-    background-color: var(--color-dark);
+    background-color: var(--color-light);
   }
 
   &:active::before {
