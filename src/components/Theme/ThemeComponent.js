@@ -115,7 +115,7 @@ export const ThemeComponent = () => {
             minHeight: '21px',
             padding: '2px 44px 2px 18px',
             fontFamily: 'Poppins',
-            color: currentTheme === 'light' ? 'text.primary' : 'text.secondary',
+            color: currentTheme === 'light' ? 'text.hint' : 'text.secondary',
             '&:hover': {
               backgroundColor: 'primary.light',
             },
@@ -130,7 +130,7 @@ export const ThemeComponent = () => {
             minHeight: '21px',
             padding: '2px 44px 2px 18px',
             fontFamily: 'Poppins',
-            color: currentTheme === 'dark' ? 'text.primary' : 'text.secondary',
+            color: currentTheme === 'dark' ? 'text.hint' : 'text.secondary',
             '&:hover': {
               backgroundColor: 'primary.light',
             },
@@ -146,7 +146,7 @@ export const ThemeComponent = () => {
             padding: '2px 44px 2px 18px',
             fontFamily: 'Poppins',
             color:
-              currentTheme === 'violet' ? 'text.primary' : 'text.secondary',
+              currentTheme === 'violet' ? 'text.hint' : 'text.secondary',
             '&:hover': {
               backgroundColor: 'primary.light',
             },

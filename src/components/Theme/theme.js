@@ -2,7 +2,7 @@ const lightTheme = {
   palette: {
     primary: {
       light: "rgba(246, 246, 247, 1)", //--bg-color-light
-      main: '#BEDBB0;', //--color-hover-green
+      main: '#BEDBB0;', //--color-text-green-main
       dark: "#0b5c15", //
       darker: "#08400f",
       contrastText: ''
@@ -30,7 +30,7 @@ const darkTheme = {
     type: "dark",
     primary: {
       light: "rgba(255, 255, 255, 0.5)", //--color-text-dark
-      main: '#9dc888', //--color-hover-green
+      main: '#161616;', //--color-text-dark-main
       dark: "#1b1c21",
       darker: "#1c1c1f",
     },
@@ -56,7 +56,7 @@ const violetTheme = {
   palette: {
     primary: {
       light: "#ECEDFD", // --color-pale-blue
-      main: '#5255BC',  //--color-purple
+      main: '#5255BC;',  //--color-text-violet-main
       dark: "#B8BCFD", //--color-light-blue
       darker: "#5255BC", //--color-purple
     },
