@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   position: absolute;
+  width: 300px;
   left: 0;
   transform: translateX(-70%);
   z-index: 5;
@@ -27,7 +28,6 @@ export const Title = styled.p`
 `;
 
 export const TitleBox = styled.div`
-  display: flex;
   justify-content: space-between;
   margin-bottom: 14px;
 `;
@@ -40,7 +40,9 @@ export const ResetBox = styled.div`
 `;
 
 export const ResetTitle = styled.p`
-  margin-right: 130px;
+  display: flex;
+  flex-shrink: 0;
+  margin-right: auto;
   color: var(--color-dark);
   font-family: Poppins;
   font-size: 14px;
@@ -126,8 +128,6 @@ export const RadioButton = styled.input`
   height: 14px;
 
   cursor: pointer;
-
-  
 
   &:checked.blue {
     border: 1px solid var(--color-blue);
