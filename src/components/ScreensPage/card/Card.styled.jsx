@@ -89,17 +89,17 @@ export const TransferRight = styled.svg`
   margin-left: auto;
   width: 16px;
   height: 16px;
-  stroke: inherit;
+  stroke: var(--color-text-dark);
 `;
 export const Edit = styled.svg`
   width: 16px;
   height: 16px;
-  stroke: inherit;
+  stroke: var(--color-text-dark);
 `;
 export const Delete = styled.svg`
   width: 16px;
   height: 16px;
-  stroke: inherit;
+  stroke: var(--color-text-dark);
 `;
 
 export const MenuMUI = styled(Menu)`
