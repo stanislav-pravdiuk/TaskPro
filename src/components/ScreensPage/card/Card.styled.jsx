@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import Menu from '@mui/joy/Menu';
-import MenuItem from '@mui/joy/MenuItem';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
 
 export const Container = styled.div`
   width: 334px;
@@ -86,6 +86,7 @@ export const IconButton = styled.button`
 `;
 
 export const TransferRight = styled.svg`
+  margin-left: auto;
   width: 16px;
   height: 16px;
   stroke: inherit;
@@ -102,7 +103,7 @@ export const Delete = styled.svg`
 `;
 
 export const MenuMUI = styled(Menu)`
-  max-height: 180px;
+  /* max-height: 180px; */
   overflow: auto;
 
   direction: rtl;
