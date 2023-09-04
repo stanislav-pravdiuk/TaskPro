@@ -28,14 +28,24 @@ const initialValues = {
 
 const NeedHelpModal = ({ closeModal }) => {
   const dispatch = useDispatch();
+  // const [disabled, setDisabled] = useState(true);
 
   const handleSubmit = (values, { resetForm }) => {
     const { email, message } = values;
+
+    // if (email.length > 0 && message.length > 0) {
+    //   setDisabled(false);
+    // }
     const credentials = { email, message };
+    console.log(credentials);
+
     dispatch(needHelp(credentials));
     resetForm();
     closeModal();
   };
+
+  // console.log(disabled);
+
   return (
     <Section>
       <Button
@@ -54,31 +64,38 @@ const NeedHelpModal = ({ closeModal }) => {
         validationSchema={validationSchema}
         onSubmit={handleSubmit}
       >
-        <ModalForm>
-          <FormWrapper>
-            <Container>
-              <TitleInput
-                type="email"
-                id="email"
-                name="email"
-                placeholder="Email address "
-              />
-              <ErrorSection name="email" component="div" />
-            </Container>
-            <Container>
-              <Textarea
-                component="textarea"
-                type="text"
-                id="message"
-                name="message"
-                placeholder="Comment"
-              />
-              <ErrorSection name="message" component="div" />
-            </Container>
-          </FormWrapper>
+        {formik => (
+          <ModalForm>
+            <FormWrapper>
+              <Container>
+                <TitleInput
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="Email address "
+                />
+                <ErrorSection name="email" component="div" />
+              </Container>
+              <Container>
+                <Textarea
+                  component="textarea"
+                  type="text"
+                  id="message"
+                  name="message"
+                  placeholder="Comment"
+                />
+                <ErrorSection name="message" component="div" />
+              </Container>
+            </FormWrapper>
 
-          <AuthFormSubmitButton type="submit">Send</AuthFormSubmitButton>
-        </ModalForm>
+            <AuthFormSubmitButton
+              type="submit"
+              disabled={!(formik.isValid && formik.dirty)}
+            >
+              Send
+            </AuthFormSubmitButton>
+          </ModalForm>
+        )}
       </Formik>
     </Section>
   );
