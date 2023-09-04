@@ -14,6 +14,8 @@ import {
   PasswordContainer,
   ShowPasswordBtn,
   BtnForm,
+  CloseIcon,
+  CloseButton,
 } from './ProfileEditModal.styled';
 
 import { updateUserProfile } from '../../redux/auth/authOperations';
@@ -22,6 +24,7 @@ import icon from '../iconSvg/icon.svg';
 import avatar from '../../images/userAvatar.jpg';
 import Button from '@mui/material/Button';
 import { toast } from 'react-hot-toast';
+import { BtnCloseBlack } from 'components/buttons/buttons';
 
 const validationSchema = Yup.object().shape({
   login: Yup.string().required('Login is required'),
@@ -82,15 +85,9 @@ const ProfileEditModal = ({ user, modalClose }) => {
 
   return (
     <FormContainer>
-      <Button
-        onClick={modalClose}
-        sx={{
-          position: 'absolute',
-          top: '14px',
-          right: '14px',
-          zIndex: 1,
-        }}
-      />
+      <CloseButton type="button" onClick={modalClose}>
+        <BtnCloseBlack />
+      </CloseButton>
       <ModalTitle>Edit Profile</ModalTitle>
       <Formik
         initialValues={initialValues}

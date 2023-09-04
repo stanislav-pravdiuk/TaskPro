@@ -99,3 +99,9 @@ export const BtnForm = styled.button`
   font-size: 14px;
   font-weight: 600;
 `;
+
+export const CloseButton = styled.div`
+  position: absolute;
+  top: 14px;
+  right: 14px;
+`;

@@ -18,9 +18,13 @@ import {
   RadioField,
   RadioFieldBg,
   FormikContainer,
+  CloseIcon,
+  CloseButton,
 } from './NewBoardForm.styled';
 import Button from '@mui/material/Button';
 import BtnAdd from 'components/ScreensPage/btnAdd/BtnAdd';
+import icon from '../iconSvg/icon.svg';
+import { BtnCloseBlack } from 'components/buttons/buttons.jsx';
 
 const NewBoardForm = ({
   formTitle,
@@ -50,15 +54,9 @@ const NewBoardForm = ({
 
   return (
     <FormContainer>
-      <Button
-        onClick={closeModal}
-        sx={{
-          position: 'absolute',
-          top: '14px',
-          right: '14px',
-          zIndex: 1,
-        }}
-      />
+      <CloseButton type="button" onClick={closeModal}>
+        <BtnCloseBlack />
+      </CloseButton>
       <Title>{formTitle}</Title>
       <Formik initialValues={initialValues} onSubmit={formSubmit}>
         <FormikContainer>
