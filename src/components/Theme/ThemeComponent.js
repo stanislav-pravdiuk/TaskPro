@@ -33,7 +33,13 @@ export const ThemeComponent = () => {
   };
 
   return (
-    <div>
+    <div
+      style={{
+        display: 'flex',
+        justifyContent: 'left',
+        width: '100px',
+      }}
+    >
       <Button
         id="theme-button"
         aria-controls={open ? 'theme-menu' : undefined}
@@ -48,8 +54,6 @@ export const ThemeComponent = () => {
           textTransform: 'capitalize',
           fontWeight: 500,
           color: 'rgba(22, 22, 22, 0.8)',
-          padding: 0,
-          marginRight: '14px',
         }}
       >
         Theme
@@ -73,7 +77,7 @@ export const ThemeComponent = () => {
           'aria-labelledby': 'theme-button',
         }}
         sx={{
-          border: '1px solid rgba(190, 219, 176, 1)',
+          left: '-8px',          
           fontFamily: 'Poppins',
           fontSize: '14px',
           boxShadow: '0px 2px 4px rgba(17, 17, 17, 0.1)',
@@ -81,12 +85,26 @@ export const ThemeComponent = () => {
           '&& .Mui-selected': {
             backgroundColor: 'transparent',
           },
-          fontWeight: '400',
+          '&& li.MuiMenuItem-root': {
+            width: '100px',
+          },
+          '&& ul.MuiList-root': {
+            paddingTop: '18px',
+            paddingBottom: '18px',
+            border: '1px solid rgba(190, 219, 176, 1)',
+            borderRadius: '8px',
+          },
+          '&& .MuiPopover-paper': {
+            borderRadius: '8px',
+          },
         }}
       >
         <MenuItem
           onClick={() => handleThemeChange('light')}
           sx={{
+            fontSize: '14px',
+            minHeight: '21px',
+            padding: '2px 44px 2px 18px',
             fontFamily: 'Poppins',
             color:
               currentTheme === 'light' ? 'rgba(190, 219, 176, 1)' : '#161616',
@@ -97,6 +115,9 @@ export const ThemeComponent = () => {
         <MenuItem
           onClick={() => handleThemeChange('dark')}
           sx={{
+            fontSize: '14px',
+            minHeight: '21px',
+            padding: '2px 44px 2px 18px',
             fontFamily: 'Poppins',
             color:
               currentTheme === 'dark' ? 'rgba(190, 219, 176, 1)' : '#161616',
@@ -107,6 +128,9 @@ export const ThemeComponent = () => {
         <MenuItem
           onClick={() => handleThemeChange('violet')}
           sx={{
+            fontSize: '14px',
+            minHeight: '21px',
+            padding: '2px 44px 2px 18px',
             fontFamily: 'Poppins',
             color:
               currentTheme === 'violet' ? 'rgba(190, 219, 176, 1)' : '#161616',
