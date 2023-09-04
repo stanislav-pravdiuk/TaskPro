@@ -2,10 +2,10 @@ import { useDispatch } from "react-redux";
 import React, { useState } from 'react';
 import { useFormik } from 'formik';
 import LoginSchema from "./LoginSchema";
-import { Container, FormContainer, InputField, LinkMenu, LoginLink, RegisterBtn, RegisterLink, ErrorText, PasswordInput, Passwordsvg } from "../loginForm/LoginForm.styled";
+import { Container, FormContainer, InputField, LinkMenu, LoginLink, RegisterBtn, RegisterLink, ErrorText, PasswordInput, Passwordsvg, StyledWrapInputAuth } from "../loginForm/LoginForm.styled";
 import { logIn } from "redux/auth/authOperations";
 import { toast } from "react-hot-toast";
-import sprite from '../../components/iconSvg/icon.svg';
+import icon from '../../components/iconSvg/icon.svg';
 
 const LoginForm = () => {
     const dispatch = useDispatch();
@@ -42,6 +42,7 @@ const LoginForm = () => {
               <LoginLink to="/auth/login" underline="none"> Log In </LoginLink >
             </LinkMenu>
         <InputField>
+        <StyledWrapInputAuth>
         <input
           type="email"
           id="email"
@@ -52,7 +53,8 @@ const LoginForm = () => {
           placeholder="Enter your email"
 />
       {formik.touched.email && formik.errors.email ? (
-      <ErrorText>{formik.errors.email}</ErrorText>) : null}
+      <ErrorText>{formik.errors.email}</ErrorText>) : null} </StyledWrapInputAuth>
+      <StyledWrapInputAuth>
           <PasswordInput><input
            type={showPassword ? 'text' : 'password'}
             id="password"
@@ -62,10 +64,10 @@ const LoginForm = () => {
             value={formik.values.password}
             placeholder="Create a password"
           />
-          <Passwordsvg  width="18px" onClick={togglePasswordVisibility}> < use href={`${sprite}#icon-eye`}></use> </Passwordsvg > </PasswordInput>
+          <Passwordsvg  width="18px" onClick={togglePasswordVisibility}> < use href={icon + '#icon-eye'}></use> </Passwordsvg > </PasswordInput>
           {formik.touched.password && formik.errors.password ? (
             <ErrorText>{formik.errors.password}</ErrorText>
-          ) : null}
+          ) : null} </StyledWrapInputAuth>
         </InputField>
         <RegisterBtn type="submit">Log In Now</RegisterBtn>
       </form>
