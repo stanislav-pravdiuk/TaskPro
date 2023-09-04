@@ -17,6 +17,7 @@ import {
   IconButton,
   MenuMUI,
   MenuItemMUI,
+  IconDeadline,
 } from './Card.styled';
 import icon from '../../iconSvg/icon.svg';
 import {
@@ -45,6 +46,7 @@ const Card = ({ title, text, priority, deadline, card, boardId, columns }) => {
   const handleClick = event => {
     setAnchorEl(event.currentTarget);
   };
+
   const handleClose = () => {
     setAnchorEl(null);
   };
@@ -108,6 +110,30 @@ const Card = ({ title, text, priority, deadline, card, boardId, columns }) => {
     return cardBordredColor;
   };
 
+  const parseDeadline = (deadlineString) => {
+    const months = [
+      "January", "February", "March", "April", "May", "June",
+      "July", "August", "September", "October", "November", "December"
+    ];
+
+    const [, monthName, day] = deadlineString.split(" ");
+    const month = months.indexOf(monthName);
+    const today = new Date();
+    return new Date(today.getFullYear(), month, parseInt(day));
+  };
+
+  const isDeadlineToday = (deadline) => {
+    const today = new Date();
+    const deadlineDate = parseDeadline(deadline);
+    return (
+      today.getFullYear() === deadlineDate.getFullYear() &&
+      today.getMonth() === deadlineDate.getMonth() &&
+      today.getDate() === deadlineDate.getDate()
+    );
+    // console.log('1',today.getFullYear())
+    // console.log(deadlineDate)
+  };
+
   return (
     <Container
       style={{ borderLeft: `4px solid ${cardPriorityChecker(priority)}` }}
@@ -133,6 +159,11 @@ const Card = ({ title, text, priority, deadline, card, boardId, columns }) => {
           </Options>
         </OptionsBox>
         <IconsBox>
+          {isDeadlineToday(deadline) && (
+            <IconDeadline>
+              <use href={icon + '#icon-bell-01'}></use>
+            </IconDeadline>
+          )}
           <Button
             id="basic-button"
             aria-controls={open ? 'basic-menu' : undefined}

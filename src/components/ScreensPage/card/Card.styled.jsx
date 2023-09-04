@@ -134,3 +134,9 @@ export const MenuItemMUI = styled(MenuItem)`
     stroke: var(--color-green);
   }
 `;
+
+export const IconDeadline = styled.svg`
+width: 16px;
+height: 16px;
+stroke: var(--color-green);
+`;
