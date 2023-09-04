@@ -88,12 +88,12 @@ export const IconTitle = styled.svg`
   width: 18px;
   height: 18px;
   fill: var(--color-black);
-  stroke: var(--color-dark);
+  stroke: var(--color-text-dark);
   margin-right: 8px;
 `;
 
 export const Title = styled.div`
-  color: var(--color-dark);
+  color: var(--color-text-dark);
   font-family: Poppins;
   font-size: 14px;
   font-style: normal;

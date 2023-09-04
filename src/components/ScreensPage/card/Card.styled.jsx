@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import Menu from '@mui/joy/Menu';
-import MenuItem from '@mui/joy/MenuItem';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
 
 export const Container = styled.div`
   width: 334px;
@@ -86,23 +86,24 @@ export const IconButton = styled.button`
 `;
 
 export const TransferRight = styled.svg`
+  margin-left: auto;
   width: 16px;
   height: 16px;
-  stroke: inherit;
+  stroke: var(--color-text-dark);
 `;
 export const Edit = styled.svg`
   width: 16px;
   height: 16px;
-  stroke: inherit;
+  stroke: var(--color-text-dark);
 `;
 export const Delete = styled.svg`
   width: 16px;
   height: 16px;
-  stroke: inherit;
+  stroke: var(--color-text-dark);
 `;
 
 export const MenuMUI = styled(Menu)`
-  max-height: 180px;
+  /* max-height: 180px; */
   overflow: auto;
 
   direction: rtl;
@@ -132,4 +133,10 @@ export const MenuItemMUI = styled(MenuItem)`
     color: var(--color-green);
     stroke: var(--color-green);
   }
+`;
+
+export const IconDeadline = styled.svg`
+width: 16px;
+height: 16px;
+stroke: var(--color-green);
 `;

@@ -21,8 +21,6 @@ const Header = ({ click }) => {
   const user = useSelector(selectUser);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  console.log(user.theme);
-
   const openModal = () => {
     setIsModalOpen(true);
   };

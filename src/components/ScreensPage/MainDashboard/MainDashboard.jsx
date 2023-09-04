@@ -113,6 +113,7 @@ const MainDashboard = ({ columns }) => {
           formTitle={'Add column'}
           btnText={'Add'}
           onSubmit={addNewColumn}
+          closeModal={closeColumnModal}
         />
       </MainModal>
       <MainModal modalIsOpen={openCardModal} closeModal={closeCardModal}>
@@ -121,6 +122,7 @@ const MainDashboard = ({ columns }) => {
           btnText={'Add'}
           owner={columnId}
           onSubmit={addCardInColumn}
+          closeModal={closeCardModal}
         />
       </MainModal>
     </Container>

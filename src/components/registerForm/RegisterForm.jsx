@@ -3,10 +3,10 @@ import React, { useState } from 'react';
 import { useFormik } from 'formik';
 import RegisterSchema from "./RegisterSchema";
 // import {  Link } from "react-router-dom";
-import { Container, ErrorText, FormContainer, InputField, LinkMenu, LoginLink, PasswordInput, Passwordsvg, RegisterBtn, RegisterLink } from "./RegisterForm.styled";
+import { Container, ErrorText, FormContainer, InputField, LinkMenu, LoginLink, PasswordInput, Passwordsvg, RegisterBtn, RegisterLink, StyledWrapInputAuth } from "./RegisterForm.styled";
 import { register } from "redux/auth/authOperations";
 import { toast } from "react-hot-toast";
-import sprite from '../../components/iconSvg/icon.svg';
+import icon from '../../components/iconSvg/icon.svg';
 
 const RegisterForm = () => {
     const dispatch = useDispatch();
@@ -41,6 +41,7 @@ const RegisterForm = () => {
               <LoginLink to="/auth/login" underline="none"> Log In </LoginLink >
             </LinkMenu>
         <InputField>
+        <StyledWrapInputAuth>
           <input
             type="text"
             id="name"
@@ -51,7 +52,8 @@ const RegisterForm = () => {
             placeholder="Enter your name"
           />
           {formik.touched.name && formik.errors.name ? (
-      <ErrorText>{formik.errors.name}</ErrorText>) : null}
+      <ErrorText>{formik.errors.name}</ErrorText>) : null} </StyledWrapInputAuth>
+      <StyledWrapInputAuth>
         <input
           type="email"
           id="email"
@@ -62,7 +64,8 @@ const RegisterForm = () => {
           placeholder="Enter your email"
 />
       {formik.touched.email && formik.errors.email ? (
-      <ErrorText>{formik.errors.email}</ErrorText>) : null}
+      <ErrorText>{formik.errors.email}</ErrorText>) : null} </StyledWrapInputAuth>
+      <StyledWrapInputAuth>
           <PasswordInput><input
            type={showPassword ? 'text' : 'password'}
             id="password"
@@ -72,10 +75,10 @@ const RegisterForm = () => {
             value={formik.values.password}
             placeholder="Create a password"
           />
-          <Passwordsvg  width="18px" onClick={togglePasswordVisibility}> < use href={`${sprite}#icon-eye`}></use> </Passwordsvg > </PasswordInput>
+          <Passwordsvg  width="18px" onClick={togglePasswordVisibility}> < use href={icon + '#icon-eye'}></use> </Passwordsvg > </PasswordInput>
           {formik.touched.password && formik.errors.password ? (
             <ErrorText>{formik.errors.password}</ErrorText>
-          ) : null}
+          ) : null} </StyledWrapInputAuth>
         </InputField>
         <RegisterBtn type="submit">Register Now</RegisterBtn>
       </form>

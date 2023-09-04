@@ -19,7 +19,7 @@ import {
   RadioFieldBg,
   FormikContainer,
 } from './NewBoardForm.styled';
-import ModalClose from '@mui/joy/ModalClose';
+import Button from '@mui/material/Button';
 import BtnAdd from 'components/ScreensPage/btnAdd/BtnAdd';
 
 const NewBoardForm = ({
@@ -28,6 +28,7 @@ const NewBoardForm = ({
   boardIcon = '#icon-Project',
   btnText,
   handleSubmit,
+  closeModal,
 }) => {
   const [background, setbackground] = useState();
 
@@ -49,7 +50,8 @@ const NewBoardForm = ({
 
   return (
     <FormContainer>
-      <ModalClose
+      <Button
+        onClick={closeModal}
         sx={{
           position: 'absolute',
           top: '14px',

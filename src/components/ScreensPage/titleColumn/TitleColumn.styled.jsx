@@ -35,5 +35,5 @@ export const IconsButton = styled.div`
 export const Icon = styled.svg`
   width: 16px;
   height: 16px;
-  stroke: var(--color-dark);
+  stroke: var(--color-text-dark);
 `;
