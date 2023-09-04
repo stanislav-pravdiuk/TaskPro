@@ -81,8 +81,6 @@ const SideBar = ({ active, onClick }) => {
   };
 
   const closeHelpModal = () => {
-    console.log(openAddModal);
-    console.log(openHelpModal);
     setOpenHelpModal(false);
   };
 
@@ -426,6 +424,7 @@ const SideBar = ({ active, onClick }) => {
           formTitle={'New board'}
           btnText={'Create'}
           handleSubmit={handleSubmit}
+          closeModal={closeAddModal}
         ></NewBoardForm>
       </MainModal>
       <MainModal modalIsOpen={openEditModal} closeModal={closeEditModal}>
@@ -435,10 +434,11 @@ const SideBar = ({ active, onClick }) => {
           handleSubmit={handleSubmit}
           boardTitle={activeBoardTitle}
           boardIcon={activeBoardIcon}
+          closeModal={closeEditModal}
         ></NewBoardForm>
       </MainModal>
       <MainModal modalIsOpen={openHelpModal} closeModal={closeHelpModal}>
-        <ModalHelp />
+        <ModalHelp closeModal={closeHelpModal}/>
       </MainModal>
     </Box>
   );

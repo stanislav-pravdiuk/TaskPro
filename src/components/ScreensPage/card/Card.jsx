@@ -29,8 +29,7 @@ import EllipsisText from 'react-ellipsis-text';
 import MainModal from 'components/MainModal/MainModal';
 import CardForm from 'components/cardForm/CardForm';
 import { useParams } from 'react-router-dom';
-import MenuButton from '@mui/joy/MenuButton';
-import Dropdown from '@mui/joy/Dropdown';
+import Button from '@mui/material/Button';
 
 const Card = ({ title, text, priority, deadline, card, boardId, columns }) => {
   const [openCardModal, setOpenCardModal] = useState(false);
@@ -40,6 +39,15 @@ const Card = ({ title, text, priority, deadline, card, boardId, columns }) => {
   const [deleteCard] = useDeleteCardMutation();
 
   const { boardName } = useParams();
+
+  const [anchorEl, setAnchorEl] = useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = event => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
   const closeCardModal = () => {
     setOpenCardModal(false);
@@ -125,48 +133,63 @@ const Card = ({ title, text, priority, deadline, card, boardId, columns }) => {
           </Options>
         </OptionsBox>
         <IconsBox>
-          <Dropdown>
-            <MenuButton
-              size="sx"
-              sx={{
-                border: 'none',
-                '&:hover': {
-                  backgroundColor: 'transparent',
-                },
-                '&:focus': {
-                  outline: '2px solid #000000',
-                },
-              }}
-            >
-              <TransferRight>
-                <use href={icon + '#icon-arrow-circle-broken-right'}></use>
-              </TransferRight>
-              <MenuMUI>
-                {columns.map(columm => {
-                  const currentColumn = columm._id === card.owner;
+          <Button
+            id="basic-button"
+            aria-controls={open ? 'basic-menu' : undefined}
+            aria-haspopup="true"
+            aria-expanded={open ? 'true' : undefined}
+            onClick={handleClick}
+            size="small"
+            sx={{
+              padding: 0,
+              maxWidth: '16px',
+              maxHeight: '16px',
+              minWidth: '16px',
+              minHeight: '16px',
+              border: 'none',
+              '&:hover': {
+                backgroundColor: 'transparent',
+              },
+              '&:focus': {
+                outline: '2px solid #000000',
+              },
+            }}
+          >
+            <TransferRight>
+              <use href={icon + '#icon-arrow-circle-broken-right'}></use>
+            </TransferRight>
+          </Button>
+          <MenuMUI
+            id="basic-menu"
+            anchorEl={anchorEl}
+            open={open}
+            onClose={handleClose}
+            MenuListProps={{
+              'aria-labelledby': 'basic-button',
+            }}
+          >
+            {columns.map(columm => {
+              const currentColumn = columm._id === card.owner;
 
-                  return (
-                    <MenuItemMUI
-                      key={columm._id + '1'}
-                      onClick={() => replaceCardHandler(columm._id)}
-                      disabled={currentColumn}
-                      sx={{
-                        color: currentColumn ? '#bedbb0' : '#16161680',
-                        stroke: currentColumn ? '#bedbb0' : '#16161680',
-                      }}
-                    >
-                      {columm.title}
-                      <TransferRight>
-                        <use
-                          href={icon + '#icon-arrow-circle-broken-right'}
-                        ></use>
-                      </TransferRight>
-                    </MenuItemMUI>
-                  );
-                })}
-              </MenuMUI>
-            </MenuButton>
-          </Dropdown>
+              return (
+                <MenuItemMUI
+                  key={columm._id + '1'}
+                  onClick={() => replaceCardHandler(columm._id)}
+                  disabled={currentColumn}
+                  sx={{
+                    color: currentColumn ? '#bedbb0' : '#16161680',
+                    stroke: currentColumn ? '#bedbb0' : '#16161680',
+                  }}
+                >
+                  {columm.title}
+                  <TransferRight>
+                    <use href={icon + '#icon-arrow-circle-broken-right'}></use>
+                  </TransferRight>
+                </MenuItemMUI>
+              );
+            })}
+          </MenuMUI>
+
           <IconButton type="button" onClick={() => setOpenCardModal(true)}>
             <Edit>
               <use href={icon + '#icon-pencil-01'}></use>
@@ -192,6 +215,7 @@ const Card = ({ title, text, priority, deadline, card, boardId, columns }) => {
           priority={card.priority}
           deadline={card.deadline}
           onSubmit={updateCardHandler}
+          closeModal={closeCardModal}
         />
       </MainModal>
     </Container>

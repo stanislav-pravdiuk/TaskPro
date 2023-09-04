@@ -69,6 +69,7 @@ const TitleColumn = ({ title, owner, columnId }) => {
             btnText={'Edit'}
             onSubmit={updateColumnHandler}
             columnTitle={title}
+            closeModal={closeModal}
           />
         </MainModal>
       </IconsBox>
