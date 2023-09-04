@@ -36,7 +36,11 @@ const Header = ({ click }) => {
   };
 
   return (
-    <Appbar>
+    <Appbar
+      sx={{
+        bgcolor: 'background.paper',
+      }}
+    >
       <ToolBar>
         <BurgerButton aria-label="open drawer" edge="start" onClick={click}>
           <BurgerIcon>
@@ -45,7 +49,14 @@ const Header = ({ click }) => {
         </BurgerButton>
         <HeaderWrap>
           <ThemeComponent />
-          <UserText variant="body2">{user.name}</UserText>
+          <UserText
+            variant="body2"
+            sx={{
+              color: 'text.primary',
+            }}
+          >
+            {user.name}
+          </UserText>
           <UserButton onClick={openModal} aria-label="open drawer">
             {currentUserData ? (
               <UserImage src={currentUserData.avatar} alt="User avatar" />

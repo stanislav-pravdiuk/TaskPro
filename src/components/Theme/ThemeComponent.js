@@ -7,15 +7,12 @@ import { useSelector, useDispatch } from 'react-redux';
 import { updateUserTheme } from '../../redux/auth/authOperations';
 import { selectUser } from 'redux/auth/authSelectors';
 import { SvgIcon } from '@mui/material';
-import { useTheme } from '@mui/material/styles';
 
 export const ThemeComponent = () => {
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
-  const theme = useTheme();
-  console.log(theme.palette.mode);
 
   const [currentTheme, setCurrentTheme] = useState(user.theme);
 
@@ -56,7 +53,7 @@ export const ThemeComponent = () => {
           fontStyle: 'normal',
           textTransform: 'capitalize',
           fontWeight: 500,
-          color: 'rgba(22, 22, 22, 0.8)',
+          color: 'text.secondary',
         }}
       >
         Theme
@@ -97,10 +94,7 @@ export const ThemeComponent = () => {
             paddingTop: '18px',
             paddingBottom: '18px',
             border: '1px solid',
-            borderColor:
-              currentTheme === 'light' || currentTheme === 'dark'
-                ? 'primary.main'
-                : 'primary.light',
+            borderColor: 'secondary.light',              
             borderRadius: '8px',
           },
           '&& .MuiPopover-paper': {
@@ -115,7 +109,7 @@ export const ThemeComponent = () => {
             minHeight: '21px',
             padding: '2px 44px 2px 18px',
             fontFamily: 'Poppins',
-            color: currentTheme === 'light' ? 'text.hint' : 'text.secondary',
+            color: currentTheme === 'light' ? 'text.hint' : 'text.secondary',            
             '&:hover': {
               backgroundColor: 'primary.light',
             },

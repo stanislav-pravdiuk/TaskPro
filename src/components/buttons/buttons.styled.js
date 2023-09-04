@@ -16,7 +16,7 @@ const ButtonTaskProIconThumb = styled.div`
   justify-content: center;
   height: 32px;
   border-radius: 8px;
-  background-color: var(--color-black);
+  background-color: 'primary.light';
 `;
 
 const ButtonTaskProIconText = styled.p`
