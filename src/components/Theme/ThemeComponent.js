@@ -7,12 +7,15 @@ import { useSelector, useDispatch } from 'react-redux';
 import { updateUserTheme } from '../../redux/auth/authOperations';
 import { selectUser } from 'redux/auth/authSelectors';
 import { SvgIcon } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
 
 export const ThemeComponent = () => {
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
+  const theme = useTheme();
+  console.log(theme.palette.mode);
 
   const [currentTheme, setCurrentTheme] = useState(user.theme);
 
@@ -77,11 +80,12 @@ export const ThemeComponent = () => {
           'aria-labelledby': 'theme-button',
         }}
         sx={{
-          left: '-8px',          
+          left: '-8px',
           fontFamily: 'Poppins',
           fontSize: '14px',
           boxShadow: '0px 2px 4px rgba(17, 17, 17, 0.1)',
-          zIndex: '3000',
+          bgcolor: 'theme.palette.primary.main',
+          zIndex: '3000',          
           '&& .Mui-selected': {
             backgroundColor: 'transparent',
           },
@@ -91,7 +95,11 @@ export const ThemeComponent = () => {
           '&& ul.MuiList-root': {
             paddingTop: '18px',
             paddingBottom: '18px',
-            border: '1px solid rgba(190, 219, 176, 1)',
+            border: '1px solid',
+            borderColor:
+              currentTheme === 'light' || currentTheme === 'dark'
+                ? 'primary.main'
+                : 'primary.light',
             borderRadius: '8px',
           },
           '&& .MuiPopover-paper': {
@@ -106,8 +114,10 @@ export const ThemeComponent = () => {
             minHeight: '21px',
             padding: '2px 44px 2px 18px',
             fontFamily: 'Poppins',
-            color:
-              currentTheme === 'light' ? 'rgba(190, 219, 176, 1)' : '#161616',
+            color: currentTheme === 'light' ? 'text.primary' : 'text.secondary',
+            '&:hover': {
+              backgroundColor: 'primary.light',
+            },
           }}
         >
           Light
@@ -119,8 +129,10 @@ export const ThemeComponent = () => {
             minHeight: '21px',
             padding: '2px 44px 2px 18px',
             fontFamily: 'Poppins',
-            color:
-              currentTheme === 'dark' ? 'rgba(190, 219, 176, 1)' : '#161616',
+            color: currentTheme === 'dark' ? 'text.primary' : 'text.secondary',
+            '&:hover': {
+              backgroundColor: 'primary.light',
+            },
           }}
         >
           Dark
@@ -133,7 +145,10 @@ export const ThemeComponent = () => {
             padding: '2px 44px 2px 18px',
             fontFamily: 'Poppins',
             color:
-              currentTheme === 'violet' ? 'rgba(190, 219, 176, 1)' : '#161616',
+              currentTheme === 'violet' ? 'text.primary' : 'text.secondary',
+            '&:hover': {
+              backgroundColor: 'primary.light',
+            },
           }}
         >
           Violet

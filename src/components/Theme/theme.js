@@ -1,21 +1,26 @@
 const lightTheme = {
   palette: {
     primary: {
-      light: "#2ce643",
-      main: "#188526",
+      light: "rgba(246, 246, 247, 1)",
+      main: '#9dc888', //--color-hover-green
       dark: "#0b5c15",
       darker: "#08400f",
+      contrastText: ''
     },
     secondary: {
-      main: "#FF4081",
+      main: "rgba(255, 255, 255, 0.5)",
+      light: '',
+      dark: ''
     },
     background: {
-      default: "#FFFFFF",
+      default: "#FFFFFF", //--color-white
       paper: "#F5F5F5",
     },
     text: {
-      primary: "#333333",
+      primary: "#9dc888",
       secondary: "#757575",
+      disabled: '',
+      hint: ''
     },
   },
 };
@@ -24,21 +29,25 @@ const darkTheme = {
   palette: {
     type: "dark",
     primary: {
-      light: "#69718a",
-      main: "#2d313d",
+      light: "rgba(255, 255, 255, 0.5)", //--color-text-dark
+      main: '#9dc888', //--color-hover-green
       dark: "#1b1c21",
       darker: "#1c1c1f",
     },
     secondary: {
       main: "#FF4081",
+      light: '',
+      dark: ''
     },
     background: {
       default: "#121212",
       paper: "#1E1E1E",
     },
     text: {
-      primary: "#FFFFFF",
-      secondary: "#B0B0B0",
+      primary: "#9dc888",
+      secondary: "rgba(255, 255, 255, 0.5)",
+      disabled: '',
+      hint: ''
     },
   },
 };
@@ -46,21 +55,25 @@ const darkTheme = {
 const violetTheme = {
   palette: {
     primary: {
-      light: "#c4c4f5",
-      main: "#9999f7",
-      dark: "#6f6ffc",
-      darker: "#5555e0",
+      light: "#ECEDFD", // light
+      main: '#5255BC',  //violet
+      dark: "#B8BCFD",
+      darker: "#5255BC",
     },
     secondary: {
       main: "#FF4081",
+      light: '',
+      dark: ''
     },
     background: {
-      default: "#F4E1F6",
-      paper: "#E1BEE7",
+      default: "rgba(236, 237, 253, 1)",
+      paper: "#FFF",
     },
     text: {
-      primary: "#333333",
-      secondary: "#757575",
+      primary: "#5255BC",
+      secondary: "#161616", //--color-dark
+      disabled: '',
+      hint: ''
     },
   },
 };
