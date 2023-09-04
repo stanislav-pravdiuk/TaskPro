@@ -20,7 +20,7 @@ export const CloseButton = styled.div`
 
 export const Title = styled.p`
   color: var(--color-dark);
-  font-family: Poppins;
+  font-family: 'Poppins';
   font-size: 18px;
   font-style: normal;
   font-weight: 500;
@@ -100,6 +100,8 @@ export const ColorOptionLabel = styled.label`
   gap: 8px;
   justify-content: center;
   align-items: center;
+
+  font-family: 'Poppins';
 
   &:not(:last-child) {
     margin-bottom: 12px;
