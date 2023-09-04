@@ -77,8 +77,7 @@ export const ThemeComponent = () => {
           'aria-labelledby': 'theme-button',
         }}
         sx={{
-          left: '-8px',
-          // border: '1px solid rgba(190, 219, 176, 1)',
+          left: '-8px',          
           fontFamily: 'Poppins',
           fontSize: '14px',
           boxShadow: '0px 2px 4px rgba(17, 17, 17, 0.1)',
