@@ -5,21 +5,21 @@ const lightTheme = {
       main: '#BEDBB0;', //--color-text-green-main
       dark: "#0b5c15", //
       darker: "#08400f",
-      contrastText: ''
+      contrastText: 'rgba(22, 22, 22, 0.1)'
     },
     secondary: {
       main: "rgba(255, 255, 255, 0.5)",
       light: '#BEDBB0',
-      dark: ''
+      dark: '#161616'
     },
     background: {
-      default: "#FFFFFF", //--color-white
+      default: "#FFF", //--color-white
       paper: "#FCFCFC",
     },
     text: {
       primary: "#161616", //--color-text-dark-main
       secondary: "rgba(22, 22, 22, 0.8)", //--color-text-dark-07
-      disabled: '#16161680',  //--color-text-dark-05
+      disabled: 'rgba(22, 22, 22, 0.5)',  //--color-text-dark-05
       hint: '#BEDBB0' //--color-text-green-main
     },
   },
@@ -33,11 +33,12 @@ const darkTheme = {
       main: '#BEDBB0', //--color-text-dark-main
       dark: "#1b1c21",
       darker: "#1c1c1f",
+      contrastText: 'rgba(255, 255, 255, 0.1)'
     },
     secondary: {
       main: "#FF4081",
       light: '#BEDBB0',
-      dark: ''
+      dark: '#FFF'
     },
     background: {
       default: "#121212", //--color-icon-dark
@@ -46,7 +47,7 @@ const darkTheme = {
     text: {
       primary: "#FFFFFF;", //--color-text-white-main
       secondary: "rgba(255, 255, 255, 0.8)", //--color-text-white-05
-      disabled: '#FFFFFF80', //--color-text-white-05
+      disabled: 'rgba(255, 255, 255, 0.5)', 
       hint: '#BEDBB0' //--color-text-green-main
     },
   },
@@ -59,20 +60,22 @@ const violetTheme = {
       main: '#5255BC;',  //--color-text-violet-main
       dark: "#B8BCFD", //--color-light-blue
       darker: "#5255BC", //--color-purple
+      contrastText: 'rgba(255, 255, 255, 0.1)'
     },
     secondary: {
       main: "#FFF",
       light: '#ECEDFD',
-      dark: ''
+      dark: '#FFF'
     },
     background: {
-      default: "rgba(236, 237, 253, 1)", //--color-pale-blue
+      default: "#5255BC", //--color-pale-blue
       paper: "#FFF", //--color-white
+      
     },
     text: {
       primary: '#161616', //--color-text-dark-main
       secondary: 'rgba(22, 22, 22, 0.8)',   //--color-text-dark-07   
-      disabled: '#FFFFFF80', // --color-text-white-05
+      disabled: 'rgba(255, 255, 255, 0.5)', 
       hint: '#5255BC' //--color-text-violet-main
     },
   },

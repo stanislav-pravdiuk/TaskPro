@@ -40,6 +40,9 @@ import {
 } from 'redux/boards/boardsApi';
 import { useDispatch } from 'react-redux';
 import { logOut } from 'redux/auth/authOperations';
+import { useTheme } from '@mui/material';
+
+
 
 const SideBar = ({ active, onClick }) => {
   const [openAddModal, setOpenAddModal] = useState(false);
@@ -104,8 +107,12 @@ const SideBar = ({ active, onClick }) => {
     deleteBoard({ boardId });
   };
 
+  const theme = useTheme();
+
   const drawerContent = (
-    <SideBarStyled>
+    <SideBarStyled sx={{
+      bgcolor: 'background.default'
+    }}>
       <Box
         sx={{
           display: 'flex',
@@ -137,7 +144,7 @@ const SideBar = ({ active, onClick }) => {
           fontSize: '12px',
           letterSpacing: 0.7,
           fontWeight: 400,
-          color: 'rgba(22, 22, 22, 0.5)',
+          color: 'text.disabled',
         }}
       >
         My boards
@@ -147,8 +154,9 @@ const SideBar = ({ active, onClick }) => {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          borderBottom: '1px solid rgba(22, 22, 22, 0.1)',
-          borderTop: '1px solid rgba(22, 22, 22, 0.1)',
+          borderBottom: '1px solid',          
+          borderTop: '1px solid',
+          borderColor: 'primary.contrastText',
           padding: '14px 0',
           marginTop: '8px',
           marginBottom: '40px',
@@ -162,6 +170,7 @@ const SideBar = ({ active, onClick }) => {
             fontWeight: 500,
             fontSize: '14px',
             letterSpacing: 0.7,
+            color: 'secondary.dark'
           }}
         >
           Create a new board
@@ -194,16 +203,17 @@ const SideBar = ({ active, onClick }) => {
                   <BoardLink
                     to={`/home/${board._id}`}
                     state={{ from: location }}
+                    theme={theme}
                   >
                     <TitleBox>
-                      <IconTitle>
+                      <IconTitle theme={theme}>
                         <use href={sprite + board.icon}></use>
                       </IconTitle>
-                      <Title>{board.title}</Title>
+                      <Title theme={theme}>{board.title}</Title>
                     </TitleBox>
                   </BoardLink>
                   {isSelected && (
-                    <IconsBox>
+                    <IconsBox theme={theme}>
                       <IconButton
                         type="button"
                         onClick={() =>
