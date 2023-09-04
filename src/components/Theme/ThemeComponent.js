@@ -84,10 +84,11 @@ export const ThemeComponent = () => {
           fontFamily: 'Poppins',
           fontSize: '14px',
           boxShadow: '0px 2px 4px rgba(17, 17, 17, 0.1)',
-          bgcolor: 'theme.palette.primary.main',
+          
           zIndex: '3000',          
           '&& .Mui-selected': {
             backgroundColor: 'transparent',
+            bgcolor: 'background.paper', // check !!!
           },
           '&& li.MuiMenuItem-root': {
             width: '100px',
