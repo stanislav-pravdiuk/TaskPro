@@ -28,23 +28,15 @@ const initialValues = {
 
 const NeedHelpModal = ({ closeModal }) => {
   const dispatch = useDispatch();
-  // const [disabled, setDisabled] = useState(true);
 
   const handleSubmit = (values, { resetForm }) => {
     const { email, message } = values;
-
-    // if (email.length > 0 && message.length > 0) {
-    //   setDisabled(false);
-    // }
     const credentials = { email, message };
-    console.log(credentials);
 
     dispatch(needHelp(credentials));
     resetForm();
     closeModal();
   };
-
-  // console.log(disabled);
 
   return (
     <Section>

@@ -13,6 +13,10 @@ export const Container = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
 `;
 export const PlusIcon = styled.svg`
   width: 14px;

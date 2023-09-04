@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Form, Field } from 'formik';
+import { Form, Field, ErrorMessage } from 'formik';
 
 const FormContainer = styled.div`
   position: relative;
@@ -30,6 +30,14 @@ const FormikContainer = styled(Form)`
   gap: 24px;
 `;
 
+const Container = styled.div`
+  line-height: 0;
+  position: relative;
+  display: block;
+  width: 100%;
+  margin-bottom: 0;
+`;
+
 const Input = styled(Field)`
   display: inline-block;
   width: 100%;
@@ -45,6 +53,18 @@ const Input = styled(Field)`
     color: var(--color-dark);
     font-size: 14px;
   }
+`;
+
+const Error = styled(ErrorMessage)`
+  position: absolute;
+  bottom: -8px;
+  padding-left: 14px;
+  margin: 0;
+  color: var(--color-pastel);
+  font-size: 12px;
+  font-family: Poppins;
+  font-weight: 500;
+  letter-spacing: -0.36px;
 `;
 
 const Text = styled.p`
@@ -112,30 +132,13 @@ const RadioFieldBg = styled.input`
   }
 `;
 
-const Button = styled.button`
-  position: relative;
-  width: 100%;
-  height: 49px;
-  padding: 0px;
-
-  font-family: 'Poppins';
-  font-style: medium;
-  font-size: 14px;
-  text-align: center;
-  letter-spacing: -0.02em;
-
-  background: var(--color-green);
-  border-radius: 8px;
-  border: 1px solid var(--color-green);
-  cursor: pointer;
-`;
-
 export {
   FormContainer,
+  Container,
   Input,
+  Error,
   Title,
   Text,
-  Button,
   Icon,
   Img,
   BgColor,

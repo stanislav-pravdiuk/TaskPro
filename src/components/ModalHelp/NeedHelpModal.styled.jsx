@@ -125,5 +125,6 @@ export const AuthFormSubmitButton = styled.button`
 
   &:disabled {
     background: lightgray;
+    cursor: not-allowed;
   }
 `;
