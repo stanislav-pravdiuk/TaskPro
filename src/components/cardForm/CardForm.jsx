@@ -27,7 +27,9 @@ const CardForm = ({
   closeModal,
 }) => {
   const [selectedDate, setSelectedDate] = useState();
-  const formattedDate = dayjs(selectedDate).format('dddd, MMMM DD');
+  const formattedDate = dayjs(selectedDate).format('MM/DD/YYYY');
+  const formattedDateLong = dayjs(selectedDate).format('dddd, MMMM DD');
+  const deadLineDateLong = dayjs(deadline).format('dddd, MMMM DD');
 
   const initialValues = {
     title: title || '',
@@ -89,8 +91,8 @@ const CardForm = ({
             <DeadlineBox>
               <Text>
                 {selectedDate
-                  ? formattedDate
-                  : deadline || `Today, ${dayjs().format('MMMM D')}`}
+                  ? formattedDateLong
+                  : deadLineDateLong || `Today, ${dayjs().format('MMMM D')}`}
               </Text>
               <Calendar parentState={setSelectedDate} />
             </DeadlineBox>
