@@ -110,27 +110,15 @@ const Card = ({ title, text, priority, deadline, card, boardId, columns }) => {
     return cardBordredColor;
   };
 
-  const parseDeadline = (deadlineString) => {
-    const months = [
-      "January", "February", "March", "April", "May", "June",
-      "July", "August", "September", "October", "November", "December"
-    ];
-
-    const [, monthName, day] = deadlineString.split(" ");
-    const month = months.indexOf(monthName);
-    const today = new Date();
-    return new Date(today.getFullYear(), month, parseInt(day));
-  };
-
-  const isDeadlineToday = (deadline) => {
-    const today = new Date();
-    const deadlineDate = parseDeadline(deadline);
-    return (
-      today.getFullYear() === deadlineDate.getFullYear() &&
-      today.getMonth() === deadlineDate.getMonth() &&
-      today.getDate() === deadlineDate.getDate()
-    );
-  };
+const isDeadlineToday = (deadline) => {
+  const today = new Date();
+  const deadlineDate = new Date(deadline);
+  return (
+    today.getFullYear() === deadlineDate.getFullYear() &&
+    today.getMonth() === deadlineDate.getMonth() &&
+    today.getDate() === deadlineDate.getDate()
+  );
+};
 
   return (
     <Container
