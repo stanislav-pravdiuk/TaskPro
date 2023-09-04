@@ -14,7 +14,6 @@ import {
   PasswordContainer,
   ShowPasswordBtn,
   BtnForm,
-  CloseIcon,
   CloseButton,
 } from './ProfileEditModal.styled';
 
@@ -22,7 +21,6 @@ import { updateUserProfile } from '../../redux/auth/authOperations';
 
 import icon from '../iconSvg/icon.svg';
 import avatar from '../../images/userAvatar.jpg';
-import Button from '@mui/material/Button';
 import { toast } from 'react-hot-toast';
 import { BtnCloseBlack } from 'components/buttons/buttons';
 

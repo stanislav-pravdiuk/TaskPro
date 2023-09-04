@@ -18,12 +18,9 @@ import {
   RadioField,
   RadioFieldBg,
   FormikContainer,
-  CloseIcon,
   CloseButton,
 } from './NewBoardForm.styled';
-import Button from '@mui/material/Button';
 import BtnAdd from 'components/ScreensPage/btnAdd/BtnAdd';
-import icon from '../iconSvg/icon.svg';
 import { BtnCloseBlack } from 'components/buttons/buttons.jsx';
 
 const NewBoardForm = ({
