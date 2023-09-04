@@ -120,10 +120,6 @@ export const ColorOptionLabel = styled.label`
   height: 14px;
   margin: 0;
 
-  input[type='radio']:checked + & {
-    border: 1px solid red;
-  }
-
   input[type='radio']:checked + ${Dot} {
     scale: 0.5;
   }

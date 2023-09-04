@@ -3,15 +3,17 @@ import {
   BtnBox,
   BtnReset,
   ColorOptionLabel,
+  RadioButton,
   ResetBox,
   ResetTitle,
   Title,
   TitleBox,
   Container,
   CloseButton,
+  Dot,
 } from './Filters.styled';
 
-function Filters({ onClick, onChange }) {
+function Filters({ onClick, onChange, filterValue }) {
   return (
     <Container>
       <TitleBox>
@@ -28,48 +30,52 @@ function Filters({ onClick, onChange }) {
       </ResetBox>
       <BtnBox>
         <ColorOptionLabel className="gray">
-          <label>
-            <input
-              type="radio"
-              name="priority"
-              value="without"
-              onClick={() => onChange('without')}
-            />
-            Without priority
-          </label>
+          <RadioButton
+            type="radio"
+            name="priority"
+            value="without"
+            checked={filterValue === 'low'}
+            onChange={() => onChange('without')}
+            className="gray"
+          />
+          <Dot className="gray"></Dot>
+          Without priority
         </ColorOptionLabel>
         <ColorOptionLabel className="blue">
-          <label>
-            <input
-              type="radio"
-              name="priority"
-              value="low"
-              onClick={() => onChange('low')}
-            />
-            Low
-          </label>
+          <RadioButton
+            type="radio"
+            name="priority"
+            value="low"
+            checked={filterValue === 'low'}
+            onChange={() => onChange('low')}
+            className="blue"
+          />
+          <Dot className="blue"></Dot>
+          Low
         </ColorOptionLabel>
         <ColorOptionLabel className="red">
-          <label>
-            <input
-              type="radio"
-              name="priority"
-              value="medium"
-              onClick={() => onChange('medium')}
-            />
-            Medium
-          </label>
+          <RadioButton
+            type="radio"
+            name="priority"
+            value="medium"
+            checked={filterValue === 'medium'}
+            onChange={() => onChange('medium')}
+            className="red"
+          />
+          <Dot className="red"></Dot>
+          Medium
         </ColorOptionLabel>
         <ColorOptionLabel className="green">
-          <label>
-            <input
-              type="radio"
-              name="priority"
-              value="high"
-              onClick={() => onChange('high')}
-            />
-            High
-          </label>
+          <RadioButton
+            type="radio"
+            name="priority"
+            value="high"
+            checked={filterValue === 'high'}
+            onChange={() => onChange('high')}
+            className="green"
+          />
+          <Dot className="green"></Dot>
+          High
         </ColorOptionLabel>
       </BtnBox>
     </Container>
