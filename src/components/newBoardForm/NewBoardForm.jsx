@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { toast } from 'react-hot-toast';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 
@@ -36,6 +37,12 @@ const NewBoardForm = ({
   const [background, setbackground] = useState();
 
   const formSubmit = values => {
+    const title = values.title.trim();
+
+    if (!title) {
+      toast.error('Sorry, you entered empty title');
+      return;
+    }
     const data = { ...values, background };
     console.log(data);
 

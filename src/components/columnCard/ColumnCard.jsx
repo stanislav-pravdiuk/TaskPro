@@ -1,6 +1,13 @@
 import React from 'react';
 import { Formik, Form, Field } from 'formik';
-import { ModalTitle, Input, FormContainer } from '../cardForm/CardForm.styled';
+import * as Yup from 'yup';
+import {
+  ModalTitle,
+  Input,
+  FormContainer,
+  Error,
+  Container,
+} from '../cardForm/CardForm.styled';
 import BtnAdd from 'components/ScreensPage/btnAdd/BtnAdd';
 import Button from '@mui/material/Button';
 
@@ -11,6 +18,10 @@ const ColumnForm = ({
   onSubmit,
   closeModal,
 }) => {
+  const validationSchema = Yup.object().shape({
+    title: Yup.string().required('Title is required'),
+  });
+
   const initialValues = {
     title: columnTitle || '',
   };
@@ -31,11 +42,25 @@ const ColumnForm = ({
         }}
       />
       <ModalTitle>{formTitle}</ModalTitle>
-      <Formik initialValues={initialValues} onSubmit={handleSubmit}>
-        <Form>
-          <Field type="text" name="title" as={Input} placeholder="Title" />
-          <BtnAdd btnTitle={btnText} btnColor={'#BEDBB0'} />
-        </Form>
+      <Formik
+        initialValues={initialValues}
+        validationSchema={validationSchema}
+        onSubmit={handleSubmit}
+      >
+        {formik => (
+          <Form>
+            <Container>
+              <Field type="text" name="title" as={Input} placeholder="Title" />
+              <Error name="title" component="div" />
+            </Container>
+
+            <BtnAdd
+              btnTitle={btnText}
+              btnColor={'#BEDBB0'}
+              isDisabled={!(formik.isValid && formik.dirty)}
+            />
+          </Form>
+        )}
       </Formik>
     </FormContainer>
   );

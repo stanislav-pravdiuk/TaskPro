@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Field } from 'formik';
+import { Field, ErrorMessage } from 'formik';
 
 export const FormContainer = styled.div`
   position: relative;
@@ -15,6 +15,26 @@ export const ModalTitle = styled.h2`
   font-family: Poppins;
   font-size: 18px;
   color: var(--color-dark);
+`;
+
+export const Container = styled.div`
+  line-height: 0;
+  position: relative;
+  display: block;
+  width: 100%;
+  margin-bottom: 0;
+`;
+
+export const Error = styled(ErrorMessage)`
+  position: absolute;
+  bottom: 15px;
+  padding-left: 14px;
+  margin: 0;
+  color: var(--color-pastel);
+  font-size: 12px;
+  font-family: Poppins;
+  font-weight: 500;
+  letter-spacing: -0.36px;
 `;
 
 export const Input = styled.input`
