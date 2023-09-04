@@ -60,6 +60,7 @@ const InputField = styled.div`
   flex-direction: column;
   margin-top: 40px;
   gap: 14px;
+  position: relative;
 
   input {
     width: 344px;
@@ -116,14 +117,29 @@ const Passwordsvg = styled.svg`
   right: 18px;
   top: 19px;
   cursor: pointer;
-  color: var(--color-white);
+  stroke: #fff;
   width: 16.5px;
   height: 16px;
   right: 15px;
   opacity: 0.4;
+  &:hover,
+  &:focus {
+    stroke: #9dc888;
+  }
 `;
+
 const ErrorText = styled.div`
-  font-size: 15px;
-  color: var(--color-white);
+position: absolute;
+bottom: -15px;
+right: 0;
+font-size: 11px;
+font-weight: 400;
+font-style: normal;
+letter-spacing: -1%;
+opacity: 0.9;
+color: #fff;`
+
+const StyledWrapInputAuth = styled.div`
+  position: relative;
 `;
-export  {Container, FormContainer, LinkMenu, RegisterLink, LoginLink, InputField , RegisterBtn,Passwordsvg,PasswordInput, ErrorText   }
+export  {Container, FormContainer, LinkMenu, RegisterLink, LoginLink, InputField , RegisterBtn,Passwordsvg,PasswordInput, ErrorText, StyledWrapInputAuth   }
