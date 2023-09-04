@@ -123,3 +123,9 @@ export const AuthFormSubmitButton = styled.button`
     opacity: 0.8;
   }
 `;
+
+export const CloseButton = styled.div`
+  position: absolute;
+  top: 14px;
+  right: 14px;
+`;

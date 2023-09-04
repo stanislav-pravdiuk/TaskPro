@@ -12,11 +12,12 @@ import {
   RadioButtonContainer,
   RadioButton,
   Dot,
+  CloseButton,
 } from './CardForm.styled';
 import BtnAdd from 'components/ScreensPage/btnAdd/BtnAdd';
-import Button from '@mui/material/Button';
 import { Calendar } from 'components/calendar/Calendar';
 import dayjs from 'dayjs';
+import { BtnCloseBlack } from 'components/buttons/buttons';
 
 const CardForm = ({
   title,
@@ -53,15 +54,9 @@ const CardForm = ({
 
   return (
     <FormContainer>
-      <Button
-        onClick={closeModal}
-        sx={{
-          position: 'absolute',
-          top: '8px',
-          right: '8px',
-          zIndex: 1,
-        }}
-      />
+      <CloseButton type="button" onClick={closeModal}>
+        <BtnCloseBlack />
+      </CloseButton>
       <ModalTitle>{formTitle}</ModalTitle>
       <Formik initialValues={initialValues} onSubmit={handleSubmit}>
         <Form>

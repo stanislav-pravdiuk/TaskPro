@@ -130,6 +130,12 @@ const Button = styled.button`
   cursor: pointer;
 `;
 
+const CloseButton = styled.div`
+  position: absolute;
+  top: 14px;
+  right: 14px;
+`;
+
 export {
   FormContainer,
   Input,
@@ -144,4 +150,5 @@ export {
   RadioField,
   FormikContainer,
   RadioFieldBg,
+  CloseButton,
 };

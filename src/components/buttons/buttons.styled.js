@@ -378,6 +378,9 @@ const ButtonClose = styled.button`
   padding: 0;
   background-color: transparent;
   border: none;
+  &:hover {
+    transform: scale(1.1);
+  }
 `;
 
 const ButtonCloseIcon = styled.svg`
