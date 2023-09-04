@@ -28,44 +28,48 @@ function Filters({ onClick, onChange }) {
       </ResetBox>
       <BtnBox>
         <ColorOptionLabel className="gray">
-          <button
-            type="radio"
-            name="priority"
-            value="without"
-            onClick={() => onChange('without')}
-          >
+          <label>
+            <input
+              type="radio"
+              name="priority"
+              value="without"
+              onClick={() => onChange('without')}
+            />
             Without priority
-          </button>
+          </label>
         </ColorOptionLabel>
         <ColorOptionLabel className="blue">
-          <button
-            type="radio"
-            name="priority"
-            value="low"
-            onClick={() => onChange('low')}
-          >
+          <label>
+            <input
+              type="radio"
+              name="priority"
+              value="low"
+              onClick={() => onChange('low')}
+            />
             Low
-          </button>
+          </label>
         </ColorOptionLabel>
         <ColorOptionLabel className="red">
-          <button
-            type="radio"
-            name="priority"
-            value="medium"
-            onClick={() => onChange('medium')}
-          >
+          <label>
+            <input
+              type="radio"
+              name="priority"
+              value="medium"
+              onClick={() => onChange('medium')}
+            />
             Medium
-          </button>
+          </label>
         </ColorOptionLabel>
         <ColorOptionLabel className="green">
-          <button
-            type="radio"
-            name="priority"
-            value="high"
-            onClick={() => onChange('high')}
-          >
+          <label>
+            <input
+              type="radio"
+              name="priority"
+              value="high"
+              onClick={() => onChange('high')}
+            />
             High
-          </button>
+          </label>
         </ColorOptionLabel>
       </BtnBox>
     </Container>

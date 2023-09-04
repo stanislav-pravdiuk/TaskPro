@@ -11,7 +11,7 @@ export const Container = styled.div`
   padding: 24px;
 `;
 
-export const CloseButton = styled.button`
+export const CloseButton = styled.div`
   position: absolute;
   top: 14px;
   right: 14px;
