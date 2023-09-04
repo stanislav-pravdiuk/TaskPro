@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Field } from 'formik';
 
 export const FormContainer = styled.div`
   position: relative;
@@ -60,6 +61,7 @@ export const Textarea = styled.textarea`
 export const Subtitle = styled.h3`
   margin: 0;
   margin-top: 14px;
+  margin-bottom: 4px;
   font-family: Poppins;
   font-size: 12px;
   font-weight: 400;
@@ -80,52 +82,80 @@ export const CloseButton = styled.button`
   right: 14px;
 `;
 
-export const ColorOptionLabel = styled.label`
-  cursor: pointer;
-  display: inline-block;
-  margin-right: 8px;
-  font-size: 14px;
+export const RadioButtonContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 8px;
+`;
 
-  input[type='radio'] {
-    display: none;
-  }
+export const Dot = styled.span`
+  content: '';
+  display: block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
 
-  &:hover {
-    opacity: 0.7;
-  }
+  background-color: transparent;
 
-  &::before {
-    content: '';
-    display: inline-block;
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    margin-right: 8px;
-    vertical-align: middle;
-    background-color: transparent;
-    border: 2px solid transparent;
-  }
-
-  &.blue::before {
+  &.blue {
     background-color: var(--color-blue);
   }
 
-  &.red::before {
+  &.red {
     background-color: var(--color-pink);
   }
 
-  &.green::before {
+  &.green {
     background-color: var(--color-green);
   }
 
-  &.gray::before {
-    background-color: var( --color-light);
-  }
-
-  &:active::before {
-    border-color: var(--color-white);
+  &.gray {
+    background-color: var(--color-light);
   }
 `;
+
+export const ColorOptionLabel = styled.label`
+  position: relative;
+  width: 14px;
+  height: 14px;
+  margin: 0;
+
+  input[type='radio']:checked + ${Dot} {
+    scale: 0.5;
+  }
+`;
+
+export const RadioButton = styled(Field)`
+  position: absolute;
+  appearance: none;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  margin: 0;
+
+  width: 14px;
+  height: 14px;
+
+  cursor: pointer;
+
+  &:checked.blue {
+    border: 1px solid var(--color-blue);
+  }
+
+  &:checked.red {
+    border: 1px solid var(--color-pink);
+  }
+
+  &:checked.green {
+    border: 1px solid var(--color-green);
+  }
+
+  &:checked.gray {
+    border: 1px solid var(--color-light);
+  }
+`;
+
 export const DeadlineBox = styled.div`
   display: flex;
   align-items: center;

@@ -5,6 +5,7 @@ import dayjs from 'dayjs';
 import { useState, useEffect } from 'react';
 import sprite from '../iconSvg/icon.svg';
 import { IconDown } from './Calendar.styled';
+import { toast } from 'react-hot-toast';
 
 export const Calendar = ({ parentState, initial }) => {
     dayjs().format();
@@ -22,6 +23,10 @@ export const Calendar = ({ parentState, initial }) => {
                     value={dateDeadline}
                     desktopModeMediaQuery=""
                     onChange={newValue => {
+                        if (dayjs(newValue).isBefore(dayjs(), 'day')) {
+                            toast.error('invalid date');
+                        return;
+                        };
                         setDateDeadline(newValue);
                         parentState(newValue);
                     }}

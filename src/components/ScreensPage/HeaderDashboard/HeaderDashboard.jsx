@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { useBoardFilterMutation } from 'redux/boards/boardsApi';
 import { useParams } from 'react-router-dom';
 
-const HeaderDashboard = ({ boardName }) => {
+const HeaderDashboard = ({ boardName, filterValue }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const stroke = '#161616';
 
@@ -27,7 +27,11 @@ const HeaderDashboard = ({ boardName }) => {
       <Thumb>
         <BtnFilter color={stroke} onClick={toggleMenu}></BtnFilter>
         {isMenuOpen && (
-          <Filters onClick={toggleMenu} onChange={boardFilterHandler} />
+          <Filters
+            onClick={toggleMenu}
+            onChange={boardFilterHandler}
+            filterValue={filterValue}
+          />
         )}
       </Thumb>
     </Container>

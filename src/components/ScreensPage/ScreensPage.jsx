@@ -46,7 +46,7 @@ const ScreensPage = () => {
     <Container>
       {boardName ? (
         <>
-          <HeaderDashboard boardName={data.title} />
+          <HeaderDashboard boardName={data.title} filterValue={data.filter} />
 
           <MainDashboard board={data} columns={data.columns} />
         </>

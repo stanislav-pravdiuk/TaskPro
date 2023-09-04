@@ -104,14 +104,14 @@ export const Title = styled.div`
 export const Edit = styled.svg`
   width: 16px;
   height: 16px;
-  stroke: var(--color-dark);
+  stroke: var(--color-text-dark);
   margin-right: 8px;
 `;
 
 export const Delete = styled.svg`
   width: 16px;
   height: 16px;
-  stroke: var(--color-dark);
+  stroke: var(--color-text-dark);
 `;
 
 export const BoardLink = styled(NavLink)`

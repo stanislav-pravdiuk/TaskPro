@@ -9,6 +9,9 @@ import {
   Text,
   ColorOptionLabel,
   DeadlineBox,
+  RadioButtonContainer,
+  RadioButton,
+  Dot,
 } from './CardForm.styled';
 import BtnAdd from 'components/ScreensPage/btnAdd/BtnAdd';
 import Button from '@mui/material/Button';
@@ -71,20 +74,44 @@ const CardForm = ({
           />
           <div>
             <Subtitle>Label color</Subtitle>
-            <div>
-              <ColorOptionLabel className="blue">
-                <Field type="radio" name="priority" value="low" />
+            <RadioButtonContainer>
+              <ColorOptionLabel>
+                <RadioButton
+                  type="radio"
+                  name="priority"
+                  value="low"
+                  className="blue"
+                />
+                <Dot className="blue"></Dot>
               </ColorOptionLabel>
-              <ColorOptionLabel className="red">
-                <Field type="radio" name="priority" value="medium" />
+              <ColorOptionLabel>
+                <RadioButton
+                  type="radio"
+                  name="priority"
+                  value="medium"
+                  className="red"
+                />
+                <Dot className="red"></Dot>
               </ColorOptionLabel>
-              <ColorOptionLabel className="green">
-                <Field type="radio" name="priority" value="high" />
+              <ColorOptionLabel>
+                <RadioButton
+                  type="radio"
+                  name="priority"
+                  value="high"
+                  className="green"
+                />
+                <Dot className="green"></Dot>
               </ColorOptionLabel>
-              <ColorOptionLabel className="gray">
-                <Field type="radio" name="priority" value="without" />
+              <ColorOptionLabel>
+                <RadioButton
+                  type="radio"
+                  name="priority"
+                  value="without"
+                  className="gray"
+                />
+                <Dot className="gray"></Dot>
               </ColorOptionLabel>
-            </div>
+            </RadioButtonContainer>
           </div>
           <div>
             <Subtitle>Deadline</Subtitle>
