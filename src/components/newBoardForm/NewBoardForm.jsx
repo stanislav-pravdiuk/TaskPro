@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { Formik } from 'formik';
 
 import images from '../iconSvg/images.js';
-import bgImage from '../../images/bgImage-light.jpg';
+import bgImageLight from '../../images/bgImage-light.jpg';
+import bgImageDark from '../../images/bgImage-dark.jpg';
 
 import sprite from '../iconSvg/icon.svg';
 import {
@@ -22,6 +23,8 @@ import {
 } from './NewBoardForm.styled';
 import BtnAdd from 'components/ScreensPage/btnAdd/BtnAdd';
 import { BtnCloseBlack } from 'components/buttons/buttons.jsx';
+import { useSelector } from 'react-redux';
+import { selectTheme } from 'redux/auth/authSelectors.js';
 
 const NewBoardForm = ({
   formTitle,
@@ -32,6 +35,7 @@ const NewBoardForm = ({
   closeModal,
 }) => {
   const [background, setbackground] = useState();
+  const theme = useSelector(selectTheme)
 
   const formSubmit = values => {
     const data = { ...values, background };
@@ -140,7 +144,9 @@ const NewBoardForm = ({
             <BgColor>
               <label>
                 <RadioFieldBg type="radio" name="background" value="none" />
-                <Img src={bgImage} alt="bgImage" />
+                {theme === "dark" ?
+                  (<Img src={bgImageDark} alt="bgImage" />)
+                  : (<Img src={bgImageLight} alt="bgImage" />)}
               </label>
             </BgColor>
             {images.map(image => (
