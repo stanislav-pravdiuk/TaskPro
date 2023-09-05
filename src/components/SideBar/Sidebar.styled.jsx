@@ -4,11 +4,13 @@ import { Box } from '@mui/material';
 
 export const SideBarStyled = styled(Box)`
   position: fixed;
+  height: 100%;
+  width: 225px;
   display: flex;
   flex-direction: column;
-  height: 100%;
   justify-content: space-between;
-  width: 225px;
+  gap: 10px;
+
   padding: 14px;
   overflow: hidden;
 
