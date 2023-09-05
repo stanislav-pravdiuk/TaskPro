@@ -67,7 +67,7 @@ export const Calendar = ({ parentState, initial }) => {
                 },
 
                 '& .MuiSvgIcon-root': {
-                  fill: 'text.hint', // стрілки вправо вліво біля September 2023
+                  fill: 'text.success', // стрілки вправо вліво біля September 2023
                 },
 
                 '& .MuiTypography-root': {
