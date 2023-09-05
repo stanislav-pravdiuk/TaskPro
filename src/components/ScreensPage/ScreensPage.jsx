@@ -44,6 +44,17 @@ const ScreensPage = () => {
       background-image: url(${bgImageDesktop});
       padding: 0 0 0 260px;
     }
+
+    ::-webkit-scrollbar {
+      background-color: ${theme.palette.background.warning};
+      width: 8px;
+      border-radius: 12px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: ${theme.palette.background.info};
+      border-radius: 12px;
+    }
   `;
 
   return (

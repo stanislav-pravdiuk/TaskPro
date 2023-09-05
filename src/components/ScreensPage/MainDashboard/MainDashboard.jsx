@@ -18,6 +18,7 @@ import MainModal from 'components/MainModal/MainModal';
 import ColumnForm from 'components/columnCard/ColumnCard';
 import CardForm from 'components/cardForm/CardForm';
 import { useParams } from 'react-router-dom';
+import { useTheme } from '@mui/material';
 
 const MainDashboard = ({ columns }) => {
   const [addCard] = useAddCardMutation();
@@ -28,6 +29,8 @@ const MainDashboard = ({ columns }) => {
   const [columnId, setColumnId] = useState('');
 
   const { boardName } = useParams();
+
+  const theme = useTheme();
 
   const addCardInColumn = value => {
     const boardId = boardName;
@@ -58,7 +61,7 @@ const MainDashboard = ({ columns }) => {
   };
 
   return (
-    <Container>
+    <Container theme={theme}>
       {columns && columns.length > 0 && (
         <ColumnsList>
           {columns.map(column => {
