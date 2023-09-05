@@ -3,7 +3,7 @@ import icon from '../../components/iconSvg/icon.svg';
 import {
   BurgerIcon,
   UserImage,
-  UserIcon,
+  // UserIcon,
   Appbar,
   ToolBar,
   BurgerButton,

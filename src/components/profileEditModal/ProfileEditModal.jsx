@@ -22,8 +22,8 @@ import { updateUserProfile } from '../../redux/auth/authOperations';
 import icon from '../iconSvg/icon.svg';
 import avatarLight from '../../images/userAvatarLight.jpg';
 import avatarDark from '../../images/userAvatarDark.jpg'
-import Button from '@mui/material/Button';
-import avatar from '../../images/userAvatar.jpg';
+// import Button from '@mui/material/Button';
+// import avatar from '../../images/userAvatar.jpg';
 import { toast } from 'react-hot-toast';
 import { BtnCloseBlack } from 'components/buttons/buttons';
 import { selectTheme } from 'redux/auth/authSelectors';
