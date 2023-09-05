@@ -45,7 +45,12 @@ export const Calendar = ({ parentState, initial }) => {
             desktopPaper: {
               sx: {
                 borderRadius: '8px',
-                backgroundColor: 'background.success', // calendar bgcolor
+                // backgroundColor: 'background.success', // calendar bgcolor
+                '& .css-cwhad8-MuiDateCalendar-root' : {
+                  border: '1px solid',
+                  borderColor: 'primary.main',
+                  borderRadius: '8px'
+                },
                 '& .MuiPickersCalendarHeader-labelContainer': {
                   position: 'absolute',
                   left: '50%',
