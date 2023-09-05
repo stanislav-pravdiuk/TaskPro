@@ -33,6 +33,8 @@ export const PlusIcon = styled.svg`
 export const HelpIcon = styled.svg`
   width: 20px;
   height: 20px;
+  fill: transparent;
+  stroke: ${props => props.theme.palette.text.primary};
 `;
 
 export const LogoutIcon = styled.svg`

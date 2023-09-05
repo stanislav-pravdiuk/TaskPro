@@ -313,17 +313,17 @@ const SideBar = ({ active, onClick }) => {
             },
           }}
         >
-          <HelpIcon>
+          <HelpIcon theme={theme}>
             <use href={icon + '#icon-help'}></use>
           </HelpIcon>
           <Typography
             sx={{
-              color: 'rgba(22, 22, 22, 1)',
               fontFamily: 'Poppins',
               textTransform: 'none',
               fontWeight: 500,
               fontSize: '12px',
               letterSpacing: 0.7,
+              color: 'text.primary',
             }}
             variant="body2"
           >
