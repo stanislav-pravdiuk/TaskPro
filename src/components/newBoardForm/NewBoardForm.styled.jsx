@@ -54,16 +54,19 @@ const Input = styled(Field)`
   background: inherit;
   border: 1px solid
     ${props => {
-      return props.theme.palette.text.hint;
+      return props.theme.palette.text.info;
     }};
+
   border-radius: 8px;
   outline: none;
 
   &:placeholder-shown {
-    color: ${props => {
-      return props.theme.palette.text.secondary;
-    }};
+    color: ${props => props.theme.palette.text.secondary};
     font-size: 14px;
+  }
+
+  &:focus {
+    border-color: ${props => props.theme.palette.text.hint};
   }
 `;
 

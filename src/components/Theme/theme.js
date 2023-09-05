@@ -31,6 +31,7 @@ const lightTheme = {
       secondary: 'rgba(22, 22, 22, 0.8)',
       disabled: 'rgba(22, 22, 22, 0.5)',
       hint: '#BEDBB0',
+      info: 'rgba(190, 219, 176, 0.5)',
     },
   },
 };
@@ -69,6 +70,7 @@ const darkTheme = {
       secondary: 'rgba(255, 255, 255, 0.8)',
       disabled: 'rgba(255, 255, 255, 0.5)',
       hint: '#BEDBB0',
+      info: 'rgba(190, 219, 176, 0.5)',
     },
   },
 };
@@ -106,6 +108,7 @@ const violetTheme = {
       secondary: 'rgba(22, 22, 22, 0.8)',
       disabled: 'rgba(255, 255, 255, 0.5)',
       hint: '#5255BC',
+      info: 'rgba(82, 85, 188, 0.5)',
     },
   },
 };

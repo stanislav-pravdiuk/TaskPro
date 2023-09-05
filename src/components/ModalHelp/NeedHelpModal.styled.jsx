@@ -7,12 +7,8 @@ export const Section = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: start;
-  background-color: ${props => {
-    return props.theme.palette.background.paper;
-  }};
-  color: ${props => {
-    return props.theme.palette.text.primary;
-  }};
+  background-color: ${props => props.theme.palette.background.paper};
+  color: ${props => props.theme.palette.text.primary};
   width: 100vw;
   max-width: 400px;
   border-radius: 8px;
@@ -74,15 +70,16 @@ export const TitleInput = styled(Field)`
   font-family: 'Poppins';
   letter-spacing: -0.28px;
 
-  color: ${props => {
-    return props.theme.palette.text.secondary;
-  }};
+  color: ${props => props.theme.palette.text.secondary};
   background: inherit;
   border: 1px solid;
-  border-color: ${props => {
-    return props.theme.palette.text.hint;
-  }};
+  border-color: ${props => props.theme.palette.text.info};
   border-radius: 8px;
+  outline: none;
+
+  &:focus {
+    border-color: ${props => props.theme.palette.text.hint};
+  }
 `;
 
 export const Textarea = styled(Field)`
@@ -104,9 +101,7 @@ export const Textarea = styled(Field)`
   }};
   background: inherit;
   border: 1px solid;
-  border-color: ${props => {
-    return props.theme.palette.text.hint;
-  }};
+  border-color: ${props => props.theme.palette.text.info};
   outline: none;
   border-radius: 8px;
 
@@ -115,6 +110,10 @@ export const Textarea = styled(Field)`
       return props.theme.palette.text.secondary;
     }};
     font-size: 14px;
+  }
+
+  &:focus {
+    border-color: ${props => props.theme.palette.text.hint};
   }
 `;
 

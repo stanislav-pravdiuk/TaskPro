@@ -63,14 +63,9 @@ export const Input = styled.input`
   width: 100%;
   height: 49px;
   border-radius: 8px;
-  border: 1px solid
-    ${props => {
-      return props.theme.palette.text.hint;
-    }};
+  border: 1px solid ${props => props.theme.palette.text.info};
   background-color: inherit;
-  color: ${props => {
-    return props.theme.palette.text.primary;
-  }};
+  color: ${props => props.theme.palette.text.primary};
   font-family: Poppins;
   font-size: 14px;
   font-weight: 400;
@@ -78,7 +73,7 @@ export const Input = styled.input`
   box-shadow: none;
 
   &:focus {
-    border: 1px solid var(--color-green);
+    border-color: ${props => props.theme.palette.text.hint};
   }
 `;
 
