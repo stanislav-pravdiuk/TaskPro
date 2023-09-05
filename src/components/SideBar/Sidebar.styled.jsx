@@ -4,8 +4,10 @@ import { Box } from '@mui/material';
 
 export const SideBarStyled = styled(Box)`
   position: fixed;
+  display: flex;
+  flex-direction: column;
   height: 100%;
-  max-height: 100vh;
+  justify-content: space-between;
   width: 225px;
   padding: 14px;
   overflow: hidden;
@@ -14,7 +16,7 @@ export const SideBarStyled = styled(Box)`
     width: 100%;
     max-width: 260px;
     padding: 24px 24px 24px 24px;
-    padding-bottom: 300px;
+
     overflow-x: hidden;
   }
 `;
@@ -22,8 +24,6 @@ export const SideBarStyled = styled(Box)`
 export const Thumb = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
 `;
 
 export const NeedHelpBox = styled(Box)`
@@ -80,13 +80,13 @@ export const BoardsList = styled.ul`
   &::-webkit-scrollbar {
     background-color: ${props => props.theme.palette.background.disabled};
     width: 8px;
-    border-radius: 12px;
+    border-radius: 0;
     left: 0;
   }
 
   &::-webkit-scrollbar-thumb {
     background-color: ${props => props.theme.palette.background.hint};
-    border-radius: 12px;
+    border-radius: 0;
   }
 
   @media screen and (min-width: 768px) {
@@ -171,9 +171,7 @@ export const BoardLink = styled(NavLink)`
       }};
     }
     ${IconTitle} {
-      stroke: ${props => {
-        return props.theme.palette.secondary.dark;
-      }};
+      stroke: ${props => props.theme.palette.secondary.dark};
     }
     ${Edit}, ${Delete} {
       pointer-events: auto;
@@ -188,7 +186,7 @@ export const BoardLink = styled(NavLink)`
     width: 4px;
     height: 100%;
     border-radius: 4px 0px 0px 4px;
-    background: var(--color-green);
+    background: ${props => props.theme.palette.text.warning};
   }
 `;
 

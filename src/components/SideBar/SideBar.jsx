@@ -120,87 +120,88 @@ const SideBar = ({ active, onClick }) => {
         bgcolor: 'background.default',
       }}
     >
-      <Box
-        sx={{
-          display: 'flex',
-          gap: '8px',
-          alignItems: 'center',
-          marginBottom: '60px',
-        }}
-      >
-        <LogoIcon>
-          <use href={icon + `${logoSvg}`}></use>
-        </LogoIcon>
-        <Typography
-          variant="h2"
-          sx={{
-            fontFamily: 'Poppins',
-            fontSize: '16px',
-            letterSpacing: 0.7,
-            fontWeight: 600,
-            color: 'secondary.dark',
-          }}
-        >
-          Task Pro
-        </Typography>
-      </Box>
-      <Typography
-        variant="subtitle1"
-        sx={{
-          fontFamily: 'Poppins',
-          fontSize: '12px',
-          letterSpacing: 0.7,
-          fontWeight: 400,
-          color: 'text.disabled',
-        }}
-      >
-        My boards
-      </Typography>
-      <Box
-        sx={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          borderBottom: '1px solid',
-          borderTop: '1px solid',
-          borderColor: 'primary.contrastText',
-          padding: '14px 0',
-          marginTop: '8px',
-          marginBottom: '40px',
-        }}
-      >
-        <Typography
-          variant="body2"
-          sx={{
-            maxWidth: '92px',
-            fontFamily: 'Poppins',
-            fontWeight: 500,
-            fontSize: '14px',
-            letterSpacing: 0.7,
-            color: 'secondary.dark',
-          }}
-        >
-          Create a new board
-        </Typography>
-        <Button
-          onClick={() => setOpenAddModal(true)}
-          sx={{
-            backgroundColor: 'secondary.warning',
-            padding: '8px 10px',
-            minWidth: 0,
-            transition: 'transform 200ms linear',
-            '&:hover': {
-              backgroundColor: 'secondary.light',
-              transform: 'scale(0.9)',
-            },
-          }}
-        >
-          <PlusIcon theme={theme}>
-            <use href={icon + '#icon-plus-2'}></use>
-          </PlusIcon>
-        </Button>
-      </Box>
       <Thumb>
+        <Box
+          sx={{
+            display: 'flex',
+            gap: '8px',
+            alignItems: 'center',
+            marginBottom: '60px',
+          }}
+        >
+          <LogoIcon>
+            <use href={icon + `${logoSvg}`}></use>
+          </LogoIcon>
+          <Typography
+            variant="h2"
+            sx={{
+              fontFamily: 'Poppins',
+              fontSize: '16px',
+              letterSpacing: 0.7,
+              fontWeight: 600,
+              color: 'secondary.dark',
+            }}
+          >
+            Task Pro
+          </Typography>
+        </Box>
+        <Typography
+          variant="subtitle1"
+          sx={{
+            fontFamily: 'Poppins',
+            fontSize: '12px',
+            letterSpacing: 0.7,
+            fontWeight: 400,
+            color: 'text.disabled',
+          }}
+        >
+          My boards
+        </Typography>
+        <Box
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            borderBottom: '1px solid',
+            borderTop: '1px solid',
+            borderColor: 'primary.contrastText',
+            padding: '14px 0',
+            marginTop: '8px',
+            marginBottom: '40px',
+          }}
+        >
+          <Typography
+            variant="body2"
+            sx={{
+              maxWidth: '92px',
+              fontFamily: 'Poppins',
+              fontWeight: 500,
+              fontSize: '14px',
+              letterSpacing: 0.7,
+              color: 'secondary.dark',
+            }}
+          >
+            Create a new board
+          </Typography>
+          <Button
+            onClick={() => setOpenAddModal(true)}
+            sx={{
+              backgroundColor: 'secondary.warning',
+              padding: '8px 10px',
+              minWidth: 0,
+              transition: 'transform 200ms linear',
+              '&:hover': {
+                backgroundColor: 'secondary.light',
+                transform: 'scale(0.9)',
+              },
+            }}
+          >
+            <PlusIcon theme={theme}>
+              <use href={icon + '#icon-plus-2'}></use>
+            </PlusIcon>
+          </Button>
+        </Box>
+
         <BoardsContainer>
           <BoardsList theme={theme}>
             {data &&
@@ -249,6 +250,8 @@ const SideBar = ({ active, onClick }) => {
               })}
           </BoardsList>
         </BoardsContainer>
+      </Thumb>
+      <Thumb>
         <NeedHelpBox
           sx={{
             backgroundColor: 'primary.darker',
@@ -335,49 +338,50 @@ const SideBar = ({ active, onClick }) => {
             <NeedHelpModal closeModal={closeModal} />
           </MainModal>
         </NeedHelpBox>
-      </Thumb>
-      <Box
-        sx={{
-          marginTop: '24px',
-          textTransform: 'none',
-          fontWeight: 500,
-          fontSize: '12px',
-          letterSpacing: 0.7,
-        }}
-      >
-        <Button
-          onClick={() => dispatch(logOut())}
+
+        <Box
           sx={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: '14px',
-            padding: 0,
-            minWidth: 0,
-            border: 0,
-            '&:hover': {
-              backgroundColor: 'inherit',
-              border: 0,
-            },
+            marginTop: '24px',
+            textTransform: 'none',
+            fontWeight: 500,
+            fontSize: '12px',
+            letterSpacing: 0.7,
           }}
         >
-          <LogoutIcon>
-            <use href={icon + '#icon-login'}></use>
-          </LogoutIcon>
-          <Typography
+          <Button
+            onClick={() => dispatch(logOut())}
             sx={{
-              color: 'secondary.dark',
-              fontFamily: 'Poppins',
-              textTransform: 'none',
-              fontWeight: 500,
-              fontSize: '16px',
-              letterSpacing: 0.7,
+              display: 'flex',
+              alignItems: 'center',
+              gap: '14px',
+              padding: 0,
+              minWidth: 0,
+              border: 0,
+              '&:hover': {
+                backgroundColor: 'inherit',
+                border: 0,
+              },
             }}
-            variant="body2"
           >
-            Log out
-          </Typography>
-        </Button>
-      </Box>
+            <LogoutIcon>
+              <use href={icon + '#icon-login'}></use>
+            </LogoutIcon>
+            <Typography
+              sx={{
+                color: 'secondary.dark',
+                fontFamily: 'Poppins',
+                textTransform: 'none',
+                fontWeight: 500,
+                fontSize: '16px',
+                letterSpacing: 0.7,
+              }}
+              variant="body2"
+            >
+              Log out
+            </Typography>
+          </Button>
+        </Box>
+      </Thumb>
     </SideBarStyled>
   );
 
