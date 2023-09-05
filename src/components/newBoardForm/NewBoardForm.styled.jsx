@@ -7,7 +7,12 @@ const FormContainer = styled.div`
   flex-direction: column;
   gap: 24px;
   padding: 24px;
-  background: var(--color-cream);
+  background: ${props => {
+    return props.theme.palette.background.paper;
+  }};
+  color: ${props => {
+    return props.theme.palette.text.secondary;
+  }};
   border-radius: 8px;
   width: 100vw;
   max-width: 350px;
@@ -35,14 +40,18 @@ const Input = styled(Field)`
   width: 100%;
   padding: 18px 14px;
 
-  color: var(--color-dark);
-  background: var(--color-cream);
+  color: ${props => {
+    return props.theme.palette.text.primary;
+  }};
+  background: inherit;
   border: 1px solid var(--color-green);
   border-radius: 8px;
   outline: none;
 
   &:placeholder-shown {
-    color: var(--color-dark);
+    color: ${props => {
+      return props.theme.palette.text.secondary;
+    }};
     font-size: 14px;
   }
 `;
@@ -67,7 +76,9 @@ const IconList = styled.ul`
 const Icon = styled.svg`
   height: 18px;
   width: 18px;
-  stroke: var(--color-text-dark);
+  stroke: ${props => {
+    return props.theme.palette.primary.info;
+  }};
 `;
 
 const BgList = styled.ul`
@@ -98,7 +109,9 @@ const RadioField = styled(Field)`
   position: absolute;
 
   &:checked + ${Icon} {
-    stroke: var(--color-dark);
+    stroke: ${props => {
+      return props.theme.palette.text.primary;
+    }};
   }
 `;
 

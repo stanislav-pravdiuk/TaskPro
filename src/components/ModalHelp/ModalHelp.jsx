@@ -16,6 +16,7 @@ import {
   CloseButton,
 } from './NeedHelpModal.styled';
 import { BtnCloseBlack } from 'components/buttons/buttons';
+import { useTheme } from '@mui/material';
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().email('Invalid email').required('Email is required'),
@@ -29,6 +30,8 @@ const initialValues = {
 const NeedHelpModal = ({ closeModal }) => {
   const dispatch = useDispatch();
 
+  const theme = useTheme();
+
   const handleSubmit = (values, { resetForm }) => {
     const { email, message } = values;
     const credentials = { email, message };
@@ -37,7 +40,7 @@ const NeedHelpModal = ({ closeModal }) => {
     closeModal();
   };
   return (
-    <Section>
+    <Section theme={theme}>
       <CloseButton type="button" onClick={closeModal}>
         <BtnCloseBlack />
       </CloseButton>
@@ -52,6 +55,7 @@ const NeedHelpModal = ({ closeModal }) => {
           <FormWrapper>
             <Container>
               <TitleInput
+                theme={theme}
                 type="email"
                 id="email"
                 name="email"
@@ -61,6 +65,7 @@ const NeedHelpModal = ({ closeModal }) => {
             </Container>
             <Container>
               <Textarea
+                theme={theme}
                 component="textarea"
                 type="text"
                 id="message"

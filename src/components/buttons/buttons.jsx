@@ -187,9 +187,11 @@ export const BtnRight = () => {
 };
 
 export const BtnClose = () => {
+  const theme = useTheme();
+
   return (
     <ButtonClose>
-      <ButtonCloseIcon>
+      <ButtonCloseIcon theme={theme}>
         <ButtonUpDateSvg href={icon + '#icon-x-close'}></ButtonUpDateSvg>
       </ButtonCloseIcon>
     </ButtonClose>
@@ -197,9 +199,11 @@ export const BtnClose = () => {
 };
 
 export const BtnCloseBlack = () => {
+  const theme = useTheme();
+
   return (
     <ButtonClose>
-      <ButtonCloseIcon>
+      <ButtonCloseIcon theme={theme}>
         <ButtonUpDateSvg href={icon + '#icon-x-close-2'}></ButtonUpDateSvg>
       </ButtonCloseIcon>
     </ButtonClose>

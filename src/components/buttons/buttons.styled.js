@@ -366,7 +366,8 @@ const ButtonUpDateIcon = styled.svg`
 const ButtonUpDateSvg = styled.use`
   width: 16px;
   height: 16px;
-  fill: var(--color-light-gray);
+  stroke: inherit;
+  fill: inherit;
 `;
 
 const ButtonClose = styled.button`
@@ -386,13 +387,18 @@ const ButtonClose = styled.button`
 const ButtonCloseIcon = styled.svg`
   width: 18px;
   height: 18px;
-  fill: var(--color-white);
+  fill: ${props => {
+    return props.theme.palette.text.primary;
+  }};
+  stroke: ${props => {
+    return props.theme.palette.text.primary;
+  }};
 `;
 
 const ButtonCloseSvg = styled.use`
   width: 18px;
   height: 18px;
-  fill: var(--color-black);
+  fill: inherit;
 `;
 
 // _____________________
