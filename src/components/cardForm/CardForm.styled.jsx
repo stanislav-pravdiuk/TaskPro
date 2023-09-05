@@ -41,18 +41,6 @@ export const Error = styled(ErrorMessage)`
   letter-spacing: -0.36px;
 `;
 
-export const ErrorText = styled(ErrorMessage)`
-  position: absolute;
-  bottom: -7px;
-  padding-left: 14px;
-  margin: 0;
-  color: var(--color-pastel);
-  font-size: 12px;
-  font-family: Poppins;
-  font-weight: 500;
-  letter-spacing: -0.36px;
-`;
-
 export const Input = styled.input`
   padding: 14px 18px;
   width: 100%;
@@ -72,6 +60,18 @@ export const Input = styled.input`
   &:focus {
     border-color: ${props => props.theme.palette.text.hint};
   }
+`;
+
+export const ErrorText = styled(ErrorMessage)`
+  position: absolute;
+  bottom: -7px;
+  padding-left: 14px;
+  margin: 0;
+  color: var(--color-pastel);
+  font-size: 12px;
+  font-family: Poppins;
+  font-weight: 500;
+  letter-spacing: -0.36px;
 `;
 
 export const Textarea = styled.textarea`
