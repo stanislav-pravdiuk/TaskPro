@@ -1,6 +1,7 @@
 import React from 'react';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
+import { toast } from 'react-hot-toast';
 import {
   ModalTitle,
   Container,
@@ -29,6 +30,13 @@ const ColumnForm = ({
   };
 
   const handleSubmit = values => {
+    const title = values.title.trim();
+
+    if (!title) {
+      toast.error('Sorry, you entered empty title');
+      return;
+    }
+
     onSubmit(values);
   };
 

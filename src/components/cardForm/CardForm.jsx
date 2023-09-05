@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
+import { toast } from 'react-hot-toast';
 
 import {
   FormContainer,
@@ -56,6 +57,14 @@ const CardForm = ({
   };
 
   const handleSubmit = values => {
+    const title = values.title.trim();
+    const text = values.text.trim();
+
+    if (!title || !text) {
+      toast.error('Sorry, you entered empty title');
+      return;
+    }
+
     const data = {
       ...values,
       deadline: formattedDate,
