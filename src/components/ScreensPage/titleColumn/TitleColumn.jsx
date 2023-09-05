@@ -14,12 +14,15 @@ import {
 
 import MainModal from 'components/MainModal/MainModal';
 import ColumnForm from 'components/columnCard/ColumnCard';
+import { useTheme } from '@mui/material';
 
 const TitleColumn = ({ title, owner, columnId }) => {
   const [open, setOpen] = useState(false);
 
   const [updateColumn] = useUpdateColumnMutation();
   const [deleteColumn] = useDeleteColumnMutation();
+
+  const theme = useTheme();
 
   const closeModal = () => {
     setOpen(false);
@@ -46,7 +49,7 @@ const TitleColumn = ({ title, owner, columnId }) => {
   };
 
   return (
-    <Container>
+    <Container theme={theme}>
       <Title>{title}</Title>
 
       <IconsBox>

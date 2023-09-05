@@ -2,7 +2,9 @@ import styled from 'styled-components';
 
 export const FormContainer = styled.div`
   position: relative;
-  background-color: var(--color-cream);
+  background-color: ${props => {
+    return props.theme.palette.background.paper;
+  }};
   width: 100vw;
   max-width: 400px;
   padding: 24px;
@@ -13,7 +15,6 @@ export const ModalTitle = styled.h6`
   margin: 0;
   font-family: Poppins;
   font-size: 18px;
-  color: var(--color-dark);
 `;
 
 export const AvatarContainer = styled.div`
@@ -43,7 +44,11 @@ export const BtnPlus = styled.button`
   width: 24px;
   height: 24px;
   border-radius: 8px;
-  background-color: var(--color-green);
+  background-color: ${props => {
+    return props.theme.palette.secondary.light;
+  }};
+
+  stroke: black;
 `;
 
 export const InputContainer = styled.div`
@@ -58,9 +63,14 @@ export const Input = styled.input`
   width: 100%;
   height: 49px;
   border-radius: 8px;
-  border: 1px solid var(--border-color);
-  background-color: var(--color-cream);
-  color: var(--color-dark);
+  border: 1px solid
+    ${props => {
+      return props.theme.palette.text.hint;
+    }};
+  background-color: inherit;
+  color: ${props => {
+    return props.theme.palette.text.primary;
+  }};
   font-family: Poppins;
   font-size: 14px;
   font-weight: 400;
@@ -93,9 +103,20 @@ export const BtnForm = styled.button`
   width: 100%;
   height: 49px;
   margin-top: 24px;
-  background-color: var(--color-green);
+  background-color: ${props => {
+    return props.theme.palette.text.hint;
+  }};
+  color: ${props => {
+    return props.theme.palette.primary.hint;
+  }};
   border-radius: 8px;
   font-family: Poppins;
   font-size: 14px;
   font-weight: 600;
+`;
+
+export const CloseButton = styled.div`
+  position: absolute;
+  top: 14px;
+  right: 14px;
 `;

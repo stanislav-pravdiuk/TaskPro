@@ -17,11 +17,13 @@ import {
   Error,
   ErrorText,
   Container,
+  CloseButton,
 } from './CardForm.styled';
 import BtnAdd from 'components/ScreensPage/btnAdd/BtnAdd';
-import Button from '@mui/material/Button';
 import { Calendar } from 'components/calendar/Calendar';
 import dayjs from 'dayjs';
+import { BtnCloseBlack } from 'components/buttons/buttons';
+import { useTheme } from '@mui/material';
 
 const CardForm = ({
   title,
@@ -44,6 +46,9 @@ const CardForm = ({
     text: Yup.string().required('Title is required'),
   });
 
+  const theme = useTheme();
+
+
   const initialValues = {
     title: title || '',
     text: text || '',
@@ -62,97 +67,83 @@ const CardForm = ({
   };
 
   return (
-    <FormContainer>
-      <Button
-        onClick={closeModal}
-        sx={{
-          position: 'absolute',
-          top: '8px',
-          right: '8px',
-          zIndex: 1,
-        }}
-      />
+    <FormContainer theme={theme}>
+      <CloseButton type="button" onClick={closeModal}>
+        <BtnCloseBlack />
+      </CloseButton>
       <ModalTitle>{formTitle}</ModalTitle>
-      <Formik
-        initialValues={initialValues}
+      <Formik initialValues={initialValues}
         validationSchema={validationSchema}
-        onSubmit={handleSubmit}
-      >
-        {formik => (
-          <Form>
-            <Container>
-              <Field type="text" name="title" as={Input} placeholder="Title" />
-              <Error name="title" component="div" />
-            </Container>
-            <Container>
-              <Field
-                as={Textarea}
-                type="text"
-                name="text"
-                placeholder="Description"
-              />
-              <ErrorText name="text" component="div" />
-            </Container>
-
-            <div>
-              <Subtitle>Label color</Subtitle>
-              <RadioButtonContainer>
-                <ColorOptionLabel>
-                  <RadioButton
-                    type="radio"
-                    name="priority"
-                    value="low"
-                    className="blue"
-                  />
-                  <Dot className="blue"></Dot>
-                </ColorOptionLabel>
-                <ColorOptionLabel>
-                  <RadioButton
-                    type="radio"
-                    name="priority"
-                    value="medium"
-                    className="red"
-                  />
-                  <Dot className="red"></Dot>
-                </ColorOptionLabel>
-                <ColorOptionLabel>
-                  <RadioButton
-                    type="radio"
-                    name="priority"
-                    value="high"
-                    className="green"
-                  />
-                  <Dot className="green"></Dot>
-                </ColorOptionLabel>
-                <ColorOptionLabel>
-                  <RadioButton
-                    type="radio"
-                    name="priority"
-                    value="without"
-                    className="gray"
-                  />
-                  <Dot className="gray"></Dot>
-                </ColorOptionLabel>
-              </RadioButtonContainer>
-            </div>
-            <div>
-              <Subtitle>Deadline</Subtitle>
-              <DeadlineBox>
-                <Text>
-                  {selectedDate
-                    ? formattedDateLong
-                    : deadLineDateLong || `Today, ${dayjs().format('MMMM D')}`}
-                </Text>
-                <Calendar parentState={setSelectedDate} />
-              </DeadlineBox>
-            </div>
-            <BtnAdd
-              btnTitle={btnText}
-              btnColor={'#BEDBB0'}
-              isDisabled={!(formik.isValid && formik.dirty)}
-            />
-          </Form>
-        )}
+        onSubmit={handleSubmit}>
+       {formik => ( <Form>
+          <Field
+            theme={theme}
+            type="text"
+            name="title"
+            as={Input}
+            placeholder="Title"
+          />
+          <Field
+            theme={theme}
+            as={Textarea}
+            type="text"
+            name="text"
+            placeholder="Description"
+          />
+          <div>
+            <Subtitle>Label color</Subtitle>
+            <RadioButtonContainer>
+              <ColorOptionLabel>
+                <RadioButton
+                  type="radio"
+                  name="priority"
+                  value="low"
+                  className="blue"
+                />
+                <Dot className="blue"></Dot>
+              </ColorOptionLabel>
+              <ColorOptionLabel>
+                <RadioButton
+                  type="radio"
+                  name="priority"
+                  value="medium"
+                  className="red"
+                />
+                <Dot className="red"></Dot>
+              </ColorOptionLabel>
+              <ColorOptionLabel>
+                <RadioButton
+                  type="radio"
+                  name="priority"
+                  value="high"
+                  className="green"
+                />
+                <Dot className="green"></Dot>
+              </ColorOptionLabel>
+              <ColorOptionLabel>
+                <RadioButton
+                  type="radio"
+                  name="priority"
+                  value="without"
+                  className="gray"
+                />
+                <Dot className="gray"></Dot>
+              </ColorOptionLabel>
+            </RadioButtonContainer>
+          </div>
+          <div>
+            <Subtitle>Deadline</Subtitle>
+            <DeadlineBox>
+              <Text theme={theme}>
+                {selectedDate
+                  ? formattedDateLong
+                  : deadLineDateLong || `Today, ${dayjs().format('MMMM D')}`}
+              </Text>
+              <Calendar parentState={setSelectedDate} />
+            </DeadlineBox>
+          </div>
+          <BtnAdd btnTitle={btnText} btnColor={'#BEDBB0'} isDisabled={!(formik.isValid && formik.dirty)}/>
+        </Form>)}
       </Formik>
     </FormContainer>
   );

@@ -6,9 +6,12 @@ import { useState, useEffect } from 'react';
 import sprite from '../iconSvg/icon.svg';
 import { IconDown } from './Calendar.styled';
 import { toast } from 'react-hot-toast';
+import { useTheme } from '@mui/material';
 
 export const Calendar = ({ parentState, initial }) => {
   dayjs().format();
+
+  const theme = useTheme();
 
   const [dateDeadline, setDateDeadline] = useState(initial ? initial : '');
 
@@ -32,7 +35,7 @@ export const Calendar = ({ parentState, initial }) => {
           }}
           slots={{
             openPickerIcon: () => (
-              <IconDown aria-label="chevron-down">
+              <IconDown theme={theme} aria-label="chevron-down">
                 <use href={sprite + '#icon-chevron-down'}></use>
               </IconDown>
             ),

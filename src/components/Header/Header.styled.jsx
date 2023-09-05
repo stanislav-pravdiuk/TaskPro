@@ -7,10 +7,14 @@ export const BurgerIcon = styled.svg`
   width: 32px;
   height: 32px;
   background-color: transparent;
-  color: inherit;
-  &:hover {
-    fill: var(--color-green);
-  }
+  stroke: ${props => {
+    return props.theme.palette.text.primary;
+  }};
+  fill: ${props => {
+    return props.theme.palette.text.primary;
+  }};
+
+  cursor: pointer;
 `;
 
 export const UserImage = styled.img`
@@ -37,22 +41,24 @@ export const UserIcon = styled.svg`
 
 export const Appbar = styled(AppBar)`
   width: 100%;
-  background-color: var(--color-cream);
   box-shadow: none;
   position: relative;
 `;
 
 export const ToolBar = styled(Toolbar)`
- padding-right: 32px;
- padding-left: 32px;
- display: flex;
- justify-content: space-between;
+  padding-right: 32px;
+  padding-left: 32px;
+  display: flex;
+  justify-content: space-between;
 `;
 
 export const BurgerButton = styled(Button)`
-  @media (min-width: 1440px){
- display: { xs: block; sm: none }
-  } 
+  @media (min-width: 1440px) {
+    display: {
+      xs: block;
+      sm: none;
+    }
+  }
   min-width: 0;
   padding: 0;
   &:hover {
@@ -63,19 +69,18 @@ export const BurgerButton = styled(Button)`
 export const HeaderWrap = styled(Box)`
   display: flex;
   align-items: center;
- width: 100%;
- justify-content: end;
+  width: 100%;
+  justify-content: end;
 `;
 
 export const UserText = styled(Typography)`
   margin-right: 8px;
   width: auto;
-  color: var(--color-deep-black);
+  /* color: 'text.primary'; */
   font-family: Poppins;
   font-size: 14px;
   letter-spacing: 0.7;
   font-weight: 500;
-  color: var(--color-deep-black);
 `;
 
 export const UserButton = styled(Button)`

@@ -7,9 +7,11 @@ import {
   FormContainer,
   Error,
   Container,
+  CloseButton,
 } from '../cardForm/CardForm.styled';
 import BtnAdd from 'components/ScreensPage/btnAdd/BtnAdd';
-import Button from '@mui/material/Button';
+import { BtnCloseBlack } from 'components/buttons/buttons';
+import { useTheme } from '@mui/material';
 
 const ColumnForm = ({
   formTitle,
@@ -30,37 +32,26 @@ const ColumnForm = ({
     onSubmit(values);
   };
 
-  return (
-    <FormContainer>
-      <Button
-        onClick={closeModal}
-        sx={{
-          position: 'absolute',
-          top: '8px',
-          right: '8px',
-          zIndex: 1,
-        }}
-      />
-      <ModalTitle>{formTitle}</ModalTitle>
-      <Formik
-        initialValues={initialValues}
-        validationSchema={validationSchema}
-        onSubmit={handleSubmit}
-      >
-        {formik => (
-          <Form>
-            <Container>
-              <Field type="text" name="title" as={Input} placeholder="Title" />
-              <Error name="title" component="div" />
-            </Container>
+  const theme = useTheme();
 
-            <BtnAdd
-              btnTitle={btnText}
-              btnColor={'#BEDBB0'}
-              isDisabled={!(formik.isValid && formik.dirty)}
-            />
-          </Form>
-        )}
+  return (
+    <FormContainer theme={theme}>
+      <CloseButton type="button" onClick={closeModal}>
+        <BtnCloseBlack />
+      </CloseButton>
+      <ModalTitle>{formTitle}</ModalTitle>
+      <Formik initialValues={initialValues} onSubmit={handleSubmit} validationSchema={validationSchema}>
+        {formik => (
+        <Form>
+          <Field
+            theme={theme}
+            type="text"
+            name="title"
+            as={Input}
+            placeholder="Title"
+          />
+          <BtnAdd btnTitle={btnText} btnColor={'#BEDBB0'} isDisabled={!(formik.isValid && formik.dirty)}/>
+        </Form>)}
       </Formik>
     </FormContainer>
   );

@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 
@@ -14,14 +14,20 @@ import {
   PasswordContainer,
   ShowPasswordBtn,
   BtnForm,
+  CloseButton,
 } from './ProfileEditModal.styled';
+import { useTheme } from '@mui/material';
 
 import { updateUserProfile } from '../../redux/auth/authOperations';
 
 import icon from '../iconSvg/icon.svg';
-import avatar from '../../images/userAvatar.jpg';
-import Button from '@mui/material/Button';
+import avatarLight from '../../images/userAvatarLight.jpg';
+import avatarDark from '../../images/userAvatarDark.jpg';
+// import Button from '@mui/material/Button';
+// import avatar from '../../images/userAvatar.jpg';
 import { toast } from 'react-hot-toast';
+import { BtnCloseBlack } from 'components/buttons/buttons';
+import { selectTheme } from 'redux/auth/authSelectors';
 
 const validationSchema = Yup.object().shape({
   login: Yup.string().required('Login is required'),
@@ -35,8 +41,12 @@ const ProfileEditModal = ({ user, modalClose }) => {
   const dispatch = useDispatch();
   const fileInputRef = useRef(null);
 
+  const theme = useSelector(selectTheme);
+
+  const themeObj = useTheme();
+
   const [showPassword, setShowPassword] = useState(false);
-  const [selectedAvatar, setSelectedAvatar] = useState(null);
+  const [selectedAvatar, setSelectedAvatar] = useState(user.avatar);
 
   const initialValues = {
     avatar: user.avatar || null,
@@ -51,25 +61,29 @@ const ProfileEditModal = ({ user, modalClose }) => {
 
   const handleFileSelect = event => {
     const file = event.target.files[0];
+
     if (file) {
       const reader = new FileReader();
+
       reader.onload = () => {
         setSelectedAvatar(reader.result);
       };
+
       reader.readAsDataURL(file);
     }
   };
 
   const handleSubmit = async values => {
     try {
-      await dispatch(
-        updateUserProfile({
-          name: values.login,
-          email: values.email,
-          password: values.password,
-          avatar: selectedAvatar,
-        })
-      ).unwrap();
+      const newData = {
+        name: values.login,
+        email: values.email,
+        password: values.password,
+        avatar: selectedAvatar,
+      };
+      console.log('newData', newData);
+      await dispatch(updateUserProfile(newData)).unwrap();
+
       toast.success('Saved successfully!!!');
       modalClose();
     } catch (error) {
@@ -81,16 +95,10 @@ const ProfileEditModal = ({ user, modalClose }) => {
   };
 
   return (
-    <FormContainer>
-      <Button
-        onClick={modalClose}
-        sx={{
-          position: 'absolute',
-          top: '14px',
-          right: '14px',
-          zIndex: 1,
-        }}
-      />
+    <FormContainer theme={themeObj}>
+      <CloseButton type="button" onClick={modalClose}>
+        <BtnCloseBlack />
+      </CloseButton>
       <ModalTitle>Edit Profile</ModalTitle>
       <Formik
         initialValues={initialValues}
@@ -99,10 +107,18 @@ const ProfileEditModal = ({ user, modalClose }) => {
       >
         <Form>
           <AvatarContainer>
-            <AvatarImg
-              src={selectedAvatar || user.avatar || avatar}
-              alt="Avatar"
-            />
+            {theme === 'dark' ? (
+              <AvatarImg
+                src={selectedAvatar || user.avatar || avatarDark}
+                alt="Avatar"
+              />
+            ) : (
+              <AvatarImg
+                src={selectedAvatar || user.avatar || avatarLight}
+                alt="Avatar"
+              />
+            )}
+
             <input
               type="file"
               id="upload-avatar"
@@ -112,7 +128,11 @@ const ProfileEditModal = ({ user, modalClose }) => {
               style={{ display: 'none' }}
             />
             <label htmlFor="upload-avatar">
-              <BtnPlus type="button" onClick={handleFileInputChange}>
+              <BtnPlus
+                theme={themeObj}
+                type="button"
+                onClick={handleFileInputChange}
+              >
                 <svg width="10" height="10">
                   <use href={icon + '#icon-plus-2'}></use>
                 </svg>
@@ -121,6 +141,7 @@ const ProfileEditModal = ({ user, modalClose }) => {
           </AvatarContainer>
           <InputContainer>
             <Field
+              theme={themeObj}
               type="text"
               id="login"
               name="login"
@@ -128,6 +149,7 @@ const ProfileEditModal = ({ user, modalClose }) => {
               as={Input}
             />
             <Field
+              theme={themeObj}
               type="email"
               id="email"
               name="email"
@@ -136,6 +158,7 @@ const ProfileEditModal = ({ user, modalClose }) => {
             />
             <PasswordContainer>
               <Field
+                theme={themeObj}
                 type={showPassword ? 'text' : 'password'}
                 id="password"
                 name="password"
@@ -152,7 +175,9 @@ const ProfileEditModal = ({ user, modalClose }) => {
               </ShowPasswordBtn>
             </PasswordContainer>
           </InputContainer>
-          <BtnForm type="submit">Send</BtnForm>
+          <BtnForm theme={themeObj} type="submit">
+            Send
+          </BtnForm>
         </Form>
       </Formik>
     </FormContainer>

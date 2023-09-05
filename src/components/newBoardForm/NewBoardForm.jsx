@@ -4,7 +4,8 @@ import { Formik } from 'formik';
 import * as Yup from 'yup';
 
 import images from '../iconSvg/images.js';
-import bgImage from '../../images/bgImage-light.jpg';
+import bgImageLight from '../../images/bgImage-light.jpg';
+import bgImageDark from '../../images/bgImage-dark.jpg';
 
 import sprite from '../iconSvg/icon.svg';
 import {
@@ -22,9 +23,13 @@ import {
   RadioFieldBg,
   FormikContainer,
   Error,
+  CloseButton,
 } from './NewBoardForm.styled';
-import Button from '@mui/material/Button';
 import BtnAdd from 'components/ScreensPage/btnAdd/BtnAdd';
+import { BtnCloseBlack } from 'components/buttons/buttons.jsx';
+import { useSelector } from 'react-redux';
+import { selectTheme } from 'redux/auth/authSelectors.js';
+import { useTheme } from '@mui/material';
 
 const NewBoardForm = ({
   formTitle,
@@ -35,6 +40,9 @@ const NewBoardForm = ({
   closeModal,
 }) => {
   const [background, setbackground] = useState();
+  const theme = useSelector(selectTheme);
+
+  const themeObj = useTheme();
 
   const formSubmit = values => {
     const title = values.title.trim();
@@ -64,104 +72,146 @@ const NewBoardForm = ({
   };
 
   return (
-    <FormContainer>
-      <Button
-        onClick={closeModal}
-        sx={{
-          position: 'absolute',
-          top: '14px',
-          right: '14px',
-          zIndex: 1,
-        }}
-      />
+    <FormContainer theme={themeObj}>
+      <CloseButton type="button" onClick={closeModal}>
+        <BtnCloseBlack />
+      </CloseButton>
       <Title>{formTitle}</Title>
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
-        onSubmit={formSubmit}
-      >
-        {formik => (
-          <FormikContainer>
-            <Container>
-              <Input type="text" placeholder="Title" name="title" />
-              <Error name="title" component="div" />
-            </Container>
+        onSubmit={formSubmit}>
+         {formik => (
+        <FormikContainer>
+          <Input
+            theme={themeObj}
+            type="text"
+            placeholder="Title"
+            name="title"
+          />
 
-            <Text>Icons</Text>
-            <IconList>
-              <li>
-                <label>
-                  <RadioField type="radio" name="icon" value="#icon-Project" />
-                  <Icon>
-                    <use href={sprite + '#icon-Project'}></use>
-                  </Icon>
-                </label>
-              </li>
-              <li>
-                <label>
-                  <RadioField type="radio" name="icon" value="#icon-star-04" />
-                  <Icon>
-                    <use href={sprite + '#icon-star-04'}></use>
-                  </Icon>
-                </label>
-              </li>
-              <li>
-                <label>
-                  <RadioField
-                    type="radio"
-                    name="icon"
-                    value="#icon-loading-03"
-                  />
-                  <Icon>
-                    <use href={sprite + '#icon-loading-03'}></use>
-                  </Icon>
-                </label>
-              </li>
-              <li>
-                <label>
-                  <RadioField
-                    type="radio"
-                    name="icon"
-                    value="#icon-puzzle-piece-02"
-                  />
-                  <Icon>
-                    <use href={sprite + '#icon-puzzle-piece-02'}></use>
-                  </Icon>
-                </label>
-              </li>
-              <li>
-                <label>
-                  <RadioField
-                    type="radio"
-                    name="icon"
-                    value="#icon-container"
-                  />
-                  <Icon>
-                    <use href={sprite + '#icon-container'}></use>
-                  </Icon>
-                </label>
-              </li>
-              <li>
-                <label>
-                  <RadioField
-                    type="radio"
-                    name="icon"
-                    value="#icon-lightning-02"
-                  />
-                  <Icon>
-                    <use href={sprite + '#icon-lightning-02'}></use>
-                  </Icon>
-                </label>
-              </li>
-              <li>
-                <label>
-                  <RadioField type="radio" name="icon" value="#icon-colors" />
-                  <Icon>
-                    <use href={sprite + '#icon-colors'}></use>
-                  </Icon>
-                </label>
-              </li>
-              <li>
+          <Text>Icons</Text>
+          <IconList>
+            <li>
+              <label>
+                <RadioField
+                  theme={themeObj}
+                  type="radio"
+                  name="icon"
+                  value="#icon-Project"
+                />
+                <Icon theme={themeObj}>
+                  <use href={sprite + '#icon-Project'}></use>
+                </Icon>
+              </label>
+            </li>
+            <li>
+              <label>
+                <RadioField
+                  theme={themeObj}
+                  type="radio"
+                  name="icon"
+                  value="#icon-star-04"
+                />
+                <Icon theme={themeObj}>
+                  <use href={sprite + '#icon-star-04'}></use>
+                </Icon>
+              </label>
+            </li>
+            <li>
+              <label>
+                <RadioField
+                  theme={themeObj}
+                  type="radio"
+                  name="icon"
+                  value="#icon-loading-03"
+                />
+                <Icon theme={themeObj}>
+                  <use href={sprite + '#icon-loading-03'}></use>
+                </Icon>
+              </label>
+            </li>
+            <li>
+              <label>
+                <RadioField
+                  theme={themeObj}
+                  type="radio"
+                  name="icon"
+                  value="#icon-puzzle-piece-02"
+                />
+                <Icon theme={themeObj}>
+                  <use href={sprite + '#icon-puzzle-piece-02'}></use>
+                </Icon>
+              </label>
+            </li>
+            <li>
+              <label>
+                <RadioField
+                  theme={themeObj}
+                  type="radio"
+                  name="icon"
+                  value="#icon-container"
+                />
+                <Icon theme={themeObj}>
+                  <use href={sprite + '#icon-container'}></use>
+                </Icon>
+              </label>
+            </li>
+            <li>
+              <label>
+                <RadioField
+                  theme={themeObj}
+                  type="radio"
+                  name="icon"
+                  value="#icon-lightning-02"
+                />
+                <Icon theme={themeObj}>
+                  <use href={sprite + '#icon-lightning-02'}></use>
+                </Icon>
+              </label>
+            </li>
+            <li>
+              <label>
+                <RadioField
+                  theme={themeObj}
+                  type="radio"
+                  name="icon"
+                  value="#icon-colors"
+                />
+                <Icon theme={themeObj}>
+                  <use href={sprite + '#icon-colors'}></use>
+                </Icon>
+              </label>
+            </li>
+            <li>
+              <label>
+                <RadioField
+                  theme={themeObj}
+                  type="radio"
+                  name="icon"
+                  value="#icon-hexagon-01"
+                />
+                <Icon theme={themeObj}>
+                  <use href={sprite + '#icon-hexagon-01'}></use>
+                </Icon>
+              </label>
+            </li>
+          </IconList>
+
+          <Text>Background</Text>
+          <BgList>
+            <BgColor>
+              <label>
+                <RadioFieldBg type="radio" name="background" value="none" />
+                {theme === 'dark' ? (
+                  <Img src={bgImageDark} alt="bgImage" />
+                ) : (
+                  <Img src={bgImageLight} alt="bgImage" />
+                )}
+              </label>
+            </BgColor>
+            {images.map(image => (
+              <BgColor key={image.min}>
                 <label>
                   <RadioField
                     type="radio"
@@ -201,7 +251,7 @@ const NewBoardForm = ({
               btnColor={'#BEDBB0'}
               isDisabled={!(formik.isValid && formik.dirty)}
             />
-          </FormikContainer>
+          </FormikContainer>)}
         )}
       </Formik>
     </FormContainer>

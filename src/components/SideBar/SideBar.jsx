@@ -38,8 +38,10 @@ import {
   useUpdateBoardMutation,
   useDeleteBoardMutation,
 } from 'redux/boards/boardsApi';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { logOut } from 'redux/auth/authOperations';
+import { useTheme } from '@mui/material';
+import { selectUser } from 'redux/auth/authSelectors';
 
 const SideBar = ({ active, onClick }) => {
   const [openAddModal, setOpenAddModal] = useState(false);
@@ -104,8 +106,17 @@ const SideBar = ({ active, onClick }) => {
     deleteBoard({ boardId });
   };
 
+  const theme = useTheme();
+  const user = useSelector(selectUser);
+ 
+  const logoSvg = user.theme === 'violet' ? '#icon-logo-violet' : '#icon-icon-1';
+  
   const drawerContent = (
-    <SideBarStyled>
+    <SideBarStyled
+      sx={{
+        bgcolor: 'background.default',
+      }}
+    >
       <Box
         sx={{
           display: 'flex',
@@ -114,8 +125,8 @@ const SideBar = ({ active, onClick }) => {
           marginBottom: '60px',
         }}
       >
-        <LogoIcon>
-          <use href={icon + '#icon-icon-1'}></use>
+        <LogoIcon> 
+            <use href={icon + `${logoSvg}`}></use> 
         </LogoIcon>
         <Typography
           variant="h2"
@@ -124,7 +135,7 @@ const SideBar = ({ active, onClick }) => {
             fontSize: '16px',
             letterSpacing: 0.7,
             fontWeight: 600,
-            color: '#161616',
+            color: 'secondary.dark',
           }}
         >
           Task Pro
@@ -137,7 +148,7 @@ const SideBar = ({ active, onClick }) => {
           fontSize: '12px',
           letterSpacing: 0.7,
           fontWeight: 400,
-          color: 'rgba(22, 22, 22, 0.5)',
+          color: 'text.disabled',
         }}
       >
         My boards
@@ -147,8 +158,9 @@ const SideBar = ({ active, onClick }) => {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          borderBottom: '1px solid rgba(22, 22, 22, 0.1)',
-          borderTop: '1px solid rgba(22, 22, 22, 0.1)',
+          borderBottom: '1px solid',
+          borderTop: '1px solid',
+          borderColor: 'primary.contrastText',
           padding: '14px 0',
           marginTop: '8px',
           marginBottom: '40px',
@@ -162,6 +174,7 @@ const SideBar = ({ active, onClick }) => {
             fontWeight: 500,
             fontSize: '14px',
             letterSpacing: 0.7,
+            color: 'secondary.dark',
           }}
         >
           Create a new board
@@ -169,16 +182,17 @@ const SideBar = ({ active, onClick }) => {
         <Button
           onClick={() => setOpenAddModal(true)}
           sx={{
-            backgroundColor: '#BEDBB0',
+            backgroundColor: 'secondary.warning',
             padding: '8px 10px',
             minWidth: 0,
+            transition: 'transform 200ms linear',
             '&:hover': {
-              backgroundColor: '#BEDBB0',
-              transform: 'scale(1.1)',
+              backgroundColor: 'secondary.light',
+              transform: 'scale(0.9)',
             },
           }}
         >
-          <PlusIcon>
+          <PlusIcon theme={theme}>
             <use href={icon + '#icon-plus-2'}></use>
           </PlusIcon>
         </Button>
@@ -194,16 +208,17 @@ const SideBar = ({ active, onClick }) => {
                   <BoardLink
                     to={`/home/${board._id}`}
                     state={{ from: location }}
+                    theme={theme}
                   >
                     <TitleBox>
-                      <IconTitle>
+                      <IconTitle theme={theme}>
                         <use href={sprite + board.icon}></use>
                       </IconTitle>
-                      <Title>{board.title}</Title>
+                      <Title theme={theme}>{board.title}</Title>
                     </TitleBox>
                   </BoardLink>
                   {isSelected && (
-                    <IconsBox>
+                    <IconsBox theme={theme}>
                       <IconButton
                         type="button"
                         onClick={() =>
@@ -232,7 +247,7 @@ const SideBar = ({ active, onClick }) => {
       </BoardsContainer>
       <Box
         sx={{
-          backgroundColor: 'rgba(246, 246, 247, 1)',
+          backgroundColor: 'primary.darker',
           marginTop: 'calc(100vh - 585px)',
           borderRadius: '8px',
           padding: '20px',
@@ -260,7 +275,7 @@ const SideBar = ({ active, onClick }) => {
               fontWeight: 400,
               fontSize: '14px',
               letterSpacing: 0.7,
-              color: 'rgba(22, 22, 22, 1)',
+              color: 'text.primary',
             }}
           >
             If you need help with
@@ -271,7 +286,7 @@ const SideBar = ({ active, onClick }) => {
                 fontSize: '14px',
                 lineHeight: '1.33',
                 letterSpacing: 0.7,
-                color: 'rgba(190, 219, 176, 1)',
+                color: 'primary.main',
                 textDecoration: 'none',
               }}
               onClick={openModal}
@@ -348,7 +363,7 @@ const SideBar = ({ active, onClick }) => {
           </LogoutIcon>
           <Typography
             sx={{
-              color: 'rgba(22, 22, 22, 1)',
+              color: 'secondary.dark',
               fontFamily: 'Poppins',
               textTransform: 'none',
               fontWeight: 500,
@@ -438,7 +453,7 @@ const SideBar = ({ active, onClick }) => {
         ></NewBoardForm>
       </MainModal>
       <MainModal modalIsOpen={openHelpModal} closeModal={closeHelpModal}>
-        <ModalHelp closeModal={closeHelpModal}/>
+        <ModalHelp closeModal={closeHelpModal} />
       </MainModal>
     </Box>
   );

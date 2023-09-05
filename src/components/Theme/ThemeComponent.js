@@ -32,6 +32,8 @@ export const ThemeComponent = () => {
     setAnchorEl(null);
   };
 
+  const logoSvg = user.theme === 'dark' ? '#chevron-down-white' : '#chevron-down';
+
   return (
     <div
       style={{
@@ -53,7 +55,7 @@ export const ThemeComponent = () => {
           fontStyle: 'normal',
           textTransform: 'capitalize',
           fontWeight: 500,
-          color: 'rgba(22, 22, 22, 0.8)',
+          color: 'text.secondary',
         }}
       >
         Theme
@@ -65,7 +67,7 @@ export const ThemeComponent = () => {
             marginLeft: '4px',
           }}
         >
-          <use href={icon + '#chevron-down'}></use>
+          <use href={icon + `${logoSvg}`}></use>
         </SvgIcon>
       </Button>
       <Menu
@@ -77,13 +79,15 @@ export const ThemeComponent = () => {
           'aria-labelledby': 'theme-button',
         }}
         sx={{
-          left: '-8px',          
+          left: '-8px',
           fontFamily: 'Poppins',
           fontSize: '14px',
           boxShadow: '0px 2px 4px rgba(17, 17, 17, 0.1)',
-          zIndex: '3000',
+          
+          zIndex: '3000',          
           '&& .Mui-selected': {
             backgroundColor: 'transparent',
+            bgcolor: 'background.paper', // check !!!
           },
           '&& li.MuiMenuItem-root': {
             width: '100px',
@@ -91,7 +95,8 @@ export const ThemeComponent = () => {
           '&& ul.MuiList-root': {
             paddingTop: '18px',
             paddingBottom: '18px',
-            border: '1px solid rgba(190, 219, 176, 1)',
+            border: '1px solid',
+            borderColor: 'secondary.light',              
             borderRadius: '8px',
           },
           '&& .MuiPopover-paper': {
@@ -106,8 +111,10 @@ export const ThemeComponent = () => {
             minHeight: '21px',
             padding: '2px 44px 2px 18px',
             fontFamily: 'Poppins',
-            color:
-              currentTheme === 'light' ? 'rgba(190, 219, 176, 1)' : '#161616',
+            color: currentTheme === 'light' ? 'text.hint' : 'text.secondary',            
+            '&:hover': {
+              backgroundColor: 'primary.light',
+            },
           }}
         >
           Light
@@ -119,8 +126,10 @@ export const ThemeComponent = () => {
             minHeight: '21px',
             padding: '2px 44px 2px 18px',
             fontFamily: 'Poppins',
-            color:
-              currentTheme === 'dark' ? 'rgba(190, 219, 176, 1)' : '#161616',
+            color: currentTheme === 'dark' ? 'text.hint' : 'text.secondary',
+            '&:hover': {
+              backgroundColor: 'primary.light',
+            },
           }}
         >
           Dark
@@ -133,7 +142,10 @@ export const ThemeComponent = () => {
             padding: '2px 44px 2px 18px',
             fontFamily: 'Poppins',
             color:
-              currentTheme === 'violet' ? 'rgba(190, 219, 176, 1)' : '#161616',
+              currentTheme === 'violet' ? 'text.hint' : 'text.secondary',
+            '&:hover': {
+              backgroundColor: 'primary.light',
+            },
           }}
         >
           Violet

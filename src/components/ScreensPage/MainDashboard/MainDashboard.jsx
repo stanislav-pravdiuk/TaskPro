@@ -9,6 +9,7 @@ import {
   GalleryCards,
 } from './MainDashboard.styled';
 import BtnAdd from '../btnAdd/BtnAdd';
+import BtnAddColumn from '../btnAdd/BtnAddColumn';
 import {
   useAddCardMutation,
   useAddColumnMutation,
@@ -17,13 +18,9 @@ import MainModal from 'components/MainModal/MainModal';
 import ColumnForm from 'components/columnCard/ColumnCard';
 import CardForm from 'components/cardForm/CardForm';
 import { useParams } from 'react-router-dom';
+import { useTheme } from '@mui/material';
 
 const MainDashboard = ({ columns }) => {
-  const btnTitle = 'Add another card';
-  const btnColor = '#BEDBB0';
-  const btnTitle2 = 'Add another column';
-  const btnColor2 = '#FFFFFF';
-
   const [addCard] = useAddCardMutation();
   const [addColumn] = useAddColumnMutation();
 
@@ -32,6 +29,8 @@ const MainDashboard = ({ columns }) => {
   const [columnId, setColumnId] = useState('');
 
   const { boardName } = useParams();
+
+  const theme = useTheme();
 
   const addCardInColumn = value => {
     const boardId = boardName;
@@ -62,7 +61,7 @@ const MainDashboard = ({ columns }) => {
   };
 
   return (
-    <Container>
+    <Container theme={theme}>
       {columns && columns.length > 0 && (
         <ColumnsList>
           {columns.map(column => {
@@ -92,9 +91,8 @@ const MainDashboard = ({ columns }) => {
                     })}
                   </GalleryCards>
                   <BtnAdd
+                    btnTitle={'Add another card'}
                     onClick={() => openModalCard(column._id)}
-                    btnTitle={btnTitle}
-                    btnColor={btnColor}
                   />
                 </Column>
               </ColumnsListItem>
@@ -102,10 +100,9 @@ const MainDashboard = ({ columns }) => {
           })}
         </ColumnsList>
       )}
-      <BtnAdd
+      <BtnAddColumn
+        btnTitle={'Add another column'}
         onClick={() => setOpenColumnModal(true)}
-        btnTitle={btnTitle2}
-        btnColor={btnColor2}
       />
 
       <MainModal modalIsOpen={openColumnModal} closeModal={closeColumnModal}>

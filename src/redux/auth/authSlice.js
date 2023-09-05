@@ -43,8 +43,7 @@ const authSlice = createSlice({
       state.isRefreshing = false;
     },
     [updateUserProfile.fulfilled](state, action) {
-      console.log('action.payload', action.payload)
-       state.user.name = action.payload.name;
+      state.user.name = action.payload.name;
       state.user.email = action.payload.email;
       state.user.avatar = action.payload.avatar;
       state.user.theme = action.payload.theme;

@@ -16,7 +16,7 @@ const ButtonTaskProIconThumb = styled.div`
   justify-content: center;
   height: 32px;
   border-radius: 8px;
-  background-color: var(--color-black);
+  background-color: 'primary.light';
 `;
 
 const ButtonTaskProIconText = styled.p`
@@ -48,7 +48,22 @@ const ButtonPlus = styled.div`
   justify-content: center;
   width: 40px;
   height: 36px;
-  background-color: var(--color-green);
+  background-color: ${props => {
+    return props.theme.palette.secondary.info;
+  }};
+  border-radius: 6px;
+  border: none;
+`;
+
+const ButtonPlusColumn = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 36px;
+  background-color: ${props => {
+    return props.theme.palette.primary.error;
+  }};
   border-radius: 6px;
   border: none;
 `;
@@ -246,20 +261,6 @@ const ButtonCreateSvgViolet = styled.use`
 
 // _____________________
 
-const ButtonPlusViolet = styled.button`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 36px;
-  background-color: var(--color-light-blue);
-  border-radius: 6px;
-  border: none;
-  &:hover {
-    background-color: var(--color-purple-blue);
-  }
-`;
-
 const ButtonPlusIconViolet = styled.svg`
   display: flex;
   justify-content: space-between;
@@ -366,10 +367,11 @@ const ButtonUpDateIcon = styled.svg`
 const ButtonUpDateSvg = styled.use`
   width: 16px;
   height: 16px;
-  fill: var(--color-light-gray);
+  stroke: inherit;
+  fill: inherit;
 `;
 
-const ButtonClose = styled.button`
+const ButtonClose = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -378,18 +380,26 @@ const ButtonClose = styled.button`
   padding: 0;
   background-color: transparent;
   border: none;
+  &:hover {
+    transform: scale(1.1);
+  }
 `;
 
 const ButtonCloseIcon = styled.svg`
   width: 18px;
   height: 18px;
-  fill: var(--color-white);
+  fill: ${props => {
+    return props.theme.palette.text.primary;
+  }};
+  stroke: ${props => {
+    return props.theme.palette.text.primary;
+  }};
 `;
 
 const ButtonCloseSvg = styled.use`
   width: 18px;
   height: 18px;
-  fill: var(--color-black);
+  fill: inherit;
 `;
 
 // _____________________
@@ -402,12 +412,17 @@ const ButtonFilter = styled.button`
   height: 25px;
   padding: 5px;
   border-radius: 8px;
-  background-color: var(--bg-color-light);
+  background-color: ${props => {
+    return props.theme.palette.background.paper;
+  }};
   font-family: Poppins;
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
+  stroke: ${props => {
+    return props.theme.palette.text.primary;
+  }};
 `;
 
 const ButtonFilterThumb = styled.div`
@@ -423,6 +438,7 @@ const ButtonFilterIcon = styled.svg`
   padding-top: 4px;
   width: 20px;
   height: 20px;
+  stroke: inherit;
 `;
 
 // _________________
@@ -445,7 +461,7 @@ export {
   ButtonLogOutTextViolet,
   ButtonPlusSvgViolet,
   ButtonPlusIconViolet,
-  ButtonPlusViolet,
+  ButtonPlusColumn,
   ButtonCreateThumbViolet,
   ButtonCreateTextViolet,
   ButtonCreateSvgViolet,

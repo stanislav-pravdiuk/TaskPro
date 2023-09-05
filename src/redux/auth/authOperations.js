@@ -101,7 +101,6 @@ export const updateUserProfile = createAsyncThunk(
      }
     try {
       setAuthHeader(persistedToken);
-      console.log('credentials', credentials)
       const res = await axios.patch('/user', credentials);
       console.log('res', res)
       console.log('res.data', res.data)

@@ -62,7 +62,7 @@ const LoginForm = () => {
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.password}
-            placeholder="Create a password"
+            placeholder="Confirm a password"
           />
           <Passwordsvg  width="18px" onClick={togglePasswordVisibility}> < use href={icon + '#icon-eye'}></use> </Passwordsvg > </PasswordInput>
           {formik.touched.password && formik.errors.password ? (
