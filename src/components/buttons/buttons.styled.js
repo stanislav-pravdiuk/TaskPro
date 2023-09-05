@@ -48,7 +48,22 @@ const ButtonPlus = styled.div`
   justify-content: center;
   width: 40px;
   height: 36px;
-  background-color: var(--color-green);
+  background-color: ${props => {
+    return props.theme.palette.secondary.info;
+  }};
+  border-radius: 6px;
+  border: none;
+`;
+
+const ButtonPlusColumn = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 36px;
+  background-color: ${props => {
+    return props.theme.palette.primary.error;
+  }};
   border-radius: 6px;
   border: none;
 `;
@@ -245,20 +260,6 @@ const ButtonCreateSvgViolet = styled.use`
 `;
 
 // _____________________
-
-const ButtonPlusViolet = styled.button`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 36px;
-  background-color: var(--color-light-blue);
-  border-radius: 6px;
-  border: none;
-  &:hover {
-    background-color: var(--color-purple-blue);
-  }
-`;
 
 const ButtonPlusIconViolet = styled.svg`
   display: flex;
@@ -460,7 +461,7 @@ export {
   ButtonLogOutTextViolet,
   ButtonPlusSvgViolet,
   ButtonPlusIconViolet,
-  ButtonPlusViolet,
+  ButtonPlusColumn,
   ButtonCreateThumbViolet,
   ButtonCreateTextViolet,
   ButtonCreateSvgViolet,

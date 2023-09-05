@@ -7,6 +7,7 @@ const lightTheme = {
       darker: '#F6F6F7',
       contrastText: 'rgba(22, 22, 22, 0.1)',
       info: 'rgba(22, 22, 22, 0.5)',
+      error: '#161616',
     },
     secondary: {
       main: 'rgba(22, 22, 22, 0.10)',
@@ -14,6 +15,7 @@ const lightTheme = {
       dark: '#161616',
       info: '#121212',
       warning: '#BEDBB0',
+      error: '#FFFFFF',
     },
     background: {
       default: '#FFF',
@@ -38,6 +40,7 @@ const darkTheme = {
       darker: '#1F1F1F',
       contrastText: 'rgba(255, 255, 255, 0.1)',
       info: 'rgba(255, 255, 255, 0.5)',
+      error: '#FFFFFF',
     },
     secondary: {
       main: 'rgba(255, 255, 255, 0.10)',
@@ -45,6 +48,7 @@ const darkTheme = {
       dark: '#FFF',
       info: '#121212',
       warning: '#BEDBB0',
+      error: '#FFFFFF',
     },
     background: {
       default: '#121212',
@@ -68,6 +72,7 @@ const violetTheme = {
       darker: '#ECEDFD',
       contrastText: 'rgba(255, 255, 255, 0.1)',
       info: 'rgba(22, 22, 22, 0.5)',
+      error: '#5255BC',
     },
     secondary: {
       main: 'rgba(22, 22, 22, 0.10)',
@@ -75,6 +80,7 @@ const violetTheme = {
       dark: '#FFF',
       info: '#FFFFFF',
       warning: '#B8BCFD',
+      error: '#161616',
     },
     background: {
       default: '#5255BC',

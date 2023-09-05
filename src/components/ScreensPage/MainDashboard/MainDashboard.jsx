@@ -9,6 +9,7 @@ import {
   GalleryCards,
 } from './MainDashboard.styled';
 import BtnAdd from '../btnAdd/BtnAdd';
+import BtnAddColumn from '../btnAdd/BtnAddColumn';
 import {
   useAddCardMutation,
   useAddColumnMutation,
@@ -19,11 +20,6 @@ import CardForm from 'components/cardForm/CardForm';
 import { useParams } from 'react-router-dom';
 
 const MainDashboard = ({ columns }) => {
-  const btnTitle = 'Add another card';
-  const btnColor = '#BEDBB0';
-  const btnTitle2 = 'Add another column';
-  const btnColor2 = '#FFFFFF';
-
   const [addCard] = useAddCardMutation();
   const [addColumn] = useAddColumnMutation();
 
@@ -92,9 +88,8 @@ const MainDashboard = ({ columns }) => {
                     })}
                   </GalleryCards>
                   <BtnAdd
+                    btnTitle={'Add another card'}
                     onClick={() => openModalCard(column._id)}
-                    btnTitle={btnTitle}
-                    btnColor={btnColor}
                   />
                 </Column>
               </ColumnsListItem>
@@ -102,10 +97,9 @@ const MainDashboard = ({ columns }) => {
           })}
         </ColumnsList>
       )}
-      <BtnAdd
+      <BtnAddColumn
+        btnTitle={'Add another column'}
         onClick={() => setOpenColumnModal(true)}
-        btnTitle={btnTitle2}
-        btnColor={btnColor2}
       />
 
       <MainModal modalIsOpen={openColumnModal} closeModal={closeColumnModal}>
