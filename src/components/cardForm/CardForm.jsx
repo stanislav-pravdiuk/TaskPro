@@ -60,8 +60,13 @@ const CardForm = ({
     const title = values.title.trim();
     const text = values.text.trim();
 
-    if (!title || !text) {
+    if (!title) {
       toast.error('Sorry, you entered empty title');
+      return;
+    }
+
+    if (!text) {
+      toast.error('Sorry, you entered empty text');
       return;
     }
 

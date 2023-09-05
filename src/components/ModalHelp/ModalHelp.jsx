@@ -35,11 +35,10 @@ const NeedHelpModal = ({ closeModal }) => {
 
   const handleSubmit = (values, { resetForm }) => {
     const { email, message } = values;
-    const emailTrim = email.trim();
     const messageTrim = message.trim();
 
-    if (!emailTrim || !messageTrim) {
-      toast.error('Sorry, you entered empty title');
+    if (!messageTrim) {
+      toast.error('Sorry, but you need to describe your problem!');
       return;
     }
     const credentials = { email, message };
