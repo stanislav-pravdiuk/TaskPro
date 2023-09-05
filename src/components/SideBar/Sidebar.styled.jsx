@@ -5,6 +5,7 @@ import { Box } from '@mui/material';
 export const SideBarStyled = styled(Box)`
   position: fixed;
   height: 100%;
+  max-height: 100vh;
   width: 225px;
   padding: 14px;
   overflow: hidden;
@@ -13,15 +14,21 @@ export const SideBarStyled = styled(Box)`
     width: 100%;
     max-width: 260px;
     padding: 24px 24px 24px 24px;
-    overflow-x: hidden; //todo
+    padding-bottom: 300px;
+    overflow-x: hidden;
   }
+`;
+
+export const Thumb = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
 `;
 
 export const NeedHelpBox = styled(Box)`
   padding: 20px;
   border-radius: 8px;
-
-  margin-top: 100%;
 `;
 
 export const LogoIcon = styled.svg`

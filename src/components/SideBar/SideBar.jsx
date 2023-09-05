@@ -23,6 +23,7 @@ import {
   Title,
   IconButton,
   IconLink,
+  Thumb,
   NeedHelpBox,
 } from './Sidebar.styled';
 import { useGetBoardsQuery } from 'redux/boards/boardsApi';
@@ -199,140 +200,142 @@ const SideBar = ({ active, onClick }) => {
           </PlusIcon>
         </Button>
       </Box>
-      <BoardsContainer>
-        <BoardsList theme={theme}>
-          {data &&
-            data.map(board => {
-              const isSelected = `/home/${board._id}` === location.pathname;
+      <Thumb>
+        <BoardsContainer>
+          <BoardsList theme={theme}>
+            {data &&
+              data.map(board => {
+                const isSelected = `/home/${board._id}` === location.pathname;
 
-              return (
-                <BoardItem key={board._id}>
-                  <BoardLink
-                    to={`/home/${board._id}`}
-                    state={{ from: location }}
-                    theme={theme}
-                  >
-                    <TitleBox>
-                      <IconTitle theme={theme}>
-                        <use href={sprite + board.icon}></use>
-                      </IconTitle>
-                      <Title theme={theme}>{board.title}</Title>
-                    </TitleBox>
-                  </BoardLink>
-                  {isSelected && (
-                    <IconsBox theme={theme}>
-                      <IconButton
-                        type="button"
-                        onClick={() =>
-                          openEditModalHandler(board.title, board.icon)
-                        }
-                      >
-                        <Edit>
-                          <use href={icon + '#icon-pencil-01'}></use>
-                        </Edit>
-                      </IconButton>
-                      <IconLink
-                        to={`/home`}
-                        onClick={() => deleteBoardHanlder(board._id)}
-                        replace
-                      >
-                        <Delete>
-                          <use href={icon + '#icon-trash-04'}></use>
-                        </Delete>
-                      </IconLink>
-                    </IconsBox>
-                  )}
-                </BoardItem>
-              );
-            })}
-        </BoardsList>
-      </BoardsContainer>
-      <NeedHelpBox
-        sx={{
-          backgroundColor: 'primary.darker',
-        }}
-      >
-        <Box
+                return (
+                  <BoardItem key={board._id}>
+                    <BoardLink
+                      to={`/home/${board._id}`}
+                      state={{ from: location }}
+                      theme={theme}
+                    >
+                      <TitleBox>
+                        <IconTitle theme={theme}>
+                          <use href={sprite + board.icon}></use>
+                        </IconTitle>
+                        <Title theme={theme}>{board.title}</Title>
+                      </TitleBox>
+                    </BoardLink>
+                    {isSelected && (
+                      <IconsBox theme={theme}>
+                        <IconButton
+                          type="button"
+                          onClick={() =>
+                            openEditModalHandler(board.title, board.icon)
+                          }
+                        >
+                          <Edit>
+                            <use href={icon + '#icon-pencil-01'}></use>
+                          </Edit>
+                        </IconButton>
+                        <IconLink
+                          to={`/home`}
+                          onClick={() => deleteBoardHanlder(board._id)}
+                          replace
+                        >
+                          <Delete>
+                            <use href={icon + '#icon-trash-04'}></use>
+                          </Delete>
+                        </IconLink>
+                      </IconsBox>
+                    )}
+                  </BoardItem>
+                );
+              })}
+          </BoardsList>
+        </BoardsContainer>
+        <NeedHelpBox
           sx={{
-            marginBottom: '14px',
+            backgroundColor: 'primary.darker',
           }}
         >
-          <picture>
-            <source srcSet={`${cactus} 1x, ${cactus2x} 2x, ${cactus3x} 3x`} />
-            <img srcSet={`${cactus} 1x`} alt="cactus" />
-          </picture>
-        </Box>
-        <Box
-          sx={{
-            marginBottom: '18px',
-          }}
-        >
-          <Typography
-            variant="body2"
+          <Box
             sx={{
-              fontFamily: 'Poppins',
-              fontWeight: 400,
-              fontSize: '14px',
-              letterSpacing: 0.7,
-              color: 'text.primary',
+              marginBottom: '14px',
             }}
           >
-            If you need help with
-            <Link
+            <picture>
+              <source srcSet={`${cactus} 1x, ${cactus2x} 2x, ${cactus3x} 3x`} />
+              <img srcSet={`${cactus} 1x`} alt="cactus" />
+            </picture>
+          </Box>
+          <Box
+            sx={{
+              marginBottom: '18px',
+            }}
+          >
+            <Typography
+              variant="body2"
               sx={{
                 fontFamily: 'Poppins',
                 fontWeight: 400,
                 fontSize: '14px',
-                lineHeight: '1.33',
                 letterSpacing: 0.7,
-                color: 'primary.main',
-                textDecoration: 'none',
+                color: 'text.primary',
               }}
-              onClick={openModal}
             >
-              {' '}
-              TaskPro
-            </Link>
-            , check out our support resources or reach out to our customer
-            support team.
-          </Typography>
-        </Box>
-        <Button
-          onClick={() => setOpenHelpModal(true)}
-          sx={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: '8px',
-            padding: 0,
-            minWidth: 0,
-            border: 0,
-            '&:hover': {
-              backgroundColor: 'inherit',
-              border: 0,
-            },
-          }}
-        >
-          <HelpIcon theme={theme}>
-            <use href={icon + '#icon-help'}></use>
-          </HelpIcon>
-          <Typography
+              If you need help with
+              <Link
+                sx={{
+                  fontFamily: 'Poppins',
+                  fontWeight: 400,
+                  fontSize: '14px',
+                  lineHeight: '1.33',
+                  letterSpacing: 0.7,
+                  color: 'primary.main',
+                  textDecoration: 'none',
+                }}
+                onClick={openModal}
+              >
+                {' '}
+                TaskPro
+              </Link>
+              , check out our support resources or reach out to our customer
+              support team.
+            </Typography>
+          </Box>
+          <Button
+            onClick={() => setOpenHelpModal(true)}
             sx={{
-              fontFamily: 'Poppins',
-              textTransform: 'none',
-              fontWeight: 500,
-              fontSize: '12px',
-              letterSpacing: 0.7,
-              color: 'text.primary',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '8px',
+              padding: 0,
+              minWidth: 0,
+              border: 0,
+              '&:hover': {
+                backgroundColor: 'inherit',
+                border: 0,
+              },
             }}
-            variant="body2"
           >
-            Need help?
-          </Typography>
-        </Button>
-        <MainModal modalIsOpen={isModalOpen} closeModal={closeModal}>
-          <NeedHelpModal closeModal={closeModal} />
-        </MainModal>
-      </NeedHelpBox>
+            <HelpIcon theme={theme}>
+              <use href={icon + '#icon-help'}></use>
+            </HelpIcon>
+            <Typography
+              sx={{
+                fontFamily: 'Poppins',
+                textTransform: 'none',
+                fontWeight: 500,
+                fontSize: '12px',
+                letterSpacing: 0.7,
+                color: 'text.primary',
+              }}
+              variant="body2"
+            >
+              Need help?
+            </Typography>
+          </Button>
+          <MainModal modalIsOpen={isModalOpen} closeModal={closeModal}>
+            <NeedHelpModal closeModal={closeModal} />
+          </MainModal>
+        </NeedHelpBox>
+      </Thumb>
       <Box
         sx={{
           marginTop: '24px',
