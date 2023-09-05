@@ -3,8 +3,6 @@ import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
 import { needHelp } from 'redux/auth/authOperations';
-import Button from '@mui/material/Button';
-import icon from '../iconSvg/icon.svg';
 import {
   Section,
   SectionTitle,
@@ -15,7 +13,6 @@ import {
   Textarea,
   ErrorSection,
   AuthFormSubmitButton,
-  CloseIcon,
   CloseButton,
 } from './NeedHelpModal.styled';
 import { BtnCloseBlack } from 'components/buttons/buttons';
