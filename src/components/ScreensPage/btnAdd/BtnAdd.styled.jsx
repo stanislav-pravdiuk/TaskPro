@@ -14,8 +14,11 @@ export const Container = styled.button`
   align-items: center;
   justify-content: center;
 
-  &:disabled {
-    cursor: not-allowed;
+  transition: background-color 200ms linear;
+
+  &:hover,
+  &:focus {
+    background-color: ${props => props.theme.palette.text.error};
   }
 
   background-color: ${props => {

@@ -137,16 +137,11 @@ export const AuthFormSubmitButton = styled.button`
   }};
   border-radius: 8px;
 
-  transition: all 250ms linear;
-  cursor: pointer;
+  transition: background-color 200ms linear;
 
-  &:hover {
-    opacity: 0.8;
-  }
-
-  &:disabled {
-    background: lightgray;
-    cursor: not-allowed;
+  &:hover,
+  &:focus {
+    background-color: ${props => props.theme.palette.text.error};
   }
 `;
 

@@ -32,7 +32,8 @@ const lightTheme = {
       disabled: 'rgba(22, 22, 22, 0.5)',
       hint: '#BEDBB0',
       info: 'rgba(190, 219, 176, 0.5)',
-      warning: "#BEDBB0"
+      warning: '#BEDBB0',
+      error: '#9DC888',
     },
   },
 };
@@ -72,7 +73,8 @@ const darkTheme = {
       disabled: 'rgba(255, 255, 255, 0.5)',
       hint: '#BEDBB0',
       info: 'rgba(190, 219, 176, 0.5)',
-      warning: "#BEDBB0"
+      warning: '#BEDBB0',
+      error: '#9DC888',
     },
   },
 };
@@ -111,7 +113,8 @@ const violetTheme = {
       disabled: 'rgba(255, 255, 255, 0.5)',
       hint: '#5255BC',
       info: 'rgba(82, 85, 188, 0.5)',
-      warning: "#FFFFFF"
+      warning: '#FFFFFF',
+      error: '#7B7EDE',
     },
   },
 };
