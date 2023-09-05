@@ -3,6 +3,8 @@ import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import {
   ModalTitle,
+  Container,
+  Error,
   Input,
   FormContainer,
   CloseButton,
@@ -38,18 +40,31 @@ const ColumnForm = ({
         <BtnCloseBlack />
       </CloseButton>
       <ModalTitle>{formTitle}</ModalTitle>
-      <Formik initialValues={initialValues} onSubmit={handleSubmit} validationSchema={validationSchema}>
+      <Formik
+        initialValues={initialValues}
+        onSubmit={handleSubmit}
+        validationSchema={validationSchema}
+      >
         {formik => (
-        <Form>
-          <Field
-            theme={theme}
-            type="text"
-            name="title"
-            as={Input}
-            placeholder="Title"
-          />
-          <BtnAdd btnTitle={btnText} btnColor={'#BEDBB0'} isDisabled={!(formik.isValid && formik.dirty)}/>
-        </Form>)}
+          <Form>
+            <Container>
+              <Field
+                theme={theme}
+                type="text"
+                name="title"
+                as={Input}
+                placeholder="Title"
+              />
+              <Error name="title" component="div" />
+            </Container>
+
+            <BtnAdd
+              btnTitle={btnText}
+              btnColor={'#BEDBB0'}
+              isDisabled={!(formik.isValid && formik.dirty)}
+            />
+          </Form>
+        )}
       </Formik>
     </FormContainer>
   );
