@@ -6,12 +6,22 @@ export const Container = styled.div`
   width: 334px;
   height: auto;
   border-radius: 8px;
-  background: var(--color-white);
+  background-color: ${props => {
+    return props.theme.palette.background.paper;
+  }};
+  color: ${props => {
+    return props.theme.palette.text.secondary;
+  }};
+  stroke: ${props => {
+    return props.theme.palette.text.secondary;
+  }};
   padding: 14px 24px;
   margin-bottom: 8px;
 `;
 export const Title = styled.h4`
-  color: var(--color-dark);
+  color: ${props => {
+    return props.theme.palette.text.primary;
+  }};
   font-family: Poppins;
   font-size: 14px;
   font-style: normal;
@@ -21,7 +31,7 @@ export const Title = styled.h4`
 `;
 export const Description = styled.div`
   width: 100%;
-  color: var(--color-text-card);
+  color: inherit;
   font-family: Poppins;
   font-size: 12px;
   font-style: normal;
@@ -31,7 +41,10 @@ export const Description = styled.div`
 `;
 export const BottomBar = styled.div`
   margin-top: 14px;
-  border-top: 1px solid var(--color-transparent-black);
+  border-top: 1px solid;
+  border-color: ${props => {
+    return props.theme.palette.secondary.main;
+  }};
   padding-top: 14px;
   display: flex;
   align-items: flex-end;
@@ -50,7 +63,7 @@ export const PriorityBox = styled.div`
 `;
 
 export const TextOptions = styled.p`
-  color: var(--color-text-dark);
+  color: inherit;
   font-family: Poppins;
   font-size: 8px;
   font-style: normal;
@@ -58,7 +71,7 @@ export const TextOptions = styled.p`
   line-height: normal;
 `;
 export const Text = styled.div`
-  color: var(--color-dark);
+  color: inherit;
   font-family: Poppins;
   font-size: 10px;
   font-style: normal;
@@ -76,7 +89,7 @@ export const IconsBox = styled.div`
   display: flex;
   align-items: center;
   gap: 8px;
-  stroke: var(--color-dark);
+  stroke: inherit;
 `;
 
 export const IconButton = styled.button`
@@ -89,21 +102,20 @@ export const TransferRight = styled.svg`
   margin-left: auto;
   width: 16px;
   height: 16px;
-  stroke: var(--color-text-dark);
+  stroke: inherit;
 `;
 export const Edit = styled.svg`
   width: 16px;
   height: 16px;
-  stroke: var(--color-text-dark);
+  stroke: inherit;
 `;
 export const Delete = styled.svg`
   width: 16px;
   height: 16px;
-  stroke: var(--color-text-dark);
+  stroke: inherit;
 `;
 
 export const MenuMUI = styled(Menu)`
-  /* max-height: 180px; */
   overflow: auto;
 
   direction: rtl;
@@ -125,7 +137,10 @@ export const MenuItemMUI = styled(MenuItem)`
   display: flex;
   gap: 8px;
   justify-content: space-between;
-  stroke: var(--color-dark);
+
+  stroke: ${props => {
+    return props.theme.palette.text.secondary;
+  }};
 
   direction: ltr;
 
@@ -136,7 +151,9 @@ export const MenuItemMUI = styled(MenuItem)`
 `;
 
 export const IconDeadline = styled.svg`
-width: 16px;
-height: 16px;
-stroke: var(--color-green);
+  width: 16px;
+  height: 16px;
+  stroke: ${props => {
+    return props.theme.palette.text.hint;
+  }};
 `;

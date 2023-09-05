@@ -31,6 +31,7 @@ import MainModal from 'components/MainModal/MainModal';
 import CardForm from 'components/cardForm/CardForm';
 import { useParams } from 'react-router-dom';
 import Button from '@mui/material/Button';
+import { useTheme } from '@mui/material';
 
 const Card = ({ title, text, priority, deadline, card, boardId, columns }) => {
   const [openCardModal, setOpenCardModal] = useState(false);
@@ -40,6 +41,7 @@ const Card = ({ title, text, priority, deadline, card, boardId, columns }) => {
   const [deleteCard] = useDeleteCardMutation();
 
   const { boardName } = useParams();
+  const theme = useTheme();
 
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
@@ -110,25 +112,26 @@ const Card = ({ title, text, priority, deadline, card, boardId, columns }) => {
     return cardBordredColor;
   };
 
-const isDeadlineToday = (deadline) => {
-  const today = new Date();
-  const deadlineDate = new Date(deadline);
-  return (
-    today.getFullYear() === deadlineDate.getFullYear() &&
-    today.getMonth() === deadlineDate.getMonth() &&
-    today.getDate() === deadlineDate.getDate()
-  );
-};
+  const isDeadlineToday = deadline => {
+    const today = new Date();
+    const deadlineDate = new Date(deadline);
+    return (
+      today.getFullYear() === deadlineDate.getFullYear() &&
+      today.getMonth() === deadlineDate.getMonth() &&
+      today.getDate() === deadlineDate.getDate()
+    );
+  };
 
   return (
     <Container
+      theme={theme}
       style={{ borderLeft: `4px solid ${cardPriorityChecker(priority)}` }}
     >
-      <Title>{title}</Title>
+      <Title theme={theme}>{title}</Title>
       <Description>
         <EllipsisText text={text} length={80} />
       </Description>
-      <BottomBar>
+      <BottomBar theme={theme}>
         <OptionsBox>
           <Options>
             <TextOptions>Priority</TextOptions>
@@ -146,7 +149,7 @@ const isDeadlineToday = (deadline) => {
         </OptionsBox>
         <IconsBox>
           {isDeadlineToday(deadline) && (
-            <IconDeadline>
+            <IconDeadline theme={theme}>
               <use href={icon + '#icon-bell-01'}></use>
             </IconDeadline>
           )}
@@ -190,12 +193,13 @@ const isDeadlineToday = (deadline) => {
 
               return (
                 <MenuItemMUI
+                  theme={theme}
                   key={columm._id + '1'}
                   onClick={() => replaceCardHandler(columm._id)}
                   disabled={currentColumn}
                   sx={{
-                    color: currentColumn ? '#bedbb0' : '#16161680',
-                    stroke: currentColumn ? '#bedbb0' : '#16161680',
+                    color: currentColumn ? '#bedbb0' : 'text.secondary',
+                    stroke: currentColumn ? '#bedbb0' : 'text.secondary',
                   }}
                 >
                   {columm.title}

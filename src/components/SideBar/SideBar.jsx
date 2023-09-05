@@ -42,8 +42,6 @@ import { useDispatch } from 'react-redux';
 import { logOut } from 'redux/auth/authOperations';
 import { useTheme } from '@mui/material';
 
-
-
 const SideBar = ({ active, onClick }) => {
   const [openAddModal, setOpenAddModal] = useState(false);
   const [openEditModal, setOpenEditModal] = useState(false);
@@ -110,9 +108,11 @@ const SideBar = ({ active, onClick }) => {
   const theme = useTheme();
 
   const drawerContent = (
-    <SideBarStyled sx={{
-      bgcolor: 'background.default'
-    }}>
+    <SideBarStyled
+      sx={{
+        bgcolor: 'background.default',
+      }}
+    >
       <Box
         sx={{
           display: 'flex',
@@ -131,7 +131,7 @@ const SideBar = ({ active, onClick }) => {
             fontSize: '16px',
             letterSpacing: 0.7,
             fontWeight: 600,
-            color: '#161616',
+            color: 'text.primary',
           }}
         >
           Task Pro
@@ -154,7 +154,7 @@ const SideBar = ({ active, onClick }) => {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          borderBottom: '1px solid',          
+          borderBottom: '1px solid',
           borderTop: '1px solid',
           borderColor: 'primary.contrastText',
           padding: '14px 0',
@@ -170,7 +170,7 @@ const SideBar = ({ active, onClick }) => {
             fontWeight: 500,
             fontSize: '14px',
             letterSpacing: 0.7,
-            color: 'secondary.dark'
+            color: 'secondary.dark',
           }}
         >
           Create a new board
@@ -448,7 +448,7 @@ const SideBar = ({ active, onClick }) => {
         ></NewBoardForm>
       </MainModal>
       <MainModal modalIsOpen={openHelpModal} closeModal={closeHelpModal}>
-        <ModalHelp closeModal={closeHelpModal}/>
+        <ModalHelp closeModal={closeHelpModal} />
       </MainModal>
     </Box>
   );
