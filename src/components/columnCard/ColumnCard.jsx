@@ -1,9 +1,12 @@
 import React from 'react';
 import { Formik, Form, Field } from 'formik';
+import * as Yup from 'yup';
 import {
   ModalTitle,
   Input,
   FormContainer,
+  Error,
+  Container,
   CloseButton,
 } from '../cardForm/CardForm.styled';
 import BtnAdd from 'components/ScreensPage/btnAdd/BtnAdd';
@@ -17,6 +20,10 @@ const ColumnForm = ({
   onSubmit,
   closeModal,
 }) => {
+  const validationSchema = Yup.object().shape({
+    title: Yup.string().required('Title is required'),
+  });
+
   const initialValues = {
     title: columnTitle || '',
   };
@@ -33,7 +40,8 @@ const ColumnForm = ({
         <BtnCloseBlack />
       </CloseButton>
       <ModalTitle>{formTitle}</ModalTitle>
-      <Formik initialValues={initialValues} onSubmit={handleSubmit}>
+      <Formik initialValues={initialValues} onSubmit={handleSubmit} validationSchema={validationSchema}>
+        {formik => (
         <Form>
           <Field
             theme={theme}
@@ -42,8 +50,8 @@ const ColumnForm = ({
             as={Input}
             placeholder="Title"
           />
-          <BtnAdd btnTitle={btnText} btnColor={'#BEDBB0'} />
-        </Form>
+          <BtnAdd btnTitle={btnText} btnColor={'#BEDBB0'} isDisabled={!(formik.isValid && formik.dirty)}/>
+        </Form>)}
       </Formik>
     </FormContainer>
   );

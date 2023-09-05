@@ -35,10 +35,12 @@ const NeedHelpModal = ({ closeModal }) => {
   const handleSubmit = (values, { resetForm }) => {
     const { email, message } = values;
     const credentials = { email, message };
+
     dispatch(needHelp(credentials));
     resetForm();
     closeModal();
   };
+
   return (
     <Section theme={theme}>
       <CloseButton type="button" onClick={closeModal}>
@@ -51,6 +53,7 @@ const NeedHelpModal = ({ closeModal }) => {
         validationSchema={validationSchema}
         onSubmit={handleSubmit}
       >
+  {formik => (
         <ModalForm>
           <FormWrapper>
             <Container>
@@ -76,10 +79,11 @@ const NeedHelpModal = ({ closeModal }) => {
             </Container>
           </FormWrapper>
 
-          <AuthFormSubmitButton theme={theme} type="submit">
+          <AuthFormSubmitButton theme={theme} type="submit"
+              disabled={!(formik.isValid && formik.dirty)}>
             Send
           </AuthFormSubmitButton>
-        </ModalForm>
+        </ModalForm>)}
       </Formik>
     </Section>
   );

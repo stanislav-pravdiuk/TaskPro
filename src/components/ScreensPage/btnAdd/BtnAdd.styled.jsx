@@ -14,6 +14,10 @@ export const Container = styled.button`
   align-items: center;
   justify-content: center;
 
+  &:disabled {
+    cursor: not-allowed;
+  }
+
   background-color: ${props => {
     return props.theme.palette.text.hint;
   }};

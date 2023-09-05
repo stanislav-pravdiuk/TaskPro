@@ -3,11 +3,12 @@ import { ButtonPlus } from 'components/buttons/buttons.styled';
 import icon from '../../iconSvg/icon.svg';
 import { useTheme } from '@mui/material';
 
-const BtnAdd = ({ data, btnTitle, btnColor, onClick }) => {
-  const theme = useTheme();
 
+const BtnAdd = ({ data, btnTitle, btnColor, onClick, isDisabled = false }) => {
+  const theme = useTheme();
+  
   return (
-    <Container theme={theme} onClick={onClick}>
+    <Container theme={theme} onClick={onClick} disabled={isDisabled}>
       <ButtonPlus theme={theme}>
         <PlusIcon theme={theme}>
           <use href={icon + '#icon-plus-1'}></use>

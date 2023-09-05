@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
+import { toast } from 'react-hot-toast';
 import { Formik } from 'formik';
+import * as Yup from 'yup';
 
 import images from '../iconSvg/images.js';
 import bgImageLight from '../../images/bgImage-light.jpg';
@@ -9,6 +11,7 @@ import sprite from '../iconSvg/icon.svg';
 import {
   FormContainer,
   Title,
+  Container,
   Input,
   Text,
   Icon,
@@ -19,6 +22,7 @@ import {
   RadioField,
   RadioFieldBg,
   FormikContainer,
+  Error,
   CloseButton,
 } from './NewBoardForm.styled';
 import BtnAdd from 'components/ScreensPage/btnAdd/BtnAdd';
@@ -41,10 +45,21 @@ const NewBoardForm = ({
   const themeObj = useTheme();
 
   const formSubmit = values => {
+    const title = values.title.trim();
+
+    if (!title) {
+      toast.error('Sorry, you entered empty title');
+      return;
+    }
     const data = { ...values, background };
+    console.log(data);
 
     handleSubmit(data, formTitle);
   };
+
+  const validationSchema = Yup.object().shape({
+    title: Yup.string().required('Title is required'),
+  });
 
   const initialValues = {
     title: boardTitle || '',
@@ -62,7 +77,11 @@ const NewBoardForm = ({
         <BtnCloseBlack />
       </CloseButton>
       <Title>{formTitle}</Title>
-      <Formik initialValues={initialValues} onSubmit={formSubmit}>
+      <Formik
+        initialValues={initialValues}
+        validationSchema={validationSchema}
+        onSubmit={formSubmit}>
+         {formik => (
         <FormikContainer>
           <Input
             theme={themeObj}
@@ -194,18 +213,46 @@ const NewBoardForm = ({
             {images.map(image => (
               <BgColor key={image.min}>
                 <label>
-                  <RadioFieldBg
+                  <RadioField
                     type="radio"
-                    name="background"
-                    onChange={() => BgImageChangeHandler(image)}
+                    name="icon"
+                    value="#icon-hexagon-01"
                   />
-                  <Img src={image.min} alt="bgImage" />
+                  <Icon>
+                    <use href={sprite + '#icon-hexagon-01'}></use>
+                  </Icon>
+                </label>
+              </li>
+            </IconList>
+
+            <Text>Background</Text>
+            <BgList>
+              <BgColor>
+                <label>
+                  <RadioFieldBg type="radio" name="background" value="none" />
+                  <Img src={bgImage} alt="bgImage" />
                 </label>
               </BgColor>
-            ))}
-          </BgList>
-          <BtnAdd btnTitle={btnText} btnColor={'#BEDBB0'} />
-        </FormikContainer>
+              {images.map(image => (
+                <BgColor key={image.min}>
+                  <label>
+                    <RadioFieldBg
+                      type="radio"
+                      name="background"
+                      onChange={() => BgImageChangeHandler(image)}
+                    />
+                    <Img src={image.min} alt="bgImage" />
+                  </label>
+                </BgColor>
+              ))}
+            </BgList>
+            <BtnAdd
+              btnTitle={btnText}
+              btnColor={'#BEDBB0'}
+              isDisabled={!(formik.isValid && formik.dirty)}
+            />
+          </FormikContainer>)}
+        )}
       </Formik>
     </FormContainer>
   );

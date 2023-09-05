@@ -144,6 +144,11 @@ export const AuthFormSubmitButton = styled.button`
   &:hover {
     opacity: 0.8;
   }
+
+  &:disabled {
+    background: lightgray;
+    cursor: not-allowed;
+  }
 `;
 
 export const CloseButton = styled.div`

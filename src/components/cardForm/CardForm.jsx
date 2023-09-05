@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Formik, Form, Field } from 'formik';
+import * as Yup from 'yup';
+
 import {
   FormContainer,
   ModalTitle,
@@ -12,6 +14,9 @@ import {
   RadioButtonContainer,
   RadioButton,
   Dot,
+  Error,
+  ErrorText,
+  Container,
   CloseButton,
 } from './CardForm.styled';
 import BtnAdd from 'components/ScreensPage/btnAdd/BtnAdd';
@@ -36,7 +41,13 @@ const CardForm = ({
   const formattedDateLong = dayjs(selectedDate).format('dddd, MMMM DD');
   const deadLineDateLong = dayjs(deadline).format('dddd, MMMM DD');
 
+  const validationSchema = Yup.object().shape({
+    title: Yup.string().required('Title is required'),
+    text: Yup.string().required('Title is required'),
+  });
+
   const theme = useTheme();
+
 
   const initialValues = {
     title: title || '',
@@ -61,8 +72,10 @@ const CardForm = ({
         <BtnCloseBlack />
       </CloseButton>
       <ModalTitle>{formTitle}</ModalTitle>
-      <Formik initialValues={initialValues} onSubmit={handleSubmit}>
-        <Form>
+      <Formik initialValues={initialValues}
+        validationSchema={validationSchema}
+        onSubmit={handleSubmit}>
+       {formik => ( <Form>
           <Field
             theme={theme}
             type="text"
@@ -129,8 +142,8 @@ const CardForm = ({
               <Calendar parentState={setSelectedDate} />
             </DeadlineBox>
           </div>
-          <BtnAdd btnTitle={btnText} btnColor={'#BEDBB0'} />
-        </Form>
+          <BtnAdd btnTitle={btnText} btnColor={'#BEDBB0'} isDisabled={!(formik.isValid && formik.dirty)}/>
+        </Form>)}
       </Formik>
     </FormContainer>
   );
