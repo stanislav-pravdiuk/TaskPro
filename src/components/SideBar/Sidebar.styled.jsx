@@ -33,6 +33,11 @@ export const NeedHelpBox = styled(Box)`
   border-radius: 8px;
 `;
 
+export const Picture = styled.picture`
+  display: flex;
+  height: 75px;
+`;
+
 export const LogoIcon = styled.svg`
   width: 32px;
   height: 32px;

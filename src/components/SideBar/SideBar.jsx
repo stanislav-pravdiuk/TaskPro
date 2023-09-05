@@ -24,6 +24,7 @@ import {
   IconButton,
   IconLink,
   Thumb,
+  Picture,
   NeedHelpBox,
 } from './Sidebar.styled';
 import { useGetBoardsQuery } from 'redux/boards/boardsApi';
@@ -256,15 +257,11 @@ const SideBar = ({ active, onClick }) => {
             backgroundColor: 'primary.darker',
           }}
         >
-          <Box
-            sx={{
-              marginBottom: '14px',
-            }}
-          >
-            <picture>
+          <Box>
+            <Picture>
               <source srcSet={`${cactus} 1x, ${cactus2x} 2x, ${cactus3x} 3x`} />
               <img srcSet={`${cactus} 1x`} alt="cactus" />
-            </picture>
+            </Picture>
           </Box>
           <Box
             sx={{
@@ -277,6 +274,7 @@ const SideBar = ({ active, onClick }) => {
                 fontFamily: 'Poppins',
                 fontWeight: 400,
                 fontSize: '14px',
+                lineHeight: '1.42',
                 letterSpacing: 0.7,
                 color: 'text.primary',
               }}
