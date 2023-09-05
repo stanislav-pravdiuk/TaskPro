@@ -206,10 +206,10 @@ const NewBoardForm = ({
                     name="background"
                     onChange={() =>
                       BgImageChangeHandler({
-                        min: '',
-                        desktop: '',
-                        tablet: '',
-                        mobile: '',
+                        min: ' ',
+                        desktop: ' ',
+                        tablet: ' ',
+                        mobile: ' ',
                       })
                     }
                   />
