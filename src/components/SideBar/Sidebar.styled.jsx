@@ -4,7 +4,13 @@ import { Box } from '@mui/material';
 
 export const SideBarStyled = styled(Box)`
   position: fixed;
+  height: 100%;
   width: 225px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
+
   padding: 14px;
   overflow: hidden;
 
@@ -12,8 +18,24 @@ export const SideBarStyled = styled(Box)`
     width: 100%;
     max-width: 260px;
     padding: 24px 24px 24px 24px;
-    overflow-x: hidden; //todo
+
+    overflow-x: hidden;
   }
+`;
+
+export const Thumb = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const NeedHelpBox = styled(Box)`
+  padding: 20px;
+  border-radius: 8px;
+`;
+
+export const Picture = styled.picture`
+  display: flex;
+  height: 75px;
 `;
 
 export const LogoIcon = styled.svg`
@@ -47,7 +69,7 @@ export const BoardsContainer = styled.div`
 `;
 
 export const BoardsList = styled.ul`
-  position: absolute;
+  position: relative;
   width: 120%;
   top: 0;
   left: -24px;
@@ -63,15 +85,15 @@ export const BoardsList = styled.ul`
   direction: rtl;
 
   &::-webkit-scrollbar {
-    background-color: var(--color-pale-gray);
+    background-color: ${props => props.theme.palette.background.disabled};
     width: 8px;
-    border-radius: 12px;
+    border-radius: 0;
     left: 0;
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: var(--color-transparent-black);
-    border-radius: 12px;
+    background-color: ${props => props.theme.palette.background.hint};
+    border-radius: 0;
   }
 
   @media screen and (min-width: 768px) {
@@ -156,9 +178,7 @@ export const BoardLink = styled(NavLink)`
       }};
     }
     ${IconTitle} {
-      stroke: ${props => {
-        return props.theme.palette.secondary.dark;
-      }};
+      stroke: ${props => props.theme.palette.secondary.dark};
     }
     ${Edit}, ${Delete} {
       pointer-events: auto;
@@ -173,7 +193,7 @@ export const BoardLink = styled(NavLink)`
     width: 4px;
     height: 100%;
     border-radius: 4px 0px 0px 4px;
-    background: var(--color-green);
+    background: ${props => props.theme.palette.text.warning};
   }
 `;
 

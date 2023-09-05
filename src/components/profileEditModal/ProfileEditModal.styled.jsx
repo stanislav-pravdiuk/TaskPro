@@ -49,6 +49,13 @@ export const BtnPlus = styled.button`
   }};
 
   stroke: black;
+
+  transition: background-color 200ms linear;
+
+  &:hover,
+  &:focus {
+    background-color: ${props => props.theme.palette.text.error};
+  }
 `;
 
 export const InputContainer = styled.div`
@@ -108,6 +115,13 @@ export const BtnForm = styled.button`
   font-family: Poppins;
   font-size: 14px;
   font-weight: 600;
+
+  transition: background-color 200ms linear;
+
+  &:hover,
+  &:focus {
+    background-color: ${props => props.theme.palette.text.error};
+  }
 `;
 
 export const CloseButton = styled.div`
