@@ -7,6 +7,9 @@ import { refreshUser } from 'redux/auth/authOperations';
 import { PrivateRoute } from '../privateRoute/PrivateRoute';
 import { RestrictedRoute } from 'restrictedRoute/RestrictedRoute';
 import Layout from './layout/Layout';
+import RefreshUser from './loaders/RefreshUser';
+import DownloadData from './loaders/DownloadData';
+import { Container } from './App.styled';
 // import { ThemeProvider } from '@mui/material/styles';
 // import CssBaseline from '@mui/material/CssBaseline';
 // import { theme } from 'components/Theme/theme';
@@ -35,9 +38,16 @@ export const App = () => {
   return (
     // <ThemeProvider theme={themeMap[currentTheme]}>
     //   <CssBaseline />
-    <Suspense fallback={<b>Загрузка...</b>}>
+    <Suspense
+      fallback={
+        <Container>
+          <DownloadData />
+        </Container>
+      }>
       {isRefreshing ? (
-        <b>Refreshing user...</b>
+        <Container>
+          <RefreshUser />
+        </Container>
       ) : (
         <>
           <Toaster />
