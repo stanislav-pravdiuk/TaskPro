@@ -21,6 +21,10 @@ const lightTheme = {
     background: {
       default: '#FFF',
       paper: '#FCFCFC',
+      hint: 'rgba(22, 22, 22, 0.10)',
+      disabled: '#E8E8E8',
+      info: '#E8E8E8',
+      warning: 'rgba(22, 22, 22, 0.10)',
     },
     text: {
       primary: '#161616',
@@ -55,6 +59,10 @@ const darkTheme = {
     background: {
       default: '#121212',
       paper: '#161616',
+      hint: '#121212',
+      disabled: 'rgba(255, 255, 255, 0.10)',
+      info: 'rgba(255, 255, 255, 0.10)',
+      warning: '#121212',
     },
     text: {
       primary: '#FFFFFF;',
@@ -88,6 +96,10 @@ const violetTheme = {
     background: {
       default: '#5255BC',
       paper: '#FFF',
+      hint: '#B8BCFD',
+      disabled: '#FFFFFF',
+      info: '#B8BCFD',
+      warning: '#FFFFFF',
     },
     text: {
       primary: '#161616',
