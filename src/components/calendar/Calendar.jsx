@@ -45,57 +45,64 @@ export const Calendar = ({ parentState, initial }) => {
             desktopPaper: {
               sx: {
                 borderRadius: '8px',
-                color: '',
-                backgroundColor: '#FFFFFF',
+                // color: 'background.warning',  //?????              
+                backgroundColor: 'background.success', // calendar bgcolor
                 '& .MuiPickersCalendarHeader-labelContainer': {
                   position: 'absolute',
                   left: '50%',
                   transform: 'translateX(-50%)',
+                  width: '100%',
+                  justifyContent: 'center',
                 },
                 '& .MuiPickersCalendarHeader-label': {
-                  color: '#161616',
+                  color: 'text.primary', // September 2023 (title)
                   fontFamily: 'Poppins',
-                  fontSize: '12px',
+                  fontSize: '16px',
                   fontStyle: 'normal',
                   fontWeight: 500,
                   lineHeight: 'normal',
                 },
+                // '& .MuiPickersCalendarHeader-root': {
+                  
+                //     bgcolor: 'blue'
+                
+                // },
                 '& .MuiSvgIcon-root': {
-                  fill: '',
+                  fill: 'text.hint', // стрілки вправо вліво біля September 2023
                 },
 
                 '& .MuiTypography-root': {
-                  color: '',
+                  color: 'primary.info', //Назви днів  rgba(22, 22, 22, 0.5)
                   height: '24px',
                   marginTop: '14px',
                 },
                 '& .MuiDayCalendar-weekContainer': {
-                  justifyContent: 'space-between',
+                  justifyContent: 'space-between',                  
                 },
 
                 '& .MuiButtonBase-root': {
-                  color: '',
+                  color: 'text.primary', // числа місяця після вибраної дати
                   margin: 0,
                   padding: 0,
                   fontSize: '14px',
                   fontStyle: 'normal',
                   fontWeight: '400',
-                  lineHeight: '18px',
+                  lineHeight: '18px',                  
                 },
                 '& .MuiPickersArrowSwitcher-root': {
                   width: '100%',
-                  justifyContent: 'space-between',
+                  justifyContent: 'space-between',                  
                 },
                 '& .MuiPickersCalendarHeader-switchViewButton': {
-                  display: 'none',
+                  display: 'none',                  
                 },
                 '& .MuiPickersCalendarHeader-root': {
                   padding: '0',
                   alignItems: 'baseline',
                   margin: '0',
-                  borderBottomWidth: '2px',
-                  borderBottomStyle: 'solid',
-                  borderColor: '',
+                  borderBottomWidth: '1px',
+                  borderBottomStyle: 'solid',                  
+                  borderColor: 'primary.contrastText', // колір лінії під September 2023
                 },
 
                 '& .MuiPickersArrowSwitcher-button': {
@@ -107,14 +114,29 @@ export const Calendar = ({ parentState, initial }) => {
                   height: '254px',
                   padding: '18px',
                   boxSizing: 'border-box',
-                  background: '',
+                  background: '', // фон всього календаря                  
                 },
 
                 '& .MuiPickersDay-hiddenDaySpacingFiller': {
                   height: '24px',
                   width: '24px',
                   minWidth: '24px',
-                  maxWidth: '24px',
+                  maxWidth: '24px', 
+                },
+
+                // '& .MuiPickersMonth-root': {
+                //   color: 'red',
+                // },
+
+                '& .MuiPickersMonth-monthButton': {
+                  color: 'text.secondary', // текст назви місяця
+                  '&:hover': {
+                      bgcolor: 'primary.main' // ???? ховер при виборі місяця
+                     }
+                },
+                '& .MuiPickersMonth-monthButton.Mui-selected': {
+                  color: 'text.primary', // колір текст назви міс. selected
+                  bgcolor: 'primary.main', // фон назви міс. selected
                 },
               },
             },
@@ -127,17 +149,18 @@ export const Calendar = ({ parentState, initial }) => {
                 fontSize: '14px',
 
                 '&.MuiPickersDay-root.Mui-selected': {
-                  backgroundColor: '#BEDBB0',
-                  color: '#161616',
+                  backgroundColor: 'primary.main', // фон вибраної дати
+                  color: 'primary.darker', // колір цифри вибраної дати
                 },
 
                 '&.Mui-selected:hover': {
-                  backgroundColor: '',
+                  backgroundColor: '', // ховер при виборі дати
                 },
                 '&.MuiPickersDay-today': {
                   borderWidth: 1,
-                  borderColor: '',
-                  color: '',
+                  borderColor: 'primary.main',
+                  bgcolor: 'primary.main', // фон сьогоднішньої дати навколо цифри
+                  color: 'text.primary', // колір сьогоднішньої дати (цифри)
                 },
               },
             },
@@ -145,7 +168,7 @@ export const Calendar = ({ parentState, initial }) => {
               variant: 'outlined',
               sx: {
                 '& input': { display: 'none' },
-                '& fieldset': { border: 'none' },
+                '& fieldset': { border: 'none' },                
               },
             },
           }}

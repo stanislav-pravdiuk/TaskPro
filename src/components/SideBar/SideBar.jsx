@@ -111,6 +111,10 @@ const SideBar = ({ active, onClick }) => {
 
   const logoSvg =
     user.theme === 'violet' ? '#icon-logo-violet' : '#icon-icon-1';
+  const needHelpSvg =
+    (user.theme === 'violet' || user.theme === 'dark') ? '#icon-help-white' : '#icon-help';
+  const logOutSvg =
+    (user.theme === 'dark' || user.theme === 'light') ? '#icon-login-green' : '#icon-login-white';
 
   const drawerContent = (
     <SideBarStyled
@@ -127,7 +131,7 @@ const SideBar = ({ active, onClick }) => {
         }}
       >
         <LogoIcon>
-          <use href={icon + `${logoSvg}`}></use>
+          <use href={icon + `${logoSvg}`}></use>          
         </LogoIcon>
         <Typography
           variant="h2"
@@ -248,7 +252,7 @@ const SideBar = ({ active, onClick }) => {
       </BoardsContainer>
       <Box
         sx={{
-          backgroundColor: 'primary.darker',
+          backgroundColor: 'background.error',
           marginTop: 'calc(100vh - 600px)',
           borderRadius: '8px',
           padding: '20px',
@@ -280,7 +284,7 @@ const SideBar = ({ active, onClick }) => {
               fontWeight: 400,
               fontSize: '14px',
               letterSpacing: 0.7,
-              color: 'text.primary',
+              color: 'secondary.dark',
             }}
           >
             If you need help with
@@ -319,7 +323,7 @@ const SideBar = ({ active, onClick }) => {
           }}
         >
           <HelpIcon theme={theme}>
-            <use href={icon + '#icon-help'}></use>
+            <use href={icon + `${needHelpSvg}`}></use>            
           </HelpIcon>
           <Typography
             sx={{
@@ -328,7 +332,7 @@ const SideBar = ({ active, onClick }) => {
               fontWeight: 500,
               fontSize: '12px',
               letterSpacing: 0.7,
-              color: 'text.primary',
+              color: 'secondary.dark',
             }}
             variant="body2"
           >
@@ -364,7 +368,7 @@ const SideBar = ({ active, onClick }) => {
           }}
         >
           <LogoutIcon>
-            <use href={icon + '#icon-login'}></use>
+          <use href={icon + `${logOutSvg}`}></use>
           </LogoutIcon>
           <Typography
             sx={{
