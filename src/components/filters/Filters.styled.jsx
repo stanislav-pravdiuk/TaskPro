@@ -34,7 +34,7 @@ export const TitleBox = styled.div`
 
 export const ResetBox = styled.div`
   display: flex;
-  border-top: 1px solid var(--color-dark);
+  border-top: 1px solid var(--color-transparent-black);
   margin-bottom: 14px;
   padding-top: 14px;
 `;
