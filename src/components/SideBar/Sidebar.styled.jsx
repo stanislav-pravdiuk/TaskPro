@@ -4,6 +4,7 @@ import { Box } from '@mui/material';
 
 export const SideBarStyled = styled(Box)`
   position: fixed;
+  height: 100%;
   width: 225px;
   padding: 14px;
   overflow: hidden;
@@ -14,6 +15,13 @@ export const SideBarStyled = styled(Box)`
     padding: 24px 24px 24px 24px;
     overflow-x: hidden; //todo
   }
+`;
+
+export const NeedHelpBox = styled(Box)`
+  padding: 20px;
+  border-radius: 8px;
+
+  margin-top: 100%;
 `;
 
 export const LogoIcon = styled.svg`
@@ -47,7 +55,7 @@ export const BoardsContainer = styled.div`
 `;
 
 export const BoardsList = styled.ul`
-  position: absolute;
+  position: relative;
   width: 120%;
   top: 0;
   left: -24px;

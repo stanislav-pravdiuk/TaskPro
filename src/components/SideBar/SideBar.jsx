@@ -23,6 +23,7 @@ import {
   Title,
   IconButton,
   IconLink,
+  NeedHelpBox,
 } from './Sidebar.styled';
 import { useGetBoardsQuery } from 'redux/boards/boardsApi';
 import { useLocation, useParams } from 'react-router-dom';
@@ -246,12 +247,9 @@ const SideBar = ({ active, onClick }) => {
             })}
         </BoardsList>
       </BoardsContainer>
-      <Box
+      <NeedHelpBox
         sx={{
           backgroundColor: 'primary.darker',
-
-          borderRadius: '8px',
-          padding: '20px',
         }}
       >
         <Box
@@ -334,7 +332,7 @@ const SideBar = ({ active, onClick }) => {
         <MainModal modalIsOpen={isModalOpen} closeModal={closeModal}>
           <NeedHelpModal closeModal={closeModal} />
         </MainModal>
-      </Box>
+      </NeedHelpBox>
       <Box
         sx={{
           marginTop: '24px',
