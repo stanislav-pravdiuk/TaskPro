@@ -45,7 +45,6 @@ export const Calendar = ({ parentState, initial }) => {
             desktopPaper: {
               sx: {
                 borderRadius: '8px',
-                // color: 'background.warning',  //?????              
                 backgroundColor: 'background.success', // calendar bgcolor
                 '& .MuiPickersCalendarHeader-labelContainer': {
                   position: 'absolute',
@@ -62,11 +61,7 @@ export const Calendar = ({ parentState, initial }) => {
                   fontWeight: 500,
                   lineHeight: 'normal',
                 },
-                // '& .MuiPickersCalendarHeader-root': {
-                  
-                //     bgcolor: 'blue'
-                
-                // },
+               
                 '& .MuiSvgIcon-root': {
                   fill: 'text.hint', // стрілки вправо вліво біля September 2023
                 },
@@ -124,9 +119,9 @@ export const Calendar = ({ parentState, initial }) => {
                   maxWidth: '24px', 
                 },
 
-                // '& .MuiPickersMonth-root': {
-                //   color: 'red',
-                // },
+                '& .MuiPickersDay-root.Mui-disabled': {
+                  color: 'text.success' // фон неактивних днів цього місяця
+                },
 
                 '& .MuiPickersMonth-monthButton': {
                   color: 'text.secondary', // текст назви місяця
