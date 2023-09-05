@@ -25,7 +25,6 @@ const ScreensPage = () => {
   const theme = useTheme();
 
   const Container = styled.div`
-    padding: 0;
     height: 100vh;
     max-height: 100%;
     background-image: url(${bgImageMobile});
