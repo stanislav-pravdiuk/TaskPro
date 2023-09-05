@@ -45,11 +45,10 @@ export const Calendar = ({ parentState, initial }) => {
             desktopPaper: {
               sx: {
                 borderRadius: '8px',
-                // backgroundColor: 'background.success', // calendar bgcolor
-                '& .css-cwhad8-MuiDateCalendar-root' : {
+                '& .MuiPickersLayout-contentWrapper': {
                   border: '1px solid',
                   borderColor: 'primary.main',
-                  borderRadius: '8px'
+                  borderRadius: '8px',
                 },
                 '& .MuiPickersCalendarHeader-labelContainer': {
                   position: 'absolute',
@@ -66,7 +65,7 @@ export const Calendar = ({ parentState, initial }) => {
                   fontWeight: 500,
                   lineHeight: 'normal',
                 },
-               
+
                 '& .MuiSvgIcon-root': {
                   fill: 'text.hint', // стрілки вправо вліво біля September 2023
                 },
@@ -77,7 +76,7 @@ export const Calendar = ({ parentState, initial }) => {
                   marginTop: '14px',
                 },
                 '& .MuiDayCalendar-weekContainer': {
-                  justifyContent: 'space-between',                  
+                  justifyContent: 'space-between',
                 },
 
                 '& .MuiButtonBase-root': {
@@ -87,21 +86,21 @@ export const Calendar = ({ parentState, initial }) => {
                   fontSize: '14px',
                   fontStyle: 'normal',
                   fontWeight: '400',
-                  lineHeight: '18px',                  
+                  lineHeight: '18px',
                 },
                 '& .MuiPickersArrowSwitcher-root': {
                   width: '100%',
-                  justifyContent: 'space-between',                  
+                  justifyContent: 'space-between',
                 },
                 '& .MuiPickersCalendarHeader-switchViewButton': {
-                  display: 'none',                  
+                  display: 'none',
                 },
                 '& .MuiPickersCalendarHeader-root': {
                   padding: '0',
                   alignItems: 'baseline',
                   margin: '0',
                   borderBottomWidth: '1px',
-                  borderBottomStyle: 'solid',                  
+                  borderBottomStyle: 'solid',
                   borderColor: 'primary.contrastText', // колір лінії під September 2023
                 },
 
@@ -114,25 +113,25 @@ export const Calendar = ({ parentState, initial }) => {
                   height: '254px',
                   padding: '18px',
                   boxSizing: 'border-box',
-                  background: '', // фон всього календаря                  
+                  background: '', // фон всього календаря
                 },
 
                 '& .MuiPickersDay-hiddenDaySpacingFiller': {
                   height: '24px',
                   width: '24px',
                   minWidth: '24px',
-                  maxWidth: '24px', 
+                  maxWidth: '24px',
                 },
 
                 '& .MuiPickersDay-root.Mui-disabled': {
-                  color: 'text.success' // фон неактивних днів цього місяця
+                  color: 'text.success', // фон неактивних днів цього місяця
                 },
 
                 '& .MuiPickersMonth-monthButton': {
                   color: 'text.secondary', // текст назви місяця
                   '&:hover': {
-                      bgcolor: 'primary.main' // ???? ховер при виборі місяця
-                     }
+                    bgcolor: 'primary.main', // ???? ховер при виборі місяця
+                  },
                 },
                 '& .MuiPickersMonth-monthButton.Mui-selected': {
                   color: 'text.primary', // колір текст назви міс. selected
@@ -168,7 +167,7 @@ export const Calendar = ({ parentState, initial }) => {
               variant: 'outlined',
               sx: {
                 '& input': { display: 'none' },
-                '& fieldset': { border: 'none' },                
+                '& fieldset': { border: 'none' },
               },
             },
           }}
