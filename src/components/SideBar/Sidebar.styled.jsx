@@ -3,14 +3,15 @@ import { Link, NavLink } from 'react-router-dom';
 import { Box } from '@mui/material';
 
 export const SideBarStyled = styled(Box)`
+  position: fixed;
   width: 225px;
   padding: 14px;
   overflow: hidden;
 
   @media screen and (min-width: 768px) {
-    width: 260px;
+    width: 100%;
     max-width: 260px;
-    padding: 24px;
+    padding: 24px 24px 24px 24px;
     overflow-x: hidden; //todo
   }
 `;
@@ -55,7 +56,7 @@ export const BoardsList = styled.ul`
   margin: 0;
   padding: 0;
 
-  max-height: 183px;
+  max-height: 122px;
   overflow-y: auto;
 
   direction: rtl;
@@ -90,16 +91,16 @@ export const IconTitle = styled.svg`
   height: 18px;
   /* fill: var(--color-black); */
   stroke: ${props => {
-      return props.theme.palette.text.disabled;
-    }};
+    return props.theme.palette.text.disabled;
+  }};
   margin-right: 8px;
 `;
 
 export const Title = styled.div`
   /* color: ${props => {
-      return props.theme.palette.text.primary;
-    }}; */
-  width: 200px; 
+    return props.theme.palette.text.primary;
+  }}; */
+  width: 200px;
   text-align: left;
   font-family: Poppins;
   font-size: 14px;
@@ -126,11 +127,11 @@ export const BoardLink = styled(NavLink)`
   width: 100%;
   height: 100%;
   padding: 24px 20px;
-    
+
   font-size: 14px;
   color: ${props => {
-      return props.theme.palette.text.disabled;
-    }};
+    return props.theme.palette.text.disabled;
+  }};
   transition: color 200ms linear, background-color 200ms linear;
 
   text-decoration: none;
@@ -155,13 +156,13 @@ export const BoardLink = styled(NavLink)`
     ${Title} {
       width: 140px;
       color: ${props => {
-      return props.theme.palette.secondary.dark;
-    }};
+        return props.theme.palette.secondary.dark;
+      }};
     }
     ${IconTitle} {
       stroke: ${props => {
-      return props.theme.palette.secondary.dark;
-    }};
+        return props.theme.palette.secondary.dark;
+      }};
     }
     ${Edit}, ${Delete} {
       pointer-events: auto;
@@ -189,8 +190,8 @@ export const IconsBox = styled.div`
   align-items: center;
   justify-content: center;
   stroke: ${props => {
-      return props.theme.palette.text.disabled;
-    }};
+    return props.theme.palette.text.disabled;
+  }};
 `;
 export const TitleBox = styled.div`
   display: flex;
