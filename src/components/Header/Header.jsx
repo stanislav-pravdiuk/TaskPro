@@ -17,12 +17,15 @@ import ProfileEditModal from 'components/profileEditModal/ProfileEditModal';
 import MainModal from 'components/MainModal/MainModal';
 import { ThemeComponent } from 'components/Theme/ThemeComponent';
 import avatarLight from '../../images/userAvatarLight.jpg';
-import avatarDark from '../../images/userAvatarDark.jpg'
+import avatarDark from '../../images/userAvatarDark.jpg';
+import { useTheme } from '@mui/material';
 
 const Header = ({ click }) => {
   const user = useSelector(selectUser);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const theme = user.theme;
+
+  const themeObj = useTheme();
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -46,7 +49,7 @@ const Header = ({ click }) => {
     >
       <ToolBar>
         <BurgerButton aria-label="open drawer" edge="start" onClick={click}>
-          <BurgerIcon>
+          <BurgerIcon theme={themeObj}>
             <use href={icon + '#icon-menu_40px-1'}></use>
           </BurgerIcon>
         </BurgerButton>
@@ -61,13 +64,17 @@ const Header = ({ click }) => {
             {user.name}
           </UserText>
           <UserButton onClick={openModal} aria-label="open drawer">
-            {theme === "dark"? (<UserImage
-              src={currentUserData.avatar || avatarDark}
-              alt="Avatar"
-            />) :(<UserImage
-              src={currentUserData.avatar || avatarLight}
-              alt="Avatar"
-            />)}
+            {theme === 'dark' ? (
+              <UserImage
+                src={currentUserData.avatar || avatarDark}
+                alt="Avatar"
+              />
+            ) : (
+              <UserImage
+                src={currentUserData.avatar || avatarLight}
+                alt="Avatar"
+              />
+            )}
             {/* {currentUserData.avatar ? (
               <UserImage src={currentUserData.avatar} alt="User avatar" />
             ) : (
