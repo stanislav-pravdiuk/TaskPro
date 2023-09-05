@@ -114,6 +114,10 @@ const SideBar = ({ active, onClick }) => {
 
   const logoSvg =
     user.theme === 'violet' ? '#icon-logo-violet' : '#icon-icon-1';
+  const needHelpSvg =
+    (user.theme === 'violet' || user.theme === 'dark') ? '#icon-help-white' : '#icon-help';
+  const logOutSvg =
+    (user.theme === 'dark' || user.theme === 'light') ? '#icon-login-green' : '#icon-login-white';
 
   const drawerContent = (
     <SideBarStyled
@@ -208,55 +212,72 @@ const SideBar = ({ active, onClick }) => {
               data.map(board => {
                 const isSelected = `/home/${board._id}` === location.pathname;
 
-                return (
-                  <BoardItem key={board._id}>
-                    <BoardLink
-                      to={`/home/${board._id}`}
-                      state={{ from: location }}
-                      theme={theme}
-                    >
-                      <TitleBox>
-                        <IconTitle theme={theme}>
-                          <use href={sprite + board.icon}></use>
-                        </IconTitle>
-                        <Title theme={theme}>{board.title}</Title>
-                      </TitleBox>
-                    </BoardLink>
-                    {isSelected && (
-                      <IconsBox theme={theme}>
-                        <IconButton
-                          type="button"
-                          onClick={() =>
-                            openEditModalHandler(board.title, board.icon)
-                          }
-                        >
-                          <Edit>
-                            <use href={icon + '#icon-pencil-01'}></use>
-                          </Edit>
-                        </IconButton>
-                        <IconLink
-                          to={`/home`}
-                          onClick={() => deleteBoardHanlder(board._id)}
-                          replace
-                        >
-                          <Delete>
-                            <use href={icon + '#icon-trash-04'}></use>
-                          </Delete>
-                        </IconLink>
-                      </IconsBox>
-                    )}
-                  </BoardItem>
-                );
-              })}
-          </BoardsList>
-        </BoardsContainer>
+              return (
+                <BoardItem key={board._id}>
+                  <BoardLink
+                    to={`/home/${board._id}`}
+                    state={{ from: location }}
+                    theme={theme}
+                  >
+                    <TitleBox>
+                      <IconTitle theme={theme}>
+                        <use href={sprite + board.icon}></use>
+                      </IconTitle>
+                      <Title theme={theme}>{board.title}</Title>
+                    </TitleBox>
+                  </BoardLink>
+                  {isSelected && (
+                    <IconsBox theme={theme}>
+                      <IconButton
+                        type="button"
+                        onClick={() =>
+                          openEditModalHandler(board.title, board.icon)
+                        }
+                      >
+                        <Edit>
+                          <use href={icon + '#icon-pencil-01'}></use>
+                        </Edit>
+                      </IconButton>
+                      <IconLink
+                        to={`/home`}
+                        onClick={() => deleteBoardHanlder(board._id)}
+                        replace
+                      >
+                        <Delete>
+                          <use href={icon + '#icon-trash-04'}></use>
+                        </Delete>
+                      </IconLink>
+                    </IconsBox>
+                  )}
+                </BoardItem>
+              );
+            })}
+        </BoardsList>
+      </BoardsContainer>
       </Thumb>
       <Thumb>
-        <NeedHelpBox
+      <NeedHelpBox
+          sx={{
+            backgroundColor: 'background.error',
+          }}
+        >
+      {/* <Box
+        sx={{
+          backgroundColor: 'background.error',
+          marginTop: 'calc(100vh - 600px)',
+          borderRadius: '8px',
+          padding: '20px',
+
+          '@media (min-width: 767px)': {
+            marginTop: 'calc(100vh - 585px)',
+          },
+        }}
+      >
+        <Box
           sx={{
             backgroundColor: 'primary.darker',
           }}
-        >
+        > */}
           <Box>
             <Picture>
               <source srcSet={`${cactus} 1x, ${cactus2x} 2x, ${cactus3x} 3x`} />
@@ -276,7 +297,7 @@ const SideBar = ({ active, onClick }) => {
                 fontSize: '14px',
                 lineHeight: '1.42',
                 letterSpacing: 0.7,
-                color: 'text.primary',
+                color: 'secondary.dark',
               }}
             >
               If you need help with
@@ -315,7 +336,7 @@ const SideBar = ({ active, onClick }) => {
             }}
           >
             <HelpIcon theme={theme}>
-              <use href={icon + '#icon-help'}></use>
+            <use href={icon + `${needHelpSvg}`}></use>   
             </HelpIcon>
             <Typography
               sx={{
@@ -324,7 +345,7 @@ const SideBar = ({ active, onClick }) => {
                 fontWeight: 500,
                 fontSize: '12px',
                 letterSpacing: 0.7,
-                color: 'text.primary',
+                color: 'secondary.dark',
               }}
               variant="body2"
             >
@@ -361,7 +382,7 @@ const SideBar = ({ active, onClick }) => {
             }}
           >
             <LogoutIcon>
-              <use href={icon + '#icon-login'}></use>
+            <use href={icon + `${logOutSvg}`}></use>
             </LogoutIcon>
             <Typography
               sx={{

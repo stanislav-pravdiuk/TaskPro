@@ -25,6 +25,8 @@ const lightTheme = {
       disabled: '#E8E8E8',
       info: '#E8E8E8',
       warning: 'rgba(22, 22, 22, 0.10)',
+      success: '#FFFFFF',
+      error: '#F6F6F7'
     },
     text: {
       primary: '#161616',
@@ -34,6 +36,7 @@ const lightTheme = {
       info: 'rgba(190, 219, 176, 0.5)',
       warning: '#BEDBB0',
       error: '#9DC888',
+      success: 'rgba(22, 22, 22, 0.2)'
     },
   },
 };
@@ -66,6 +69,8 @@ const darkTheme = {
       disabled: 'rgba(255, 255, 255, 0.10)',
       info: 'rgba(255, 255, 255, 0.10)',
       warning: '#121212',
+      success: '#1F1F1F',
+      error: '#1F1F1F'
     },
     text: {
       primary: '#FFFFFF;',
@@ -75,6 +80,7 @@ const darkTheme = {
       info: 'rgba(190, 219, 176, 0.5)',
       warning: '#BEDBB0',
       error: '#9DC888',
+      success: 'rgba(255, 255, 255, 0.2)',
     },
   },
 };
@@ -106,6 +112,8 @@ const violetTheme = {
       disabled: '#FFFFFF',
       info: '#B8BCFD',
       warning: '#FFFFFF',
+      success: '#FFFFFF',
+      error: 'rgba(236, 237, 253, 0.4)'
     },
     text: {
       primary: '#161616',
@@ -115,6 +123,7 @@ const violetTheme = {
       info: 'rgba(82, 85, 188, 0.5)',
       warning: '#FFFFFF',
       error: '#7B7EDE',
+      success: 'rgba(22, 22, 22, 0.2)'
     },
   },
 };
