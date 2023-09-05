@@ -10,17 +10,13 @@ export const Container = styled.div`
   overflow-y: hidden;
 
   ::-webkit-scrollbar {
-    background-color: ${props => {
-      return props.theme.palette.background.disabled;
-    }};
+    background-color: ${props => props.theme.palette.background.disabled};
     width: 8px;
     border-radius: 12px;
   }
 
   ::-webkit-scrollbar-thumb {
-    background-color: ${props => {
-      return props.theme.palette.background.hint;
-    }};
+    background-color: ${props => props.theme.palette.background.hint};
     border-radius: 12px;
   }
 

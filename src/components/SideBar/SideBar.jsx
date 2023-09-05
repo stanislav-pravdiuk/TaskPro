@@ -199,7 +199,7 @@ const SideBar = ({ active, onClick }) => {
         </Button>
       </Box>
       <BoardsContainer>
-        <BoardsList>
+        <BoardsList theme={theme}>
           {data &&
             data.map(board => {
               const isSelected = `/home/${board._id}` === location.pathname;

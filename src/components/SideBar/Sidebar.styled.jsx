@@ -63,14 +63,14 @@ export const BoardsList = styled.ul`
   direction: rtl;
 
   &::-webkit-scrollbar {
-    background-color: var(--color-pale-gray);
+    background-color: ${props => props.theme.palette.background.disabled};
     width: 8px;
     border-radius: 12px;
     left: 0;
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: var(--color-transparent-black);
+    background-color: ${props => props.theme.palette.background.hint};
     border-radius: 12px;
   }
 
