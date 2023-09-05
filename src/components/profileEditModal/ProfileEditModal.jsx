@@ -89,7 +89,7 @@ const ProfileEditModal = ({ user, modalClose }) => {
     } catch (error) {
       console.error('Error:', error.message);
       toast.error(
-        "Oops, it's looks like something went wrong... Please, try again!"
+        'Oops, but the image must be no more than 100 Kb!... Please make the image smaller!'
       );
     }
   };

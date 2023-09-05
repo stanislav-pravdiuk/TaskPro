@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
+import { toast } from 'react-hot-toast';
 
 import {
   FormContainer,
   ModalTitle,
+  Container,
+  Error,
   Input,
+  ErrorText,
   Textarea,
   Subtitle,
   Text,
@@ -45,7 +49,6 @@ const CardForm = ({
 
   const theme = useTheme();
 
-
   const initialValues = {
     title: title || '',
     text: text || '',
@@ -54,6 +57,19 @@ const CardForm = ({
   };
 
   const handleSubmit = values => {
+    const title = values.title.trim();
+    const text = values.text.trim();
+
+    if (!title) {
+      toast.error('Sorry, you entered empty title');
+      return;
+    }
+
+    if (!text) {
+      toast.error('Sorry, you entered empty text');
+      return;
+    }
+
     const data = {
       ...values,
       deadline: formattedDate,
@@ -69,78 +85,93 @@ const CardForm = ({
         <BtnCloseBlack />
       </CloseButton>
       <ModalTitle>{formTitle}</ModalTitle>
-      <Formik initialValues={initialValues}
+      <Formik
+        initialValues={initialValues}
         validationSchema={validationSchema}
-        onSubmit={handleSubmit}>
-       {formik => ( <Form>
-          <Field
-            theme={theme}
-            type="text"
-            name="title"
-            as={Input}
-            placeholder="Title"
-          />
-          <Field
-            theme={theme}
-            as={Textarea}
-            type="text"
-            name="text"
-            placeholder="Description"
-          />
-          <div>
-            <Subtitle>Label color</Subtitle>
-            <RadioButtonContainer>
-              <ColorOptionLabel>
-                <RadioButton
-                  type="radio"
-                  name="priority"
-                  value="low"
-                  className="blue"
-                />
-                <Dot className="blue"></Dot>
-              </ColorOptionLabel>
-              <ColorOptionLabel>
-                <RadioButton
-                  type="radio"
-                  name="priority"
-                  value="medium"
-                  className="red"
-                />
-                <Dot className="red"></Dot>
-              </ColorOptionLabel>
-              <ColorOptionLabel>
-                <RadioButton
-                  type="radio"
-                  name="priority"
-                  value="high"
-                  className="green"
-                />
-                <Dot className="green"></Dot>
-              </ColorOptionLabel>
-              <ColorOptionLabel>
-                <RadioButton
-                  type="radio"
-                  name="priority"
-                  value="without"
-                  className="gray"
-                />
-                <Dot className="gray"></Dot>
-              </ColorOptionLabel>
-            </RadioButtonContainer>
-          </div>
-          <div>
-            <Subtitle>Deadline</Subtitle>
-            <DeadlineBox>
-              <Text theme={theme}>
-                {selectedDate
-                  ? formattedDateLong
-                  : deadLineDateLong || `Today, ${dayjs().format('MMMM D')}`}
-              </Text>
-              <Calendar parentState={setSelectedDate} />
-            </DeadlineBox>
-          </div>
-          <BtnAdd btnTitle={btnText} btnColor={'#BEDBB0'} isDisabled={!(formik.isValid && formik.dirty)}/>
-        </Form>)}
+        onSubmit={handleSubmit}
+      >
+        {formik => (
+          <Form>
+            <Container>
+              <Field
+                theme={theme}
+                type="text"
+                name="title"
+                as={Input}
+                placeholder="Title"
+              />
+              <Error name="title" component="div" />
+            </Container>
+            <Container>
+              <Field
+                theme={theme}
+                as={Textarea}
+                type="text"
+                name="text"
+                placeholder="Description"
+              />
+              <ErrorText name="text" component="div" />
+            </Container>
+
+            <div>
+              <Subtitle>Label color</Subtitle>
+              <RadioButtonContainer>
+                <ColorOptionLabel>
+                  <RadioButton
+                    type="radio"
+                    name="priority"
+                    value="low"
+                    className="blue"
+                  />
+                  <Dot className="blue"></Dot>
+                </ColorOptionLabel>
+                <ColorOptionLabel>
+                  <RadioButton
+                    type="radio"
+                    name="priority"
+                    value="medium"
+                    className="red"
+                  />
+                  <Dot className="red"></Dot>
+                </ColorOptionLabel>
+                <ColorOptionLabel>
+                  <RadioButton
+                    type="radio"
+                    name="priority"
+                    value="high"
+                    className="green"
+                  />
+                  <Dot className="green"></Dot>
+                </ColorOptionLabel>
+                <ColorOptionLabel>
+                  <RadioButton
+                    type="radio"
+                    name="priority"
+                    value="without"
+                    className="gray"
+                  />
+                  <Dot className="gray"></Dot>
+                </ColorOptionLabel>
+              </RadioButtonContainer>
+            </div>
+            <div>
+              <Subtitle>Deadline</Subtitle>
+              <DeadlineBox>
+                <Text theme={theme}>
+                  {selectedDate
+                    ? formattedDateLong
+                    : deadLineDateLong || `Today, ${dayjs().format('MMMM D')}`}
+                </Text>
+                <Calendar parentState={setSelectedDate} />
+              </DeadlineBox>
+            </div>
+            <BtnAdd
+              btnTitle={btnText}
+              btnColor={'#BEDBB0'}
+              isDisabled={!(formik.isValid && formik.dirty)}
+            />
+          </Form>
+        )}
       </Formik>
     </FormContainer>
   );

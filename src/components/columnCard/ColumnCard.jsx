@@ -1,8 +1,11 @@
 import React from 'react';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
+import { toast } from 'react-hot-toast';
 import {
   ModalTitle,
+  Container,
+  Error,
   Input,
   FormContainer,
   CloseButton,
@@ -27,6 +30,13 @@ const ColumnForm = ({
   };
 
   const handleSubmit = values => {
+    const title = values.title.trim();
+
+    if (!title) {
+      toast.error('Sorry, you entered empty title');
+      return;
+    }
+
     onSubmit(values);
   };
 
@@ -38,18 +48,31 @@ const ColumnForm = ({
         <BtnCloseBlack />
       </CloseButton>
       <ModalTitle>{formTitle}</ModalTitle>
-      <Formik initialValues={initialValues} onSubmit={handleSubmit} validationSchema={validationSchema}>
+      <Formik
+        initialValues={initialValues}
+        onSubmit={handleSubmit}
+        validationSchema={validationSchema}
+      >
         {formik => (
-        <Form>
-          <Field
-            theme={theme}
-            type="text"
-            name="title"
-            as={Input}
-            placeholder="Title"
-          />
-          <BtnAdd btnTitle={btnText} btnColor={'#BEDBB0'} isDisabled={!(formik.isValid && formik.dirty)}/>
-        </Form>)}
+          <Form>
+            <Container>
+              <Field
+                theme={theme}
+                type="text"
+                name="title"
+                as={Input}
+                placeholder="Title"
+              />
+              <Error name="title" component="div" />
+            </Container>
+
+            <BtnAdd
+              btnTitle={btnText}
+              btnColor={'#BEDBB0'}
+              isDisabled={!(formik.isValid && formik.dirty)}
+            />
+          </Form>
+        )}
       </Formik>
     </FormContainer>
   );
