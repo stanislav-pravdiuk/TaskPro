@@ -45,13 +45,10 @@ export const ColumnsList = styled.ul`
   }
 `;
 
-export const ColumnsListItem = styled.li`
-  height: 100%;
-`;
+export const ColumnsListItem = styled.li``;
 
 export const Column = styled.div`
   display: flex;
-  height: 100%;
   gap: 14px;
   flex-direction: column;
 `;

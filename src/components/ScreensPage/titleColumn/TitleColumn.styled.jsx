@@ -2,17 +2,11 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   width: 334px;
-  height: 56px;
+  min-height: 56px;
   border-radius: 8px;
-  background: ${props => {
-    return props.theme.palette.background.paper;
-  }};
-  color: ${props => {
-    return props.theme.palette.text.primary;
-  }};
-  stroke: ${props => {
-    return props.theme.palette.primary.info;
-  }};
+  background: ${props => props.theme.palette.background.paper};
+  color: ${props => props.theme.palette.text.primary};
+  stroke: ${props => props.theme.palette.primary.info};
   padding-left: 20px;
   padding-right: 20px;
   display: flex;
