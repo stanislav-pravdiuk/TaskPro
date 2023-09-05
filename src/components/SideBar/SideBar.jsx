@@ -108,9 +108,10 @@ const SideBar = ({ active, onClick }) => {
 
   const theme = useTheme();
   const user = useSelector(selectUser);
- 
-  const logoSvg = user.theme === 'violet' ? '#icon-logo-violet' : '#icon-icon-1';
-  
+
+  const logoSvg =
+    user.theme === 'violet' ? '#icon-logo-violet' : '#icon-icon-1';
+
   const drawerContent = (
     <SideBarStyled
       sx={{
@@ -125,8 +126,8 @@ const SideBar = ({ active, onClick }) => {
           marginBottom: '60px',
         }}
       >
-        <LogoIcon> 
-            <use href={icon + `${logoSvg}`}></use> 
+        <LogoIcon>
+          <use href={icon + `${logoSvg}`}></use>
         </LogoIcon>
         <Typography
           variant="h2"
@@ -248,9 +249,13 @@ const SideBar = ({ active, onClick }) => {
       <Box
         sx={{
           backgroundColor: 'primary.darker',
-          marginTop: 'calc(100vh - 585px)',
+          marginTop: 'calc(100vh - 600px)',
           borderRadius: '8px',
           padding: '20px',
+
+          '@media (min-width: 767px)': {
+            marginTop: 'calc(100vh - 585px)',
+          },
         }}
       >
         <Box
