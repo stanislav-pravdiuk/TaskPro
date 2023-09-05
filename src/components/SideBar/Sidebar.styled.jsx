@@ -25,10 +25,9 @@ export const PlusIcon = styled.svg`
   width: 20px;
   height: 20px;
   background-color: transparent;
-  color: var(--color-icon-dark);
-  &:hover {
-    fill: var(--color-green);
-  }
+  stroke: ${props => {
+    return props.theme.palette.secondary.info;
+  }};
 `;
 
 export const HelpIcon = styled.svg`
@@ -89,7 +88,6 @@ export const BoardItem = styled.li`
 export const IconTitle = styled.svg`
   width: 18px;
   height: 18px;
-  /* fill: var(--color-black); */
   stroke: ${props => {
     return props.theme.palette.text.disabled;
   }};
@@ -97,9 +95,6 @@ export const IconTitle = styled.svg`
 `;
 
 export const Title = styled.div`
-  /* color: ${props => {
-    return props.theme.palette.text.primary;
-  }}; */
   width: 200px;
   text-align: left;
   font-family: Poppins;
@@ -142,9 +137,8 @@ export const BoardLink = styled(NavLink)`
 
   &:hover,
   &:focus {
-    /* background-color: var(--bg-color-light); */
     background-color: ${props => {
-      return props.theme.palette.primary.paper;
+      return props.theme.palette.primary.contrastText;
     }};
   }
 

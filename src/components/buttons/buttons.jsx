@@ -27,9 +27,6 @@ import {
   ButtonCreateIconViolet,
   ButtonCreateSvgViolet,
   ButtonCreateViolet,
-  ButtonPlusViolet,
-  ButtonPlusIconViolet,
-  ButtonPlusSvgViolet,
   ButtonLogOutSvgViolet,
   ButtonLogOutIconViolet,
   ButtonDelete,
@@ -126,16 +123,6 @@ export const BtnCreateViolet = ({ children }) => {
 
       <ButtonCreateTextViolet>{children}</ButtonCreateTextViolet>
     </ButtonCreateViolet>
-  );
-};
-
-export const BtnPlusViolet = () => {
-  return (
-    <ButtonPlusViolet>
-      <ButtonPlusIconViolet>
-        <ButtonPlusSvgViolet href={icon + '#icon-plus-1'}></ButtonPlusSvgViolet>
-      </ButtonPlusIconViolet>
-    </ButtonPlusViolet>
   );
 };
 
