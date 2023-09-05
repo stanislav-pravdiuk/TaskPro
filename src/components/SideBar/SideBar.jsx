@@ -254,7 +254,14 @@ const SideBar = ({ active, onClick }) => {
             })}
         </BoardsList>
       </BoardsContainer>
-      <Box
+      </Thumb>
+      <Thumb>
+      <NeedHelpBox
+          sx={{
+            backgroundColor: 'background.error',
+          }}
+        >
+      {/* <Box
         sx={{
           backgroundColor: 'background.error',
           marginTop: 'calc(100vh - 600px)',
@@ -270,7 +277,7 @@ const SideBar = ({ active, onClick }) => {
           sx={{
             backgroundColor: 'primary.darker',
           }}
-        >
+        > */}
           <Box>
             <Picture>
               <source srcSet={`${cactus} 1x, ${cactus2x} 2x, ${cactus3x} 3x`} />
