@@ -12,6 +12,8 @@ const lightTheme = {
       main: 'rgba(22, 22, 22, 0.10)',
       light: '#BEDBB0',
       dark: '#161616',
+      info: '#121212',
+      warning: '#BEDBB0',
     },
     background: {
       default: '#FFF',
@@ -41,6 +43,8 @@ const darkTheme = {
       main: 'rgba(255, 255, 255, 0.10)',
       light: '#BEDBB0',
       dark: '#FFF',
+      info: '#121212',
+      warning: '#BEDBB0',
     },
     background: {
       default: '#121212',
@@ -69,6 +73,8 @@ const violetTheme = {
       main: 'rgba(22, 22, 22, 0.10)',
       light: '#ECEDFD',
       dark: '#FFF',
+      info: '#FFFFFF',
+      warning: '#B8BCFD',
     },
     background: {
       default: '#5255BC',

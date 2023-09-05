@@ -178,16 +178,17 @@ const SideBar = ({ active, onClick }) => {
         <Button
           onClick={() => setOpenAddModal(true)}
           sx={{
-            backgroundColor: '#BEDBB0',
+            backgroundColor: 'secondary.warning',
             padding: '8px 10px',
             minWidth: 0,
+            transition: 'transform 200ms linear',
             '&:hover': {
-              backgroundColor: '#BEDBB0',
-              transform: 'scale(1.1)',
+              backgroundColor: 'secondary.light',
+              transform: 'scale(0.9)',
             },
           }}
         >
-          <PlusIcon>
+          <PlusIcon theme={theme}>
             <use href={icon + '#icon-plus-2'}></use>
           </PlusIcon>
         </Button>
