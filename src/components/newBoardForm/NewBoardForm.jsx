@@ -62,7 +62,7 @@ const NewBoardForm = ({
   const initialValues = {
     title: boardTitle || '',
     icon: boardIcon,
-    background: 'none',
+    background: null,
   };
 
   const BgImageChangeHandler = data => {
@@ -201,7 +201,18 @@ const NewBoardForm = ({
             <BgList>
               <BgColor>
                 <label>
-                  <RadioFieldBg type="radio" name="background" value="none" />
+                  <RadioFieldBg
+                    type="radio"
+                    name="background"
+                    onChange={() =>
+                      BgImageChangeHandler({
+                        min: '',
+                        desktop: '',
+                        tablet: '',
+                        mobile: '',
+                      })
+                    }
+                  />
                   {theme === 'dark' ? (
                     <Img src={bgImageDark} alt="bgImage" />
                   ) : (
