@@ -11,6 +11,8 @@ import sprite from '../iconSvg/icon.svg';
 import {
   FormContainer,
   Title,
+  Container,
+  Error,
   Input,
   Text,
   Icon,
@@ -82,12 +84,15 @@ const NewBoardForm = ({
       >
         {formik => (
           <FormikContainer>
-            <Input
-              theme={themeObj}
-              type="text"
-              placeholder="Title"
-              name="title"
-            />
+            <Container>
+              <Input
+                theme={themeObj}
+                type="text"
+                placeholder="Title"
+                name="title"
+              />
+              <Error name="title" component="div" />
+            </Container>
 
             <Text>Icons</Text>
             <IconList>
@@ -233,11 +238,7 @@ const NewBoardForm = ({
                 </BgColor>
               ))}
             </BgList>
-            <BtnAdd
-              btnTitle={btnText}
-              btnColor={'#BEDBB0'}
-              isDisabled={!(formik.isValid && formik.dirty)}
-            />
+            <BtnAdd btnTitle={btnText} btnColor={'#BEDBB0'} />
           </FormikContainer>
         )}
       </Formik>
