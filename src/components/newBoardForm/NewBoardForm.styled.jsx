@@ -44,7 +44,10 @@ const Input = styled(Field)`
     return props.theme.palette.text.primary;
   }};
   background: inherit;
-  border: 1px solid var(--color-green);
+  border: 1px solid
+    ${props => {
+      return props.theme.palette.text.hint;
+    }};
   border-radius: 8px;
   outline: none;
 
