@@ -16,12 +16,13 @@ import {
   BtnForm,
   CloseButton,
 } from './ProfileEditModal.styled';
+import { useTheme } from '@mui/material';
 
 import { updateUserProfile } from '../../redux/auth/authOperations';
 
 import icon from '../iconSvg/icon.svg';
 import avatarLight from '../../images/userAvatarLight.jpg';
-import avatarDark from '../../images/userAvatarDark.jpg'
+import avatarDark from '../../images/userAvatarDark.jpg';
 // import Button from '@mui/material/Button';
 // import avatar from '../../images/userAvatar.jpg';
 import { toast } from 'react-hot-toast';
@@ -40,7 +41,9 @@ const ProfileEditModal = ({ user, modalClose }) => {
   const dispatch = useDispatch();
   const fileInputRef = useRef(null);
 
-  const theme = useSelector(selectTheme)
+  const theme = useSelector(selectTheme);
+
+  const themeObj = useTheme();
 
   const [showPassword, setShowPassword] = useState(false);
   const [selectedAvatar, setSelectedAvatar] = useState(user.avatar);
@@ -57,33 +60,30 @@ const ProfileEditModal = ({ user, modalClose }) => {
   };
 
   const handleFileSelect = event => {
-
     const file = event.target.files[0];
- 
+
     if (file) {
       const reader = new FileReader();
 
       reader.onload = () => {
         setSelectedAvatar(reader.result);
       };
-      
+
       reader.readAsDataURL(file);
     }
   };
 
   const handleSubmit = async values => {
     try {
-     const newData =  {
-          name: values.login,
-          email: values.email,
-          password: values.password,
-          avatar: selectedAvatar,
-     }
-      console.log('newData', newData)
-      await dispatch(
-        updateUserProfile(newData)
-      ).unwrap();
-      
+      const newData = {
+        name: values.login,
+        email: values.email,
+        password: values.password,
+        avatar: selectedAvatar,
+      };
+      console.log('newData', newData);
+      await dispatch(updateUserProfile(newData)).unwrap();
+
       toast.success('Saved successfully!!!');
       modalClose();
     } catch (error) {
@@ -95,7 +95,7 @@ const ProfileEditModal = ({ user, modalClose }) => {
   };
 
   return (
-    <FormContainer>
+    <FormContainer theme={themeObj}>
       <CloseButton type="button" onClick={modalClose}>
         <BtnCloseBlack />
       </CloseButton>
@@ -107,14 +107,18 @@ const ProfileEditModal = ({ user, modalClose }) => {
       >
         <Form>
           <AvatarContainer>
-            {theme === "dark"? (<AvatarImg
-              src={selectedAvatar || user.avatar || avatarDark}
-              alt="Avatar"
-            />) :(<AvatarImg
-              src={selectedAvatar || user.avatar || avatarLight}
-              alt="Avatar"
-            />)}
-            
+            {theme === 'dark' ? (
+              <AvatarImg
+                src={selectedAvatar || user.avatar || avatarDark}
+                alt="Avatar"
+              />
+            ) : (
+              <AvatarImg
+                src={selectedAvatar || user.avatar || avatarLight}
+                alt="Avatar"
+              />
+            )}
+
             <input
               type="file"
               id="upload-avatar"
@@ -124,7 +128,11 @@ const ProfileEditModal = ({ user, modalClose }) => {
               style={{ display: 'none' }}
             />
             <label htmlFor="upload-avatar">
-              <BtnPlus type="button" onClick={handleFileInputChange}>
+              <BtnPlus
+                theme={themeObj}
+                type="button"
+                onClick={handleFileInputChange}
+              >
                 <svg width="10" height="10">
                   <use href={icon + '#icon-plus-2'}></use>
                 </svg>
@@ -133,6 +141,7 @@ const ProfileEditModal = ({ user, modalClose }) => {
           </AvatarContainer>
           <InputContainer>
             <Field
+              theme={themeObj}
               type="text"
               id="login"
               name="login"
@@ -140,6 +149,7 @@ const ProfileEditModal = ({ user, modalClose }) => {
               as={Input}
             />
             <Field
+              theme={themeObj}
               type="email"
               id="email"
               name="email"
@@ -148,6 +158,7 @@ const ProfileEditModal = ({ user, modalClose }) => {
             />
             <PasswordContainer>
               <Field
+                theme={themeObj}
                 type={showPassword ? 'text' : 'password'}
                 id="password"
                 name="password"

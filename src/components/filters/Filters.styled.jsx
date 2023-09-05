@@ -7,7 +7,12 @@ export const Container = styled.div`
   transform: translateX(-70%);
   z-index: 5;
   border-radius: 8px;
-  background: var(--color-cream);
+  background-color: ${props => {
+    return props.theme.palette.background.paper;
+  }};
+  color: ${props => {
+    return props.theme.palette.text.primary;
+  }};
   box-shadow: 0px 4px 16px 0px var(--color-opacity-black);
   padding: 24px;
 `;
@@ -19,7 +24,7 @@ export const CloseButton = styled.div`
 `;
 
 export const Title = styled.p`
-  color: var(--color-dark);
+  color: inherit;
   font-family: 'Poppins';
   font-size: 18px;
   font-style: normal;
@@ -34,7 +39,10 @@ export const TitleBox = styled.div`
 
 export const ResetBox = styled.div`
   display: flex;
-  border-top: 1px solid var(--color-transparent-black);
+  border-top: 1px solid;
+  border-color: ${props => {
+    return props.theme.palette.secondary.main;
+  }};
   margin-bottom: 14px;
   padding-top: 14px;
 `;
@@ -43,7 +51,7 @@ export const ResetTitle = styled.p`
   display: flex;
   flex-shrink: 0;
   margin-right: auto;
-  color: var(--color-dark);
+  color: inherit;
   font-family: Poppins;
   font-size: 14px;
   font-style: normal;
@@ -52,7 +60,9 @@ export const ResetTitle = styled.p`
 `;
 
 export const BtnReset = styled.button`
-  color: var(--color-text-dark);
+  color: ${props => {
+    return props.theme.palette.text.secondary;
+  }};
   font-family: Poppins;
   font-size: 12px;
   font-style: normal;
@@ -65,6 +75,10 @@ export const BtnReset = styled.button`
 export const BtnBox = styled.button`
   display: flex;
   flex-direction: column;
+
+  color: ${props => {
+    return props.theme.palette.primary.info;
+  }};
 `;
 
 export const Dot = styled.span`
@@ -73,8 +87,6 @@ export const Dot = styled.span`
   width: 14px;
   height: 14px;
   border-radius: 50%;
-
-  background-color: transparent;
 
   &.blue {
     background-color: var(--color-blue);
@@ -89,7 +101,7 @@ export const Dot = styled.span`
   }
 
   &.gray {
-    background-color: var(--color-light);
+    background-color: rgba(128, 128, 128, 0.7);
   }
 `;
 
@@ -100,6 +112,9 @@ export const ColorOptionLabel = styled.label`
   gap: 8px;
   justify-content: center;
   align-items: center;
+  color: ${props => {
+    return props.theme.palette.primary.info;
+  }};
 
   font-family: 'Poppins';
 
@@ -144,6 +159,6 @@ export const RadioButton = styled.input`
   }
 
   &:checked.gray {
-    border: 1px solid var(--color-light);
+    border: 1px solid rgba(128, 128, 128, 0.7);
   }
 `;

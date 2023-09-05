@@ -25,6 +25,7 @@ import BtnAdd from 'components/ScreensPage/btnAdd/BtnAdd';
 import { BtnCloseBlack } from 'components/buttons/buttons.jsx';
 import { useSelector } from 'react-redux';
 import { selectTheme } from 'redux/auth/authSelectors.js';
+import { useTheme } from '@mui/material';
 
 const NewBoardForm = ({
   formTitle,
@@ -35,7 +36,9 @@ const NewBoardForm = ({
   closeModal,
 }) => {
   const [background, setbackground] = useState();
-  const theme = useSelector(selectTheme)
+  const theme = useSelector(selectTheme);
+
+  const themeObj = useTheme();
 
   const formSubmit = values => {
     const data = { ...values, background };
@@ -54,37 +57,57 @@ const NewBoardForm = ({
   };
 
   return (
-    <FormContainer>
+    <FormContainer theme={themeObj}>
       <CloseButton type="button" onClick={closeModal}>
         <BtnCloseBlack />
       </CloseButton>
       <Title>{formTitle}</Title>
       <Formik initialValues={initialValues} onSubmit={formSubmit}>
         <FormikContainer>
-          <Input type="text" placeholder="Title" name="title" />
+          <Input
+            theme={themeObj}
+            type="text"
+            placeholder="Title"
+            name="title"
+          />
 
           <Text>Icons</Text>
           <IconList>
             <li>
               <label>
-                <RadioField type="radio" name="icon" value="#icon-Project" />
-                <Icon>
+                <RadioField
+                  theme={themeObj}
+                  type="radio"
+                  name="icon"
+                  value="#icon-Project"
+                />
+                <Icon theme={themeObj}>
                   <use href={sprite + '#icon-Project'}></use>
                 </Icon>
               </label>
             </li>
             <li>
               <label>
-                <RadioField type="radio" name="icon" value="#icon-star-04" />
-                <Icon>
+                <RadioField
+                  theme={themeObj}
+                  type="radio"
+                  name="icon"
+                  value="#icon-star-04"
+                />
+                <Icon theme={themeObj}>
                   <use href={sprite + '#icon-star-04'}></use>
                 </Icon>
               </label>
             </li>
             <li>
               <label>
-                <RadioField type="radio" name="icon" value="#icon-loading-03" />
-                <Icon>
+                <RadioField
+                  theme={themeObj}
+                  type="radio"
+                  name="icon"
+                  value="#icon-loading-03"
+                />
+                <Icon theme={themeObj}>
                   <use href={sprite + '#icon-loading-03'}></use>
                 </Icon>
               </label>
@@ -92,19 +115,25 @@ const NewBoardForm = ({
             <li>
               <label>
                 <RadioField
+                  theme={themeObj}
                   type="radio"
                   name="icon"
                   value="#icon-puzzle-piece-02"
                 />
-                <Icon>
+                <Icon theme={themeObj}>
                   <use href={sprite + '#icon-puzzle-piece-02'}></use>
                 </Icon>
               </label>
             </li>
             <li>
               <label>
-                <RadioField type="radio" name="icon" value="#icon-container" />
-                <Icon>
+                <RadioField
+                  theme={themeObj}
+                  type="radio"
+                  name="icon"
+                  value="#icon-container"
+                />
+                <Icon theme={themeObj}>
                   <use href={sprite + '#icon-container'}></use>
                 </Icon>
               </label>
@@ -112,27 +141,38 @@ const NewBoardForm = ({
             <li>
               <label>
                 <RadioField
+                  theme={themeObj}
                   type="radio"
                   name="icon"
                   value="#icon-lightning-02"
                 />
-                <Icon>
+                <Icon theme={themeObj}>
                   <use href={sprite + '#icon-lightning-02'}></use>
                 </Icon>
               </label>
             </li>
             <li>
               <label>
-                <RadioField type="radio" name="icon" value="#icon-colors" />
-                <Icon>
+                <RadioField
+                  theme={themeObj}
+                  type="radio"
+                  name="icon"
+                  value="#icon-colors"
+                />
+                <Icon theme={themeObj}>
                   <use href={sprite + '#icon-colors'}></use>
                 </Icon>
               </label>
             </li>
             <li>
               <label>
-                <RadioField type="radio" name="icon" value="#icon-hexagon-01" />
-                <Icon>
+                <RadioField
+                  theme={themeObj}
+                  type="radio"
+                  name="icon"
+                  value="#icon-hexagon-01"
+                />
+                <Icon theme={themeObj}>
                   <use href={sprite + '#icon-hexagon-01'}></use>
                 </Icon>
               </label>
@@ -144,9 +184,11 @@ const NewBoardForm = ({
             <BgColor>
               <label>
                 <RadioFieldBg type="radio" name="background" value="none" />
-                {theme === "dark" ?
-                  (<Img src={bgImageDark} alt="bgImage" />)
-                  : (<Img src={bgImageLight} alt="bgImage" />)}
+                {theme === 'dark' ? (
+                  <Img src={bgImageDark} alt="bgImage" />
+                ) : (
+                  <Img src={bgImageLight} alt="bgImage" />
+                )}
               </label>
             </BgColor>
             {images.map(image => (

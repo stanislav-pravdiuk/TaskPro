@@ -5,5 +5,7 @@ export const IconDown = styled.svg`
   height: 18px;
   // flex-shrink: 0;
   // margin: 0;
-  stroke: var(--color-green);
+  stroke: ${props => {
+    return props.theme.palette.text.hint;
+  }};
 `;

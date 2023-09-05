@@ -7,7 +7,12 @@ export const Section = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: start;
-  background: var(--color-cream);
+  background-color: ${props => {
+    return props.theme.palette.background.paper;
+  }};
+  color: ${props => {
+    return props.theme.palette.text.primary;
+  }};
   width: 100vw;
   max-width: 400px;
   border-radius: 8px;
@@ -20,6 +25,7 @@ export const SectionTitle = styled.h2`
   font-family: 'Poppins';
   font-weight: 600;
   letter-spacing: -0.36px;
+  color: inherit;
 `;
 
 export const ModalForm = styled(Form)`
@@ -68,9 +74,14 @@ export const TitleInput = styled(Field)`
   font-family: 'Poppins';
   letter-spacing: -0.28px;
 
-  color: var(--color-dark);
-  background: var(--color-cream);
-  border: 1px solid var(--color-green);
+  color: ${props => {
+    return props.theme.palette.text.secondary;
+  }};
+  background: inherit;
+  border: 1px solid;
+  border-color: ${props => {
+    return props.theme.palette.text.hint;
+  }};
   border-radius: 8px;
 `;
 
@@ -88,14 +99,21 @@ export const Textarea = styled(Field)`
   line-height: normal;
   letter-spacing: -0.28px;
 
-  color: var(--color-dark);
-  background: var(--color-cream);
-  border: 1px solid var(--color-green);
+  color: ${props => {
+    return props.theme.palette.text.secondary;
+  }};
+  background: inherit;
+  border: 1px solid;
+  border-color: ${props => {
+    return props.theme.palette.text.hint;
+  }};
   outline: none;
   border-radius: 8px;
 
   &::placeholder {
-    color: var(--color-dark);
+    color: ${props => {
+      return props.theme.palette.text.secondary;
+    }};
     font-size: 14px;
   }
 `;

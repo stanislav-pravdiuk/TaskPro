@@ -4,7 +4,15 @@ export const Container = styled.div`
   width: 334px;
   height: 56px;
   border-radius: 8px;
-  background: var(--color-white);
+  background: ${props => {
+    return props.theme.palette.background.paper;
+  }};
+  color: ${props => {
+    return props.theme.palette.text.primary;
+  }};
+  stroke: ${props => {
+    return props.theme.palette.primary.info;
+  }};
   padding-left: 20px;
   padding-right: 20px;
   display: flex;
@@ -12,7 +20,7 @@ export const Container = styled.div`
   justify-content: space-between;
 `;
 export const Title = styled.h3`
-  color: var(--color-dark);
+  color: inherit;
   font-family: Poppins;
   font-size: 14px;
   font-style: normal;
@@ -36,5 +44,5 @@ export const IconsButton = styled.div`
 export const Icon = styled.svg`
   width: 16px;
   height: 16px;
-  stroke: var(--color-text-dark);
+  stroke: inherit;
 `;

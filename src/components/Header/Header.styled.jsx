@@ -36,8 +36,7 @@ export const UserIcon = styled.svg`
 `;
 
 export const Appbar = styled(AppBar)`
-  width: 100%;
-  background-color: var(--color-cream);
+  width: 100%;  
   box-shadow: none;
   position: relative;
 `;
@@ -70,12 +69,11 @@ export const HeaderWrap = styled(Box)`
 export const UserText = styled(Typography)`
   margin-right: 8px;
   width: auto;
-  color: var(--color-deep-black);
+  /* color: 'text.primary'; */
   font-family: Poppins;
   font-size: 14px;
   letter-spacing: 0.7;
-  font-weight: 500;
-  color: var(--color-deep-black);
+  font-weight: 500;  
 `;
 
 export const UserButton = styled(Button)`
