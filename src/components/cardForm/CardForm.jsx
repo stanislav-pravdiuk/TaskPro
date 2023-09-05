@@ -18,6 +18,7 @@ import BtnAdd from 'components/ScreensPage/btnAdd/BtnAdd';
 import { Calendar } from 'components/calendar/Calendar';
 import dayjs from 'dayjs';
 import { BtnCloseBlack } from 'components/buttons/buttons';
+import { useTheme } from '@mui/material';
 
 const CardForm = ({
   title,
@@ -34,6 +35,8 @@ const CardForm = ({
   const formattedDate = dayjs(selectedDate).format('MM/DD/YYYY');
   const formattedDateLong = dayjs(selectedDate).format('dddd, MMMM DD');
   const deadLineDateLong = dayjs(deadline).format('dddd, MMMM DD');
+
+  const theme = useTheme();
 
   const initialValues = {
     title: title || '',
@@ -53,15 +56,22 @@ const CardForm = ({
   };
 
   return (
-    <FormContainer>
+    <FormContainer theme={theme}>
       <CloseButton type="button" onClick={closeModal}>
         <BtnCloseBlack />
       </CloseButton>
       <ModalTitle>{formTitle}</ModalTitle>
       <Formik initialValues={initialValues} onSubmit={handleSubmit}>
         <Form>
-          <Field type="text" name="title" as={Input} placeholder="Title" />
           <Field
+            theme={theme}
+            type="text"
+            name="title"
+            as={Input}
+            placeholder="Title"
+          />
+          <Field
+            theme={theme}
             as={Textarea}
             type="text"
             name="text"
@@ -111,7 +121,7 @@ const CardForm = ({
           <div>
             <Subtitle>Deadline</Subtitle>
             <DeadlineBox>
-              <Text>
+              <Text theme={theme}>
                 {selectedDate
                   ? formattedDateLong
                   : deadLineDateLong || `Today, ${dayjs().format('MMMM D')}`}

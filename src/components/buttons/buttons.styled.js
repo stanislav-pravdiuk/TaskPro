@@ -366,7 +366,8 @@ const ButtonUpDateIcon = styled.svg`
 const ButtonUpDateSvg = styled.use`
   width: 16px;
   height: 16px;
-  fill: var(--color-light-gray);
+  stroke: inherit;
+  fill: inherit;
 `;
 
 const ButtonClose = styled.button`
@@ -386,13 +387,18 @@ const ButtonClose = styled.button`
 const ButtonCloseIcon = styled.svg`
   width: 18px;
   height: 18px;
-  fill: var(--color-white);
+  fill: ${props => {
+    return props.theme.palette.text.primary;
+  }};
+  stroke: ${props => {
+    return props.theme.palette.text.primary;
+  }};
 `;
 
 const ButtonCloseSvg = styled.use`
   width: 18px;
   height: 18px;
-  fill: var(--color-black);
+  fill: inherit;
 `;
 
 // _____________________
@@ -405,12 +411,17 @@ const ButtonFilter = styled.button`
   height: 25px;
   padding: 5px;
   border-radius: 8px;
-  background-color: var(--bg-color-light);
+  background-color: ${props => {
+    return props.theme.palette.background.paper;
+  }};
   font-family: Poppins;
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
+  stroke: ${props => {
+    return props.theme.palette.text.primary;
+  }};
 `;
 
 const ButtonFilterThumb = styled.div`
@@ -426,6 +437,7 @@ const ButtonFilterIcon = styled.svg`
   padding-top: 4px;
   width: 20px;
   height: 20px;
+  stroke: inherit;
 `;
 
 // _________________

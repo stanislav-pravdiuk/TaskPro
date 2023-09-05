@@ -3,7 +3,12 @@ import { Field } from 'formik';
 
 export const FormContainer = styled.div`
   position: relative;
-  background-color: var(--color-cream);
+  background: ${props => {
+    return props.theme.palette.background.paper;
+  }};
+  color: ${props => {
+    return props.theme.palette.text.secondary;
+  }};
   width: 100vw;
   max-width: 350px;
   padding: 24px;
@@ -14,7 +19,6 @@ export const ModalTitle = styled.h2`
   margin: 0;
   font-family: Poppins;
   font-size: 18px;
-  color: var(--color-dark);
 `;
 
 export const Input = styled.input`
@@ -24,9 +28,14 @@ export const Input = styled.input`
   margin-top: 24px;
   margin-bottom: 24px;
   border-radius: 8px;
-  border: 1px solid var(--border-color);
-  background-color: var(--color-cream);
-  color: var(--color-dark);
+  border: 1px solid
+    ${props => {
+      return props.theme.palette.text.hint;
+    }};
+  background-color: inherit;
+  color: ${props => {
+    return props.theme.palette.text.primary;
+  }};
   font-family: Poppins;
   font-size: 14px;
   font-weight: 400;
@@ -44,9 +53,14 @@ export const Textarea = styled.textarea`
   width: 100%;
   height: 154px;
   border-radius: 8px;
-  border: 1px solid var(--border-color);
-  background-color: var(--color-cream);
-  color: var(--color-dark);
+  border: 1px solid
+    ${props => {
+      return props.theme.palette.text.hint;
+    }};
+  background-color: inherit;
+  color: ${props => {
+    return props.theme.palette.text.primary;
+  }};
   font-family: Poppins;
   font-size: 14px;
   font-weight: 400;
@@ -65,15 +79,15 @@ export const Subtitle = styled.h3`
   font-family: Poppins;
   font-size: 12px;
   font-weight: 400;
-  color: var(--color-dark);
+  color: inherit;
 `;
 
 export const Text = styled.p`
-  // margin-top: 4px;
-  // margin-bottom: 40px;
   font-family: Poppins;
   font-size: 14px;
-  color: var(--color-green);
+  color: ${props => {
+    return props.theme.palette.text.hint;
+  }};
 `;
 
 export const CloseButton = styled.button`
@@ -110,7 +124,7 @@ export const Dot = styled.span`
   }
 
   &.gray {
-    background-color: var(--color-light);
+    background-color: rgba(128, 128, 128, 0.7);
   }
 `;
 
@@ -152,7 +166,7 @@ export const RadioButton = styled(Field)`
   }
 
   &:checked.gray {
-    border: 1px solid var(--color-light);
+    border: 1px solid rgba(128, 128, 128, 0.7);
   }
 `;
 

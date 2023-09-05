@@ -106,7 +106,7 @@ const Card = ({ title, text, priority, deadline, card, boardId, columns }) => {
         break;
 
       default:
-        cardBordredColor = 'rgba(22, 22, 22, 0.30)';
+        cardBordredColor = 'rgba(128, 128, 128, 0.7)';
     }
 
     return cardBordredColor;

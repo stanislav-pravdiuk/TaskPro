@@ -44,6 +44,7 @@ import {
   ButtonFilterIcon,
   ButtonFilterThumb,
 } from './buttons.styled';
+import { useTheme } from '@mui/material';
 
 export const BtnLogOut = () => {
   return (
@@ -186,9 +187,11 @@ export const BtnRight = () => {
 };
 
 export const BtnClose = () => {
+  const theme = useTheme();
+
   return (
     <ButtonClose>
-      <ButtonCloseIcon>
+      <ButtonCloseIcon theme={theme}>
         <ButtonUpDateSvg href={icon + '#icon-x-close'}></ButtonUpDateSvg>
       </ButtonCloseIcon>
     </ButtonClose>
@@ -196,9 +199,11 @@ export const BtnClose = () => {
 };
 
 export const BtnCloseBlack = () => {
+  const theme = useTheme();
+
   return (
     <ButtonClose>
-      <ButtonCloseIcon>
+      <ButtonCloseIcon theme={theme}>
         <ButtonUpDateSvg href={icon + '#icon-x-close-2'}></ButtonUpDateSvg>
       </ButtonCloseIcon>
     </ButtonClose>
@@ -206,10 +211,12 @@ export const BtnCloseBlack = () => {
 };
 
 export const BtnFilter = ({ color, onClick }) => {
+  const theme = useTheme();
+
   return (
-    <ButtonFilter onClick={onClick}>
+    <ButtonFilter onClick={onClick} theme={theme}>
       <ButtonFilterThumb>
-        <ButtonFilterIcon style={{ stroke: `${color}` }}>
+        <ButtonFilterIcon>
           <use href={icon + '#icon-filter'}></use>
         </ButtonFilterIcon>
       </ButtonFilterThumb>
