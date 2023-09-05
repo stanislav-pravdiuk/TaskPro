@@ -249,7 +249,7 @@ const SideBar = ({ active, onClick }) => {
       <Box
         sx={{
           backgroundColor: 'primary.darker',
-          marginTop: 'calc(100vh - 600px)',
+          marginTop: 'calc(100vh - 625px)',
           borderRadius: '8px',
           padding: '20px',
 
