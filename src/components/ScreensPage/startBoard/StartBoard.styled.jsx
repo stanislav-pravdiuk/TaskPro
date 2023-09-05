@@ -11,7 +11,10 @@ export const Container = styled.div`
 export const TextBox = styled.div`
   width: 486px;
 
-  color: var(--color-text-card);
+  /* color: var(--color-text-card); */
+  color: ${props => {
+      return props.theme.palette.text.secondary;
+    }};
 
   text-align: center;
   font-family: Poppins;
@@ -23,7 +26,7 @@ export const TextBox = styled.div`
 `;
 
 export const Link = styled.a`
-  color: var(--color-green);
+  color: ${ props => props.theme.palette.text.hint };
   font-family: Poppins;
   font-size: 14px;
   font-style: normal;

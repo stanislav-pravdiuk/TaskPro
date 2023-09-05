@@ -242,7 +242,7 @@ const SideBar = ({ active, onClick }) => {
       </BoardsContainer>
       <Box
         sx={{
-          backgroundColor: 'rgba(246, 246, 247, 1)',
+          backgroundColor: 'primary.darker',
           marginTop: 'calc(100vh - 585px)',
           borderRadius: '8px',
           padding: '20px',
@@ -270,7 +270,7 @@ const SideBar = ({ active, onClick }) => {
               fontWeight: 400,
               fontSize: '14px',
               letterSpacing: 0.7,
-              color: 'rgba(22, 22, 22, 1)',
+              color: 'text.primary',
             }}
           >
             If you need help with
@@ -281,7 +281,7 @@ const SideBar = ({ active, onClick }) => {
                 fontSize: '14px',
                 lineHeight: '1.33',
                 letterSpacing: 0.7,
-                color: 'rgba(190, 219, 176, 1)',
+                color: 'primary.main',
                 textDecoration: 'none',
               }}
               onClick={openModal}

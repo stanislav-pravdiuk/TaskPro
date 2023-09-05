@@ -5,6 +5,7 @@ import MainDashboard from './MainDashboard/MainDashboard';
 import styled from 'styled-components';
 import { useParams } from 'react-router-dom';
 import StartBoard from './startBoard/StartBoard';
+import { useTheme } from '@mui/material';
 
 const ScreensPage = () => {
   const { boardName } = useParams();
@@ -21,6 +22,8 @@ const ScreensPage = () => {
     }
   }, [data]);
 
+  const theme = useTheme();
+
   const Container = styled.div`
     padding: 0;
     height: 100vh;
@@ -30,7 +33,9 @@ const ScreensPage = () => {
     background-repeat: no-repeat;
     background-position: center;
 
-    background-color: #f6f6f7;
+    background-color: ${props => {
+      return props.theme.palette.primary.darker;
+    }};
 
     @media screen and (min-width: 768px) {
       background-image: url(${bgImageTablet});
@@ -43,7 +48,7 @@ const ScreensPage = () => {
   `;
 
   return (
-    <Container>
+    <Container theme={theme}>
       {boardName ? (
         <>
           <HeaderDashboard boardName={data.title} filterValue={data.filter} />

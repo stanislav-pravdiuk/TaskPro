@@ -99,6 +99,8 @@ export const Title = styled.div`
   /* color: ${props => {
       return props.theme.palette.text.primary;
     }}; */
+  width: 200px; 
+  text-align: left;
   font-family: Poppins;
   font-size: 14px;
   font-style: normal;
@@ -124,7 +126,7 @@ export const BoardLink = styled(NavLink)`
   width: 100%;
   height: 100%;
   padding: 24px 20px;
-
+    
   font-size: 14px;
   color: ${props => {
       return props.theme.palette.text.disabled;
@@ -151,6 +153,7 @@ export const BoardLink = styled(NavLink)`
       return props.theme.palette.primary.contrastText;
     }};
     ${Title} {
+      width: 140px;
       color: ${props => {
       return props.theme.palette.secondary.dark;
     }};
