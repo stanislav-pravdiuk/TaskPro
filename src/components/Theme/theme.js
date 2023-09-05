@@ -6,6 +6,7 @@ const lightTheme = {
       dark: '#0b5c15',
       darker: '#F6F6F7',
       contrastText: 'rgba(22, 22, 22, 0.1)',
+      info: 'rgba(22, 22, 22, 0.5)',
     },
     secondary: {
       main: 'rgba(22, 22, 22, 0.10)',
@@ -34,6 +35,7 @@ const darkTheme = {
       dark: '#1b1c21',
       darker: '#1F1F1F',
       contrastText: 'rgba(255, 255, 255, 0.1)',
+      info: 'rgba(255, 255, 255, 0.5)',
     },
     secondary: {
       main: 'rgba(255, 255, 255, 0.10)',
@@ -61,6 +63,7 @@ const violetTheme = {
       dark: '#B8BCFD',
       darker: '#ECEDFD',
       contrastText: 'rgba(255, 255, 255, 0.1)',
+      info: 'rgba(22, 22, 22, 0.5)',
     },
     secondary: {
       main: 'rgba(22, 22, 22, 0.10)',

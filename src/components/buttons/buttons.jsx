@@ -44,6 +44,7 @@ import {
   ButtonFilterIcon,
   ButtonFilterThumb,
 } from './buttons.styled';
+import { useTheme } from '@mui/material';
 
 export const BtnLogOut = () => {
   return (
@@ -206,10 +207,12 @@ export const BtnCloseBlack = () => {
 };
 
 export const BtnFilter = ({ color, onClick }) => {
+  const theme = useTheme();
+
   return (
-    <ButtonFilter onClick={onClick}>
+    <ButtonFilter onClick={onClick} theme={theme}>
       <ButtonFilterThumb>
-        <ButtonFilterIcon style={{ stroke: `${color}` }}>
+        <ButtonFilterIcon>
           <use href={icon + '#icon-filter'}></use>
         </ButtonFilterIcon>
       </ButtonFilterThumb>

@@ -11,7 +11,7 @@ export const Container = styled.div`
     return props.theme.palette.text.primary;
   }};
   stroke: ${props => {
-    return props.theme.palette.text.disabled;
+    return props.theme.palette.primary.info;
   }};
   padding-left: 20px;
   padding-right: 20px;

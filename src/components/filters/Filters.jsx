@@ -12,36 +12,43 @@ import {
   CloseButton,
   Dot,
 } from './Filters.styled';
+import { useTheme } from '@mui/material';
 
 function Filters({ onClick, onChange, filterValue }) {
+  const theme = useTheme();
+
   return (
-    <Container>
+    <Container theme={theme}>
       <TitleBox>
         <Title>Filters</Title>
         <CloseButton type="button" onClick={onClick}>
           <BtnCloseBlack />
         </CloseButton>
       </TitleBox>
-      <ResetBox>
+      <ResetBox theme={theme}>
         <ResetTitle>Lable color</ResetTitle>
-        <BtnReset type="button" onClick={() => onChange('default')}>
+        <BtnReset
+          theme={theme}
+          type="button"
+          onClick={() => onChange('default')}
+        >
           Show all
         </BtnReset>
       </ResetBox>
-      <BtnBox>
-        <ColorOptionLabel className="gray">
+      <BtnBox theme={theme}>
+        <ColorOptionLabel theme={theme} className="gray">
           <RadioButton
             type="radio"
             name="priority"
             value="without"
-            checked={filterValue === 'low'}
+            checked={filterValue === 'without'}
             onChange={() => onChange('without')}
             className="gray"
           />
           <Dot className="gray"></Dot>
           Without priority
         </ColorOptionLabel>
-        <ColorOptionLabel className="blue">
+        <ColorOptionLabel theme={theme} className="blue">
           <RadioButton
             type="radio"
             name="priority"
@@ -53,7 +60,7 @@ function Filters({ onClick, onChange, filterValue }) {
           <Dot className="blue"></Dot>
           Low
         </ColorOptionLabel>
-        <ColorOptionLabel className="red">
+        <ColorOptionLabel theme={theme} className="red">
           <RadioButton
             type="radio"
             name="priority"
@@ -65,7 +72,7 @@ function Filters({ onClick, onChange, filterValue }) {
           <Dot className="red"></Dot>
           Medium
         </ColorOptionLabel>
-        <ColorOptionLabel className="green">
+        <ColorOptionLabel theme={theme} className="green">
           <RadioButton
             type="radio"
             name="priority"

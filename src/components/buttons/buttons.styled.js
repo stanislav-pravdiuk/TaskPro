@@ -405,12 +405,17 @@ const ButtonFilter = styled.button`
   height: 25px;
   padding: 5px;
   border-radius: 8px;
-  background-color: var(--bg-color-light);
+  background-color: ${props => {
+    return props.theme.palette.background.paper;
+  }};
   font-family: Poppins;
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
+  stroke: ${props => {
+    return props.theme.palette.text.primary;
+  }};
 `;
 
 const ButtonFilterThumb = styled.div`
@@ -426,6 +431,7 @@ const ButtonFilterIcon = styled.svg`
   padding-top: 4px;
   width: 20px;
   height: 20px;
+  stroke: inherit;
 `;
 
 // _________________

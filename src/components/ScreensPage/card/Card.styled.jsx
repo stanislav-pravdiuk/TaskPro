@@ -13,7 +13,7 @@ export const Container = styled.div`
     return props.theme.palette.text.secondary;
   }};
   stroke: ${props => {
-    return props.theme.palette.text.secondary;
+    return props.theme.palette.primary.info;
   }};
   padding: 14px 24px;
   margin-bottom: 8px;

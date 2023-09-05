@@ -21,7 +21,9 @@ export const Container = styled.div`
   }
 `;
 export const BoardName = styled.h2`
-  color: var(--color-dark);
+  color: ${props => {
+    return props.theme.palette.text.primary;
+  }};
   font-family: Poppins;
   font-size: 18px;
   font-style: normal;
@@ -33,7 +35,9 @@ export const BoardName = styled.h2`
 
   border-radius: 8px;
 
-  background-color: var(--bg-color-light);
+  background-color: ${props => {
+    return props.theme.palette.background.paper;
+  }};
 `;
 
 export const Thumb = styled.div`
