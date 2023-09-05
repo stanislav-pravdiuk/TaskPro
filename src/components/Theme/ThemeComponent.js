@@ -32,6 +32,8 @@ export const ThemeComponent = () => {
     setAnchorEl(null);
   };
 
+  const logoSvg = user.theme === 'dark' ? '#chevron-down-white' : '#chevron-down';
+
   return (
     <div
       style={{
@@ -65,7 +67,7 @@ export const ThemeComponent = () => {
             marginLeft: '4px',
           }}
         >
-          <use href={icon + '#chevron-down'}></use>
+          <use href={icon + `${logoSvg}`}></use>
         </SvgIcon>
       </Button>
       <Menu
