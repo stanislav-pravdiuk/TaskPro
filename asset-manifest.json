@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/TaskPro/static/css/main.71c9c283.css",
-    "main.js": "/TaskPro/static/js/main.310042b6.js",
+    "main.js": "/TaskPro/static/js/main.acf01b2e.js",
     "static/js/7.7de9119f.chunk.js": "/TaskPro/static/js/7.7de9119f.chunk.js",
     "static/js/617.254e5c17.chunk.js": "/TaskPro/static/js/617.254e5c17.chunk.js",
     "static/js/308.de6dc440.chunk.js": "/TaskPro/static/js/308.de6dc440.chunk.js",
@@ -12,13 +12,13 @@
     "static/media/Poppins-Medium.ttf": "/TaskPro/static/media/Poppins-Medium.673ed42382ab264e0bf5.ttf",
     "static/media/Poppins-SemiBold.ttf": "/TaskPro/static/media/Poppins-SemiBold.ac8d04b620e54be9b0f0.ttf",
     "static/media/cactus@3x.png": "/TaskPro/static/media/cactus@3x.3641a8cfb0ba46f1a188.png",
-    "static/media/icon.svg": "/TaskPro/static/media/icon.19adfd6af1bf06854e747a16bfad65b6.svg",
+    "static/media/icon.svg": "/TaskPro/static/media/icon.dbbab885ba89c07a4169b8b0ae06f27b.svg",
     "static/media/cactus@2x.png": "/TaskPro/static/media/cactus@2x.7e113c606f1493767af7.png",
     "static/media/welcome-desktop.png": "/TaskPro/static/media/welcome-desktop.47ac3097a0f12b998d37.png",
     "static/media/welcome-mobile.png": "/TaskPro/static/media/welcome-mobile.18cd06cd3e6a06f73b1f.png",
     "index.html": "/TaskPro/index.html",
     "main.71c9c283.css.map": "/TaskPro/static/css/main.71c9c283.css.map",
-    "main.310042b6.js.map": "/TaskPro/static/js/main.310042b6.js.map",
+    "main.acf01b2e.js.map": "/TaskPro/static/js/main.acf01b2e.js.map",
     "7.7de9119f.chunk.js.map": "/TaskPro/static/js/7.7de9119f.chunk.js.map",
     "617.254e5c17.chunk.js.map": "/TaskPro/static/js/617.254e5c17.chunk.js.map",
     "308.de6dc440.chunk.js.map": "/TaskPro/static/js/308.de6dc440.chunk.js.map",
@@ -28,6 +28,6 @@
   },
   "entrypoints": [
     "static/css/main.71c9c283.css",
-    "static/js/main.310042b6.js"
+    "static/js/main.acf01b2e.js"
   ]
 }
