@@ -189,10 +189,9 @@ const SideBar = ({ active, onClick }) => {
               backgroundColor: 'secondary.warning',
               padding: '8px 10px',
               minWidth: 0,
-              transition: 'transform 200ms linear',
+              transition: 'background-color 200ms linear',
               '&:hover': {
-                backgroundColor: 'secondary.light',
-                transform: 'scale(0.9)',
+                backgroundColor: 'text.error',
               },
             }}
           >
