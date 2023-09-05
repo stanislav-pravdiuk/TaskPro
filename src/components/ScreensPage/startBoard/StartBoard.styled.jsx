@@ -6,6 +6,16 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  padding: 20px;
+
+  @media screen and (min-width: 768px) {
+    padding: 32px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    padding: 24px;
+  }
 `;
 
 export const TextBox = styled.div`
@@ -13,8 +23,8 @@ export const TextBox = styled.div`
 
   /* color: var(--color-text-card); */
   color: ${props => {
-      return props.theme.palette.text.secondary;
-    }};
+    return props.theme.palette.text.secondary;
+  }};
 
   text-align: center;
   font-family: Poppins;
@@ -26,7 +36,7 @@ export const TextBox = styled.div`
 `;
 
 export const Link = styled.a`
-  color: ${ props => props.theme.palette.text.hint };
+  color: ${props => props.theme.palette.text.hint};
   font-family: Poppins;
   font-size: 14px;
   font-style: normal;
