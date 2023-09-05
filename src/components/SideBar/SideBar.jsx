@@ -38,9 +38,10 @@ import {
   useUpdateBoardMutation,
   useDeleteBoardMutation,
 } from 'redux/boards/boardsApi';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { logOut } from 'redux/auth/authOperations';
 import { useTheme } from '@mui/material';
+import { selectUser } from 'redux/auth/authSelectors';
 
 const SideBar = ({ active, onClick }) => {
   const [openAddModal, setOpenAddModal] = useState(false);
@@ -106,7 +107,10 @@ const SideBar = ({ active, onClick }) => {
   };
 
   const theme = useTheme();
-
+  const user = useSelector(selectUser);
+ 
+  const logoSvg = user.theme === 'violet' ? '#icon-logo-violet' : '#icon-icon-1';
+  
   const drawerContent = (
     <SideBarStyled
       sx={{
@@ -121,8 +125,8 @@ const SideBar = ({ active, onClick }) => {
           marginBottom: '60px',
         }}
       >
-        <LogoIcon>
-          <use href={icon + '#icon-icon-1'}></use>
+        <LogoIcon> 
+            <use href={icon + `${logoSvg}`}></use> 
         </LogoIcon>
         <Typography
           variant="h2"
@@ -131,7 +135,7 @@ const SideBar = ({ active, onClick }) => {
             fontSize: '16px',
             letterSpacing: 0.7,
             fontWeight: 600,
-            color: 'text.primary',
+            color: 'secondary.dark',
           }}
         >
           Task Pro
@@ -359,7 +363,7 @@ const SideBar = ({ active, onClick }) => {
           </LogoutIcon>
           <Typography
             sx={{
-              color: 'rgba(22, 22, 22, 1)',
+              color: 'secondary.dark',
               fontFamily: 'Poppins',
               textTransform: 'none',
               fontWeight: 500,

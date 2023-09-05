@@ -11,6 +11,9 @@ import { selectUser } from 'redux/auth/authSelectors';
 import { useSelector } from 'react-redux';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import getThemePalette from 'components/Theme/getThemePalette';
+import { Container } from './App.styled';
+import CircularWithValueLabel from './loaders/DownloadData';
+import RefreshUser from './loaders/RefreshUser';
 
 const HomePage = lazy(() => import('screens/homePage/HomePage'));
 const WelcomePage = lazy(() => import('../screens/welcomePage/WelcomePage'));
@@ -29,9 +32,16 @@ export const App = () => {
   }, [dispatch]);
   return (
     <ThemeProvider theme={theme}>
-      <Suspense fallback={<b>Загрузка...</b>}>
+      <Suspense
+        fallback={
+          <Container>
+            <CircularWithValueLabel/>
+          </Container>
+      }>
         {isRefreshing ? (
-          <b>Refreshing user...</b>
+          <Container>
+            <RefreshUser/>
+          </Container>
         ) : (
           <>
             <Toaster />
