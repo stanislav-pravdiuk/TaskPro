@@ -35,11 +35,13 @@ export const TextBox = styled.div`
   letter-spacing: -0.28px;
 `;
 
-export const Link = styled.a`
+export const Link = styled.button`
   color: ${props => props.theme.palette.text.hint};
   font-family: Poppins;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: 18px;
+  margin-left: 3px;
+  margin-right: 3px;
 `;
