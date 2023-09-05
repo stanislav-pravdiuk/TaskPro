@@ -8,6 +8,7 @@ const lightTheme = {
       contrastText: 'rgba(22, 22, 22, 0.1)',
       info: 'rgba(22, 22, 22, 0.5)',
       error: '#161616',
+      hint: '#161616',
     },
     secondary: {
       main: 'rgba(22, 22, 22, 0.10)',
@@ -41,6 +42,7 @@ const darkTheme = {
       contrastText: 'rgba(255, 255, 255, 0.1)',
       info: 'rgba(255, 255, 255, 0.5)',
       error: '#FFFFFF',
+      hint: '#161616',
     },
     secondary: {
       main: 'rgba(255, 255, 255, 0.10)',
@@ -73,6 +75,7 @@ const violetTheme = {
       contrastText: 'rgba(255, 255, 255, 0.1)',
       info: 'rgba(22, 22, 22, 0.5)',
       error: '#5255BC',
+      hint: '#FFF',
     },
     secondary: {
       main: 'rgba(22, 22, 22, 0.10)',

@@ -130,9 +130,13 @@ export const AuthFormSubmitButton = styled.button`
   font-size: 14px;
   letter-spacing: -0.28px;
 
-  background: var(--color-green);
+  background-color: ${props => {
+    return props.theme.palette.text.hint;
+  }};
+  color: ${props => {
+    return props.theme.palette.primary.hint;
+  }};
   border-radius: 8px;
-  border: 1px solid var(--color-green);
 
   transition: all 250ms linear;
   cursor: pointer;

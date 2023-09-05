@@ -47,6 +47,8 @@ export const BtnPlus = styled.button`
   background-color: ${props => {
     return props.theme.palette.secondary.light;
   }};
+
+  stroke: black;
 `;
 
 export const InputContainer = styled.div`
@@ -101,7 +103,12 @@ export const BtnForm = styled.button`
   width: 100%;
   height: 49px;
   margin-top: 24px;
-  background-color: var(--color-green);
+  background-color: ${props => {
+    return props.theme.palette.text.hint;
+  }};
+  color: ${props => {
+    return props.theme.palette.primary.hint;
+  }};
   border-radius: 8px;
   font-family: Poppins;
   font-size: 14px;

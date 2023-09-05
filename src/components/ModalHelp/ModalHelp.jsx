@@ -76,7 +76,9 @@ const NeedHelpModal = ({ closeModal }) => {
             </Container>
           </FormWrapper>
 
-          <AuthFormSubmitButton type="submit">Send</AuthFormSubmitButton>
+          <AuthFormSubmitButton theme={theme} type="submit">
+            Send
+          </AuthFormSubmitButton>
         </ModalForm>
       </Formik>
     </Section>

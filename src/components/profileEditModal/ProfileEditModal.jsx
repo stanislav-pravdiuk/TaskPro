@@ -175,7 +175,9 @@ const ProfileEditModal = ({ user, modalClose }) => {
               </ShowPasswordBtn>
             </PasswordContainer>
           </InputContainer>
-          <BtnForm type="submit">Send</BtnForm>
+          <BtnForm theme={themeObj} type="submit">
+            Send
+          </BtnForm>
         </Form>
       </Formik>
     </FormContainer>
