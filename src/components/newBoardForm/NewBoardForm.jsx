@@ -11,7 +11,6 @@ import sprite from '../iconSvg/icon.svg';
 import {
   FormContainer,
   Title,
-  Container,
   Input,
   Text,
   Icon,
@@ -22,7 +21,6 @@ import {
   RadioField,
   RadioFieldBg,
   FormikContainer,
-  Error,
   CloseButton,
 } from './NewBoardForm.styled';
 import BtnAdd from 'components/ScreensPage/btnAdd/BtnAdd';

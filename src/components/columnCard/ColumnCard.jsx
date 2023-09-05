@@ -5,8 +5,6 @@ import {
   ModalTitle,
   Input,
   FormContainer,
-  Error,
-  Container,
   CloseButton,
 } from '../cardForm/CardForm.styled';
 import BtnAdd from 'components/ScreensPage/btnAdd/BtnAdd';

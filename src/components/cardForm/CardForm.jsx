@@ -14,9 +14,6 @@ import {
   RadioButtonContainer,
   RadioButton,
   Dot,
-  Error,
-  ErrorText,
-  Container,
   CloseButton,
 } from './CardForm.styled';
 import BtnAdd from 'components/ScreensPage/btnAdd/BtnAdd';
