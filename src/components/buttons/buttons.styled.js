@@ -56,6 +56,7 @@ const ButtonCloseIcon = styled.svg`
   stroke: ${props => {
     return props.theme.palette.text.primary;
   }};
+  cursor: pointer;
 `;
 
 const ButtonCloseSvg = styled.use`
