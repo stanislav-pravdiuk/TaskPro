@@ -35,12 +35,13 @@ export const App = () => {
       <Suspense
         fallback={
           <Container>
-            <CircularWithValueLabel/>
+            <CircularWithValueLabel />
           </Container>
-      }>
+        }
+      >
         {isRefreshing ? (
           <Container>
-            <RefreshUser/>
+            <RefreshUser />
           </Container>
         ) : (
           <>
@@ -77,10 +78,7 @@ export const App = () => {
                 path="/home"
                 element={
                   <Layout>
-                    <PrivateRoute
-                      component={<HomePage />}
-                      redirectTo="/auth/login"
-                    />
+                    <PrivateRoute component={<HomePage />} redirectTo="/" />
                   </Layout>
                 }
               />
