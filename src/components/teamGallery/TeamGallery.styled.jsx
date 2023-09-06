@@ -17,6 +17,7 @@ export const Card = styled.div`
   flex-shrink: 0;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
   border-radius: 8px;
   background: #fff;
   padding: 18px;
@@ -52,7 +53,6 @@ export const Name = styled.h3`
 export const Position = styled.p`
   color: var(--color-text-dark-07);
   text-overflow: ellipsis;
-  whitespace: nowrap;
   font-family: Poppins;
   font-size: 12px;
   font-style: normal;
