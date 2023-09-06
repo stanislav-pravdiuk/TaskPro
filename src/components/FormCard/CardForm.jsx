@@ -29,7 +29,7 @@ import { useTheme } from '@mui/material';
 const CardForm = ({
   title,
   text,
-  priority,
+  priority = 'without',
   formTitle,
   btnText,
   onSubmit,
@@ -56,7 +56,7 @@ const CardForm = ({
   const initialValues = {
     title: title || '',
     text: text || '',
-    priority: priority || 'without',
+    priority: priority || '',
     deadline,
   };
 
