@@ -28,7 +28,7 @@ import {
   NeedHelpBox,
 } from './Sidebar.styled';
 import { useGetBoardsQuery } from 'redux/boards/boardsApi';
-import { useLocation, useParams } from 'react-router-dom';
+import { useLocation, useParams, useNavigate } from 'react-router-dom';
 
 import NewBoardForm from 'components/FormBoard/NewBoardForm';
 import ModalHelp from 'components/FormFeedback/ModalHelp';
@@ -64,6 +64,7 @@ const SideBar = ({ active, onClick }) => {
   const [updateBoard] = useUpdateBoardMutation();
   const [deleteBoard] = useDeleteBoardMutation();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -91,11 +92,12 @@ const SideBar = ({ active, onClick }) => {
     setOpenHelpModal(false);
   };
 
-  const handleSubmit = (data, formTitle) => {
+  const handleSubmit = async (data, formTitle) => {
     const boardId = boardName;
 
     if (formTitle === 'New board') {
-      addBoard({ data });
+      await addBoard({ data });
+
       closeAddModal();
       return;
     }
@@ -109,6 +111,8 @@ const SideBar = ({ active, onClick }) => {
 
   const deleteBoardHanlder = boardId => {
     deleteBoard({ boardId });
+
+    navigate('/home');
   };
 
   const theme = useTheme();
@@ -252,11 +256,7 @@ const SideBar = ({ active, onClick }) => {
                             <use href={icon + '#icon-pencil-01'}></use>
                           </Edit>
                         </IconButton>
-                        <IconLink
-                          to={`/home`}
-                          onClick={() => deleteBoardHanlder(board._id)}
-                          replace
-                        >
+                        <IconLink onClick={() => deleteBoardHanlder(board._id)}>
                           <Delete>
                             <use href={icon + '#icon-trash-04'}></use>
                           </Delete>
@@ -465,82 +465,84 @@ const SideBar = ({ active, onClick }) => {
   );
 
   return (
-    <Box sx={{ display: 'flex' }}>
-      <CssBaseline />
+    <>
+      <Box sx={{ display: 'flex' }}>
+        <CssBaseline />
 
-      <Drawer
-        variant="temporary"
-        open={active}
-        onClose={onClick}
-        ModalProps={{
-          keepMounted: true,
-        }}
-        sx={{
-          '@media (min-width: 1440px)': {
-            display: { xs: 'block', sm: 'none' },
-          },
+        <Drawer
+          variant="temporary"
+          open={active}
+          onClose={onClick}
+          ModalProps={{
+            keepMounted: true,
+          }}
+          sx={{
+            '@media (min-width: 1440px)': {
+              display: { xs: 'block', sm: 'none' },
+            },
 
-          '& .MuiDrawer-paper': {
-            boxSizing: 'border-box',
-            width: 225,
-          },
-
-          '@media (min-width: 768px)': {
             '& .MuiDrawer-paper': {
               boxSizing: 'border-box',
-              width: 260,
+              width: 225,
             },
-          },
-        }}
-      >
-        {drawerContent}
-      </Drawer>
 
-      <Drawer
-        variant="permanent"
-        sx={{
-          '@media (max-width: 1439px)': {
-            display: 'none',
-          },
+            '@media (min-width: 768px)': {
+              '& .MuiDrawer-paper': {
+                boxSizing: 'border-box',
+                width: 260,
+              },
+            },
+          }}
+        >
+          {drawerContent}
+        </Drawer>
 
-          '& .MuiDrawer-paper': {
-            boxSizing: 'border-box',
-            width: 225,
-          },
+        <Drawer
+          variant="permanent"
+          sx={{
+            '@media (max-width: 1439px)': {
+              display: 'none',
+            },
 
-          '@media (min-width: 768px)': {
             '& .MuiDrawer-paper': {
               boxSizing: 'border-box',
-              width: 260,
+              width: 225,
             },
-          },
-        }}
-        open
-      >
-        {drawerContent}
-      </Drawer>
-      <MainModal modalIsOpen={openAddModal} closeModal={closeAddModal}>
-        <NewBoardForm
-          formTitle={'New board'}
-          btnText={'Create'}
-          handleSubmit={handleSubmit}
-          closeModal={closeAddModal}
-        ></NewBoardForm>
-      </MainModal>
-      <MainModal modalIsOpen={openEditModal} closeModal={closeEditModal}>
-        <NewBoardForm
-          formTitle={'Edit board'}
-          btnText={'Edit'}
-          handleSubmit={handleSubmit}
-          boardTitle={activeBoardTitle}
-          boardIcon={activeBoardIcon}
-          closeModal={closeEditModal}
-        ></NewBoardForm>
-      </MainModal>
-      <MainModal modalIsOpen={openHelpModal} closeModal={closeHelpModal}>
-        <ModalHelp closeModal={closeHelpModal} />
-      </MainModal>
-    </Box>
+
+            '@media (min-width: 768px)': {
+              '& .MuiDrawer-paper': {
+                boxSizing: 'border-box',
+                width: 260,
+              },
+            },
+          }}
+          open
+        >
+          {drawerContent}
+        </Drawer>
+        <MainModal modalIsOpen={openAddModal} closeModal={closeAddModal}>
+          <NewBoardForm
+            formTitle={'New board'}
+            btnText={'Create'}
+            handleSubmit={handleSubmit}
+            closeModal={closeAddModal}
+          ></NewBoardForm>
+        </MainModal>
+        <MainModal modalIsOpen={openEditModal} closeModal={closeEditModal}>
+          <NewBoardForm
+            formTitle={'Edit board'}
+            btnText={'Edit'}
+            handleSubmit={handleSubmit}
+            boardTitle={activeBoardTitle}
+            boardIcon={activeBoardIcon}
+            closeModal={closeEditModal}
+          ></NewBoardForm>
+        </MainModal>
+        <MainModal modalIsOpen={openHelpModal} closeModal={closeHelpModal}>
+          <ModalHelp closeModal={closeHelpModal} />
+        </MainModal>
+      </Box>
+    </>
   );
 };
 

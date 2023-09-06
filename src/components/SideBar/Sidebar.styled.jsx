@@ -220,7 +220,7 @@ export const IconButton = styled.button`
   justify-content: center;
 `;
 
-export const IconLink = styled(Link)`
+export const IconLink = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;

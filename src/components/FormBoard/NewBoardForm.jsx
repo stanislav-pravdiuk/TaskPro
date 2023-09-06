@@ -52,7 +52,6 @@ const NewBoardForm = ({
       return;
     }
     const data = { ...values, background };
-    console.log(data);
 
     handleSubmit(data, formTitle);
   };
