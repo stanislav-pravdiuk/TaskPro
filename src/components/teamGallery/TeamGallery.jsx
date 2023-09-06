@@ -147,7 +147,7 @@ function TeamGallery() {
                     </UserPhotoBox>
                     <NameBox>
                         <Name>Iryna Semenova</Name>
-                        <Position>Developer [Backend/Frontend]</Position>
+                        <Position>Developer [Frontend]</Position>
                     </NameBox>
                     <LinkBox>
                         <Link href="https://github.com/IrinaSemenovaa">
