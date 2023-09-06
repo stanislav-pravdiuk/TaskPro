@@ -1,12 +1,17 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
- width: 100%;
-  max-width:
+  width: 100%;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
   background-color: opacity;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  justify-items: center;
 `;
+
 export const Title = styled.h2`
 color: var(--color-text-dark-main);
 font-family: Poppins;
