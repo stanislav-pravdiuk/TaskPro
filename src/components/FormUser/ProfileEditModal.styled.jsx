@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { ErrorMessage } from 'formik';
 
 export const FormContainer = styled.div`
   position: relative;
@@ -87,6 +88,7 @@ export const Input = styled.input`
 export const PasswordContainer = styled.div`
   position: relative;
   display: inline-block;
+  width: 100%;
 `;
 
 export const ShowPasswordBtn = styled.button`
@@ -96,6 +98,26 @@ export const ShowPasswordBtn = styled.button`
   right: 18px;
   width: 18px;
   height: 18px;
+`;
+
+export const Container = styled.div`
+  line-height: 0;
+  position: relative;
+  display: block;
+  width: 100%;
+  margin-bottom: 0;
+`;
+
+export const Error = styled(ErrorMessage)`
+  position: absolute;
+  bottom: -8px;
+  padding-left: 14px;
+  margin: 0;
+  color: var(--color-pastel);
+  font-size: 12px;
+  font-family: Poppins;
+  font-weight: 500;
+  letter-spacing: -0.36px;
 `;
 
 export const BtnForm = styled.button`
@@ -128,4 +150,8 @@ export const CloseButton = styled.div`
   position: absolute;
   top: 14px;
   right: 14px;
+`;
+
+export const Icon = styled.svg`
+  stroke: ${props => props.theme.palette.text.primary};
 `;

@@ -15,6 +15,9 @@ import {
   ShowPasswordBtn,
   BtnForm,
   CloseButton,
+  Container,
+  Error,
+  Icon,
 } from './ProfileEditModal.styled';
 import { useTheme } from '@mui/material';
 
@@ -23,18 +26,14 @@ import { updateUserProfile } from '../../redux/auth/authOperations';
 import icon from '../iconSvg/icon.svg';
 import avatarLight from '../../images/userAvatarLight.jpg';
 import avatarDark from '../../images/userAvatarDark.jpg';
-// import Button from '@mui/material/Button';
-// import avatar from '../../images/userAvatar.jpg';
 import { toast } from 'react-hot-toast';
 import { BtnCloseBlack } from 'components/buttons/buttons';
 import { selectTheme } from 'redux/auth/authSelectors';
 
 const validationSchema = Yup.object().shape({
-  login: Yup.string().required('Login is required'),
-  email: Yup.string().email('Invalid email').required('Email is required'),
-  password: Yup.string()
-    .min(6, 'Password must be at least 6 characters')
-    .required('Password is required'),
+  login: Yup.string().min(3),
+  email: Yup.string().email('Invalid email'),
+  password: Yup.string().min(6, 'Password must be at least 6 characters'),
 });
 
 const ProfileEditModal = ({ user, modalClose }) => {
@@ -62,8 +61,8 @@ const ProfileEditModal = ({ user, modalClose }) => {
   const handleFileSelect = event => {
     const file = event.target.files[0];
 
-    if (file.size > 100 * 1024) {
-      toast.error('The file size must not exceed 100 KB');
+    if (file.size > 50 * 1024) {
+      toast.error('The file size must not exceed 50 KB');
       return;
     }
 
@@ -86,13 +85,11 @@ const ProfileEditModal = ({ user, modalClose }) => {
         password: values.password,
         avatar: selectedAvatar,
       };
-      console.log('newData', newData);
       await dispatch(updateUserProfile(newData)).unwrap();
 
       toast.success('Saved successfully!!!');
       modalClose();
     } catch (error) {
-      console.error('Error:', error.message);
       toast.error(
         "Oops, it's looks like something went wrong... Please, try again!"
       );
@@ -145,14 +142,17 @@ const ProfileEditModal = ({ user, modalClose }) => {
             </label>
           </AvatarContainer>
           <InputContainer>
-            <Field
-              theme={themeObj}
-              type="text"
-              id="login"
-              name="login"
-              placeholder="Name"
-              as={Input}
-            />
+            <Container>
+              <Field
+                theme={themeObj}
+                type="text"
+                id="login"
+                name="login"
+                placeholder="Name"
+                as={Input}
+              />
+              <Error name="login" component="div" />
+            </Container>
             <Field
               theme={themeObj}
               type="email"
@@ -161,28 +161,29 @@ const ProfileEditModal = ({ user, modalClose }) => {
               placeholder="Email"
               as={Input}
             />
-            <PasswordContainer>
-              <Field
-                theme={themeObj}
-                type={showPassword ? 'text' : 'password'}
-                id="password"
-                name="password"
-                placeholder="Password"
-                as={Input}
-              />
-              <ShowPasswordBtn
-                type="button"
-                onClick={() => setShowPassword(!showPassword)}
-              >
-                <svg width="18" height="18">
-                  <use href={icon + '#icon-eye'}></use>
-                </svg>
-              </ShowPasswordBtn>
-            </PasswordContainer>
+            <Container>
+              <PasswordContainer>
+                <Field
+                  theme={themeObj}
+                  type={showPassword ? 'text' : 'password'}
+                  id="password"
+                  name="password"
+                  placeholder="Password"
+                  as={Input}
+                />
+                <ShowPasswordBtn
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                >
+                  <Icon theme={themeObj} width="18" height="18">
+                    <use href={icon + '#icon-eye'}></use>
+                  </Icon>
+                </ShowPasswordBtn>
+              </PasswordContainer>
+              <Error name="password" component="div" />
+            </Container>
           </InputContainer>
-          <BtnForm theme={themeObj} type="submit">
-            Send
-          </BtnForm>
+          <BtnForm theme={themeObj}>Send</BtnForm>
         </Form>
       </Formik>
     </FormContainer>
