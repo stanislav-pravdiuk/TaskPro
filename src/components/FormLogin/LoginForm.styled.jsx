@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-
 const Container = styled.div`
   display: flex;
   align-items: center;
@@ -55,7 +54,6 @@ const RegisterLink = styled(Link)`
   text-decoration: none;
 `;
 
-
 const InputField = styled.div`
   display: flex;
   flex-direction: column;
@@ -83,6 +81,7 @@ const InputField = styled.div`
 const RegisterBtn = styled.button`
   font-style: normal;
   font-weight: 500;
+  font-family: Poppins;
   font-size: 14px;
   line-height: 21px;
   text-align: center;
@@ -94,6 +93,9 @@ const RegisterBtn = styled.button`
   border-radius: 8px;
   color: var(--color-dark);
   cursor: pointer;
+
+  transition: opacity 200ms linear;
+
   &:hover {
     opacity: 0.8;
   }
@@ -104,13 +106,13 @@ const RegisterBtn = styled.button`
     width: 100%;
   }
 `;
-const PasswordInput = styled.div `
+const PasswordInput = styled.div`
   position: relative;
   display: flex;
   align-items: center;
   flex-direction: column;
   gap: 14px;
-`
+`;
 const Passwordsvg = styled.svg`
   position: absolute;
   right: 18px;
@@ -128,18 +130,31 @@ const Passwordsvg = styled.svg`
 `;
 
 const ErrorText = styled.div`
-position: absolute;
-bottom: -15px;
-right: 0;
-font-size: 11px;
-font-weight: 400;
-font-style: normal;
-letter-spacing: -1%;
-opacity: 0.9;
-color: #fff;`
+  position: absolute;
+  bottom: -15px;
+  right: 0;
+  font-size: 11px;
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: -1%;
+  opacity: 0.9;
+  color: #fff;
+`;
 
 const StyledWrapInputAuth = styled.div`
   position: relative;
 `;
 
-export  {Container, FormContainer, LinkMenu, RegisterLink, LoginLink, InputField , RegisterBtn, ErrorText, PasswordInput, Passwordsvg, StyledWrapInputAuth  }
+export {
+  Container,
+  FormContainer,
+  LinkMenu,
+  RegisterLink,
+  LoginLink,
+  InputField,
+  RegisterBtn,
+  ErrorText,
+  PasswordInput,
+  Passwordsvg,
+  StyledWrapInputAuth,
+};

@@ -125,6 +125,13 @@ const RegistrationButton = styled(Link)`
   cursor: pointer;
   text-transform: none;
   text-decoration: none;
+
+  transition: opacity 200ms linear;
+
+  &:hover {
+    opacity: 0.9;
+  }
+
   @media screen and (max-width: 768px) {
     padding: 14px 126px 14px 126px;
   }
@@ -140,6 +147,12 @@ const LoginButton = styled(Link)`
   color: var(--color-dark);
   cursor: pointer;
   text-decoration: none;
+
+  transition: opacity 200ms linear;
+
+  &:hover {
+    opacity: 0.7;
+  }
 `;
 
 export {
