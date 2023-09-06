@@ -1,12 +1,12 @@
 {
   "files": {
     "main.css": "/TaskPro/static/css/main.71c9c283.css",
-    "main.js": "/TaskPro/static/js/main.c1f0375f.js",
+    "main.js": "/TaskPro/static/js/main.ff35ebc0.js",
     "static/js/779.52add935.chunk.js": "/TaskPro/static/js/779.52add935.chunk.js",
     "static/js/89.e84886d5.chunk.js": "/TaskPro/static/js/89.e84886d5.chunk.js",
     "static/js/968.5eda00ea.chunk.js": "/TaskPro/static/js/968.5eda00ea.chunk.js",
     "static/js/645.e7cad5d6.chunk.js": "/TaskPro/static/js/645.e7cad5d6.chunk.js",
-    "static/js/902.faf79532.chunk.js": "/TaskPro/static/js/902.faf79532.chunk.js",
+    "static/js/902.cac90edd.chunk.js": "/TaskPro/static/js/902.cac90edd.chunk.js",
     "static/js/359.2a291f0d.chunk.js": "/TaskPro/static/js/359.2a291f0d.chunk.js",
     "static/media/SvitlanaSoroka.jpg": "/TaskPro/static/media/SvitlanaSoroka.7a2ce843b9bd62023ab0.jpg",
     "static/media/MykolaRomashenko.jpg": "/TaskPro/static/media/MykolaRomashenko.be4e26f3f4d5c710f5cf.jpg",
@@ -29,16 +29,16 @@
     "static/media/welcome-mobile.png": "/TaskPro/static/media/welcome-mobile.18cd06cd3e6a06f73b1f.png",
     "index.html": "/TaskPro/index.html",
     "main.71c9c283.css.map": "/TaskPro/static/css/main.71c9c283.css.map",
-    "main.c1f0375f.js.map": "/TaskPro/static/js/main.c1f0375f.js.map",
+    "main.ff35ebc0.js.map": "/TaskPro/static/js/main.ff35ebc0.js.map",
     "779.52add935.chunk.js.map": "/TaskPro/static/js/779.52add935.chunk.js.map",
     "89.e84886d5.chunk.js.map": "/TaskPro/static/js/89.e84886d5.chunk.js.map",
     "968.5eda00ea.chunk.js.map": "/TaskPro/static/js/968.5eda00ea.chunk.js.map",
     "645.e7cad5d6.chunk.js.map": "/TaskPro/static/js/645.e7cad5d6.chunk.js.map",
-    "902.faf79532.chunk.js.map": "/TaskPro/static/js/902.faf79532.chunk.js.map",
+    "902.cac90edd.chunk.js.map": "/TaskPro/static/js/902.cac90edd.chunk.js.map",
     "359.2a291f0d.chunk.js.map": "/TaskPro/static/js/359.2a291f0d.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.71c9c283.css",
-    "static/js/main.c1f0375f.js"
+    "static/js/main.ff35ebc0.js"
   ]
 }
