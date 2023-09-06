@@ -4,8 +4,8 @@ import { useDispatch } from 'react-redux';
 import { Toaster } from 'react-hot-toast';
 import { useAuth } from 'hooks/useAuth';
 import { refreshUser } from 'redux/auth/authOperations';
-import { PrivateRoute } from '../privateRoute/PrivateRoute';
-import { RestrictedRoute } from 'restrictedRoute/RestrictedRoute';
+import { PrivateRoute } from '../PrivateRoute/PrivateRoute';
+import { RestrictedRoute } from 'RestrictedRoute/RestrictedRoute';
 import Layout from './layout/Layout';
 import { selectUser } from 'redux/auth/authSelectors';
 import { useSelector } from 'react-redux';
@@ -15,10 +15,10 @@ import { Container } from './App.styled';
 import CircularWithValueLabel from './loaders/DownloadData';
 import RefreshUser from './loaders/RefreshUser';
 
-const HomePage = lazy(() => import('screens/homePage/HomePage'));
-const WelcomePage = lazy(() => import('../screens/welcomePage/WelcomePage'));
-const LoginForm = lazy(() => import('./loginForm/LoginForm'));
-const RegisterForm = lazy(() => import('./registerForm/RegisterForm'));
+const HomePage = lazy(() => import('screens/HomePage/HomePage'));
+const WelcomePage = lazy(() => import('../screens/WelcomePage/WelcomePage'));
+const LoginForm = lazy(() => import('./FormLogin/LoginForm'));
+const RegisterForm = lazy(() => import('./FormRegister/RegisterForm'));
 const ScrensPage = lazy(() => import('../components/ScreensPage/ScreensPage'));
 
 export const App = () => {

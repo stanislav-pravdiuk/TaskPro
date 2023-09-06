@@ -30,10 +30,10 @@ import {
 import { useGetBoardsQuery } from 'redux/boards/boardsApi';
 import { useLocation, useParams } from 'react-router-dom';
 
-import NewBoardForm from 'components/newBoardForm/NewBoardForm';
-import ModalHelp from 'components/ModalHelp/ModalHelp';
+import NewBoardForm from 'components/FormBoard/NewBoardForm';
+import ModalHelp from 'components/FormFeedback/ModalHelp';
 import MainModal from 'components/MainModal/MainModal';
-import NeedHelpModal from 'components/ModalHelp/ModalHelp';
+import NeedHelpModal from 'components/FormFeedback/ModalHelp';
 import sprite from '../iconSvg/icon.svg';
 
 import {

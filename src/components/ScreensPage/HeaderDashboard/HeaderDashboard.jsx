@@ -1,4 +1,4 @@
-import Filters from 'components/filters/Filters';
+import Filters from 'components/Filter/Filters';
 import { BoardName, Container, Thumb } from './HeaderDashboard.styled';
 import { BtnFilter } from 'components/buttons/buttons';
 import { useState } from 'react';

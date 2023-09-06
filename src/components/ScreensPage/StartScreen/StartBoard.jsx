@@ -3,7 +3,7 @@ import { Container, Link, TextBox } from './StartBoard.styled';
 import { useTheme } from '@mui/material';
 import { useAddBoardMutation } from 'redux/boards/boardsApi';
 import MainModal from 'components/MainModal/MainModal';
-import NewBoardForm from 'components/newBoardForm/NewBoardForm';
+import NewBoardForm from 'components/FormBoard/NewBoardForm';
 
 const StartBoard = () => {
   const [openModal, setOpenModal] = useState(false);

@@ -28,7 +28,7 @@ import {
 import EllipsisText from 'react-ellipsis-text';
 
 import MainModal from 'components/MainModal/MainModal';
-import CardForm from 'components/cardForm/CardForm';
+import CardForm from 'components/FormCard/CardForm';
 import { useParams } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import { useTheme } from '@mui/material';

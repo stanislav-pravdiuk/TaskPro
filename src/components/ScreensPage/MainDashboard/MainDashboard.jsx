@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import TitleColumn from '../titleColumn/TitleColumn';
-import Card from '../card/Card';
+import TitleColumn from '../ColumnTitle/TitleColumn';
+import Card from '../Card/Card';
 import {
   Container,
   ColumnsList,
@@ -8,15 +8,15 @@ import {
   Column,
   GalleryCards,
 } from './MainDashboard.styled';
-import BtnAdd from '../btnAdd/BtnAdd';
-import BtnAddColumn from '../btnAdd/BtnAddColumn';
+import BtnAdd from '../../buttons/btnAdd/BtnAdd';
+import BtnAddColumn from '../../buttons/btnAdd/BtnAddColumn';
 import {
   useAddCardMutation,
   useAddColumnMutation,
 } from 'redux/boards/boardsApi';
 import MainModal from 'components/MainModal/MainModal';
-import ColumnForm from 'components/columnCard/ColumnCard';
-import CardForm from 'components/cardForm/CardForm';
+import ColumnForm from 'components/FormColumn/ColumnCard';
+import CardForm from 'components/FormCard/CardForm';
 import { useParams } from 'react-router-dom';
 import { useTheme } from '@mui/material';
 

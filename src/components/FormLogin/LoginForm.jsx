@@ -2,7 +2,7 @@ import { useDispatch } from "react-redux";
 import React, { useState } from 'react';
 import { useFormik } from 'formik';
 import LoginSchema from "./LoginSchema";
-import { Container, FormContainer, InputField, LinkMenu, LoginLink, RegisterBtn, RegisterLink, ErrorText, PasswordInput, Passwordsvg, StyledWrapInputAuth } from "../loginForm/LoginForm.styled";
+import { Container, FormContainer, InputField, LinkMenu, LoginLink, RegisterBtn, RegisterLink, ErrorText, PasswordInput, Passwordsvg, StyledWrapInputAuth } from "./LoginForm.styled";
 import { logIn } from "redux/auth/authOperations";
 import { toast } from "react-hot-toast";
 import icon from '../../components/iconSvg/icon.svg';
