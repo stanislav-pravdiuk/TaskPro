@@ -55,7 +55,7 @@ const ButtonPlus = styled.div`
   border: none;
 `;
 
-const ButtonPlusColumn = styled.button`
+const ButtonPlusColumn = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;

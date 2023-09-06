@@ -9,7 +9,7 @@ import {
   Input,
   FormContainer,
   CloseButton,
-} from '../cardForm/CardForm.styled';
+} from '../FormCard/CardForm.styled';
 import BtnAdd from 'components/ScreensPage/btnAdd/BtnAdd';
 import { BtnCloseBlack } from 'components/buttons/buttons';
 import { useTheme } from '@mui/material';
@@ -22,7 +22,9 @@ const ColumnForm = ({
   closeModal,
 }) => {
   const validationSchema = Yup.object().shape({
-    title: Yup.string().required('Title is required'),
+    title: Yup.string()
+      .min(3, 'Title must be at least 3 characters long')
+      .required('Title is required'),
   });
 
   const initialValues = {
@@ -32,8 +34,8 @@ const ColumnForm = ({
   const handleSubmit = values => {
     const title = values.title.trim();
 
-    if (!title) {
-      toast.error('Sorry, you entered empty title');
+    if (!title || title.length < 3) {
+      toast.error('Title must be at least 3 characters long');
       return;
     }
 

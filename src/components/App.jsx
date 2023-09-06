@@ -17,8 +17,8 @@ import RefreshUser from './loaders/RefreshUser';
 
 const HomePage = lazy(() => import('screens/homePage/HomePage'));
 const WelcomePage = lazy(() => import('../screens/welcomePage/WelcomePage'));
-const LoginForm = lazy(() => import('./loginForm/LoginForm'));
-const RegisterForm = lazy(() => import('./registerForm/RegisterForm'));
+const LoginForm = lazy(() => import('./FormLogin/LoginForm'));
+const RegisterForm = lazy(() => import('./FormRegister/RegisterForm'));
 const ScrensPage = lazy(() => import('../components/ScreensPage/ScreensPage'));
 
 export const App = () => {

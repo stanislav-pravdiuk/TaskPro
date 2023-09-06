@@ -24,7 +24,7 @@ import {
   RadioFieldBg,
   FormikContainer,
   CloseButton,
-} from './NewBoardForm.styled';
+} from './NewBoardForm.styled.jsx';
 import BtnAdd from 'components/ScreensPage/btnAdd/BtnAdd';
 import { BtnCloseBlack } from 'components/buttons/buttons.jsx';
 import { useSelector } from 'react-redux';
@@ -47,8 +47,8 @@ const NewBoardForm = ({
   const formSubmit = values => {
     const title = values.title.trim();
 
-    if (!title) {
-      toast.error('Sorry, you entered empty title');
+    if (!title || title.length < 3) {
+      toast.error('Title must be at least 3 characters long');
       return;
     }
     const data = { ...values, background };
@@ -58,7 +58,9 @@ const NewBoardForm = ({
   };
 
   const validationSchema = Yup.object().shape({
-    title: Yup.string().required('Title is required'),
+    title: Yup.string()
+      .min(3, 'Title must be at least 3 characters long')
+      .required('Title is required'),
   });
 
   const initialValues = {

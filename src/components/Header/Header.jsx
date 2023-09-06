@@ -13,7 +13,7 @@ import {
 } from './Header.styled';
 import { selectUser } from 'redux/auth/authSelectors';
 import { useSelector } from 'react-redux';
-import ProfileEditModal from 'components/profileEditModal/ProfileEditModal';
+import ProfileEditModal from 'components/FormUser/ProfileEditModal';
 import MainModal from 'components/MainModal/MainModal';
 import { ThemeComponent } from 'components/Theme/ThemeComponent';
 import avatarLight from '../../images/userAvatarLight.jpg';

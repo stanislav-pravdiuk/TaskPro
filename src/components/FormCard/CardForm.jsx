@@ -43,8 +43,12 @@ const CardForm = ({
   const deadLineDateLong = dayjs(deadline).format('dddd, MMMM DD');
 
   const validationSchema = Yup.object().shape({
-    title: Yup.string().required('Title is required'),
-    text: Yup.string().required('Title is required'),
+    title: Yup.string()
+      .min(3, 'Title must be at least 3 characters long')
+      .required('Title is required'),
+    text: Yup.string()
+      .min(3, 'Description must be at least 3 characters long')
+      .required('Description is required'),
   });
 
   const theme = useTheme();
@@ -60,13 +64,13 @@ const CardForm = ({
     const title = values.title.trim();
     const text = values.text.trim();
 
-    if (!title) {
-      toast.error('Sorry, you entered empty title');
+    if (!title || title.length < 3) {
+      toast.error('Title must be at least 3 characters long');
       return;
     }
 
-    if (!text) {
-      toast.error('Sorry, you entered empty text');
+    if (!text || text.length < 3) {
+      toast.error('Description must be at least 3 characters long');
       return;
     }
 
