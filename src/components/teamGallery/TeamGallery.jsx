@@ -6,6 +6,8 @@ import Pastukhova from '../../images/developers/AnastasiiaPastukhova.jpg';
 import Potopnyk from "../../images/developers/BohdanPotopnyk.jpg";
 import Pelekhata from '../../images/developers/OksanaPelekhata.jpg';
 import Soroka from '../../images/developers/SvitlanaSoroka.jpg';
+import Romashenko from '../../images/developers/MykolaRomashenko.jpg';
+import Pernarovskyi from '../../images/developers/YuriiPernarovskyi.jpg';
 
 function TeamGallery() { 
     return (
@@ -49,17 +51,17 @@ function TeamGallery() {
 
                 <Card>
                     <UserPhotoBox>
-                        <UserPhoto src="https://images.unsplash.com/photo-1531804055935-76f44d7c3621?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cGhvdG98ZW58MHx8MHx8fDA%3D&w=1000&q=80" alt="" />
+                        <UserPhoto src={Pernarovskyi} alt="" />
                     </UserPhotoBox>
                     <NameBox>
-                        <Name>Юрій Пернаровський</Name>
+                        <Name>Yurii Pernarovskyi</Name>
                         <Position>Developer [Backend/Frontend]</Position>
                     </NameBox>
                     <LinkBox>
                         <Link href="https://github.com/pernarovskyi">
                             <IconLink><use href={icon + '#icon-gitHub'}></use></IconLink>
                         </Link>
-                        <Link href="https://t.me/#">
+                        <Link href="https://t.me/jpernarovskyi">
                             <IconLink><use href={icon + '#icon-telegram'}></use></IconLink>
                         </Link>
                     </LinkBox>
@@ -175,17 +177,17 @@ function TeamGallery() {
 
                 <Card>
                     <UserPhotoBox>
-                        <UserPhoto src="https://images.unsplash.com/photo-1531804055935-76f44d7c3621?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cGhvdG98ZW58MHx8MHx8fDA%3D&w=1000&q=80" alt="" />
+                        <UserPhoto src={Romashenko} alt="" />
                     </UserPhotoBox>
                     <NameBox>
-                        <Name>Микола Ромашенко</Name>
+                        <Name>Mykola Romashenko</Name>
                         <Position>Developer [Backend]</Position>
                     </NameBox>
                     <LinkBox>
-                        <Link href="https://github.com/#">
+                        <Link href="https://github.com/Thonatosss">
                             <IconLink><use href={icon + '#icon-gitHub'}></use></IconLink>
                         </Link>
-                        <Link href="https://t.me/#">
+                        <Link href="https://t.me/romashenkomm">
                             <IconLink><use href={icon + '#icon-telegram'}></use></IconLink>
                         </Link>
                     </LinkBox>
