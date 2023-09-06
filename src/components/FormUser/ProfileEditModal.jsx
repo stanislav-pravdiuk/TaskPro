@@ -62,6 +62,11 @@ const ProfileEditModal = ({ user, modalClose }) => {
   const handleFileSelect = event => {
     const file = event.target.files[0];
 
+    if (file.size > 100 * 1024) {
+      toast.error('The file size must not exceed 100 KB');
+      return;
+    }
+
     if (file) {
       const reader = new FileReader();
 
@@ -88,7 +93,9 @@ const ProfileEditModal = ({ user, modalClose }) => {
       modalClose();
     } catch (error) {
       console.error('Error:', error.message);
-      toast.error('The file size must not exceed 100 KB');
+      toast.error(
+        "Oops, it's looks like something went wrong... Please, try again!"
+      );
     }
   };
 
