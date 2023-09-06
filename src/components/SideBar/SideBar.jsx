@@ -361,6 +361,46 @@ const SideBar = ({ active, onClick }) => {
           sx={{
             marginTop: '24px',
             textTransform: 'none',
+            fontWeight: 400,
+            fontSize: '12px',
+            letterSpacing: 0.7,
+          }}
+        >
+          <Button
+            onClick={() => alert('открыть модалку')}
+            sx={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '14px',
+              padding: 0,
+              minWidth: 0,
+              border: 0,
+              '&:hover': {
+                backgroundColor: 'inherit',
+                border: 0,
+              },
+            }}
+          >
+            <Typography
+              sx={{
+                color: 'secondary.dark',
+                fontFamily: 'Poppins',
+                textTransform: 'none',
+                fontWeight: 400,
+                fontSize: '14px',
+                letterSpacing: 0.7,
+              }}
+              variant="body2"
+            >
+              Our Team
+            </Typography>
+          </Button>
+        </Box>
+
+        <Box
+          sx={{
+            marginTop: '24px',
+            textTransform: 'none',
             fontWeight: 500,
             fontSize: '12px',
             letterSpacing: 0.7,
