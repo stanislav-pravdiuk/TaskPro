@@ -378,6 +378,7 @@ const SideBar = ({ active, onClick }) => {
             fontWeight: 400,
             fontSize: '12px',
             letterSpacing: 0.7,
+            paddingLeft: '20px',
           }}
         >
           <Button
