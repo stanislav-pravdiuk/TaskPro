@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/TaskPro/static/css/main.71c9c283.css",
-    "main.js": "/TaskPro/static/js/main.aa8b9d97.js",
+    "main.js": "/TaskPro/static/js/main.164564e5.js",
     "static/js/779.52add935.chunk.js": "/TaskPro/static/js/779.52add935.chunk.js",
     "static/js/89.e84886d5.chunk.js": "/TaskPro/static/js/89.e84886d5.chunk.js",
     "static/js/968.5eda00ea.chunk.js": "/TaskPro/static/js/968.5eda00ea.chunk.js",
@@ -17,6 +17,7 @@
     "static/media/YuriiPernarovskyi.jpg": "/TaskPro/static/media/YuriiPernarovskyi.30cea4027d3d17f719c2.jpg",
     "static/media/BohdanPotopnyk.jpg": "/TaskPro/static/media/BohdanPotopnyk.5245eeb1d97dab0134a4.jpg",
     "static/media/AnastasiiaPastukhova.jpg": "/TaskPro/static/media/AnastasiiaPastukhova.13d662e796cfdc1904a6.jpg",
+    "static/media/KarenIhor.jpg": "/TaskPro/static/media/KarenIhor.cedc698689d76a487483.jpg",
     "static/media/OksanaPelekhata.jpg": "/TaskPro/static/media/OksanaPelekhata.17ff1caef927038f99cc.jpg",
     "static/media/StanislavPravdiuk.jpg": "/TaskPro/static/media/StanislavPravdiuk.bd5e1c95f186b4715c18.jpg",
     "static/media/ElenaUs.jpg": "/TaskPro/static/media/ElenaUs.20c33a2bf92424d82f5c.jpg",
@@ -28,7 +29,7 @@
     "static/media/welcome-mobile.png": "/TaskPro/static/media/welcome-mobile.18cd06cd3e6a06f73b1f.png",
     "index.html": "/TaskPro/index.html",
     "main.71c9c283.css.map": "/TaskPro/static/css/main.71c9c283.css.map",
-    "main.aa8b9d97.js.map": "/TaskPro/static/js/main.aa8b9d97.js.map",
+    "main.164564e5.js.map": "/TaskPro/static/js/main.164564e5.js.map",
     "779.52add935.chunk.js.map": "/TaskPro/static/js/779.52add935.chunk.js.map",
     "89.e84886d5.chunk.js.map": "/TaskPro/static/js/89.e84886d5.chunk.js.map",
     "968.5eda00ea.chunk.js.map": "/TaskPro/static/js/968.5eda00ea.chunk.js.map",
@@ -38,6 +39,6 @@
   },
   "entrypoints": [
     "static/css/main.71c9c283.css",
-    "static/js/main.aa8b9d97.js"
+    "static/js/main.164564e5.js"
   ]
 }
