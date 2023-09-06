@@ -3,7 +3,8 @@ import icon from '../iconSvg/icon.svg';
 import Pravdiuk from '../../images/developers/StanislavPravdiuk.jpg';
 import Kravets from '../../images/developers/KravetsHanna.jpg';
 import Pastukhova from '../../images/developers/AnastasiiaPastukhova.jpg';
-import Potopnyk from "../../images/developers/BohdanPotopnyk.jpg"
+import Potopnyk from "../../images/developers/BohdanPotopnyk.jpg";
+import Pelekhata from '../../images/developers/OksanaPelekhata.jpg';
 
 function TeamGallery() { 
     return (
@@ -101,7 +102,7 @@ function TeamGallery() {
 
                 <Card>
                     <UserPhotoBox>
-                        <UserPhoto src="https://images.unsplash.com/photo-1531804055935-76f44d7c3621?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cGhvdG98ZW58MHx8MHx8fDA%3D&w=1000&q=80" alt="" />
+                        <UserPhoto src={Pelekhata} alt="" />
                     </UserPhotoBox>
                     <NameBox>
                         <Name>Oksana Pelekhata</Name>
