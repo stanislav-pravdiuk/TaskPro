@@ -113,6 +113,7 @@ const RegistrationNav = styled.div`
 const RegistrationButton = styled(Link)`
   font-style: normal;
   font-weight: 500;
+  font-family: Poppins;
   font-size: 14px;
   line-height: 21px;
   text-align: center;
@@ -131,6 +132,7 @@ const RegistrationButton = styled(Link)`
 
 const LoginButton = styled(Link)`
   font-style: normal;
+  font-family: Poppins;
   font-weight: 500;
   font-size: 14px;
   line-height: 21px;
