@@ -82,6 +82,7 @@ const InputField = styled.div`
 
 const RegisterBtn = styled.button`
   font-style: normal;
+  font-family: Poppins;
   font-weight: 500;
   font-size: 14px;
   line-height: 21px;
@@ -93,6 +94,7 @@ const RegisterBtn = styled.button`
   background: var(--color-green);
   border-radius: 8px;
   color: var(--color-dark);
+  transition: opacity 200ms linear;
   cursor: pointer;
   &:hover {
     opacity: 0.8;
