@@ -12,20 +12,6 @@ export const Container = styled.div`
   justify-items: center;
 `;
 
-export const Title = styled.h2`
-color: var(--color-text-dark-main);
-font-family: Poppins;
-font-size: 18px;
-font-style: normal;
-font-weight: 500;
-line-height: normal;
-text-align: center;
-  border-radius: 8px;
-  background: #FFF;
-  padding: 18px;
-  margin-bottom: 14px;
-`;
-
 export const Card = styled.div`
   display: flex;
   flex-direction: column;
@@ -33,7 +19,7 @@ export const Card = styled.div`
   border-radius: 8px;
   background: #FFF;
   padding: 18px;
-  width: 174px;
+  width: 184px;
 `;
 export const UserPhotoBox = styled.div`
 width: 68px;
@@ -68,6 +54,7 @@ font-family: Poppins;
 font-size: 12px;
 font-style: normal;
 font-weight: 400;
+text-align:center;
 `;
 export const LinkBox = styled.div`
 display: flex;

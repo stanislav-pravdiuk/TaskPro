@@ -1,10 +1,8 @@
-import { Card, Container, IconLink, Link, LinkBox, Name, NameBox, Position, Title, UserPhoto, UserPhotoBox } from "./TeamGallery.styled";
+import { Card, Container, IconLink, Link, LinkBox, Name, NameBox, Position, UserPhoto, UserPhotoBox } from "./TeamGallery.styled";
 import icon from '../iconSvg/icon.svg'
 
 function TeamGallery() { 
     return (
-        <>
-            <Title>Our Team</Title>
             <Container>
             
                 <Card>
@@ -206,7 +204,6 @@ function TeamGallery() {
                 </Card>
 
             </Container>
-        </>
     );
 };
 
