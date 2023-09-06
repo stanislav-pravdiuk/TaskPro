@@ -4,7 +4,6 @@ import { useTheme } from '@mui/material';
 import { useAddBoardMutation } from 'redux/boards/boardsApi';
 import MainModal from 'components/MainModal/MainModal';
 import NewBoardForm from 'components/newBoardForm/NewBoardForm';
-import TeamGallery from 'components/teamGallery/TeamGallery';
 
 const StartBoard = () => {
   const [openModal, setOpenModal] = useState(false);
@@ -31,7 +30,7 @@ const StartBoard = () => {
         to visualize and track all the necessary tasks and milestones. This
         board serves as a powerful tool to organize the workflow and ensure
         effective collaboration among team members.
-      </TextBox> <TeamGallery />
+      </TextBox>
       <MainModal modalIsOpen={openModal} closeModal={closeModal}>
         <NewBoardForm
           formTitle={'New board'}
