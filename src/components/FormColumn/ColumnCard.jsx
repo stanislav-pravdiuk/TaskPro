@@ -71,7 +71,6 @@ const ColumnForm = ({
             <BtnAdd
               btnTitle={btnText}
               btnColor={'#BEDBB0'}
-              isDisabled={!(formik.isValid && formik.dirty)}
             />
           </Form>
         )}
