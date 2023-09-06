@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import TitleColumn from '../titleColumn/TitleColumn';
-import Card from '../card/Card';
+import TitleColumn from '../ColumnTitle/TitleColumn';
+import Card from '../Card/Card';
 import {
   Container,
   ColumnsList,
@@ -8,8 +8,8 @@ import {
   Column,
   GalleryCards,
 } from './MainDashboard.styled';
-import BtnAdd from '../btnAdd/BtnAdd';
-import BtnAddColumn from '../btnAdd/BtnAddColumn';
+import BtnAdd from '../../buttons/btnAdd/BtnAdd';
+import BtnAddColumn from '../../buttons/btnAdd/BtnAddColumn';
 import {
   useAddCardMutation,
   useAddColumnMutation,

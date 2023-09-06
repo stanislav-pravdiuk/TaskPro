@@ -4,7 +4,7 @@ import HeaderDashboard from './HeaderDashboard/HeaderDashboard';
 import MainDashboard from './MainDashboard/MainDashboard';
 import styled from 'styled-components';
 import { useParams } from 'react-router-dom';
-import StartBoard from './startBoard/StartBoard';
+import StartBoard from './StartScreen/StartBoard';
 import { useTheme } from '@mui/material';
 
 const ScreensPage = () => {

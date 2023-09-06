@@ -20,7 +20,7 @@ import {
   Dot,
   CloseButton,
 } from './CardForm.styled';
-import BtnAdd from 'components/ScreensPage/btnAdd/BtnAdd';
+import BtnAdd from 'components/buttons/btnAdd/BtnAdd';
 import { Calendar } from 'components/calendar/Calendar';
 import dayjs from 'dayjs';
 import { BtnCloseBlack } from 'components/buttons/buttons';

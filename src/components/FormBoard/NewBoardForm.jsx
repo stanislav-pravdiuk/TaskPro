@@ -25,7 +25,7 @@ import {
   FormikContainer,
   CloseButton,
 } from './NewBoardForm.styled.jsx';
-import BtnAdd from 'components/ScreensPage/btnAdd/BtnAdd';
+import BtnAdd from 'components/buttons/btnAdd/BtnAdd.jsx';
 import { BtnCloseBlack } from 'components/buttons/buttons.jsx';
 import { useSelector } from 'react-redux';
 import { selectTheme } from 'redux/auth/authSelectors.js';
