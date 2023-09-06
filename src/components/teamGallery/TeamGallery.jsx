@@ -1,4 +1,4 @@
-import { Card, Container, LinkBox, NameBox, Title, UserPhoto } from "./TeamGallery.styled";
+import { Card, Container, LinkBox, Name, NameBox, Position, Title, UserPhoto } from "./TeamGallery.styled";
 
 
 function TeamGallery() { 
@@ -7,11 +7,13 @@ function TeamGallery() {
             <Title>Our Team</Title>
             <Card>
                 <UserPhoto>
-                    <img src="" alt="" />
+                    <img src="../../images/developers/StanislavPravdiuk.jpg"
+                    alt=""
+                    />
                 </UserPhoto>
                 <NameBox>
-                    <h3>Name</h3>
-                    <p>Position</p>
+                    <Name>Name</Name>
+                    <Position>Position</Position>
                 </NameBox>
                 <LinkBox>
                     <a href="#">icon or text GitHub</a>
