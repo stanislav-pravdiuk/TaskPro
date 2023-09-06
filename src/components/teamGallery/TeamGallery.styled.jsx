@@ -23,14 +23,14 @@ export const Card = styled.div`
   width: 200px;
 `;
 export const UserPhotoBox = styled.div`
-  width: 68px;
+  // width: 68px;
   height: 68px;
   margin-bottom: 14px;
   border-radius: 8px;
   overflow: hidden;
 `;
 export const UserPhoto = styled.img`
-  width: 100%;
+  // width: 100%;
   height: 100%;
   object-fit: cover;
 `;
