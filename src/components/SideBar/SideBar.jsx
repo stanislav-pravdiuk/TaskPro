@@ -45,11 +45,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { logOut } from 'redux/auth/authOperations';
 import { useTheme } from '@mui/material';
 import { selectUser } from 'redux/auth/authSelectors';
+import TeamGallery from 'components/teamGallery/TeamGallery';
 
 const SideBar = ({ active, onClick }) => {
   const [openAddModal, setOpenAddModal] = useState(false);
   const [openEditModal, setOpenEditModal] = useState(false);
   const [openHelpModal, setOpenHelpModal] = useState(false);
+  const [openTeamGalleryModal, setOpenTeamGalleryModal] = useState(false);
   const [activeBoardTitle, setActiveBoardTitle] = useState('');
   const [activeBoardIcon, setActiveBoardIcon] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -367,7 +369,7 @@ const SideBar = ({ active, onClick }) => {
           }}
         >
           <Button
-            onClick={() => alert('открыть модалку')}
+            onClick={() => setOpenTeamGalleryModal(true)}
             sx={{
               display: 'flex',
               alignItems: 'center',
@@ -395,6 +397,9 @@ const SideBar = ({ active, onClick }) => {
               Our Team
             </Typography>
           </Button>
+          <MainModal modalIsOpen={openTeamGalleryModal} closeModal={() => setOpenTeamGalleryModal(false)}>
+  <TeamGallery />
+</MainModal>
         </Box>
 
         <Box
