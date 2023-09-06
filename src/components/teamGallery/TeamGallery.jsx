@@ -1,5 +1,9 @@
 import { Card, Container, IconLink, Link, LinkBox, Name, NameBox, Position, UserPhoto, UserPhotoBox } from "./TeamGallery.styled";
-import icon from '../iconSvg/icon.svg'
+import icon from '../iconSvg/icon.svg';
+import Pravdiuk from '../../images/developers/StanislavPravdiuk.jpg';
+import Kravets from '../../images/developers/KravetsHanna.jpg';
+import Pastukhova from '../../images/developers/AnastasiiaPastukhova.jpg';
+import Potopnyk from "../../images/developers/BohdanPotopnyk.jpg"
 
 function TeamGallery() { 
     return (
@@ -7,7 +11,7 @@ function TeamGallery() {
             
                 <Card>
                     <UserPhotoBox>
-                        <UserPhoto src="../../images/userAvatarDark.jpg" alt="" />
+                        <UserPhoto src={Pravdiuk} alt="" />
                     </UserPhotoBox>
                     <NameBox>
                         <Name>Stanislav Pravdiuk</Name>
@@ -61,7 +65,7 @@ function TeamGallery() {
 
                 <Card>
                     <UserPhotoBox>
-                        <UserPhoto src="../../images/developers/KravetsHanna.jpg" alt="" />
+                        <UserPhoto src={Kravets} alt="" />
                     </UserPhotoBox>
                     <NameBox>
                         <Name>Kravets Hanna</Name>
@@ -79,7 +83,7 @@ function TeamGallery() {
 
                 <Card>
                     <UserPhotoBox>
-                        <UserPhoto src="../../images/developers/AnastasiiaPastukhova.jpg" alt="" />
+                        <UserPhoto src={Pastukhova} alt="" />
                     </UserPhotoBox>
                     <NameBox>
                         <Name>Anastasiia Pastukhova</Name>
@@ -115,7 +119,7 @@ function TeamGallery() {
 
                 <Card>
                     <UserPhotoBox>
-                        <UserPhoto src="../../images/developers/BohdanPotopnyk.jpg" alt="" />
+                        <UserPhoto src={Potopnyk} alt="" />
                     </UserPhotoBox>
                     <NameBox>
                         <Name>Bohdan Potopnyk</Name>
