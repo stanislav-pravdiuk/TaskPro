@@ -101,7 +101,7 @@ export const Calendar = ({ parentState, initial }) => {
                   margin: '0',
                   borderBottomWidth: '1px',
                   borderBottomStyle: 'solid',
-                  borderColor: 'primary.contrastText', // колір лінії під September 2023
+                  borderColor: 'text.success', // колір лінії під September 2023
                 },
 
                 '& .MuiPickersArrowSwitcher-button': {
@@ -124,7 +124,16 @@ export const Calendar = ({ parentState, initial }) => {
                 },
 
                 '& .MuiPickersDay-root.Mui-disabled': {
-                  color: 'text.success', // фон неактивних днів цього місяця
+                  // color: 'text.success', // фон неактивних днів цього місяця
+                  // color: 'grey', // фон неактивних днів цього місяця
+                },
+                
+                '& .Mui-disabled:not(.Mui-selected)': {
+                  // color: 'text.success',
+                },
+
+                '& .MuiPickersDay-root.Mui-disabled:not(.Mui-selected)': {
+                  color: 'text.success', // color неактивні дні цього місяця
                 },
 
                 '& .MuiPickersMonth-monthButton': {
