@@ -113,6 +113,7 @@ const RegistrationNav = styled.div`
 const RegistrationButton = styled(Link)`
   font-style: normal;
   font-weight: 500;
+  font-family: Poppins;
   font-size: 14px;
   line-height: 21px;
   text-align: center;
@@ -124,6 +125,13 @@ const RegistrationButton = styled(Link)`
   cursor: pointer;
   text-transform: none;
   text-decoration: none;
+
+  transition: opacity 200ms linear;
+
+  &:hover {
+    opacity: 0.9;
+  }
+
   @media screen and (max-width: 768px) {
     padding: 14px 126px 14px 126px;
   }
@@ -131,6 +139,7 @@ const RegistrationButton = styled(Link)`
 
 const LoginButton = styled(Link)`
   font-style: normal;
+  font-family: Poppins;
   font-weight: 500;
   font-size: 14px;
   line-height: 21px;
@@ -138,6 +147,12 @@ const LoginButton = styled(Link)`
   color: var(--color-dark);
   cursor: pointer;
   text-decoration: none;
+
+  transition: opacity 200ms linear;
+
+  &:hover {
+    opacity: 0.7;
+  }
 `;
 
 export {

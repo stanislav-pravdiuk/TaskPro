@@ -240,7 +240,7 @@ const NewBoardForm = ({
                 </BgColor>
               ))}
             </BgList>
-            <BtnAdd btnTitle={btnText} btnColor={'#BEDBB0'} />
+            <BtnAdd btnTitle={btnText} />
           </FormikContainer>
         )}
       </Formik>

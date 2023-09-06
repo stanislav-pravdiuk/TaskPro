@@ -169,11 +169,7 @@ const CardForm = ({
                 <Calendar parentState={setSelectedDate} />
               </DeadlineBox>
             </div>
-            <BtnAdd
-              btnTitle={btnText}
-              btnColor={'#BEDBB0'}
-              isDisabled={!(formik.isValid && formik.dirty)}
-            />
+            <BtnAdd btnTitle={btnText} />
           </Form>
         )}
       </Formik>

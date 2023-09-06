@@ -89,7 +89,6 @@ const NeedHelpModal = ({ closeModal }) => {
             <AuthFormSubmitButton
               theme={theme}
               type="submit"
-              disabled={!(formik.isValid && formik.dirty)}
             >
               Send
             </AuthFormSubmitButton>
