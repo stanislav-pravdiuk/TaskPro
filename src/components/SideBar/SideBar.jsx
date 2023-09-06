@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
 import { Box, Button, Typography, Drawer, Link } from '@mui/material';
 import cactus from '../../images/cactus.png';
@@ -55,12 +55,13 @@ const SideBar = ({ active, onClick }) => {
   const [activeBoardTitle, setActiveBoardTitle] = useState('');
   const [activeBoardIcon, setActiveBoardIcon] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [newBoard, setNewBoard] = useState(true);
   const { data = [] } = useGetBoardsQuery();
 
   const location = useLocation();
   const { boardName } = useParams();
 
-  const [addBoard] = useAddBoardMutation();
+  const [addBoard, result] = useAddBoardMutation();
   const [updateBoard] = useUpdateBoardMutation();
   const [deleteBoard] = useDeleteBoardMutation();
   const dispatch = useDispatch();
@@ -92,13 +93,21 @@ const SideBar = ({ active, onClick }) => {
     setOpenHelpModal(false);
   };
 
+  useEffect(() => {
+    if (result.data && newBoard) {
+      navigate(`/home/${result.data._id}`);
+      setNewBoard(false);
+    }
+  }, [newBoard, navigate, result.data]);
+
   const handleSubmit = async (data, formTitle) => {
     const boardId = boardName;
 
     if (formTitle === 'New board') {
-      await addBoard({ data });
+      addBoard({ data });
 
       closeAddModal();
+      setNewBoard(true);
       return;
     }
 
