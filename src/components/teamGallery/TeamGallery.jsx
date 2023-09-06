@@ -7,7 +7,7 @@ function TeamGallery() {
             
                 <Card>
                     <UserPhotoBox>
-                        <UserPhoto src="../../images/developers/StanislavPravdiuk.jpg" alt="" />
+                        <UserPhoto src="../../images/userAvatarDark.jpg" alt="" />
                     </UserPhotoBox>
                     <NameBox>
                         <Name>Stanislav Pravdiuk</Name>

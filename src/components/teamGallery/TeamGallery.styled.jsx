@@ -20,7 +20,7 @@ export const Card = styled.div`
   border-radius: 8px;
   background: #fff;
   padding: 18px;
-  width: 184px;
+  width: 200px;
 `;
 export const UserPhotoBox = styled.div`
   width: 68px;
