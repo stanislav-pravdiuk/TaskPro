@@ -7,7 +7,7 @@ function TeamGallery() {
             
                 <Card>
                     <UserPhotoBox>
-                        <UserPhoto src="https://images.unsplash.com/photo-1531804055935-76f44d7c3621?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cGhvdG98ZW58MHx8MHx8fDA%3D&w=1000&q=80" alt="" />
+                        <UserPhoto src="../../images/developers/StanislavPravdiuk.jpg" alt="" />
                     </UserPhotoBox>
                     <NameBox>
                         <Name>Stanislav Pravdiuk</Name>
@@ -115,7 +115,7 @@ function TeamGallery() {
 
                 <Card>
                     <UserPhotoBox>
-                        <UserPhoto src="https://images.unsplash.com/photo-1531804055935-76f44d7c3621?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cGhvdG98ZW58MHx8MHx8fDA%3D&w=1000&q=80" alt="" />
+                        <UserPhoto src="../../images/developers/BohdanPotopnyk.jpg" alt="" />
                     </UserPhotoBox>
                     <NameBox>
                         <Name>Bohdan Potopnyk</Name>
