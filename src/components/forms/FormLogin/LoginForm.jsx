@@ -5,7 +5,7 @@ import LoginSchema from "./LoginSchema";
 import { Container, FormContainer, InputField, LinkMenu, LoginLink, RegisterBtn, RegisterLink, ErrorText, PasswordInput, Passwordsvg, StyledWrapInputAuth } from "./LoginForm.styled";
 import { logIn } from "redux/auth/authOperations";
 import { toast } from "react-hot-toast";
-import icon from '../../components/iconSvg/icon.svg';
+import icon from '../../../components/iconSvg/icon.svg';
 
 const LoginForm = () => {
     const dispatch = useDispatch();

@@ -6,7 +6,7 @@ import RegisterSchema from "./RegisterSchema";
 import { Container, ErrorText, FormContainer, InputField, LinkMenu, LoginLink, PasswordInput, Passwordsvg, RegisterBtn, RegisterLink, StyledWrapInputAuth } from "./RegisterForm.styled";
 import { register } from "redux/auth/authOperations";
 import { toast } from "react-hot-toast";
-import icon from '../../components/iconSvg/icon.svg';
+import icon from '../../../components/iconSvg/icon.svg';
 
 const RegisterForm = () => {
     const dispatch = useDispatch();

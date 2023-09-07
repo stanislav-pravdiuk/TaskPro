@@ -18,14 +18,14 @@ import {
   Container,
   Error,
   Icon,
-} from './ProfileEditModal.styled';
+} from '../FormUser/ProfileEditModal.styled';
 import { useTheme } from '@mui/material';
 
-import { updateUserProfile } from '../../redux/auth/authOperations';
+import { updateUserProfile } from '../../../redux/auth/authOperations';
 
-import icon from '../iconSvg/icon.svg';
-import avatarLight from '../../images/userAvatarLight.jpg';
-import avatarDark from '../../images/userAvatarDark.jpg';
+import icon from '../../iconSvg/icon.svg';
+import avatarLight from '../../../images/userAvatarLight.jpg';
+import avatarDark from '../../../images/userAvatarDark.jpg';
 import { toast } from 'react-hot-toast';
 import { BtnCloseBlack } from 'components/buttons/Buttons';
 import { selectTheme } from 'redux/auth/authSelectors';
