@@ -1,15 +1,3 @@
-import {
-  Card,
-  Container,
-  IconLink,
-  Link,
-  LinkBox,
-  Name,
-  NameBox,
-  Position,
-  UserPhoto,
-  UserPhotoBox,
-} from './TeamGallery.styled';
 import icon from '../iconSvg/icon.svg';
 import Pravdiuk from '../../images/developers/StanislavPravdiuk.jpg';
 import Kravets from '../../images/developers/KravetsHanna.jpg';
@@ -22,6 +10,18 @@ import Pernarovskyi from '../../images/developers/YuriiPernarovskyi.jpg';
 import Semenova from '../../images/developers/IrynaSemenova.jpg';
 import Us from '../../images/developers/ElenaUs.jpg';
 import Karen from '../../images/developers/KarenIhor.jpg';
+import {
+  Card,
+  Container,
+  IconLink,
+  Link,
+  LinkBox,
+  Name,
+  NameBox,
+  Position,
+  UserPhoto,
+  UserPhotoBox,
+} from './TeamGallery.styled';
 
 function TeamGallery() {
   return (
