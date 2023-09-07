@@ -1,8 +1,15 @@
 import React, { useRef, useState } from 'react';
+import * as Yup from 'yup';
+import icon from '../../iconSvg/icon.svg';
+import avatarLight from '../../../images/userAvatarLight.jpg';
+import avatarDark from '../../../images/userAvatarDark.jpg';
 import { useDispatch, useSelector } from 'react-redux';
 import { Formik, Form, Field } from 'formik';
-import * as Yup from 'yup';
-
+import { useTheme } from '@mui/material';
+import { updateUserProfile } from '../../../redux/auth/authOperations';
+import { toast } from 'react-hot-toast';
+import { BtnCloseBlack } from 'components/buttons/Buttons';
+import { selectTheme } from 'redux/auth/authSelectors';
 import {
   FormContainer,
   ModalTitle,
@@ -18,17 +25,7 @@ import {
   Container,
   Error,
   Icon,
-} from '../FormUser/ProfileEditModal.styled';
-import { useTheme } from '@mui/material';
-
-import { updateUserProfile } from '../../../redux/auth/authOperations';
-
-import icon from '../../iconSvg/icon.svg';
-import avatarLight from '../../../images/userAvatarLight.jpg';
-import avatarDark from '../../../images/userAvatarDark.jpg';
-import { toast } from 'react-hot-toast';
-import { BtnCloseBlack } from 'components/buttons/Buttons';
-import { selectTheme } from 'redux/auth/authSelectors';
+} from './ProfileEditModal.styled';
 
 const validationSchema = Yup.object().shape({
   login: Yup.string().min(3),

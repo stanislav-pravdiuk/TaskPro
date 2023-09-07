@@ -14,4 +14,4 @@ const RegisterSchema = Yup.object().shape({
   .required('Password is required'),
 });
 
-  export default RegisterSchema
+export default RegisterSchema;
