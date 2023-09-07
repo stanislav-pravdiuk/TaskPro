@@ -1,7 +1,7 @@
 import * as Yup from 'yup';
 import React, { useState } from 'react';
 import BtnAdd from 'components/buttons/btnAdd/BtnAdd.jsx';
-import images from '../../iconSvg/images.js';
+import images from '../../../images/images.js';
 import bgImageLight from '../../../images/bgImage-light.jpg';
 import bgImageDark from '../../../images/bgImage-dark.jpg';
 import sprite from '../../../images/icons.svg';
