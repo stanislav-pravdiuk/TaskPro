@@ -15,8 +15,8 @@ import {
   useAddColumnMutation,
 } from 'redux/boards/boardsApi';
 import MainModal from 'components/MainModal/MainModal';
-import ColumnForm from 'components/FormColumn/ColumnCard';
-import CardForm from 'components/FormCard/CardForm';
+import ColumnForm from 'components/forms/columnForm/ColumnForm';
+import CardForm from 'components/forms/cardForm/CardForm';
 import { useParams } from 'react-router-dom';
 import { useTheme } from '@mui/material';
 

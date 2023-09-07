@@ -13,7 +13,7 @@ import {
 } from 'redux/boards/boardsApi';
 
 import MainModal from 'components/MainModal/MainModal';
-import ColumnForm from 'components/FormColumn/ColumnCard';
+import ColumnForm from 'components/forms/columnForm/ColumnForm';
 import { useTheme } from '@mui/material';
 
 const TitleColumn = ({ title, owner, columnId }) => {

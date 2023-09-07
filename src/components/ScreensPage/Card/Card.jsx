@@ -1,3 +1,7 @@
+import EllipsisText from 'react-ellipsis-text';
+import Button from '@mui/material/Button';
+import MainModal from 'components/MainModal/MainModal';
+import CardForm from 'components/forms/cardForm/CardForm';
 import { useState } from 'react';
 import {
   Container,
@@ -25,12 +29,7 @@ import {
   useUpdateCardMutation,
   useDeleteCardMutation,
 } from 'redux/boards/boardsApi';
-import EllipsisText from 'react-ellipsis-text';
-
-import MainModal from 'components/MainModal/MainModal';
-import CardForm from 'components/FormCard/CardForm';
 import { useParams } from 'react-router-dom';
-import Button from '@mui/material/Button';
 import { useTheme } from '@mui/material';
 
 const Card = ({ title, text, priority, deadline, card, boardId, columns }) => {

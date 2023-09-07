@@ -9,7 +9,7 @@ import {
   Input,
   FormContainer,
   CloseButton,
-} from '../FormCard/CardForm.styled';
+} from '../cardForm/CardForm.styled';
 import BtnAdd from 'components/buttons/btnAdd/BtnAdd';
 import { BtnCloseBlack } from 'components/buttons/Buttons';
 import { useTheme } from '@mui/material';
