@@ -1,3 +1,4 @@
+import icon from '../../iconSvg/icon.svg';
 import {
   ContainerColumn,
   PlusIconColumn,
@@ -6,10 +7,10 @@ import {
 import {
   ButtonPlusColumn,
 } from 'components/buttons/buttons.styled';
-import icon from '../../iconSvg/icon.svg';
 import { useTheme } from '@mui/material';
 
 const BtnAddColumn = ({ data, btnTitle, btnColor, onClick }) => {
+  
   const theme = useTheme();
 
   return (

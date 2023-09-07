@@ -1,10 +1,10 @@
+import icon from '../../iconSvg/icon.svg';
 import { Container, PlusIcon, TitleButton } from './BtnAdd.styled';
 import { ButtonPlus } from 'components/buttons/buttons.styled';
-import icon from '../../iconSvg/icon.svg';
 import { useTheme } from '@mui/material';
 
-
 const BtnAdd = ({ data, btnTitle, btnColor, onClick, isDisabled = false }) => {
+  
   const theme = useTheme();
   
   return (
