@@ -7,7 +7,7 @@ import {
   ButtonFilter,
   ButtonFilterIcon,
   ButtonFilterThumb,
-} from './Buttons.styled';
+} from './buttons.styled';
 import { useTheme } from '@mui/material';
 
 export const BtnClose = () => {

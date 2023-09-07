@@ -4,7 +4,7 @@ import BtnAdd from 'components/buttons/btnAdd/BtnAdd';
 import dayjs from 'dayjs';
 import { Formik, Form, Field } from 'formik';
 import { Calendar } from 'components/calendar/Calendar';
-import { BtnCloseBlack } from 'components/buttons/Buttons';
+import { BtnCloseBlack } from '../../buttons/buttons';
 import { useTheme } from '@mui/material';
 import { toast } from 'react-hot-toast';
 import {

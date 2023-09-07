@@ -1,6 +1,6 @@
 import Filters from 'components/filters/Filters';
 import { BoardName, Container, Thumb } from './HeaderDashboard.styled';
-import { BtnFilter } from 'components/buttons/Buttons';
+import { BtnFilter } from '../../buttons/buttons'
 import { useState } from 'react';
 import { useBoardFilterMutation } from 'redux/boards/boardsApi';
 import { useParams } from 'react-router-dom';

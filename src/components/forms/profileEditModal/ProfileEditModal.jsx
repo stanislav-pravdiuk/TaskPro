@@ -8,7 +8,7 @@ import { Formik, Form, Field } from 'formik';
 import { useTheme } from '@mui/material';
 import { updateUserProfile } from '../../../redux/auth/authOperations';
 import { toast } from 'react-hot-toast';
-import { BtnCloseBlack } from 'components/buttons/Buttons';
+import { BtnCloseBlack } from '../../buttons/buttons';
 import { selectTheme } from 'redux/auth/authSelectors';
 import {
   FormContainer,

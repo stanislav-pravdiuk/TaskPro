@@ -3,7 +3,7 @@ import React from 'react';
 import BtnAdd from 'components/buttons/btnAdd/BtnAdd';
 import { Formik, Form, Field } from 'formik';
 import { toast } from 'react-hot-toast';
-import { BtnCloseBlack } from 'components/buttons/Buttons';
+import { BtnCloseBlack } from '../../buttons/buttons';
 import { useTheme } from '@mui/material';
 import {
   ModalTitle,
