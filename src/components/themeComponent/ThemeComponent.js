@@ -1,7 +1,7 @@
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import icon from '../iconSvg/icon.svg';
+import icon from '../iconSvg/icons.svg';
 import { useSelector, useDispatch } from 'react-redux';
 import { updateUserTheme } from '../../redux/auth/authOperations';
 import { selectUser } from 'redux/auth/authSelectors';

@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import * as Yup from 'yup';
-import icon from '../../iconSvg/icon.svg';
+import icon from '../../iconSvg/icons.svg';
 import avatarLight from '../../../images/userAvatarLight.jpg';
 import avatarDark from '../../../images/userAvatarDark.jpg';
 import { useDispatch, useSelector } from 'react-redux';

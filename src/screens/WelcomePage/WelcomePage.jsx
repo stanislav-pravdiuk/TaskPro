@@ -1,6 +1,6 @@
 import React from 'react';
 import WelcomeImage from '../../images/welcome-desktop.png';
-import sprite from '../../components/iconSvg/icon.svg';
+import sprite from '../../components/iconSvg/icons.svg';
 import { Container, ContentContainer, LoginButton, RegistrationButton, RegistrationNav, Title, WelcomeImg, WelcomeText, WelcomeLogoSvg,WelcomeLogoContainer } from './WelcomePage.styled';
 
 const WelcomePage = () => {

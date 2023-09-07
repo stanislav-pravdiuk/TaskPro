@@ -1,4 +1,4 @@
-import sprite from '../iconSvg/icon.svg';
+import sprite from '../iconSvg/icons.svg';
 import dayjs from 'dayjs';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';

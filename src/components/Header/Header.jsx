@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import icon from '../../components/iconSvg/icon.svg';
+import icon from '../../components/iconSvg/icons.svg';
 import avatarLight from '../../images/userAvatarLight.jpg';
 import avatarDark from '../../images/userAvatarDark.jpg';
 import ProfileEditModal from 'components/forms/profileEditModal/ProfileEditModal';
