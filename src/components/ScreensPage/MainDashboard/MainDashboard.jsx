@@ -1,6 +1,14 @@
-import { useState } from 'react';
+
 import TitleColumn from '../titleColumn/TitleColumn';
 import Card from '../card/Card';
+import MainModal from 'components/mainModal/MainModal';
+import ColumnForm from 'components/forms/columnForm/ColumnForm';
+import CardForm from 'components/forms/cardForm/CardForm';
+import BtnAdd from '../../buttons/btnAdd/BtnAdd';
+import BtnAddColumn from '../../buttons/btnAdd/BtnAddColumn';
+import { useParams } from 'react-router-dom';
+import { useTheme } from '@mui/material';
+import { useState } from 'react';
 import {
   Container,
   ColumnsList,
@@ -8,17 +16,10 @@ import {
   Column,
   GalleryCards,
 } from './MainDashboard.styled';
-import BtnAdd from '../../buttons/btnAdd/BtnAdd';
-import BtnAddColumn from '../../buttons/btnAdd/BtnAddColumn';
 import {
   useAddCardMutation,
   useAddColumnMutation,
 } from 'redux/boards/boardsApi';
-import MainModal from 'components/mainModal/MainModal';
-import ColumnForm from 'components/forms/columnForm/ColumnForm';
-import CardForm from 'components/forms/cardForm/CardForm';
-import { useParams } from 'react-router-dom';
-import { useTheme } from '@mui/material';
 
 const MainDashboard = ({ columns }) => {
   const [addCard] = useAddCardMutation();

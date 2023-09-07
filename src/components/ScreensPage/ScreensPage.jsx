@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useGetBoardByIdQuery } from 'redux/boards/boardsApi';
 import HeaderDashboard from './headerDashboard/HeaderDashboard';
-import MainDashboard from './MainDashboard/MainDashboard';
+import MainDashboard from './mainDashboard/MainDashboard';
 import styled from 'styled-components';
 import { useParams } from 'react-router-dom';
 import StartBoard from './StartScreen/StartBoard';
