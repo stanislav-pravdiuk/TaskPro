@@ -2,7 +2,15 @@ import EllipsisText from 'react-ellipsis-text';
 import Button from '@mui/material/Button';
 import MainModal from 'components/mainModal/MainModal';
 import CardForm from 'components/forms/cardForm/CardForm';
+import icon from '../../iconSvg/icon.svg';
 import { useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { useTheme } from '@mui/material';
+import {
+  useReplaceCardMutation,
+  useUpdateCardMutation,
+  useDeleteCardMutation,
+} from 'redux/boards/boardsApi';
 import {
   Container,
   Description,
@@ -23,14 +31,6 @@ import {
   MenuItemMUI,
   IconDeadline,
 } from './Card.styled';
-import icon from '../../iconSvg/icon.svg';
-import {
-  useReplaceCardMutation,
-  useUpdateCardMutation,
-  useDeleteCardMutation,
-} from 'redux/boards/boardsApi';
-import { useParams } from 'react-router-dom';
-import { useTheme } from '@mui/material';
 
 const Card = ({ title, text, priority, deadline, card, boardId, columns }) => {
   const [openCardModal, setOpenCardModal] = useState(false);
