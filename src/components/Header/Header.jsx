@@ -1,24 +1,23 @@
 import React, { useState } from 'react';
 import icon from '../../components/iconSvg/icon.svg';
+import avatarLight from '../../images/userAvatarLight.jpg';
+import avatarDark from '../../images/userAvatarDark.jpg';
+import ProfileEditModal from 'components/forms/profileEditModal/ProfileEditModal';
+import MainModal from 'components/MainModal/MainModal';
+import { selectUser } from 'redux/auth/authSelectors';
+import { useSelector } from 'react-redux';
+import { ThemeComponent } from 'components/Theme/ThemeComponent';
+import { useTheme } from '@mui/material';
 import {
   BurgerIcon,
   UserImage,
-  // UserIcon,
   Appbar,
   ToolBar,
   BurgerButton,
   HeaderWrap,
   UserText,
   UserButton,
-} from '../Header/Header.styled';
-import { selectUser } from 'redux/auth/authSelectors';
-import { useSelector } from 'react-redux';
-import ProfileEditModal from 'components/forms/profileEditModal/ProfileEditModal';
-import MainModal from 'components/MainModal/MainModal';
-import { ThemeComponent } from 'components/Theme/ThemeComponent';
-import avatarLight from '../../images/userAvatarLight.jpg';
-import avatarDark from '../../images/userAvatarDark.jpg';
-import { useTheme } from '@mui/material';
+} from './Header.styled';
 
 const Header = ({ click }) => {
   const user = useSelector(selectUser);
@@ -75,13 +74,6 @@ const Header = ({ click }) => {
                 alt="Avatar"
               />
             )}
-            {/* {currentUserData.avatar ? (
-              <UserImage src={currentUserData.avatar} alt="User avatar" />
-            ) : (
-              <UserIcon>
-                <use href={icon + '#icon-user-1'}></use>
-              </UserIcon>
-            )} */}
           </UserButton>
           <MainModal modalIsOpen={isModalOpen} closeModal={closeModal}>
             <ProfileEditModal user={currentUserData} modalClose={closeModal} />
