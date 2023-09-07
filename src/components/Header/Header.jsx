@@ -3,7 +3,7 @@ import icon from '../../components/iconSvg/icon.svg';
 import avatarLight from '../../images/userAvatarLight.jpg';
 import avatarDark from '../../images/userAvatarDark.jpg';
 import ProfileEditModal from 'components/forms/profileEditModal/ProfileEditModal';
-import MainModal from 'components/MainModal/MainModal';
+import MainModal from 'components/mainModal/MainModal';
 import { selectUser } from 'redux/auth/authSelectors';
 import { useSelector } from 'react-redux';
 import { ThemeComponent } from 'components/Theme/ThemeComponent';

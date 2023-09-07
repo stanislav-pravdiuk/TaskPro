@@ -12,7 +12,7 @@ import {
   useDeleteColumnMutation,
 } from 'redux/boards/boardsApi';
 
-import MainModal from 'components/MainModal/MainModal';
+import MainModal from 'components/mainModal/MainModal';
 import ColumnForm from 'components/forms/columnForm/ColumnForm';
 import { useTheme } from '@mui/material';
 
