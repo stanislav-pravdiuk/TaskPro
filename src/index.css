@@ -4,9 +4,9 @@
   font-family: 'Poppins';
   src: local('Poppins-Regular'), local('Poppins-Medium'),
     local('Poppins-SemiBold'),
-    url('./components/fonts/Poppins-Regular.ttf') format('truetype'),
-    url('./components/fonts/Poppins-Medium.ttf') format('truetype'),
-    url('./components/fonts/Poppins-SemiBold.ttf') format('truetype');
+    url('./fonts/Poppins-Regular.ttf') format('truetype'),
+    url('./fonts/Poppins-Medium.ttf') format('truetype'),
+    url('./fonts/Poppins-SemiBold.ttf') format('truetype');
 }
 
 :root {
