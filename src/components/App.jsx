@@ -16,7 +16,7 @@ import { useSelector } from 'react-redux';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 const HomePage = lazy(() => import('screens/homePage/HomePage'));
-const WelcomePage = lazy(() => import('../../src/screens/welcomePage/WelcomePage'));
+const WelcomePage = lazy(() => import('screens/welcomePage/WelcomePage'));
 const LoginForm = lazy(() => import('./forms/loginForm/LoginForm'));
 const RegisterForm = lazy(() => import('./forms/registerForm/RegisterForm'));
 const ScrensPage = lazy(() => import('../components/ScreensPage/ScreensPage'));
