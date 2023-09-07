@@ -1,7 +1,10 @@
-import React from 'react';
-import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
+import React from 'react';
+import BtnAdd from 'components/buttons/btnAdd/BtnAdd';
+import { Formik, Form, Field } from 'formik';
 import { toast } from 'react-hot-toast';
+import { BtnCloseBlack } from 'components/buttons/Buttons';
+import { useTheme } from '@mui/material';
 import {
   ModalTitle,
   Container,
@@ -10,9 +13,6 @@ import {
   FormContainer,
   CloseButton,
 } from '../cardForm/CardForm.styled';
-import BtnAdd from 'components/buttons/btnAdd/BtnAdd';
-import { BtnCloseBlack } from 'components/buttons/Buttons';
-import { useTheme } from '@mui/material';
 
 const ColumnForm = ({
   formTitle,

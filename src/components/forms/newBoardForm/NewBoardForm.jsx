@@ -7,6 +7,10 @@ import bgImageDark from '../../../images/bgImage-dark.jpg';
 import sprite from '../../../images/icons.svg';
 import { toast } from 'react-hot-toast';
 import { Formik } from 'formik';
+import { BtnCloseBlack } from 'components/buttons/Buttons.jsx';
+import { useSelector } from 'react-redux';
+import { selectTheme } from 'redux/auth/authSelectors.js';
+import { useTheme } from '@mui/material';
 import {
   FormContainer,
   Title,
@@ -24,10 +28,6 @@ import {
   FormikContainer,
   CloseButton,
 } from './NewBoardForm.styled.jsx'
-import { BtnCloseBlack } from 'components/buttons/Buttons.jsx';
-import { useSelector } from 'react-redux';
-import { selectTheme } from 'redux/auth/authSelectors.js';
-import { useTheme } from '@mui/material';
 
 const NewBoardForm = ({
   formTitle,

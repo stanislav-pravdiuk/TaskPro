@@ -4,6 +4,8 @@ import * as Yup from 'yup';
 import { toast } from 'react-hot-toast';
 import { useDispatch } from 'react-redux';
 import { needHelp } from 'redux/auth/authOperations';
+import { BtnCloseBlack } from 'components/buttons/Buttons';
+import { useTheme } from '@mui/material';
 import {
   Section,
   SectionTitle,
@@ -16,8 +18,6 @@ import {
   AuthFormSubmitButton,
   CloseButton,
 } from './NeedHelpModal.styled';
-import { BtnCloseBlack } from 'components/buttons/Buttons';
-import { useTheme } from '@mui/material';
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().email('Invalid email').required('Email is required'),
