@@ -1,5 +1,5 @@
 import getThemePalette from 'components/themeComponent/getThemePalette';
-import Layout from './layout/Layout';
+import Layout from '../layout/Layout';
 import CircularWithValueLabel from './loaders/DownloadData';
 import RefreshUser from './loaders/RefreshUser';
 import { Routes, Route } from 'react-router-dom';
