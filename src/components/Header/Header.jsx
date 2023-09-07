@@ -6,7 +6,7 @@ import ProfileEditModal from 'components/forms/profileEditModal/ProfileEditModal
 import MainModal from 'components/mainModal/MainModal';
 import { selectUser } from 'redux/auth/authSelectors';
 import { useSelector } from 'react-redux';
-import { ThemeComponent } from 'components/Theme/ThemeComponent';
+import { ThemeComponent } from 'components/themeComponent/ThemeComponent';
 import { useTheme } from '@mui/material';
 import {
   BurgerIcon,

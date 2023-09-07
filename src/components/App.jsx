@@ -10,7 +10,7 @@ import Layout from './layout/Layout';
 import { selectUser } from 'redux/auth/authSelectors';
 import { useSelector } from 'react-redux';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import getThemePalette from 'components/Theme/getThemePalette';
+import getThemePalette from 'components/themeComponent/getThemePalette';
 import { Container } from './App.styled';
 import CircularWithValueLabel from './loaders/DownloadData';
 import RefreshUser from './loaders/RefreshUser';

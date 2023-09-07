@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
@@ -7,6 +6,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { updateUserTheme } from '../../redux/auth/authOperations';
 import { selectUser } from 'redux/auth/authSelectors';
 import { SvgIcon } from '@mui/material';
+import { useState } from 'react';
 
 export const ThemeComponent = () => {
   const [anchorEl, setAnchorEl] = useState(null);
