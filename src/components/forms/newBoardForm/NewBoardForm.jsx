@@ -1,13 +1,12 @@
+import * as Yup from 'yup';
 import React, { useState } from 'react';
+import BtnAdd from 'components/buttons/btnAdd/BtnAdd.jsx';
+import images from '../../iconSvg/images.js';
+import bgImageLight from '../../../images/bgImage-light.jpg';
+import bgImageDark from '../../../images/bgImage-dark.jpg';
+import sprite from '../../iconSvg/icon.svg';
 import { toast } from 'react-hot-toast';
 import { Formik } from 'formik';
-import * as Yup from 'yup';
-
-import images from '../iconSvg/images.js';
-import bgImageLight from '../../images/bgImage-light.jpg';
-import bgImageDark from '../../images/bgImage-dark.jpg';
-
-import sprite from '../iconSvg/icon.svg';
 import {
   FormContainer,
   Title,
@@ -24,8 +23,7 @@ import {
   RadioFieldBg,
   FormikContainer,
   CloseButton,
-} from './NewBoardForm.styled.jsx';
-import BtnAdd from 'components/buttons/btnAdd/BtnAdd.jsx';
+} from './NewBoardForm.styled.jsx'
 import { BtnCloseBlack } from 'components/buttons/Buttons.jsx';
 import { useSelector } from 'react-redux';
 import { selectTheme } from 'redux/auth/authSelectors.js';
