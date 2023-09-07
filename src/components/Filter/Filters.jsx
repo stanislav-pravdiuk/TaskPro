@@ -1,4 +1,4 @@
-import { BtnCloseBlack } from 'components/buttons/buttons';
+import { BtnCloseBlack } from 'components/buttons/Buttons';
 import {
   BtnBox,
   BtnReset,

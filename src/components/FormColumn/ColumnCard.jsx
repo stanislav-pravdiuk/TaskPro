@@ -11,7 +11,7 @@ import {
   CloseButton,
 } from '../FormCard/CardForm.styled';
 import BtnAdd from 'components/buttons/btnAdd/BtnAdd';
-import { BtnCloseBlack } from 'components/buttons/buttons';
+import { BtnCloseBlack } from 'components/buttons/Buttons';
 import { useTheme } from '@mui/material';
 
 const ColumnForm = ({

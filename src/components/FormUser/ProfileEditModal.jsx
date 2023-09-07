@@ -27,7 +27,7 @@ import icon from '../iconSvg/icon.svg';
 import avatarLight from '../../images/userAvatarLight.jpg';
 import avatarDark from '../../images/userAvatarDark.jpg';
 import { toast } from 'react-hot-toast';
-import { BtnCloseBlack } from 'components/buttons/buttons';
+import { BtnCloseBlack } from 'components/buttons/Buttons';
 import { selectTheme } from 'redux/auth/authSelectors';
 
 const validationSchema = Yup.object().shape({

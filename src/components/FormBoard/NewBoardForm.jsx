@@ -26,7 +26,7 @@ import {
   CloseButton,
 } from './NewBoardForm.styled.jsx';
 import BtnAdd from 'components/buttons/btnAdd/BtnAdd.jsx';
-import { BtnCloseBlack } from 'components/buttons/buttons.jsx';
+import { BtnCloseBlack } from 'components/buttons/Buttons.jsx';
 import { useSelector } from 'react-redux';
 import { selectTheme } from 'redux/auth/authSelectors.js';
 import { useTheme } from '@mui/material';

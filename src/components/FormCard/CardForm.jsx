@@ -23,7 +23,7 @@ import {
 import BtnAdd from 'components/buttons/btnAdd/BtnAdd';
 import { Calendar } from 'components/calendar/Calendar';
 import dayjs from 'dayjs';
-import { BtnCloseBlack } from 'components/buttons/buttons';
+import { BtnCloseBlack } from 'components/buttons/Buttons';
 import { useTheme } from '@mui/material';
 
 const CardForm = ({

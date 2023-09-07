@@ -6,7 +6,7 @@ import {
 } from './BtnAdd.styled';
 import {
   ButtonPlusColumn,
-} from 'components/buttons/buttons.styled';
+} from 'components/buttons/Buttons.styled';
 import { useTheme } from '@mui/material';
 
 const BtnAddColumn = ({ data, btnTitle, btnColor, onClick }) => {

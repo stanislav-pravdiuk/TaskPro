@@ -16,7 +16,7 @@ import {
   AuthFormSubmitButton,
   CloseButton,
 } from './NeedHelpModal.styled';
-import { BtnCloseBlack } from 'components/buttons/buttons';
+import { BtnCloseBlack } from 'components/buttons/Buttons';
 import { useTheme } from '@mui/material';
 
 const validationSchema = Yup.object().shape({
