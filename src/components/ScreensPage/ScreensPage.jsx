@@ -1,4 +1,4 @@
-import StartBoard from './startScreen/StartBoard';
+import StartBoard from './startBoard/StartBoard';
 import HeaderDashboard from './headerDashboard/HeaderDashboard';
 import MainDashboard from './mainDashboard/MainDashboard';
 import styled from 'styled-components';

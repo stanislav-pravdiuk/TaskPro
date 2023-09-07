@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
-import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
+import BtnAdd from 'components/buttons/btnAdd/BtnAdd';
+import dayjs from 'dayjs';
+import { Formik, Form, Field } from 'formik';
+import { Calendar } from 'components/calendar/Calendar';
+import { BtnCloseBlack } from 'components/buttons/Buttons';
+import { useTheme } from '@mui/material';
 import { toast } from 'react-hot-toast';
-
 import {
   FormContainer,
   ModalTitle,
@@ -20,11 +24,6 @@ import {
   Dot,
   CloseButton,
 } from './CardForm.styled';
-import BtnAdd from 'components/buttons/btnAdd/BtnAdd';
-import { Calendar } from 'components/calendar/Calendar';
-import dayjs from 'dayjs';
-import { BtnCloseBlack } from 'components/buttons/Buttons';
-import { useTheme } from '@mui/material';
 
 const CardForm = ({
   title,
