@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import TitleColumn from '../ColumnTitle/TitleColumn';
+import TitleColumn from '../titleColumn/TitleColumn';
 import Card from '../card/Card';
 import {
   Container,

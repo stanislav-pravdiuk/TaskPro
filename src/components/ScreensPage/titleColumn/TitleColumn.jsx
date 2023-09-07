@@ -1,3 +1,8 @@
+import icon from '../../iconSvg/icon.svg';
+import MainModal from 'components/mainModal/MainModal';
+import ColumnForm from 'components/forms/columnForm/ColumnForm';
+import { useState } from 'react';
+import { useTheme } from '@mui/material';
 import {
   Container,
   Title,
@@ -5,16 +10,10 @@ import {
   IconsButton,
   Icon,
 } from './TitleColumn.styled';
-import icon from '../../iconSvg/icon.svg';
-import { useState } from 'react';
 import {
   useUpdateColumnMutation,
   useDeleteColumnMutation,
 } from 'redux/boards/boardsApi';
-
-import MainModal from 'components/mainModal/MainModal';
-import ColumnForm from 'components/forms/columnForm/ColumnForm';
-import { useTheme } from '@mui/material';
 
 const TitleColumn = ({ title, owner, columnId }) => {
   const [open, setOpen] = useState(false);
