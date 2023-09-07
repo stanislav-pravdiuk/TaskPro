@@ -31,9 +31,9 @@ import { useGetBoardsQuery } from 'redux/boards/boardsApi';
 import { useLocation, useParams, useNavigate } from 'react-router-dom';
 
 import NewBoardForm from 'components/forms/newBoardForm/NewBoardForm';
-import ModalHelp from 'components/forms/FormFeedback/ModalHelp';
+import ModalHelp from 'components/forms/needHelpModal/NeedHelpModal';
 import MainModal from 'components/MainModal/MainModal';
-import NeedHelpModal from 'components/forms/FormFeedback/ModalHelp';
+import NeedHelpModal from 'components/forms/needHelpModal/NeedHelpModal';
 import sprite from '../iconSvg/icon.svg';
 
 import {

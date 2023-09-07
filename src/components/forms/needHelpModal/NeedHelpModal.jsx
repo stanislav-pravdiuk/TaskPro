@@ -15,7 +15,7 @@ import {
   ErrorSection,
   AuthFormSubmitButton,
   CloseButton,
-} from '../FormFeedback/NeedHelpModal.styled';
+} from './NeedHelpModal.styled';
 import { BtnCloseBlack } from 'components/buttons/Buttons';
 import { useTheme } from '@mui/material';
 
