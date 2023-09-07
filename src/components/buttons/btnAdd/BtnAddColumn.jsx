@@ -10,7 +10,7 @@ import {
 import { useTheme } from '@mui/material';
 
 const BtnAddColumn = ({ data, btnTitle, btnColor, onClick }) => {
-  
+
   const theme = useTheme();
 
   return (
