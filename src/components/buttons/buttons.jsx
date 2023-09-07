@@ -1,6 +1,5 @@
 import React from 'react';
 import icon from '../iconSvg/icon.svg';
-
 import {
   ButtonUpDateSvg,
   ButtonClose,

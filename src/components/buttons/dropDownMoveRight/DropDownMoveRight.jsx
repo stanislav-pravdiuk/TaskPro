@@ -1,5 +1,5 @@
-import { BtnBox, BtnRight, BtnTitle, Icon } from "./DropDownMoveRight.styled";
 import icon from '../iconSvg/icon.svg'
+import { BtnBox, BtnRight, BtnTitle, Icon } from "./DropDownMoveRight.styled";
 
 function DropDownMoveRight() {
     return (
