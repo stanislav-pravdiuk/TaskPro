@@ -1,4 +1,4 @@
-import ScreensPage from 'components/screensPage/ScreensPage';
+import ScreensPage from '../../components/screensPage/ScreensPage';
 
 const HomePage = () => {
   return (
