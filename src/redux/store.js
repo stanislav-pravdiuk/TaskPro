@@ -1,3 +1,4 @@
+import storage from 'redux-persist/lib/storage';
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 import {
   persistStore,
@@ -9,7 +10,6 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
-import storage from 'redux-persist/lib/storage';
 import { authReducer } from './auth/authSlice';
 import { boardsApi } from './boards/boardsApi';
 
