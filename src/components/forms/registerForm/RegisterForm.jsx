@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import icon from '../../../components/iconSvg/icons.svg';
+import icon from '../../../images/icons.svg';
 import RegisterSchema from "./RegisterSchema";
 import { Container, ErrorText, FormContainer, InputField, LinkMenu, LoginLink, PasswordInput, Passwordsvg, RegisterBtn, RegisterLink, StyledWrapInputAuth } from "./RegisterForm.styled";
 import { register } from "redux/auth/authOperations";

@@ -1,4 +1,4 @@
-import icon from '../../iconSvg/icons.svg';
+import icon from '../../../images/icons.svg';
 import {
   ContainerColumn,
   PlusIconColumn,

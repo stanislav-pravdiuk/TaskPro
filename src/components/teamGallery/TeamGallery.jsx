@@ -1,4 +1,4 @@
-import icon from '../iconSvg/icons.svg';
+import icon from '../../images/icons.svg';
 import Pravdiuk from '../../images/developers/StanislavPravdiuk.jpg';
 import Kravets from '../../images/developers/KravetsHanna.jpg';
 import Pastukhova from '../../images/developers/AnastasiiaPastukhova.jpg';

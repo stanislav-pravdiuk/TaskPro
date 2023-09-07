@@ -4,7 +4,7 @@ import BtnAdd from 'components/buttons/btnAdd/BtnAdd.jsx';
 import images from '../../iconSvg/images.js';
 import bgImageLight from '../../../images/bgImage-light.jpg';
 import bgImageDark from '../../../images/bgImage-dark.jpg';
-import sprite from '../../iconSvg/icons.svg';
+import sprite from '../../../images/icons.svg';
 import { toast } from 'react-hot-toast';
 import { Formik } from 'formik';
 import {

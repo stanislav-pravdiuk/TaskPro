@@ -1,4 +1,4 @@
-import icon from '../../iconSvg/icons.svg';
+import icon from '../../../images/icons.svg';
 import { Container, PlusIcon, TitleButton } from './BtnAdd.styled';
 import { ButtonPlus } from 'components/buttons/Buttons.styled';
 import { useTheme } from '@mui/material';

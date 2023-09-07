@@ -1,4 +1,4 @@
-import icon from '../../iconSvg/icons.svg';
+import icon from '../../../images/icons.svg';
 import MainModal from 'components/mainModal/MainModal';
 import ColumnForm from 'components/forms/columnForm/ColumnForm';
 import { useState } from 'react';

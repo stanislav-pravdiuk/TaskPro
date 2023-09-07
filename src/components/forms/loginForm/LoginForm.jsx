@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import icon from '../../../components/iconSvg/icons.svg';
+import icon from '../../../images/icons.svg';
 import LoginSchema from "./LoginSchema";
 import { useFormik } from 'formik';
 import { useDispatch } from "react-redux";
