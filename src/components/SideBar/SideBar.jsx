@@ -1,10 +1,22 @@
-import { useState, useEffect } from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
-import { Box, Button, Typography, Drawer, Link } from '@mui/material';
 import cactus from '../../images/cactus.png';
 import cactus2x from '../../images/cactus@2x.png';
 import cactus3x from '../../images/cactus@3x.png';
 import icon from '../../components/iconSvg/icon.svg';
+import NewBoardForm from 'components/forms/newBoardForm/NewBoardForm';
+import ModalHelp from 'components/forms/needHelpModal/NeedHelpModal';
+import MainModal from 'components/mainModal/MainModal';
+import NeedHelpModal from 'components/forms/needHelpModal/NeedHelpModal';
+import sprite from '../iconSvg/icon.svg';
+import TeamGallery from 'components/teamGallery/TeamGallery';
+import { Box, Button, Typography, Drawer, Link } from '@mui/material';
+import { useDispatch, useSelector } from 'react-redux';
+import { logOut } from 'redux/auth/authOperations';
+import { useTheme } from '@mui/material';
+import { selectUser } from 'redux/auth/authSelectors';
+import { useGetBoardsQuery } from 'redux/boards/boardsApi';
+import { useLocation, useParams, useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import {
   SideBarStyled,
   LogoIcon,
@@ -27,25 +39,11 @@ import {
   Picture,
   NeedHelpBox,
 } from './Sidebar.styled';
-import { useGetBoardsQuery } from 'redux/boards/boardsApi';
-import { useLocation, useParams, useNavigate } from 'react-router-dom';
-
-import NewBoardForm from 'components/forms/newBoardForm/NewBoardForm';
-import ModalHelp from 'components/forms/needHelpModal/NeedHelpModal';
-import MainModal from 'components/mainModal/MainModal';
-import NeedHelpModal from 'components/forms/needHelpModal/NeedHelpModal';
-import sprite from '../iconSvg/icon.svg';
-
 import {
   useAddBoardMutation,
   useUpdateBoardMutation,
   useDeleteBoardMutation,
 } from 'redux/boards/boardsApi';
-import { useDispatch, useSelector } from 'react-redux';
-import { logOut } from 'redux/auth/authOperations';
-import { useTheme } from '@mui/material';
-import { selectUser } from 'redux/auth/authSelectors';
-import TeamGallery from 'components/teamGallery/TeamGallery';
 
 const SideBar = ({ active, onClick }) => {
   const [openAddModal, setOpenAddModal] = useState(false);
@@ -284,23 +282,6 @@ const SideBar = ({ active, onClick }) => {
             backgroundColor: 'background.error',
           }}
         >
-          {/* <Box
-        sx={{
-          backgroundColor: 'background.error',
-          marginTop: 'calc(100vh - 600px)',
-          borderRadius: '8px',
-          padding: '20px',
-
-          '@media (min-width: 767px)': {
-            marginTop: 'calc(100vh - 585px)',
-          },
-        }}
-      >
-        <Box
-          sx={{
-            backgroundColor: 'primary.darker',
-          }}
-        > */}
           <Box>
             <Picture>
               <source srcSet={`${cactus} 1x, ${cactus2x} 2x, ${cactus3x} 3x`} />
