@@ -15,8 +15,8 @@ import { Container } from './App.styled';
 import CircularWithValueLabel from './loaders/DownloadData';
 import RefreshUser from './loaders/RefreshUser';
 
-const HomePage = lazy(() => import('screens/HomePage/HomePage'));
-const WelcomePage = lazy(() => import('../screens/WelcomePage/WelcomePage'));
+const HomePage = lazy(() => import('screens/homePage/HomePage'));
+const WelcomePage = lazy(() => import('../screens/welcomePage/WelcomePage'));
 const LoginForm = lazy(() => import('./FormLogin/LoginForm'));
 const RegisterForm = lazy(() => import('./FormRegister/RegisterForm'));
 const ScrensPage = lazy(() => import('../components/ScreensPage/ScreensPage'));
