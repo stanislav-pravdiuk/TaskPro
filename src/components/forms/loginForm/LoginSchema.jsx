@@ -9,4 +9,4 @@ const LoginSchema = Yup.object().shape({
     .required('Password is required'),
 });
 
-  export default LoginSchema
+export default LoginSchema;
