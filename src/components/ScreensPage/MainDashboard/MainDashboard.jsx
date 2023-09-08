@@ -1,7 +1,7 @@
 
 import TitleColumn from '../titleColumn/TitleColumn';
 import Card from '../card/Card';
-import MainModal from '../../MainModal/MainModal';
+import MainModal from '../../mainModal/MainModal';
 import ColumnForm from 'components/forms/columnForm/ColumnForm';
 import CardForm from 'components/forms/cardForm/CardForm';
 import BtnAdd from '../../buttons/btnAdd/BtnAdd';
