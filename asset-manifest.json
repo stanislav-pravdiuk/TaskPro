@@ -1,12 +1,12 @@
 {
   "files": {
     "main.css": "/TaskPro/static/css/main.71c9c283.css",
-    "main.js": "/TaskPro/static/js/main.003e819c.js",
-    "static/js/7.a79ca7d0.chunk.js": "/TaskPro/static/js/7.a79ca7d0.chunk.js",
+    "main.js": "/TaskPro/static/js/main.4b53a446.js",
+    "static/js/7.e9ba90c5.chunk.js": "/TaskPro/static/js/7.e9ba90c5.chunk.js",
     "static/js/617.ac040761.chunk.js": "/TaskPro/static/js/617.ac040761.chunk.js",
     "static/js/415.58060e7c.chunk.js": "/TaskPro/static/js/415.58060e7c.chunk.js",
     "static/js/680.1d884bf8.chunk.js": "/TaskPro/static/js/680.1d884bf8.chunk.js",
-    "static/js/876.cec8d590.chunk.js": "/TaskPro/static/js/876.cec8d590.chunk.js",
+    "static/js/403.64a4dcfb.chunk.js": "/TaskPro/static/js/403.64a4dcfb.chunk.js",
     "static/js/359.2a291f0d.chunk.js": "/TaskPro/static/js/359.2a291f0d.chunk.js",
     "static/media/SvitlanaSoroka.jpg": "/TaskPro/static/media/SvitlanaSoroka.7a2ce843b9bd62023ab0.jpg",
     "static/media/MykolaRomashenko.jpg": "/TaskPro/static/media/MykolaRomashenko.be4e26f3f4d5c710f5cf.jpg",
@@ -29,16 +29,16 @@
     "static/media/welcome-mobile.png": "/TaskPro/static/media/welcome-mobile.18cd06cd3e6a06f73b1f.png",
     "index.html": "/TaskPro/index.html",
     "main.71c9c283.css.map": "/TaskPro/static/css/main.71c9c283.css.map",
-    "main.003e819c.js.map": "/TaskPro/static/js/main.003e819c.js.map",
-    "7.a79ca7d0.chunk.js.map": "/TaskPro/static/js/7.a79ca7d0.chunk.js.map",
+    "main.4b53a446.js.map": "/TaskPro/static/js/main.4b53a446.js.map",
+    "7.e9ba90c5.chunk.js.map": "/TaskPro/static/js/7.e9ba90c5.chunk.js.map",
     "617.ac040761.chunk.js.map": "/TaskPro/static/js/617.ac040761.chunk.js.map",
     "415.58060e7c.chunk.js.map": "/TaskPro/static/js/415.58060e7c.chunk.js.map",
     "680.1d884bf8.chunk.js.map": "/TaskPro/static/js/680.1d884bf8.chunk.js.map",
-    "876.cec8d590.chunk.js.map": "/TaskPro/static/js/876.cec8d590.chunk.js.map",
+    "403.64a4dcfb.chunk.js.map": "/TaskPro/static/js/403.64a4dcfb.chunk.js.map",
     "359.2a291f0d.chunk.js.map": "/TaskPro/static/js/359.2a291f0d.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.71c9c283.css",
-    "static/js/main.003e819c.js"
+    "static/js/main.4b53a446.js"
   ]
 }
