@@ -1,4 +1,4 @@
-import MainModal from '../../test5/MainModal';
+import MainModal from '../../mainModal/MainModal';
 import NewBoardForm from 'components/forms/newBoardForm/NewBoardForm';
 import { useState } from 'react';
 import { Container, Link, TextBox } from './StartBoard.styled';

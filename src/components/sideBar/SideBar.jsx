@@ -5,7 +5,7 @@ import cactus3x from '../../images/cactus@3x.png';
 import icon from '../../images/icons.svg';
 import NewBoardForm from 'components/forms/newBoardForm/NewBoardForm';
 import ModalHelp from 'components/forms/needHelpModal/NeedHelpModal';
-import MainModal from '../test5/MainModal';
+import MainModal from '../mainModal/MainModal';
 import NeedHelpModal from 'components/forms/needHelpModal/NeedHelpModal';
 import sprite from '../../images/icons.svg';
 import TeamGallery from 'components/teamGallery/TeamGallery';
