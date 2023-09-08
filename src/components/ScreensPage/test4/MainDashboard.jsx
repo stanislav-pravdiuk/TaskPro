@@ -1,6 +1,6 @@
 
 import TitleColumn from '../titleColumn/TitleColumn';
-import Card from '../card/Card';
+import Card from '../test6/Card';
 import MainModal from '../../test5/MainModal';
 import ColumnForm from 'components/forms/columnForm/ColumnForm';
 import CardForm from 'components/forms/cardForm/CardForm';
