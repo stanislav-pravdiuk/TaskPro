@@ -1,6 +1,6 @@
 import EllipsisText from 'react-ellipsis-text';
 import Button from '@mui/material/Button';
-import MainModal from 'components/mainModal/MainModal';
+import MainModal from '../../MainModal/MainModal';
 import CardForm from 'components/forms/cardForm/CardForm';
 import icon from '../../../images/icons.svg';
 import { useState } from 'react';
