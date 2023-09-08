@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import Header from '../components/Header/Header';
-import SideBar from '../components/sideBar/SideBar';
+import Header from '../components/test2/Header';
+import SideBar from '../components/test/SideBar';
 
 const Layout = ({ children }) => {
   const [menuActive, setMenuActive] = useState(false);
