@@ -19,7 +19,7 @@ const HomePage = lazy(() => import('../screens/homePage/HomePage'));
 const WelcomePage = lazy(() => import('../screens/welcomePage/WelcomePage'));
 const LoginForm = lazy(() => import('./forms/loginForm/LoginForm'));
 const RegisterForm = lazy(() => import('./forms/registerForm/RegisterForm'));
-const ScrensPage = lazy(() => import('../components/creensPage/ScreensPage'));
+const ScrensPage = lazy(() => import('../components/screensPage/ScreensPage'));
 
 export const App = () => {
   const dispatch = useDispatch();
