@@ -1,5 +1,5 @@
 import icon from '../../../images/icons.svg';
-import MainModal from '../mainDashboard/MainDashboard';
+import MainModal from '../test4/MainDashboard';
 import ColumnForm from 'components/forms/columnForm/ColumnForm';
 import { useState } from 'react';
 import { useTheme } from '@mui/material';
