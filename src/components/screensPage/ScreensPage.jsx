@@ -1,6 +1,6 @@
 import StartBoard from './startBoard/StartBoard';
-import HeaderDashboard from './test3/HeaderDashboard';
-import MainDashboard from './test4/MainDashboard';
+import HeaderDashboard from './headerDashboard/HeaderDashboard';
+import MainDashboard from './mainDashboard/MainDashboard';
 import styled from 'styled-components';
 import { useParams } from 'react-router-dom';
 import { useTheme } from '@mui/material';
